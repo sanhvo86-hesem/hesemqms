@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
 <meta charset="utf-8"/>
@@ -6,102 +6,135 @@
 <title>POL-QMS-001 — Quality Policy | HESEM QMS</title>
 <link href="../../assets/style.css" rel="stylesheet"/>
 <style>
-/* PAGE BREAK & OVERFLOW FIX */
-@media print {
- .card, .table-card, .callout, .note, .box, .iso-map,
- .preface-block, .form-sheet, .lane, .legend, .req, .vstep, .auth-grid {
- page-break-inside: avoid;
- break-inside: avoid;
- }
- h1, h2, h3, .h1, .h2, .h3 {
- page-break-after: avoid;
- break-after: avoid;
- }
- .form-header { page-break-inside: avoid; break-inside: avoid; }
- tr { page-break-inside: avoid; break-inside: avoid; }
- thead { display: table-header-group; }
- tfoot { display: table-footer-group; }
- p { orphans: 3; widows: 3; }
- .table-card { overflow: visible !important; }
+.policy-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.policy-card{background:var(--bg);border:1px solid var(--ln);border-radius:var(--r);padding:16px}
+.policy-card h3{margin:0 0 8px;font-size:14px;color:var(--navy)}
+.policy-chip{display:inline-block;padding:3px 8px;border:1px solid var(--ln);border-radius:999px;background:var(--bg2);font-size:10px;font-weight:700;margin-right:6px;margin-bottom:6px}
+@media print{
+ .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.req,.policy-card{page-break-inside:avoid;break-inside:avoid}
+ h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
+ .form-header{page-break-inside:avoid;break-inside:avoid}
+ tr{page-break-inside:avoid;break-inside:avoid}
+ thead{display:table-header-group}
+ tfoot{display:table-footer-group}
+ p{orphans:3;widows:3}
+ .table-card{overflow:visible!important}
 }
-.page-body { overflow-x: hidden; }
-.table-card, .table-block, .table-wrap { overflow-x: auto; max-width: 100%; }
-table { max-width: 100%; table-layout: auto; }
-td, th { max-width: 420px; overflow-wrap: break-word; word-wrap: break-word; }
-.role-code {font-family: var(--mono); font-size: 11px; background: var(--bg3); padding: 2px 6px; border-radius: 5px;}
-.raci-cell {text-align:center; font-weight:700; width:34px; min-width:34px; padding:6px 4px !important;}
-.raci-A {background:#fff5f5; color:#c92a2a;}
-.raci-R {background:#e7f5ff; color:#1864ab;}
-.raci-C {background:#fff9db; color:#e67700;}
-.raci-I {background:#ebfbee; color:#2b8a3e;}
-.portal-grid {display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:16px;}
-.portal-card {background:var(--bg); border:1px solid var(--ln); border-radius:var(--r); padding:18px;}
-.portal-card h3 {font-size:14px; color:var(--navy); margin:0 0 8px;}
-.doc-link-list {list-style:none; margin:0; padding:0;}
-.doc-link-list li {padding:6px 0 6px 16px; position:relative;}
-.doc-link-list li:before {content:"•"; position:absolute; left:0; color:var(--blue);}
-.inline-tag {display:inline-block;padding:3px 8px;border:1px solid var(--ln);border-radius:999px;font-size:10px;font-weight:700;background:var(--bg2);margin-right:6px;margin-bottom:6px;}
-.svg-wrap {background:var(--bg); border:1px solid var(--ln); border-radius:var(--r); padding:16px; overflow:auto;}
-.nav-toc a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;margin:6px 0;background:var(--bg);}
-kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--ln);padding:2px 5px;border-radius:4px;background:#fff;}
-
+.page-body{overflow-x:hidden}
+.table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
+table{max-width:100%;table-layout:auto}
+td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
 </style>
-
 </head>
 <body>
 <div class="container">
   <div class="page">
     <div class="page-body">
-<div class="form-header">
-<div class="fh-left">
-  <a class="brand-logo" href="../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
-  <div class="fh-company">
-    <a href="../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
-    <span>Tài liệu kiểm soát</span>
-  </div>
-</div>
-<div class="title">
-  <strong>POL-QMS-001 — Quality Policy</strong>
-  <span class="sub-vn"></span>
-</div>
-<div class="meta">
-  <div class="row"><span><b>Mã:</b></span><span>POL-QMS-001</span></div>
-  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
-  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
-  <div class="row"><span><b>Chủ sở hữu:</b></span><span>QA/QMS</span></div>
-  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
-</div>
-</div>
-<div class="doc-content" id="docContent">
+      <div class="form-header">
+        <div class="fh-left">
+          <a class="brand-logo" href="../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+          <div class="fh-company">
+            <a href="../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+            <span>Tài liệu kiểm soát</span>
+          </div>
+        </div>
+        <div class="title">
+          <strong>POL-QMS-001 — Quality Policy</strong>
+          <span class="sub-vn">Chính sách chất lượng định hướng hệ thống, mục tiêu và hành vi vận hành</span>
+        </div>
+        <div class="meta">
+          <div class="row"><span><b>Mã:</b></span><span>POL-QMS-001</span></div>
+          <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+          <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+          <div class="row"><span><b>Chủ sở hữu:</b></span><span>QA/QMS</span></div>
+          <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+        </div>
+      </div>
+
+      <div class="doc-content" id="docContent">
         <div class="form-sheet">
 
-<div class="iso-map">
-  <div class="iso-title">Policy statement</div>
-  <div class="req"><span class="req-tag shall">PHẢI</span><div>Chính sách này PHẢI được truyền đạt đến toàn bộ nhân sự, hiển thị tại khu vực chung và dùng làm nền cho mục tiêu chất lượng hằng năm.</div></div>
-</div>
-<h2 class="h2">1. Chính sách</h2>
-<div class="callout">
-  HESEM Engineering cam kết giao linh kiện CNC đúng <b>revision</b>, đúng <b>CTQ</b>, đúng <b>hồ sơ truy vết</b> và đúng <b>thời hạn giao hàng</b> cho khách hàng OEM thiết bị bán dẫn.<br/><br/>
-  Chúng tôi vận hành theo nguyên tắc:
-  <ul>
-    <li><b>Đúng ngay từ đầu</b>: kiểm soát feasibility, WI/NC, first piece, MSA, SPC và release.</li>
-    <li><b>Không để lỗi thoát ra</b>: dừng - cách ly - xác minh - khôi phục có bằng chứng khi phát hiện bất thường.</li>
-    <li><b>Giữ sạch và giữ nguyên trạng</b>: bảo vệ bề mặt, chống FOD, kiểm soát clean packaging và traceability.</li>
-    <li><b>Cải tiến dựa trên dữ liệu</b>: dùng KPI, NCR/CAPA, audit, MR và kaizen để loại bỏ lãng phí và lỗi lặp.</li>
-    <li><b>Tôn trọng con người và an toàn</b>: đào tạo theo năng lực, bố trí đúng chứng nhận và ưu tiên dừng an toàn khi có rủi ro.</li>
-  </ul>
-</div>
-<h2 class="h2">2. Cách triển khai</h2>
-<ul>
-  <li>Chính sách được cascade qua POL-QMS-002, SOP-801, SOP-902 và SOP-903.</li>
-  <li>Trưởng phòng PHẢI chuyển chính sách thành KPI cấp bộ phận, action plan và review định kỳ.</li>
-  <li>Nhân sự mới PHẢI được phổ biến chính sách trong gói onboarding / OJT.</li>
-</ul>
+          <div class="iso-map">
+            <div class="iso-title">Cam kết bắt buộc</div>
+            <div class="req"><span class="req-tag shall">PHẢI</span><div>Chính sách này phải được truyền đạt, được hiểu ở mức phù hợp với vai trò và được dùng làm nền cho mục tiêu chất lượng và quyết định điều hành. <span class="iso-ref">ISO 5.2</span> <span class="iso-ref">ISO 7.3</span></div></div>
+            <div class="req"><span class="req-tag shall">PHẢI</span><div>Lãnh đạo phải bảo đảm chính sách được triển khai thông qua tài liệu kiểm soát, nguồn lực, năng lực, review và cải tiến liên tục. <span class="iso-ref">ISO 5.1</span> <span class="iso-ref">ISO 6.2</span> <span class="iso-ref">ISO 9.3</span></div></div>
+          </div>
+
+          <div class="card">
+            <div class="badge"><span class="dot"></span>POL-QMS-001</div>
+            <h1 class="h1" style="margin-top:10px">1. Chính sách chất lượng</h1>
+            <div class="callout">
+              HESEM Engineering cam kết vận hành hệ thống quản lý chất lượng theo cách giúp công ty
+              <b>giao đúng yêu cầu, đúng revision, đúng bằng chứng, đúng thời hạn</b> và không ngừng nâng cao năng lực thực thi.
+              <br/><br/>
+              Chúng tôi cam kết:
+              <ul>
+                <li><b>Hiểu và đáp ứng yêu cầu</b> của khách hàng, pháp luật, yêu cầu nội bộ và các yêu cầu đặc thù khi áp dụng.</li>
+                <li><b>Kiểm soát quá trình theo dữ liệu</b>, bảo đảm mỗi đầu ra quan trọng đều có trách nhiệm rõ, tiêu chí rõ và hồ sơ chứng minh rõ.</li>
+                <li><b>Ngăn ngừa sai lỗi và ngăn lỗi thoát ra</b> bằng tư duy rủi ro, phản ứng kịp thời, kiểm soát thay đổi và giải phóng có bằng chứng.</li>
+                <li><b>Phát triển con người, kỷ luật hệ thống và môi trường làm việc an toàn</b> để năng lực vận hành không phụ thuộc vào cá nhân đơn lẻ.</li>
+                <li><b>Cải tiến liên tục</b> thông qua KPI, audit, management review, NCR/CAPA, lessons learned và kaizen.</li>
+              </ul>
+            </div>
+            <div>
+              <span class="policy-chip">Right requirement</span>
+              <span class="policy-chip">Right revision</span>
+              <span class="policy-chip">Right evidence</span>
+              <span class="policy-chip">Right release</span>
+            </div>
+          </div>
+
+          <h2 class="h2">2. Nguyên tắc triển khai</h2>
+          <div class="policy-grid">
+            <div class="policy-card">
+              <h3>Portal là nguồn kiểm soát</h3>
+              <p>Bản tài liệu hiện hành trên <a href="../../01-QMS-Portal/portal.html">HESEM QMS Portal</a> là nguồn chính thức để thực hiện, đào tạo và audit.</p>
+            </div>
+            <div class="policy-card">
+              <h3>Chính sách phải được cascade</h3>
+              <p>Chính sách này được chuyển hóa thành mục tiêu, kế hoạch hành động, training, review và trách nhiệm vận hành ở từng phòng ban.</p>
+            </div>
+            <div class="policy-card">
+              <h3>Không chỉ cam kết, phải có bằng chứng</h3>
+              <p>Mọi cam kết trong chính sách phải được nhìn thấy qua KPI, hồ sơ, hành động khắc phục và kết quả review của lãnh đạo.</p>
+            </div>
+            <div class="policy-card">
+              <h3>Ưu tiên phòng ngừa hơn sửa lỗi</h3>
+              <p>HESEM ưu tiên nhận diện sớm rủi ro, sai lệch và thay đổi tác động trước khi sự cố lan thành lỗi hệ thống hoặc escape ra khách hàng.</p>
+            </div>
+          </div>
+
+          <h2 class="h2">3. Trách nhiệm áp dụng</h2>
+          <ul class="list">
+            <li><b>Tổng Giám đốc</b> phê duyệt chính sách, bảo đảm chính sách phù hợp định hướng chiến lược và được xem xét định kỳ.</li>
+            <li><b>QA Manager</b> và <b>QMS Engineer</b> duy trì việc công bố, liên kết chính sách với manual, SOP-102, mục tiêu, review và hồ sơ bối cảnh.</li>
+            <li><b>Trưởng bộ phận</b> phải chuyển chính sách thành KPI bộ phận, hành động kiểm soát và yêu cầu năng lực phù hợp.</li>
+            <li><b>HR / training owners</b> phải đưa chính sách vào onboarding, OJT và nhắc lại khi có thay đổi lớn của hệ thống.</li>
+            <li><b>Toàn bộ nhân sự</b> phải hiểu phần chính sách liên quan đến vai trò của mình và thực thi thông qua tài liệu kiểm soát hiện hành.</li>
+          </ul>
+
+          <h2 class="h2">4. Cơ chế xem xét và cập nhật</h2>
+          <ul class="list">
+            <li>Chính sách phải được xem xét tối thiểu mỗi năm một lần trong management review hoặc sớm hơn khi có thay đổi lớn về chiến lược, khách hàng, công nghệ, tổ chức hoặc bối cảnh rủi ro.</li>
+            <li>Khi chính sách thay đổi, các tài liệu liên quan phải được xem xét đồng bộ tối thiểu gồm <a href="pol-qms-002-quality-objectives.html">POL-QMS-002</a>, <a href="../01-Quality-Manual/qms-man-001-qms-manual.html">QMS-MAN-001</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-102-quality-policy-objectives-and-organizational-context.html">SOP-102</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/08-SOP-800/sop-801-competence-training-and-certification.html">SOP-801</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-902-management-review.html">SOP-902</a> và <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-903-continual-improvement-and-kaizen.html">SOP-903</a>.</li>
+            <li>Bất kỳ bản in hoặc bản sao nào không xác minh đúng revision trên portal đều được xem là uncontrolled.</li>
+          </ul>
+
+          <h2 class="h2">5. Tài liệu liên quan</h2>
+          <ul class="list">
+            <li><a href="../01-Quality-Manual/qms-man-001-qms-manual.html">QMS-MAN-001 — Quality Management System Manual</a></li>
+            <li><a href="pol-qms-002-quality-objectives.html">POL-QMS-002 — Quality Objectives</a></li>
+            <li><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-102-quality-policy-objectives-and-organizational-context.html">SOP-102 — Quality Policy, Objectives and Organizational Context</a></li>
+            <li><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/08-SOP-800/sop-801-competence-training-and-certification.html">SOP-801 — Competence, Training and Certification</a></li>
+            <li><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-902-management-review.html">SOP-902 — Management Review</a></li>
+            <li><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-903-continual-improvement-and-kaizen.html">SOP-903 — Continual Improvement and Kaizen</a></li>
+          </ul>
 
         </div>
       </div>
     </div>
   </div>
 </div>
+<script src="../../assets/app.js"></script>
 </body>
 </html>

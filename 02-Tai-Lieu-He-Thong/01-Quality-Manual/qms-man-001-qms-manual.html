@@ -1,34 +1,30 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>QMS-MAN-001 — Quality Management System Manual — ISO 9001 + SEMI Standards | HESEM OS</title>
+<title>QMS-MAN-001 — Quality Management System Manual | HESEM QMS</title>
 <link href="../../assets/style.css" rel="stylesheet"/>
 <style>
- .chip{display:inline-block;padding:2px 10px;border-radius:999px;border:1px solid #e5e7eb;background:#f9fafb;font-size:12px;margin-right:6px;margin-bottom:6px;}
- .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:12px;}
- .tight li{margin:4px 0;}
- .cat-core{background:#dbeafe;color:#1e40af;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;}
- .cat-sup{background:#fef3c7;color:#92400e;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;}
- .cat-imp{background:#d1fae5;color:#065f46;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;}
- .cat-fb{background:#ede9fe;color:#5b21b6;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;}
- .impl{background:#d1fae5;color:#065f46;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;}
-
-/* === PAGE BREAK & OVERFLOW FIX (auto-applied) === */
-@media print {
-  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.jd-mission,.form-sheet,.lane,.legend,.req,.auth-grid,.backup-card,.vstep{page-break-inside:avoid;break-inside:avoid}
-  h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
-  .form-header,.sig-row,.sign-row,.approval-row{page-break-inside:avoid;break-inside:avoid}
-  tr{page-break-inside:avoid;break-inside:avoid}
-  thead{display:table-header-group}tfoot{display:table-footer-group}
-  p{orphans:3;widows:3}.table-card{overflow:visible!important}
+.chip{display:inline-block;padding:2px 10px;border-radius:999px;border:1px solid #e5e7eb;background:#f9fafb;font-size:12px;margin-right:6px;margin-bottom:6px}
+.mini-card{background:var(--bg);border:1px solid var(--ln);border-radius:var(--r);padding:16px}
+.mini-card h3{margin:0 0 8px;font-size:14px;color:var(--navy)}
+.mini-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.series-tag{display:inline-block;padding:3px 8px;border-radius:999px;background:#eff6ff;color:#1d4ed8;font-size:10px;font-weight:700;margin-bottom:8px}
+.status-chip{display:inline-block;padding:3px 8px;border-radius:999px;font-size:10px;font-weight:700}
+.st-draft{background:#fff7ed;color:#c2410c}.st-review{background:#eff6ff;color:#1d4ed8}.st-pending{background:#ecfeff;color:#0f766e}.st-approved{background:#ecfdf5;color:#15803d}.st-obsolete{background:#f3f4f6;color:#4b5563}
+@media print{
+ .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.req,.vstep,.mini-card{page-break-inside:avoid;break-inside:avoid}
+ h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
+ .form-header,.sig-row,.sign-row,.approval-row{page-break-inside:avoid;break-inside:avoid}
+ tr{page-break-inside:avoid;break-inside:avoid}
+ thead{display:table-header-group}tfoot{display:table-footer-group}
+ p{orphans:3;widows:3}.table-card{overflow:visible!important}
 }
 .page-body{overflow-x:hidden}
 .table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
 table{max-width:100%;table-layout:auto}
-td,th{max-width:400px;overflow-wrap:break-word;word-wrap:break-word}
-
+td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
 </style>
 </head>
 <body>
@@ -42,8 +38,8 @@ td,th{max-width:400px;overflow-wrap:break-word;word-wrap:break-word}
   </div>
 </div>
 <div class="title">
-  <strong>QMS-MAN-001 — Quality Management System Manual — ISO 9001 + SEMI Standards</strong>
-  <span class="sub-vn"></span>
+  <strong>QMS-MAN-001 — Quality Management System Manual</strong>
+  <span class="sub-vn">Sổ tay hệ thống quản lý chất lượng trong bối cảnh portal, workflow số hóa và chuỗi quá trình 100-900</span>
 </div>
 <div class="meta">
   <div class="row"><span><b>Mã:</b></span><span>QMS-MAN-001</span></div>
@@ -56,674 +52,160 @@ td,th{max-width:400px;overflow-wrap:break-word;word-wrap:break-word}
 <div class="doc-content" id="docContent"><div class="form-sheet">
 
 <div class="card">
- <div class="badge"><span class="dot"></span>QMS-MAN-001</div>
- <h1 class="h1" style="margin-top:10px">QMS-MAN-001 — Sổ tay Hệ thống quản lý chất lượng</h1>
- <p class="lead">
- Sổ tay này mô tả <b>phạm vi</b>, <b>cấu trúc tài liệu</b>, <b>bản đồ quá trình</b>, <b>M365 SSOT architecture</b>,
- và cơ chế quản trị QMS của HESEM ENGINEERING.
- Đây là "khung xương" để mọi SOP/PROC/WI/FRM vận hành đồng bộ và đủ bằng chứng khi audit ISO 9001:2026 và SEMI semiconductor requirements.
- </p>
+  <div class="badge"><span class="dot"></span>QMS-MAN-001</div>
+  <h1 class="h1" style="margin-top:10px">QMS-MAN-001 — Sổ tay Hệ thống quản lý chất lượng HESEM</h1>
+  <p class="lead">
+    Sổ tay này xác định bối cảnh tổ chức, phạm vi QMS, kiến trúc quá trình, kiến trúc tài liệu và cơ chế quản trị tài liệu trên
+    <b>HESEM QMS Portal</b>. Manual đóng vai trò tài liệu khung: không lặp lại chi tiết thao tác của SOP/WI, mà nêu luật hệ thống để
+    policy, organization, RACI, SOP, WI, annex, forms và training hoạt động đồng bộ.
+  </p>
+  <div>
+    <span class="chip">Portal-centered</span>
+    <span class="chip">Risk-based</span>
+    <span class="chip">Job-order CNC</span>
+    <span class="chip">CSR / traceability driven</span>
+  </div>
 </div>
 
 <div class="iso-map">
- <div class="iso-title">Chuẩn mực áp dụng</div>
- <div class="req"><span class="req-tag shall">PHẢI</span>
- <div>Xác định các quá trình cần thiết cho QMS, trình tự &amp; tương tác, tiêu chí kiểm soát và thông tin dạng văn bản để hỗ trợ vận hành. <span class="iso-ref">ISO 4.4</span></div>
- </div>
- <div class="req"><span class="req-tag shall">PHẢI</span>
- <div>Thiết lập phạm vi QMS; nêu rõ các điều khoản không áp dụng và lý do. Xem xét climate change relevance khi xác định bối cảnh. <span class="iso-ref">ISO 4.3</span> <span class="iso-ref">ISO 4.1</span> <span class="iso-ref">ISO 9001:2026/Amd.1:2024</span></div>
- </div>
- <div class="req"><span class="req-tag shall">PHẢI</span>
- <div>Đảm bảo chính sách, mục tiêu, đo lường hiệu suất, xem xét lãnh đạo và cải tiến liên tục được tích hợp thành vòng lặp điều hành. <span class="iso-ref">ISO 5.2</span> <span class="iso-ref">ISO 6.2</span> <span class="iso-ref">ISO 9.3</span> <span class="iso-ref">ISO 10</span></div>
- </div>
- <div class="req"><span class="req-tag shall">PHẢI</span>
- <div>QMS tích hợp yêu cầu ngành semiconductor: contamination control, surface treatment qualification, cleanliness verification, clean packaging, material traceability, và SEMI standards compliance. <span class="iso-ref">SEMI S2</span> <span class="iso-ref">SEMI F57</span> <span class="iso-ref">ISO 8.5.1</span></div>
- </div>
+  <div class="iso-title">Chuẩn mực áp dụng</div>
+  <div class="req"><span class="req-tag shall">PHẢI</span><div>Xác định bối cảnh, bên quan tâm, phạm vi và các quá trình cần thiết cho QMS; duy trì thông tin dạng văn bản làm bằng chứng. <span class="iso-ref">ISO 4.1</span> <span class="iso-ref">ISO 4.2</span> <span class="iso-ref">ISO 4.3</span> <span class="iso-ref">ISO 4.4</span></div></div>
+  <div class="req"><span class="req-tag shall">PHẢI</span><div>Thiết lập chính sách, mục tiêu, trách nhiệm, kiểm soát tài liệu và nguồn lực để QMS được vận hành nhất quán trên toàn công ty. <span class="iso-ref">ISO 5</span> <span class="iso-ref">ISO 6.2</span> <span class="iso-ref">ISO 7.5</span></div></div>
+  <div class="req"><span class="req-tag shall">PHẢI</span><div>Quản lý hoạt động tác nghiệp, hồ sơ chứng cứ, audit, management review và cải tiến theo vòng lặp khép kín. <span class="iso-ref">ISO 8</span> <span class="iso-ref">ISO 9</span> <span class="iso-ref">ISO 10</span></div></div>
 </div>
 
-<!-- ── SCOPE ── -->
 <div class="preface-block">
- <h2 class="h2">Phạm vi áp dụng (Scope) — HESEM ENGINEERING</h2>
- <div class="grid-2">
- <div>
- <p><b>Áp dụng</b></p>
- <ul class="list">
- <li>Gia công CNC theo đơn hàng (Job Order): <b>RFQ → Contract Review → Planning → Purchasing/Receiving → Production → Finishing → Inspection → Shipping → Customer feedback</b>.</li>
- <li>Quá trình hỗ trợ: kiểm soát tài liệu/hồ sơ, thay đổi, hiệu chuẩn, bảo trì, quản trị dữ liệu, năng lực nhân sự, customer property, HSE, audit nội bộ, management review.</li>
- </ul>
- </div>
- <div>
- <p><b>Loại trừ (không áp dụng) — có lý do</b></p>
- <ul class="list">
- <li><b>ISO 8.3 — Thiết kế &amp; phát triển:</b> HESEM gia công theo bản vẽ/spec do khách hàng cung cấp. Thay đổi thiết kế <b>PHẢI</b> do KH phê duyệt và được kiểm soát theo Change Management (<a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-106-change-and-configuration-management.html">SOP-QMS-008</a>).</li>
- </ul>
- <p class="callout"><b>Ghi chú:</b> "Không áp dụng" không có nghĩa là bỏ kiểm soát. HESEM vẫn kiểm soát <b>thay đổi</b>, <b>cấu hình</b>, và <b>truy xuất revision</b> theo <a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-106-change-and-configuration-management.html">SOP-QMS-017</a>.</p>
- </div>
- </div>
+  <h2 class="h2">1. Bối cảnh và phạm vi QMS</h2>
+  <div class="mini-grid">
+    <div class="mini-card">
+      <h3>Bối cảnh hiện tại</h3>
+      <ul class="list">
+        <li>HESEM vận hành theo mô hình <b>high-mix, low-volume, job order</b>, nên revision, flowdown và hồ sơ chứng cứ là trọng tâm.</li>
+        <li>Khách hàng đòi hỏi đúng revision, đúng CTQ, đúng truy xuất, đúng hồ sơ release và đúng thời hạn giao hàng.</li>
+        <li>Hệ tài liệu đã chuyển sang bối cảnh <b>portal số hóa</b>: tài liệu được kiểm soát bằng workflow, version history và phân quyền.</li>
+      </ul>
+    </div>
+    <div class="mini-card">
+      <h3>Phạm vi áp dụng</h3>
+      <ul class="list">
+        <li>Áp dụng cho toàn bộ chuỗi từ RFQ/PO đến giao hàng và phản hồi khách hàng.</li>
+        <li>Áp dụng cho các quá trình hỗ trợ: tài liệu, dữ liệu, đào tạo, EHS, audit, management review và cải tiến.</li>
+        <li><b>ISO 8.3</b> không áp dụng cho thiết kế sản phẩm cuối cùng; thay đổi bản vẽ/spec vẫn phải kiểm soát theo <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-106-change-and-configuration-management.html">SOP-106</a>.</li>
+      </ul>
+    </div>
+  </div>
 </div>
 
-<!-- ── TOC ── -->
 <div class="toc">
- <div class="toc-title">Mục lục</div>
- <div class="toc-grid">
- <a href="#m1">1. Cấu trúc tài liệu QMS (Document Architecture)</a>
- <a href="#m2">2. SoR / SSOT / Link-not-copy</a>
- <a href="#m3">3. M365 SSOT Architecture</a>
- <a href="#m4">4. Bản đồ quá trình (Process Map)</a>
- <a href="#m5">5. Quality Gates (Hold/Release)</a>
- <a href="#m6">6. Tích hợp yêu cầu Semiconductor / SEMI</a>
- <a href="#m7">7. Customer Property Control</a>
- <a href="#m8">8. Climate Change Relevance</a>
- <a href="#m9">9. Đánh giá hiệu suất &amp; Cải tiến</a>
- <a href="#m10">10. Tài liệu liên quan</a>
- </div>
+  <div class="toc-title">Mục lục</div>
+  <div class="toc-grid">
+    <a href="#m2">2. Kiến trúc quá trình 100-900</a>
+    <a href="#m3">3. Kiến trúc tài liệu kiểm soát</a>
+    <a href="#m4">4. Kiểm soát số hóa và workflow</a>
+    <a href="#m5">5. Tổ chức và quản trị trách nhiệm</a>
+    <a href="#m6">6. Hoạch định và kiểm soát vận hành</a>
+    <a href="#m7">7. Đo lường, review và cải tiến</a>
+    <a href="#m8">8. Tài liệu liên quan</a>
+  </div>
 </div>
 
-<!-- ═══════════════════════════════════════ -->
-<!-- §1 — DOCUMENT ARCHITECTURE -->
-<!-- ═══════════════════════════════════════ -->
+<h2 class="h2" id="m2">2. Kiến trúc quá trình 100-900</h2>
+<div class="mini-grid">
+  <div class="mini-card"><span class="series-tag">100</span><h3>Nền hệ thống</h3><p>Policy, context, documents, data, knowledge, change, communication, contingency.</p></div>
+  <div class="mini-card"><span class="series-tag">200</span><h3>Commercial &amp; customer</h3><p>RFQ, contract review, customer feedback, RMA, customer property.</p></div>
+  <div class="mini-card"><span class="series-tag">300</span><h3>Engineering</h3><p>DFM, planning assumptions, technical readiness, FAI.</p></div>
+  <div class="mini-card"><span class="series-tag">400</span><h3>Supply chain</h3><p>Supplier control, incoming verification, special process, traceability, counterfeit prevention.</p></div>
+  <div class="mini-card"><span class="series-tag">500</span><h3>Production &amp; maintenance</h3><p>Planning, dispatch, CNC execution, tooling, PM, breakdown response.</p></div>
+  <div class="mini-card"><span class="series-tag">600</span><h3>Quality assurance</h3><p>Calibration, MSA, sampling, SPC, final inspection, NCR/CAPA, ship release.</p></div>
+  <div class="mini-card"><span class="series-tag">700</span><h3>Protection &amp; shipping</h3><p>Storage, cleanliness, packaging, labeling, logistics, product safety, FOD.</p></div>
+  <div class="mini-card"><span class="series-tag">800-900</span><h3>Con người và học hệ thống</h3><p>Competence, EHS, human factors, audit, management review, kaizen.</p></div>
+</div>
+<p class="note"><b>Tham chiếu chi tiết:</b> <a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-001-detailed-process-map.html">REF-001</a> mô tả process map; <a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-002-iso-9001-clause-to-sop-matrix.html">REF-002</a> giữ clause-to-SOP mapping.</p>
 
-<h2 class="h2" id="m1">1. Cấu trúc tài liệu QMS (Document Architecture)</h2>
-<p class="muted">Tổng số tài liệu QMS (tính đến): 25 SOP, 44 ANNEX, 34 PROC, 24 WI, 106 FRM, 1 Manual, 2 Policy. Tất cả được quản lý trên M365/SharePoint (§3).<br/><span class="muted">+SOP-QMS-023/027; +PROC-SAL-002; +WI-OPS-017; +7 FRM mới (FRM-MNT-002–005, FRM-QMS-025–029); +ANNEX-QMS-023; ANNEX-PLA-001 → merged into ANNEX-OPS-001.</span></p>
-
-<div class="table-card">
-<table class="table">
-<colgroup><col style="width:8%"/><col style="width:16%"/><col style="width:38%"/><col style="width:38%"/></colgroup>
-<thead><tr><th>Nhóm</th><th>Mục đích</th><th>Tài liệu tiêu biểu</th><th>Nguyên tắc</th></tr></thead>
+<h2 class="h2" id="m3">3. Kiến trúc tài liệu kiểm soát</h2>
+<div class="table-card"><table class="table">
+<thead><tr><th>Nhóm</th><th>Vai trò</th><th>Ví dụ</th><th>Nguyên tắc</th></tr></thead>
 <tbody>
-<tr><td><b>POL</b></td><td>Chính sách (cam kết lãnh đạo)</td>
-<td><a href="../02-Policies-Objectives/pol-qms-001-quality-policy.html">POL-QMS-001 — Quality Policy</a></td>
-<td>Ngắn, rõ, kiểm chứng bằng KPI.</td></tr>
+<tr><td><b>POL</b></td><td>Chính sách và cam kết lãnh đạo</td><td><a href="../02-Policies-Objectives/pol-qms-001-quality-policy.html">POL-QMS-001</a></td><td>Làm nền cho mục tiêu và quyết định điều hành.</td></tr>
+<tr><td><b>MAN</b></td><td>Tài liệu khung hệ thống</td><td>QMS-MAN-001</td><td>Nêu logic hệ thống, không lặp thao tác chi tiết.</td></tr>
+<tr><td><b>ORG / RACI / JD</b></td><td>Tổ chức, phân quyền, trách nhiệm</td><td><a href="../03-Organization/04-RACI-Authority/raci-master-matrix.html">RACI Master Matrix</a></td><td>Mỗi SOP có đúng một Accountable.</td></tr>
+<tr><td><b>SOP</b></td><td>Quy tắc liên phòng ban</td><td><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-101-document-and-data-control.html">SOP-101</a> đến <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-903-continual-improvement-and-kaizen.html">SOP-903</a></td><td>Quy định điều phải làm, điểm kiểm soát và record bắt buộc.</td></tr>
+<tr><td><b>WI</b></td><td>Hướng dẫn tại điểm sử dụng</td><td><a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/02-WI-200/wi-201-quality-gates-and-ship-release-quick-ref.html">WI-201</a>, <a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/05-WI-500/wi-504-job-dossier-and-evidence-pack.html">WI-504</a></td><td>Ngắn gọn, trực quan, phục vụ thao tác thực địa.</td></tr>
+<tr><td><b>ANNEX / REF</b></td><td>Ma trận, bản đồ, hướng dẫn chuyên sâu</td><td><a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/02-ANNEX-Standards/ref-008-semi-and-csr-matrix.html">REF-008</a></td><td>Dùng để đào sâu hoặc tra cứu, không thay thế SOP.</td></tr>
+<tr><td><b>FRM</b></td><td>Biểu mẫu và hồ sơ</td><td><a href="../../04-Bieu-Mau/01-FRM-100/frm-121-context-analysis-swot-pestle.html">FRM-121</a>, <a href="../../04-Bieu-Mau/06-FRM-600/frm-641-final-inspection-report.html">FRM-641</a></td><td>Thiếu record bắt buộc đồng nghĩa quá trình chưa chứng minh được sự phù hợp.</td></tr>
+<tr><td><b>TRN</b></td><td>Tài liệu đào tạo</td><td>Training &amp; Competency library</td><td>Gắn với competence matrix, onboarding và recertification.</td></tr>
+</tbody></table></div>
+<p class="callout"><b>Luật kiến trúc:</b> manual không cố định số lượng tài liệu. Hệ thống có thể thêm hoặc gộp tài liệu, miễn mỗi tài liệu nằm đúng họ, đúng owner, đúng workflow và đúng quan hệ dẫn chiếu.</p>
 
-<tr><td><b>MAN</b></td><td>Sổ tay QMS (khung hệ thống)</td>
-<td>QMS-MAN-001 (tài liệu này)</td>
-<td>Scope, process map, SoR/SSOT, gates, SEMI mapping.</td></tr>
-
-<tr><td><b>SOP</b></td><td>Quy trình cấp hệ thống (24)</td>
-<td>
- <a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-101-document-and-data-control.html">SOP-001</a> Document Control,
- <a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-103-risk-opportunity-fmea-and-control-plan.html">SOP-003</a> Risk &amp; Opportunity (+Climate),
- <a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//06-SOP-600//sop-606-ncr-capa-and-ipqc-reaction.html">SOP-006</a> NC/CAPA,
- <a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-106-change-and-configuration-management.html">SOP-008</a> Change Mgmt,
- <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/07-SOP-700/sop-703-product-safety-conformity-and-fod-prevention.html">SOP-019</a> Product Safety,
- <a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-106-change-and-configuration-management.html">SOP-020</a> Configuration,
- <a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//04-SOP-400//sop-402-material-verification-traceability-and-counterfeit-prevention.html">SOP-021</a> Counterfeit,
- <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/04-SOP-400/sop-401-supplier-control-and-special-process.html">SOP-022</a> Special Process,
- <a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//08-SOP-800//sop-804-human-factors-and-error-proofing.html">SOP-024</a> Human Factors,
- <a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//02-SOP-200//sop-203-customer-property-control.html">SOP-025</a> Customer Property,
- <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/08-SOP-800/sop-801-competence-training-and-certification.html">SOP-026</a> Competence/Training/Awareness,
- <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-105-organizational-knowledge-management.html">SOP-027</a> Knowledge Management
-</td>
-<td>PHẢI/NÊN, có RACI, record bắt buộc, ISO clause map.</td></tr>
-
-<tr><td><b>PROC</b></td><td>Quy trình vận hành (32)</td>
-<td>
- <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-502-cnc-machining-operations.html">PROC-CNC-001</a> CNC Execution,
- <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-502-cnc-machining-operations.html">PROC-CNC-002</a> Program Release,
- <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-605-final-inspection-coc-and-shipment-release.html">PROC-QA-004</a> Final Inspect,
- <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-103-risk-opportunity-fmea-and-control-plan.html">PROC-QA-005</a> PFMEA/CP,
- <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/04-SOP-400/sop-402-material-verification-traceability-and-counterfeit-prevention.html">PROC-QA-006</a> Traceability,
- <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-502-cnc-machining-operations.html">PROC-OPS-002</a> Finishing,
- <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-503-tooling-maintenance-pm-and-breakdown-response.html">PROC-MNT-003</a> Crash Response,
- <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-503-tooling-maintenance-pm-and-breakdown-response.html">PROC-MNT-005</a> Tool Life,
- <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/02-SOP-200/sop-202-customer-complaint-feedback-rma-and-escape.html">PROC-SAL-002</a> Warranty/RMA
-</td>
-<td>Thao tác, gate, hold point, link form.</td></tr>
-
-<tr><td><b>WI</b></td><td>Hướng dẫn tại xưởng (22)</td>
-<td>
- <a href="../../03-Tai-Lieu-Van-Hanh//02-Work-Instructions//02-WI-200//wi-201-quality-gates-and-ship-release-quick-ref.html">WI-OPS-001</a> Quality Gates,
- <a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/05-WI-500/wi-511-machine-type-quick-reference.html">WI-CNC-001</a>–<a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/05-WI-500/wi-515-mill-turn-guide.html">005</a> Machine Guides (3-axis/5-axis/Lathe/Mill-Turn),
- <a href="../../03-Tai-Lieu-Van-Hanh//02-Work-Instructions//05-WI-500//wi-503-kpi-scoreboard-and-dashboard.html">WI-OPS-004</a> KPI Scoreboard,
- <a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/07-WI-700/wi-713-environmental-monitoring.html">WI-OPS-014</a> Env Monitor,
- <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-503-tooling-maintenance-pm-and-breakdown-response.html">WI-OPS-015</a> SMED,
- <a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/05-WI-500/wi-504-job-dossier-and-evidence-pack.html">WI-OPS-017</a> Job Packet Quick-Check
-</td>
-<td>Ngắn gọn, checklist, dễ dùng tại điểm sử dụng.</td></tr>
-
-<tr><td><b>FRM</b></td><td>Biểu mẫu / record (103)</td>
-<td>
- <a href="../../04-Bieu-Mau//02-FRM-200//frm-202-contract-review-checklist.html">FRM-QA-001</a> Contract Review,
- <a href="../../04-Bieu-Mau/06-FRM-600/frm-643-safety-special-characteristics-register.html">FRM-QA-018</a> Safety-Critical Register,
- <a href="../../04-Bieu-Mau/01-FRM-100/frm-124-climate-change-assessment-record.html">FRM-QMS-021</a> Climate Decision,
- <a href="../../04-Bieu-Mau/01-FRM-100/frm-122-interested-parties-register.html">FRM-QMS-025</a> Interested Parties,
- <a href="../../04-Bieu-Mau/05-FRM-500/frm-525-gage-equipment-inventory.html">FRM-QMS-026</a> Gage Inventory,
- <a href="../../04-Bieu-Mau/01-FRM-100/frm-121-context-analysis-swot-pestle.html">FRM-QMS-027</a> Context of Org,
- <a href="../../04-Bieu-Mau/05-FRM-500/frm-522-crash-report.html">FRM-MNT-002</a> Crash Report,
- <a href="../../04-Bieu-Mau/05-FRM-500/frm-524-machine-history-log.html">FRM-MNT-005</a> Machine History
- <a href="../../04-Bieu-Mau/01-FRM-100/frm-125-customer-csr-register.html">FRM-QMS-023</a> CSR Register,
- <a href="../../04-Bieu-Mau//02-FRM-200//frm-207-operational-risk-management-worksheet.html">FRM-OPS-010</a> ORM Worksheet,
- <a href="../../04-Bieu-Mau//04-FRM-400//frm-408-flowdown-requirements-checklist.html">FRM-PUR-008</a> Flowdown,
- <a href="../../04-Bieu-Mau/02-FRM-200/frm-213-rma-tracking-log.html">FRM-SAL-004</a> Warranty/RMA
-</td>
-<td>Thiếu FRM = thiếu bằng chứng = HOLD.</td></tr>
-
-<tr><td><b>ANNEX</b></td><td>Phụ lục chuyên sâu (21)</td>
-<td>
- <a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/05-WI-500/wi-504-job-dossier-and-evidence-pack.html">ANNEX-003</a> Audit Evidence Pack,
- <a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/02-ANNEX-Standards/ref-007-climate-change-assessment.html">ANNEX-016</a> Climate Change,
- <a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/07-WI-700/wi-721-fod-prevention-at-machine.html">ANNEX-017</a> FOD Prevention,
- <a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/02-ANNEX-Standards/ref-008-semi-and-csr-matrix.html">ANNEX-025</a> SEMI Standards &amp; CSR Matrix,
- <a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/03-ANNEX-Digital/ref-010-m365-lists-and-field-mapping.html">ANNEX-020</a> M365 Folders,
- <a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-005-escalation-and-sla-matrix.html">ANNEX-021</a> Escalation &amp; SLA
-</td>
-<td>Đào sâu phương pháp; tránh SOP quá dài.</td></tr>
-</tbody>
-</table>
-</div>
-
-<!-- ═══════════════════════════════════════ -->
-<!-- §2 — SoR / SSOT -->
-<!-- ═══════════════════════════════════════ -->
-
-<h2 class="h2" id="m2">2. Nguyên tắc vận hành: SoR / SSOT / Link-not-copy</h2>
+<h2 class="h2" id="m4">4. Kiểm soát số hóa và workflow</h2>
+<div class="table-card"><table class="table">
+<thead><tr><th>Trạng thái</th><th>Ý nghĩa</th><th>Quy tắc</th></tr></thead>
+<tbody>
+<tr><td><span class="status-chip st-draft">Draft</span></td><td>Bản đang biên soạn</td><td>Chưa được dùng làm bản vận hành chính thức.</td></tr>
+<tr><td><span class="status-chip st-review">In Review</span></td><td>Bản đang được soát xét</td><td>Reviewer kiểm tra tính đầy đủ, logic liên phòng ban và dẫn chiếu.</td></tr>
+<tr><td><span class="status-chip st-pending">Pending Approval</span></td><td>Bản chờ phê duyệt</td><td>Approver xác nhận tài liệu sẵn sàng ban hành.</td></tr>
+<tr><td><span class="status-chip st-approved">Approved</span></td><td>Bản kiểm soát hiện hành</td><td>Là nguồn chính thức để đào tạo, thực thi và audit.</td></tr>
+<tr><td><span class="status-chip st-obsolete">Obsolete</span></td><td>Bản lịch sử</td><td>Chỉ dùng để truy xuất, không dùng cho vận hành hiện tại.</td></tr>
+</tbody></table></div>
 <ul class="list">
- <li><b>Epicor Kinetic = System of Record (SoR):</b> Mọi giao dịch Job/PO/Receipt/Ship/Inventory/Time phải nằm trên Epicor. Tham chiếu: <a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/03-ANNEX-Digital/ref-013-epicor-integration.html">ANNEX-QMS-011</a>.</li>
- <li><b>M365/SharePoint = SSOT:</b> Evidence/records (inspection, NCR/CAPA, calibration, training, supplier docs) lưu đúng library với cấu trúc thư mục chuẩn. Chi tiết kiến trúc: §3 bên dưới.</li>
- <li><b>Link-not-copy:</b> Chia sẻ hồ sơ = gửi link SSOT, không gửi file rời. Ngăn "đa phiên bản".</li>
- <li><b>Retention:</b> Nhãn lưu trữ và khai báo record theo <a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-104-data-governance-records-security-and-ip-protection.html">SOP-QMS-013</a> (Purview Retention).</li>
+  <li>HESEM QMS Portal là <b>cửa vào kiểm soát</b> của tài liệu; bản sao ngoài hệ thống mặc định là uncontrolled nếu không có xác nhận phiên bản.</li>
+  <li>Bản phát hành trên portal là nguồn chính thức. Nếu hệ thống hỗ trợ chế độ tiếng Anh để tra cứu, nội dung đó chỉ mang tính hỗ trợ trừ khi có bản song ngữ được phê duyệt riêng.</li>
+  <li>Nguyên tắc vận hành là <b>link-not-copy</b>: tài liệu cấp trên dẫn chiếu xuống SOP/WI/FRM thay vì chép lại chi tiết.</li>
 </ul>
 
-<!-- ═══════════════════════════════════════ -->
-<!-- §3 — M365 SSOT ARCHITECTURE (NEW) -->
-<!-- ═══════════════════════════════════════ -->
-
-<h2 class="h2" id="m3">3. M365 SSOT Architecture</h2>
-<p>Toàn bộ hồ sơ QMS được tổ chức trên Microsoft 365 / SharePoint theo kiến trúc chuẩn.</p>
-
-<div class="table-card">
-<table class="table">
-<colgroup><col style="width:22%"/><col style="width:30%"/><col style="width:28%"/><col style="width:20%"/></colgroup>
-<thead><tr><th>Thành phần M365</th><th>Vai trò trong QMS</th><th>Tài liệu chuẩn</th><th>Owner</th></tr></thead>
-<tbody>
-<tr>
- <td><b>SharePoint — CNC-IMS-HUB</b></td>
- <td>Document library chính: QMS-Controlled-Docs, QMS-Records, Job Dossiers, Supplier Product Folders.</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/03-ANNEX-Digital/ref-010-m365-lists-and-field-mapping.html">ANNEX-QMS-019</a> (Folder Blueprint)</td>
- <td>QA/QMS</td>
-</tr>
-<tr>
- <td><b>SharePoint Lists</b></td>
- <td>NCR Log, CAPA Tracker, Calibration Schedule, Risk Register, Supplier ASL, Training Matrix.</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/03-ANNEX-Digital/ref-010-m365-lists-and-field-mapping.html">ANNEX-QMS-005</a> (Lists &amp; Fields)</td>
- <td>QA/QMS + IT</td>
-</tr>
-<tr>
- <td><b>Power Automate</b></td>
- <td>Approval flows (document release, NCR disposition, PO approval). Notification triggers.</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/03-ANNEX-Digital/ref-011-power-automate-flows.html">ANNEX-QMS-006</a> (Flows &amp; Approvals)</td>
- <td>IT + QA</td>
-</tr>
-<tr>
- <td><b>Power BI</b></td>
- <td>KPI Dashboards: OTD, DPPM, Scrap, OEE, Supplier, Audit findings. Tier meeting visual.</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/03-ANNEX-Digital/ref-012-power-bi-deployment.html">ANNEX-QMS-010</a> (Power BI Pack)</td>
- <td>QA + IT</td>
-</tr>
-<tr>
- <td><b>Purview (Retention)</b></td>
- <td>Retention labels (3yr / 7yr / 15yr) tự động áp dụng cho records. Khai báo record chính thức.</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-104-data-governance-records-security-and-ip-protection.html">SOP-QMS-013</a></td>
- <td>QA/QMS</td>
-</tr>
-<tr>
- <td><b>Access control</b></td>
- <td>Permission theo vai trò (RACI). Access matrix. Quarterly access review.</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-104-data-governance-records-security-and-ip-protection.html">SOP-QMS-012</a>, <a href="../../04-Bieu-Mau/01-FRM-100/frm-109-access-rights-and-dcr-matrix.html">FRM-QMS-014</a></td>
- <td>IT + QA</td>
-</tr>
-</tbody>
-</table>
+<h2 class="h2" id="m5">5. Tổ chức và quản trị trách nhiệm</h2>
+<div class="mini-grid">
+  <div class="mini-card">
+    <h3>Vai trò cốt lõi</h3>
+    <ul class="list">
+      <li><b>Tổng Giám đốc:</b> chịu trách nhiệm cuối cùng về hiệu lực QMS.</li>
+      <li><b>QA Manager:</b> account owner của nhiều SOP hệ thống; điều phối audit, CAPA và release.</li>
+      <li><b>QMS Engineer:</b> duy trì cấu trúc hệ thống, clause mapping, hồ sơ bối cảnh và follow-up cải tiến.</li>
+      <li><b>Process owners:</b> chịu trách nhiệm kết quả của từng series quá trình.</li>
+    </ul>
+  </div>
+  <div class="mini-card">
+    <h3>Tài liệu quản trị</h3>
+    <ul class="list">
+      <li><a href="../03-Organization/01-Org-Chart/annex-org-001-org-chart-fullpage.html">Org Chart</a> xác định cấu trúc tổ chức.</li>
+      <li><a href="../03-Organization/04-RACI-Authority/raci-master-matrix.html">RACI Master Matrix</a> xác định A/R/C/I ở mức SOP.</li>
+      <li><a href="../03-Organization/04-RACI-Authority/authority-matrix.html">Authority Matrix</a> xác định thẩm quyền ra quyết định.</li>
+    </ul>
+  </div>
 </div>
 
-<p class="callout"><b>Audit-ready configuration:</b> Toàn bộ kiến trúc M365 được quản lý theo <a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-104-data-governance-records-security-and-ip-protection.html">SOP-QMS-012</a> với checklist triển khai <a href="../../04-Bieu-Mau/01-FRM-100/frm-110-m365-configuration-checklist.html">FRM-QMS-015</a>.</p>
-
-<!-- ═══════════════════════════════════════ -->
-
-<!-- ═══════════════════════════════════════ -->
-<!-- §NEW — ORGANIZATIONAL STRUCTURE -->
-<!-- ═══════════════════════════════════════ -->
-
-<h2 class="h2" id="m-org">Cơ cấu tổ chức (Organizational Structure)</h2>
-
-<h3 class="h3">Tổng quan</h3>
-<p>HESEM Engineering gồm <b>13 phòng ban</b> với tổng cộng <b>54 vị trí</b>. Mỗi vị trí có JD (Job Description) quy định rõ trách nhiệm, quyền hạn, KPI, và năng lực yêu cầu.</p>
-
+<h2 class="h2" id="m6">6. Hoạch định và kiểm soát vận hành</h2>
 <div class="table-card"><table class="table">
-<thead><tr><th>Phòng ban</th><th>Số vị trí</th><th>Trưởng phòng</th><th>Báo cáo cho</th></tr></thead>
+<thead><tr><th>Yếu tố</th><th>Mục tiêu kiểm soát</th><th>Tài liệu / hồ sơ chính</th></tr></thead>
 <tbody>
-<tr><td><b>Executive</b></td><td>3</td><td>General Manager (EXE-01)</td><td>HĐQT</td></tr>
-<tr><td><b>Production</b></td><td>7</td><td>Production Manager</td><td>General Manager (EXE-01)</td></tr>
-<tr><td><b>Quality (QA/QC)</b></td><td>5</td><td>QA Manager</td><td>General Manager (EXE-01)</td></tr>
-<tr><td><b>Engineering</b></td><td>4</td><td>Engineering Manager</td><td>General Manager (EXE-01)</td></tr>
-<tr><td><b>Estimating</b></td><td>1</td><td>Estimator (SAL-03)</td><td>General Manager (EXE-01)</td></tr>
-<tr><td><b>Planning</b></td><td>1</td><td>Production Planner</td><td>General Manager (EXE-01)</td></tr>
-<tr><td><b>Purchasing</b></td><td>2</td><td>Purchasing Manager</td><td>General Manager (EXE-01)</td></tr>
-<tr><td><b>Warehouse</b></td><td>4</td><td>Warehouse Manager</td><td>General Manager (EXE-01)</td></tr>
-<tr><td><b>Maintenance</b></td><td>1</td><td>Maintenance Technician</td><td>General Manager (EXE-01)</td></tr>
-<tr><td><b>Finance</b></td><td>2</td><td>Finance Manager</td><td>General Manager (EXE-01)</td></tr>
-<tr><td><b>HR</b></td><td>1</td><td>HR Manager</td><td>General Manager (EXE-01)</td></tr>
-<tr><td><b>HSE</b></td><td>1</td><td>HSE Officer</td><td>General Manager (EXE-01)</td></tr>
-<tr><td><b>IT</b></td><td>1</td><td>System Administrator</td><td>General Manager (EXE-01)</td></tr>
-<tr style="font-weight:700;background:var(--th-bg);"><td colspan="2"><b>TỔNG: 54 vị trí</b></td><td colspan="2">13 phòng ban (incl. Executive)</td></tr>
+<tr><td><b>Bối cảnh</b></td><td>Xác định yếu tố nội bộ/ngoại bộ ảnh hưởng chiến lược và năng lực vận hành.</td><td><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-102-quality-policy-objectives-and-organizational-context.html">SOP-102</a>, <a href="../../04-Bieu-Mau/01-FRM-100/frm-121-context-analysis-swot-pestle.html">FRM-121</a></td></tr>
+<tr><td><b>Bên quan tâm / CSR</b></td><td>Chuyển yêu cầu khách hàng và bên quan tâm thành điểm kiểm soát thực thi.</td><td><a href="../../04-Bieu-Mau/01-FRM-100/frm-122-interested-parties-register.html">FRM-122</a>, <a href="../../04-Bieu-Mau/01-FRM-100/frm-125-customer-csr-register.html">FRM-125</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/02-SOP-200/sop-201-order-fulfillment-rfq-to-cash.html">SOP-201</a></td></tr>
+<tr><td><b>Rủi ro / cơ hội</b></td><td>Ưu tiên hành động phòng ngừa, bảo vệ đầu ra và giảm lỗi lặp.</td><td><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-103-risk-opportunity-fmea-and-control-plan.html">SOP-103</a></td></tr>
+<tr><td><b>Chuỗi vận hành</b></td><td>Đảm bảo handshake rõ từ commercial, engineering, supply chain, production, QA đến shipping.</td><td>Series 200-700, <a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-001-detailed-process-map.html">REF-001</a></td></tr>
+<tr><td><b>Con người / EHS / continuity</b></td><td>Giữ năng lực, an toàn và khả năng phục hồi khi có gián đoạn.</td><td><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/08-SOP-800/sop-801-competence-training-and-certification.html">SOP-801</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/08-SOP-800/sop-802-incident-near-miss-and-ehs.html">SOP-802</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-108-operational-contingency-plan.html">SOP-108</a></td></tr>
 </tbody></table></div>
 
-<h3 class="h3">Sơ đồ tổ chức (Org Chart)</h3>
-<div class="table-card" style="overflow-x:auto;text-align:center;padding:20px;">
-<div style="display:inline-block;text-align:center;">
-<div style="background:var(--navy);color:#fff;padding:10px 24px;border-radius:8px;font-weight:700;display:inline-block;">General Manager (EXE-01) (EXE-01)</div>
-<div style="width:2px;height:20px;background:var(--navy);margin:0 auto;"></div>
-<div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center;">
-<div style="background:var(--blue);color:#fff;padding:6px 12px;border-radius:6px;font-size:11px;font-weight:600;">PRO<br/><span style="font-size:9px;">8 vị trí</span></div>
-<div style="background:var(--blue);color:#fff;padding:6px 12px;border-radius:6px;font-size:11px;font-weight:600;">QA/QC<br/><span style="font-size:9px;">6 vị trí</span></div>
-<div style="background:var(--blue);color:#fff;padding:6px 12px;border-radius:6px;font-size:11px;font-weight:600;">ENG<br/><span style="font-size:9px;">5 vị trí</span></div>
-<div style="background:var(--blue);color:#fff;padding:6px 12px;border-radius:6px;font-size:11px;font-weight:600;">SAL<br/><span style="font-size:9px;">4 vị trí</span></div>
-<div style="background:var(--blue);color:#fff;padding:6px 12px;border-radius:6px;font-size:11px;font-weight:600;">PLA<br/><span style="font-size:9px;">3 vị trí</span></div>
-<div style="background:var(--blue);color:#fff;padding:6px 12px;border-radius:6px;font-size:11px;font-weight:600;">PUR<br/><span style="font-size:9px;">4 vị trí</span></div>
-<div style="background:var(--blue);color:#fff;padding:6px 12px;border-radius:6px;font-size:11px;font-weight:600;">WHS<br/><span style="font-size:9px;">5 vị trí</span></div>
-<div style="background:var(--blue);color:#fff;padding:6px 12px;border-radius:6px;font-size:11px;font-weight:600;">MNT<br/><span style="font-size:9px;">4 vị trí</span></div>
-<div style="background:#6c757d;color:#fff;padding:6px 12px;border-radius:6px;font-size:11px;font-weight:600;">FIN<br/><span style="font-size:9px;">4 vị trí</span></div>
-<div style="background:#6c757d;color:#fff;padding:6px 12px;border-radius:6px;font-size:11px;font-weight:600;">HR<br/><span style="font-size:9px;">3 vị trí</span></div>
-<div style="background:#dc3545;color:#fff;padding:6px 12px;border-radius:6px;font-size:11px;font-weight:600;">HSE<br/><span style="font-size:9px;">2 vị trí</span></div>
-<div style="background:#17a2b8;color:#fff;padding:6px 12px;border-radius:6px;font-size:11px;font-weight:600;">IT<br/><span style="font-size:9px;">3 vị trí</span></div>
-</div></div></div>
-
-<h3 class="h3">Tài liệu liên quan</h3>
-<div class="table-card"><table class="table">
-<thead><tr><th>Tài liệu</th><th>Mô tả</th></tr></thead>
-<tbody>
-<tr><td><a href="../../08-Organization/03-Job-Descriptions/index.html">JD Folder (08-Organization/03-Job-Descriptions/)</a></td><td>54 Job Descriptions — trách nhiệm, KPI, năng lực, backup</td></tr>
-<tr><td><a href="../03-Organization/04-RACI-Authority/annex-qms-025-authority-matrix.html">ANNEX-QMS-025 Authority Matrix</a></td><td>66 quyết định × 22 vị trí — A/P/V/I</td></tr>
-<tr><td><a href="../03-Organization/04-RACI-Authority/annex-qms-026-raci-master-matrix.html">ANNEX-QMS-026 RACI Master Matrix</a></td><td>59 tài liệu × 241 bước — R/A/C/I</td></tr>
-<tr><td><a href="../03-Organization/04-RACI-Authority/annex-qms-027-kpi-cascade-dictionary.html">ANNEX-QMS-027 KPI Cascade Dictionary</a></td><td>71 KPI — 4 tầng cascade: Company → Department → Semi → Individual</td></tr>
-<tr><td><a href="../03-Organization/04-RACI-Authority/annex-qms-028-deputy-backup-matrix.html">ANNEX-QMS-028 Deputy/Backup Matrix</a></td><td>51 vị trí — Primary/Secondary backup, authority limits</td></tr>
-</tbody></table></div>
-
-<!-- §4 — PROCESS MAP -->
-<!-- ═══════════════════════════════════════ -->
-
-<h2 class="h2" id="m4">4. Bản đồ quá trình (Process Map) — RFQ → Cash</h2>
-<p>QMS được thiết kế theo chuỗi giá trị. Từng quá trình có <b>owner</b>, <b>KPI</b>, và liên kết tài liệu. Chi tiết: <a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-001-detailed-process-map.html">ANNEX-QMS-001</a>.</p>
-
-<div class="table-card">
-<table class="table">
-<colgroup><col style="width:8%"/><col style="width:18%"/><col style="width:10%"/><col style="width:18%"/><col style="width:28%"/><col style="width:18%"/></colgroup>
-<thead><tr>
- <th>Nhóm</th><th>Quá trình</th><th>Owner</th><th>Đầu ra chính</th><th>Tài liệu chuẩn</th><th>KPI cốt lõi</th>
-</tr></thead>
-<tbody>
-
-<tr>
- <td><span class="cat-core">CORE</span></td><td>Contract Review / RFQ</td><td>Sales + QA</td>
- <td>Yêu cầu hiểu đúng, ràng buộc rõ</td>
- <td><a href="../../04-Bieu-Mau//02-FRM-200//frm-202-contract-review-checklist.html">FRM-QA-001</a>, <a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-103-risk-opportunity-fmea-and-control-plan.html">SOP-003</a>, <a href="../../04-Bieu-Mau/01-FRM-100/frm-125-customer-csr-register.html">FRM-QMS-023</a> CSR Register</td>
- <td>Quote lead-time; % clarified</td>
-</tr>
-<tr>
- <td><span class="cat-core">CORE</span></td><td>Planning &amp; ENG Release</td><td>ENG/Plan</td>
- <td>Job package: routing, setup, inspection plan</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-106-change-and-configuration-management.html">PROC-ENG-002</a>, <a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-106-change-and-configuration-management.html">SOP-020</a>, <a href="../../04-Bieu-Mau//02-FRM-200//frm-204-job-kickoff-checklist.html">FRM-OPS-008</a></td>
- <td>First-pass yield; rev mismatch = 0</td>
-</tr>
-<tr>
- <td><span class="cat-core">CORE</span></td><td>Purchasing / Supplier</td><td>PUR</td>
- <td>Vật tư/dịch vụ phù hợp &amp; truy xuất</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/04-SOP-400/sop-401-supplier-control-and-special-process.html">SOP-010</a>, <a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//04-SOP-400//sop-402-material-verification-traceability-and-counterfeit-prevention.html">SOP-021</a>, <a href="../../04-Bieu-Mau//04-FRM-400//frm-408-flowdown-requirements-checklist.html">FRM-PUR-008</a> Flowdown</td>
- <td>Supplier OTD; Supplier NCR</td>
-</tr>
-<tr>
- <td><span class="cat-core">CORE</span></td><td>Production (CNC)</td><td>PROD</td>
- <td>Part đúng revision, đúng CTQ</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-502-cnc-machining-operations.html">PROC-CNC-001</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-502-cnc-machining-operations.html">PROC-CNC-002</a>, <a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/05-WI-500/wi-511-machine-type-quick-reference.html">WI-CNC-001</a>–<a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/05-WI-500/wi-515-mill-turn-guide.html">005</a></td>
- <td>Scrap rate; OEE; stop-the-line</td>
-</tr>
-<tr>
- <td><span class="cat-core">CORE</span></td><td>Finishing / Deburr</td><td>PROD</td>
- <td>Part sạch, không bavia, edge break đúng</td>
- <td><a href="../../04-Bieu-Mau/07-FRM-700/frm-709-clean-packaging-checklist.html">PROC-OPS-002</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-502-cnc-machining-operations.html">FRM-OPS-004</a></td>
- <td>% NCR finishing; FOD escape = 0</td>
-</tr>
-<tr>
- <td><span class="cat-core">CORE</span></td><td>Inspection &amp; Release</td><td>QA/QC</td>
- <td>Bằng chứng kiểm tra, release</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-602-measurement-system-analysis-msagr-r.html">SOP-015</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-605-final-inspection-coc-and-shipment-release.html">PROC-QA-004</a>, <a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//06-SOP-600//sop-606-ncr-capa-and-ipqc-reaction.html">SOP-006</a></td>
- <td>DPPM; Escape rate; GRR pass</td>
-</tr>
-<tr>
- <td><span class="cat-core">CORE</span></td><td>Shipping / Delivery</td><td>WH/LOG</td>
- <td>Giao đúng hạn, đúng hồ sơ</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/07-WI-700/wi-702-gs1-sscc-labeling.html">PROC-WHS-002</a>, <a href="../../03-Tai-Lieu-Van-Hanh//02-Work-Instructions//02-WI-200//wi-201-quality-gates-and-ship-release-quick-ref.html">WI-OPS-005</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/07-SOP-700/sop-701-receiving-packaging-handling-and-storage.html">WI-OPS-010</a></td>
- <td>OTD; doc issues = 0</td>
-</tr>
-<tr>
- <td><span class="cat-core">CORE</span></td><td><b>Material Traceability</b></td><td>QA + PUR</td>
- <td>Heat lot / CoC → part → shipment truy xuất 100%</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/04-SOP-400/sop-402-material-verification-traceability-and-counterfeit-prevention.html">PROC-QA-006</a>, <a href="../../04-Bieu-Mau//01-FRM-100//frm-163-configuration-audit-checklist.html">FRM-QA-017</a></td>
- <td>Traceability coverage = 100%</td>
-</tr>
-
-<tr>
- <td><span class="cat-fb">FEEDBACK</span></td><td>Customer communication</td><td>Sales + QA</td>
- <td>Phản hồi/complaint xử lý &amp; đóng vòng</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/02-SOP-200/sop-202-customer-complaint-feedback-rma-and-escape.html">PROC-SAL-001</a>, <a href="../../04-Bieu-Mau/02-FRM-200/frm-213-rma-tracking-log.html">PROC-SAL-002</a> Warranty/RMA, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/02-SOP-200/sop-202-customer-complaint-feedback-rma-and-escape.html">SOP-014</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/02-SOP-200/sop-202-customer-complaint-feedback-rma-and-escape.html">FRM-SAL-004</a></td>
- <td>Satisfaction; response time</td>
-</tr>
-
-<tr>
- <td><span class="cat-sup">SUPPORT</span></td><td>Document &amp; Data control</td><td>QA/QMS</td>
- <td>Tài liệu đúng phiên bản point-of-use</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-101-document-and-data-control.html">SOP-001</a>, <a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-104-data-governance-records-security-and-ip-protection.html">SOP-012</a>, <a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-104-data-governance-records-security-and-ip-protection.html">SOP-011</a></td>
- <td>Wrong revision = 0</td>
-</tr>
-<tr>
- <td><span class="cat-sup">SUPPORT</span></td><td>Calibration &amp; MSA</td><td>QA/QC</td>
- <td>Thiết bị đo đạt yêu cầu</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//06-SOP-600//sop-601-calibration-and-gage-control.html">SOP-007</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-601-calibration-and-gage-control.html">SOP-016</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-602-measurement-system-analysis-msagr-r.html">PROC-MNT-004</a></td>
- <td>Cal on-time; GRR pass</td>
-</tr>
-<tr>
- <td><span class="cat-sup">SUPPORT</span></td><td>Maintenance &amp; asset</td><td>MNT</td>
- <td>Máy sẵn sàng, giảm downtime</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-503-tooling-maintenance-pm-and-breakdown-response.html">PROC-MNT-002</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-108-operational-contingency-plan.html">SOP-018</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-503-tooling-maintenance-pm-and-breakdown-response.html">PROC-MNT-003</a></td>
- <td>Downtime; PM compliance</td>
-</tr>
-<tr>
- <td><span class="cat-sup">SUPPORT</span></td><td>Competence &amp; training</td><td>HR + QA</td>
- <td>Năng lực phù hợp công việc</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/08-SOP-800/sop-801-competence-training-and-certification.html">PROC-HR-001</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/08-SOP-800/sop-801-competence-training-and-certification.html">SOP-QMS-023</a> Competence/Training, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-105-organizational-knowledge-management.html">SOP-QMS-024</a> Knowledge Mgmt, <a href="../../10-Training-Academy/index.html">Training Academy</a></td>
- <td>Training complete; competency pass</td>
-</tr>
-<tr>
- <td><span class="cat-sup">SUPPORT</span></td><td><b>Human Factors &amp; Error Prevention</b></td><td>QA + PROD</td>
- <td>Giảm lỗi do con người; poka-yoke</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//08-SOP-800//sop-804-human-factors-and-error-proofing.html">SOP-024</a>, <a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-005-escalation-and-sla-matrix.html">ANNEX-021</a></td>
- <td>Human error rate; near-miss reported</td>
-</tr>
-
-<tr>
- <td><span class="cat-imp">IMPROVE</span></td><td>Internal audit</td><td>QA/QMS</td>
- <td>Phát hiện &amp; hành động</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//09-SOP-900//sop-901-internal-audit-and-lpa.html">SOP-004</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-901-internal-audit-and-lpa.html">PROC-QA-002</a> (LPA), <a href="../../04-Bieu-Mau/09-FRM-900/frm-901-internal-audit-checklist.html">FRM-QMS-002</a></td>
- <td>Finding closure time</td>
-</tr>
-<tr>
- <td><span class="cat-imp">IMPROVE</span></td><td>Management Review</td><td>Top Mgmt</td>
- <td>Quyết định &amp; nguồn lực</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//09-SOP-900//sop-902-management-review.html">SOP-005</a>, <a href="../../04-Bieu-Mau/09-FRM-900/frm-911-management-review-minutes.html">FRM-QMS-003</a></td>
- <td>% action closed; KPI trend</td>
-</tr>
-<tr>
- <td><span class="cat-imp">IMPROVE</span></td><td>NC/CAPA + Continual Improvement</td><td>QA + All</td>
- <td>Loại bỏ nguyên nhân, giảm lỗi lặp</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//06-SOP-600//sop-606-ncr-capa-and-ipqc-reaction.html">SOP-006</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-903-continual-improvement-and-kaizen.html">SOP-023</a>, <a href="../../04-Bieu-Mau/06-FRM-600/frm-653-a3-pdca-report.html">FRM-OPS-009</a> A3/PDCA</td>
- <td>Recurrence rate; COPQ trend</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<!-- ═══════════════════════════════════════ -->
-<!-- §5 — QUALITY GATES -->
-<!-- ═══════════════════════════════════════ -->
-
-<h2 class="h2" id="m5">5. Quality Gates (Hold/Release) — cơ chế chống lọt lỗi</h2>
-<p>HESEM áp dụng 6 gate bắt buộc. Chi tiết vận hành: <a href="../../03-Tai-Lieu-Van-Hanh//02-Work-Instructions//02-WI-200//wi-201-quality-gates-and-ship-release-quick-ref.html">WI-OPS-001</a>. Gate triển khai trong Epicor (status) + SSOT evidence pack.</p>
-
-<div class="table-card">
-<table class="table">
-<colgroup><col style="width:6%"/><col style="width:16%"/><col style="width:44%"/><col style="width:10%"/><col style="width:24%"/></colgroup>
-<thead><tr><th>Gate</th><th>Điểm kiểm soát</th><th>Bằng chứng tối thiểu (SSOT)</th><th>Owner</th><th>Forms/Records</th></tr></thead>
-<tbody>
-<tr><td><b>G0</b></td><td>Contract Review</td>
-<td>Yêu cầu KH hiểu đúng + risk scan + flowdown verified + CSR register</td>
-<td>Sales/QA</td>
-<td><a href="../../04-Bieu-Mau//02-FRM-200//frm-202-contract-review-checklist.html">FRM-QA-001</a>, <a href="../../04-Bieu-Mau//04-FRM-400//frm-408-flowdown-requirements-checklist.html">FRM-PUR-008</a>, <a href="../../04-Bieu-Mau/01-FRM-100/frm-125-customer-csr-register.html">FRM-QMS-023</a></td>
-</tr>
-<tr><td><b>G1</b></td><td>Engineering Release</td>
-<td>Routing + Setup sheet + Inspection plan + program đúng revision + ORM (nếu trigger)</td>
-<td>ENG</td>
-<td><a href="../../04-Bieu-Mau//02-FRM-200//frm-204-job-kickoff-checklist.html">FRM-OPS-008</a>, <a href="../../04-Bieu-Mau//02-FRM-200//frm-207-operational-risk-management-worksheet.html">FRM-OPS-010</a>, <a href="../../04-Bieu-Mau//01-FRM-100//frm-163-configuration-audit-checklist.html">FRM-QA-017</a></td>
-</tr>
-<tr><td><b>G2</b></td><td>First Piece / FAI</td>
-<td>First-piece record PASS / FAI (nếu yêu cầu) / safety-critical characteristics verified</td>
-<td>QA/QC</td>
-<td><a href="../../04-Bieu-Mau/05-FRM-500/frm-511-setup-and-first-piece-record.html">FRM-CNC-001</a>, <a href="../../04-Bieu-Mau/03-FRM-300/frm-311-fai-report.html">FRM-QA-007</a>, <a href="../../04-Bieu-Mau/06-FRM-600/frm-643-safety-special-characteristics-register.html">FRM-QA-018</a></td>
-</tr>
-<tr><td><b>G3</b></td><td>In-process control</td>
-<td>IPQC log / SPC / tool life log / finishing checklist / in-process probe data</td>
-<td>PROD</td>
-<td><a href="../../04-Bieu-Mau//05-FRM-500//frm-513-tool-life-log.html">FRM-OPS-003</a>, <a href="../../04-Bieu-Mau/07-FRM-700/frm-709-clean-packaging-checklist.html">FRM-OPS-004</a>, <a href="../../04-Bieu-Mau/06-FRM-600/frm-631-spc-and-capability-log.html">FRM-QA-014</a></td>
-</tr>
-<tr><td><b>G4</b></td><td>Final Inspection / Release</td>
-<td>Inspection report + NCR disposition (nếu có) + traceability verified + COC prepared</td>
-<td>QA/QC</td>
-<td><a href="../../04-Bieu-Mau//06-FRM-600//frm-641-final-inspection-report.html">FRM-QA-002</a>, <a href="../../04-Bieu-Mau/06-FRM-600/frm-621-aql-inspection-record.html">FRM-QA-009</a>, <a href="../../04-Bieu-Mau/06-FRM-600/frm-642-final-inspection-and-coc-register.html">FRM-QA-011</a></td>
-</tr>
-<tr><td><b>G5</b></td><td>Shipping</td>
-<td>COC signed + packaging/preservation per spec + shipping label + customer property returned (nếu có)</td>
-<td>WH/LOG</td>
-<td><a href="../../03-Tai-Lieu-Van-Hanh//02-Work-Instructions//02-WI-200//wi-201-quality-gates-and-ship-release-quick-ref.html">WI-OPS-005</a>, <a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/07-WI-700/wi-702-gs1-sscc-labeling.html">WI-OPS-010</a></td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<p class="callout"><b>Nguyên tắc cưỡng chế:</b> Không có bằng chứng tại gate = <b>HOLD</b>. Không được chuyển trạng thái cho đến khi đủ evidence. Job Dossier template: <a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/05-WI-500/wi-504-job-dossier-and-evidence-pack.html">ANNEX-QMS-003</a>.</p>
-
-<!-- ═══════════════════════════════════════ -->
-<!-- §6 — SEMICONDUCTOR / SEMI -->
-<!-- ═══════════════════════════════════════ -->
-
-<h2 class="h2" id="m6">6. Tích hợp yêu cầu Semiconductor / SEMI Standards</h2>
-<p>QMS của HESEM đã triển khai các yêu cầu chuyên biệt cho semiconductor manufacturing. Mỗi yêu cầu có SOP/PROC chuyên biệt, form, và audit evidence.</p>
-
-<div class="table-card">
-<table class="table">
-<colgroup><col style="width:20%"/><col style="width:12%"/><col style="width:28%"/><col style="width:22%"/><col style="width:18%"/></colgroup>
-<thead><tr><th>Yêu cầu Semiconductor</th><th>Tham chiếu</th><th>SOP / PROC triển khai</th><th>Forms / Evidence</th><th>Trạng thái</th></tr></thead>
-<tbody>
-<tr>
- <td><b>Contamination Control</b></td>
- <td>SEMI F57, ISO 8.5.1</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-103-risk-opportunity-fmea-and-control-plan.html">SOP-QMS-003</a> (Risk &amp; Opportunity)<br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-103-risk-opportunity-fmea-and-control-plan.html">PROC-QA-005</a> (PFMEA/CP)</td>
- <td><a href="../../04-Bieu-Mau//01-FRM-100//frm-131-risk-and-opportunity-register.html">FRM-QMS-005</a> Risk Register<br/><a href="../../04-Bieu-Mau//02-FRM-200//frm-207-operational-risk-management-worksheet.html">FRM-OPS-010</a> ORM Worksheet<br/><a href="../../04-Bieu-Mau//01-FRM-100//frm-133-control-plan.html">FRM-QA-012</a> Control Plan</td>
- <td><span class="impl">IMPLEMENTED</span></td>
-</tr>
-<tr>
- <td><b>Surface Treatment Qualification</b></td>
- <td>SEMI F19, ISO 8.4</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-106-change-and-configuration-management.html">SOP-QMS-017</a><br/><a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-106-change-and-configuration-management.html">SOP-QMS-008</a> (Change Mgmt)</td>
- <td><a href="../../04-Bieu-Mau//01-FRM-100//frm-163-configuration-audit-checklist.html">FRM-QA-017</a> Config Audit<br/><a href="../../04-Bieu-Mau//01-FRM-100//frm-162-change-impact-matrix.html">FRM-QMS-006</a> Change Impact</td>
- <td><span class="impl">IMPLEMENTED</span></td>
-</tr>
-<tr>
- <td><b>Clean Packaging &amp; Handling</b></td>
- <td>ISO 8.5.4</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/07-SOP-700/sop-703-product-safety-conformity-and-fod-prevention.html">SOP-QMS-016</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/07-WI-700/wi-721-fod-prevention-at-machine.html">ANNEX-QMS-017</a> (FOD)</td>
- <td><a href="../../04-Bieu-Mau/06-FRM-600/frm-643-safety-special-characteristics-register.html">FRM-QA-018</a> Safety-Critical Register</td>
- <td><span class="impl">IMPLEMENTED</span></td>
-</tr>
-<tr>
- <td><b>Material Authenticity &amp; Traceability</b></td>
- <td>ISO 8.4, 8.5.2</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//04-SOP-400//sop-402-material-verification-traceability-and-counterfeit-prevention.html">SOP-QMS-018</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/04-SOP-400/sop-401-supplier-control-and-special-process.html">SOP-QMS-010</a></td>
- <td><a href="../../04-Bieu-Mau//04-FRM-400//frm-408-flowdown-requirements-checklist.html">FRM-PUR-008</a> Flowdown<br/><a href="../../04-Bieu-Mau//04-FRM-400//frm-402-supplier-evaluation.html">FRM-PUR-002</a> Supplier Eval</td>
- <td><span class="impl">IMPLEMENTED</span></td>
-</tr>
-<tr>
- <td><b>Cleanliness Verification</b></td>
- <td>SEMI F57, ISO 8.6</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/04-SOP-400/sop-401-supplier-control-and-special-process.html">SOP-QMS-019</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/04-SOP-400/sop-401-supplier-control-and-special-process.html">PROC-PUR-001</a></td>
- <td><a href="../../04-Bieu-Mau//04-FRM-400//frm-411-outsourced-processing-incoming-inspection.html">FRM-QA-005</a> Outsource Incoming<br/><a href="../../04-Bieu-Mau//04-FRM-400//frm-405-supplier-scorecard.html">FRM-PUR-005</a> Scorecard</td>
- <td><span class="impl">IMPLEMENTED</span></td>
-</tr>
-<tr>
- <td><b>Part Classification &amp; QPL</b></td>
- <td>ISO 8.5.2, SEMI S2</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//08-SOP-800//sop-804-human-factors-and-error-proofing.html">SOP-QMS-021</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/08-SOP-800/sop-802-incident-near-miss-and-ehs.html">PROC-HSE-001</a></td>
- <td><a href="../../04-Bieu-Mau/01-FRM-100/frm-171-communication-plan-and-log.html">FRM-OPS-005</a> Daily Actions<br/><a href="../../04-Bieu-Mau/01-FRM-100/frm-151-lessons-learned-log.html">FRM-QMS-011</a> Lessons Learned</td>
- <td><span class="impl">IMPLEMENTED</span></td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<p class="muted">Cross-reference matrix đầy đủ: <a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/02-ANNEX-Standards/ref-008-semi-and-csr-matrix.html">ANNEX-QMS-024 — SEMI Standards &amp; CSR Matrix</a>.</p>
-
-<!-- ═══════════════════════════════════════ -->
-<!-- §7 — CUSTOMER PROPERTY (NEW) -->
-<!-- ═══════════════════════════════════════ -->
-
-<h2 class="h2" id="m7">7. Customer Property Control</h2>
-<p>HESEM nhận và kiểm soát tài sản khách hàng (customer property) theo 4 loại, tuân thủ ISO 8.5.3. Quy trình đầy đủ: <a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//02-SOP-200//sop-203-customer-property-control.html">SOP-QMS-022</a>.</p>
-
-<div class="table-card">
-<table class="table">
-<colgroup><col style="width:20%"/><col style="width:30%"/><col style="width:25%"/><col style="width:25%"/></colgroup>
-<thead><tr><th>Loại tài sản</th><th>Ví dụ</th><th>Kiểm soát chính</th><th>Record</th></tr></thead>
-<tbody>
-<tr>
- <td><b>Sở hữu trí tuệ (IP)</b></td>
- <td>Bản vẽ, 3D model, spec, NDA</td>
- <td>Access control M365; NDA log; không sao chép trái phép</td>
- <td>Customer Property Register (FRM-QMS-024)</td>
-</tr>
-<tr>
- <td><b>Vật tư KH cấp (GFM)</b></td>
- <td>Raw material, special alloy, casting</td>
- <td>Receiving verify; segregated storage; traceability</td>
- <td>FRM-QMS-024 + Receiving record</td>
-</tr>
-<tr>
- <td><b>Trang thiết bị KH cấp (GFE)</b></td>
- <td>Fixture, tooling, gage, test equipment</td>
- <td>Identification tag; calibration (nếu gage); condition log</td>
- <td>FRM-QMS-024 + Calibration log</td>
-</tr>
-<tr>
- <td><b>Dữ liệu KH (DATA)</b></td>
- <td>Test data, inspection data, production records</td>
- <td>SharePoint access-controlled; backup; retention per contract</td>
- <td>FRM-QMS-024</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<p class="callout"><b>Nguyên tắc:</b> Mất/hư hỏng tài sản KH → báo KH trong 24h + ghi NCR + CAPA. Trả lại khi kết thúc hợp đồng hoặc theo thỏa thuận.</p>
-
-<!-- ═══════════════════════════════════════ -->
-<!-- §8 — CLIMATE CHANGE (NEW) -->
-<!-- ═══════════════════════════════════════ -->
-
-<h2 class="h2" id="m8">8. Climate Change Relevance</h2>
-<p>Theo <b>ISO 9001:2026/Amd.1:2024</b>, HESEM đã đánh giá mức độ liên quan của biến đổi khí hậu đối với QMS. Quy trình xác định (relevant/not relevant), rủi ro cụ thể cho CNC machining tại Việt Nam, và cách ghi nhận vào Risk Register được quy định tại:</p>
+<h2 class="h2" id="m7">7. Đo lường, review và cải tiến</h2>
 <ul class="list">
- <li><a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-103-risk-opportunity-fmea-and-control-plan.html">SOP-QMS-003 §7</a> — Quy trình đánh giá climate change relevance (4 bước: C1→C4)</li>
- <li><a href="../../04-Bieu-Mau/01-FRM-100/frm-124-climate-change-assessment-record.html">FRM-QMS-021</a> — Climate Context Decision Record (ghi nhận kết quả: relevant/not relevant + lý do + phê duyệt GM)</li>
- <li><a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/02-ANNEX-Standards/ref-007-climate-change-assessment.html">ANNEX-QMS-016</a> — Climate Change Relevance Assessment (phương pháp chi tiết)</li>
+  <li>KPI phải phản ánh tối thiểu chất lượng, giao hàng, hiệu suất, an toàn và sức khỏe hệ thống; nguồn dữ liệu phải xác định rõ và có owner.</li>
+  <li><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-901-internal-audit-and-lpa.html">SOP-901</a> điều khiển audit và LPA; <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-902-management-review.html">SOP-902</a> điều khiển management review.</li>
+  <li><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-606-ncr-capa-and-ipqc-reaction.html">SOP-606</a> và <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-903-continual-improvement-and-kaizen.html">SOP-903</a> là lõi của vòng lặp sửa lỗi, chuẩn hóa và cải tiến.</li>
+  <li>Một thay đổi chỉ được xem là hoàn thành khi đã cập nhật tài liệu liên quan, xác nhận đào tạo, điều chỉnh RACI nếu cần và chứng minh trạng thái mới đang được vận hành thật.</li>
 </ul>
-<p class="muted">Kết quả đánh giá được review hàng năm trong Management Review (<a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//09-SOP-900//sop-902-management-review.html">SOP-QMS-005</a>). Nếu relevant: rủi ro được ghi vào <a href="../../04-Bieu-Mau//01-FRM-100//frm-131-risk-and-opportunity-register.html">FRM-QMS-005</a> với category "Climate / External Context".</p>
 
-<!-- ═══════════════════════════════════════ -->
-<!-- §9 — PERFORMANCE & IMPROVEMENT -->
-<!-- ═══════════════════════════════════════ -->
-
-<h2 class="h2" id="m9">9. Đánh giá hiệu suất &amp; Cải tiến</h2>
-
-<div class="table-card">
-<table class="table">
-<colgroup><col style="width:22%"/><col style="width:40%"/><col style="width:38%"/></colgroup>
-<thead><tr><th>Cơ chế</th><th>Mô tả</th><th>Tài liệu chuẩn</th></tr></thead>
-<tbody>
-<tr>
- <td><b>KPI Scoreboard</b></td>
- <td>Định nghĩa KPI, nguồn dữ liệu, nhịp cập nhật, ngưỡng cảnh báo. Power BI dashboard cho tier meetings.</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh//02-Work-Instructions//05-WI-500//wi-503-kpi-scoreboard-and-dashboard.html">WI-OPS-004</a>, <a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/03-ANNEX-Digital/ref-012-power-bi-deployment.html">ANNEX-008</a> (KPI Dictionary), <a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/03-ANNEX-Digital/ref-012-power-bi-deployment.html">ANNEX-010</a> (Power BI)</td>
-</tr>
-<tr>
- <td><b>Tier Meetings</b></td>
- <td>Tier 1 (daily shop floor) → Tier 2 (weekly dept) → Tier 3 (monthly mgmt). Escalation SLA.</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/05-WI-500/wi-502-tier-1-2-3-daily-management.html">WI-OPS-007</a>, <a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/05-WI-500/wi-502-tier-1-2-3-daily-management.html">ANNEX-009</a>, <a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-005-escalation-and-sla-matrix.html">ANNEX-021</a></td>
-</tr>
-<tr>
- <td><b>Management Review</b></td>
- <td>Quyết định điều hành dựa trên KPI, customer feedback, OTD, DPPM, supplier, risk/climate, audit findings.</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//09-SOP-900//sop-902-management-review.html">SOP-QMS-005</a>, <a href="../../04-Bieu-Mau/09-FRM-900/frm-911-management-review-minutes.html">FRM-QMS-003</a></td>
-</tr>
-<tr>
- <td><b>Internal Audit + LPA</b></td>
- <td>System audit (annual) + Layered Process Audit (weekly/monthly sampling). 3-minute retrieval test.</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//09-SOP-900//sop-901-internal-audit-and-lpa.html">SOP-004</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-901-internal-audit-and-lpa.html">PROC-QA-002</a>, <a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/05-WI-500/wi-504-job-dossier-and-evidence-pack.html">ANNEX-003</a></td>
-</tr>
-<tr>
- <td><b>NC/CAPA</b></td>
- <td>8D/A3 methodology. Recurrence prevention. Escape containment.</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//06-SOP-600//sop-606-ncr-capa-and-ipqc-reaction.html">SOP-006</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/02-SOP-200/sop-202-customer-complaint-feedback-rma-and-escape.html">SOP-014</a>, <a href="../../04-Bieu-Mau//06-FRM-600//frm-652-capa-8d-report.html">FRM-QA-004</a></td>
-</tr>
-<tr>
- <td><b>Continual Improvement</b></td>
- <td>Kaizen backlog, A3/PDCA, lessons learned, SMED, suggestion program.</td>
- <td><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-903-continual-improvement-and-kaizen.html">SOP-023</a>, <a href="../../04-Bieu-Mau/06-FRM-600/frm-653-a3-pdca-report.html">FRM-OPS-009</a>, <a href="../../04-Bieu-Mau/01-FRM-100/frm-151-lessons-learned-log.html">FRM-QMS-011</a></td>
-</tr>
-</tbody>
-</table>
-</div>
-
-<!-- ═══════════════════════════════════════ -->
-<!-- §10 — REFERENCES -->
-<!-- ═══════════════════════════════════════ -->
-
-<h2 class="h2" id="m10">10. Tài liệu liên quan</h2>
-
-<h3 class="h3">Policies &amp; Manual</h3>
+<h2 class="h2" id="m8">8. Tài liệu liên quan</h2>
 <ul class="list">
- <li><a href="../02-Policies-Objectives/pol-qms-001-quality-policy.html">POL-QMS-001 — Quality Policy</a></li>
+  <li><a href="../02-Policies-Objectives/pol-qms-001-quality-policy.html">POL-QMS-001 — Quality Policy</a></li>
+  <li><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-101-document-and-data-control.html">SOP-101 — Document and Data Control</a></li>
+  <li><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-102-quality-policy-objectives-and-organizational-context.html">SOP-102 — Quality Policy Objectives and Organizational Context</a></li>
+  <li><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-106-change-and-configuration-management.html">SOP-106 — Change and Configuration Management</a></li>
+  <li><a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-001-detailed-process-map.html">REF-001 — Detailed Process Map</a></li>
+  <li><a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-002-iso-9001-clause-to-sop-matrix.html">REF-002 — ISO Clause to SOP Matrix</a></li>
+  <li><a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/02-ANNEX-Standards/ref-008-semi-and-csr-matrix.html">REF-008 — SEMI and CSR Matrix</a></li>
+  <li><a href="../../04-Bieu-Mau/01-FRM-100/frm-121-context-analysis-swot-pestle.html">FRM-121</a>, <a href="../../04-Bieu-Mau/01-FRM-100/frm-122-interested-parties-register.html">FRM-122</a>, <a href="../../04-Bieu-Mau/01-FRM-100/frm-123-interested-party-requirements-register.html">FRM-123</a>, <a href="../../04-Bieu-Mau/01-FRM-100/frm-124-climate-change-assessment-record.html">FRM-124</a>, <a href="../../04-Bieu-Mau/01-FRM-100/frm-125-customer-csr-register.html">FRM-125</a></li>
 </ul>
 
-<h3 class="h3">SOPs (trọng điểm)</h3>
-<ul class="list">
- <li><a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-101-document-and-data-control.html">SOP-001</a> Document Control</li>
- <li><a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-103-risk-opportunity-fmea-and-control-plan.html">SOP-003</a> Risk &amp; Opportunity (+Climate §7)</li>
- <li><a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//09-SOP-900//sop-901-internal-audit-and-lpa.html">SOP-004</a> Internal Audit</li>
- <li><a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//09-SOP-900//sop-902-management-review.html">SOP-005</a> Management Review</li>
- <li><a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//06-SOP-600//sop-606-ncr-capa-and-ipqc-reaction.html">SOP-006</a> NC/CAPA</li>
- <li><a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-106-change-and-configuration-management.html">SOP-008</a> Change Management</li>
- <li><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/04-SOP-400/sop-401-supplier-control-and-special-process.html">SOP-010</a> External Provider</li>
- <li><a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-104-data-governance-records-security-and-ip-protection.html">SOP-012</a> M365 Audit-Ready</li>
- <li><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/07-SOP-700/sop-703-product-safety-conformity-and-fod-prevention.html">SOP-019</a> Product Safety</li>
- <li><a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-106-change-and-configuration-management.html">SOP-020</a> Configuration</li>
- <li><a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//04-SOP-400//sop-402-material-verification-traceability-and-counterfeit-prevention.html">SOP-021</a> Counterfeit</li>
- <li><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/04-SOP-400/sop-401-supplier-control-and-special-process.html">SOP-022</a> Special Process</li>
- <li><a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//08-SOP-800//sop-804-human-factors-and-error-proofing.html">SOP-024</a> Human Factors</li>
- <li><a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//02-SOP-200//sop-203-customer-property-control.html">SOP-029</a> Customer Property</li>
-</ul>
-
-<li><a href="../../03-Tai-Lieu-Van-Hanh//01-SOPs//07-SOP-700//sop-702-contamination-control-and-cleanliness.html">SOP-028</a> Contamination Control &amp; Cleanliness</li>
-</ul>
-<h3 class="h3">New Semiconductor Documents</h3>
-<ul class="list">
- <li><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/07-SOP-700/sop-702-contamination-control-and-cleanliness.html">PROC-QA-007</a> Cleanliness Inspection &amp; Particle Count</li>
- <li><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/04-SOP-400/sop-401-supplier-control-and-special-process.html">PROC-QA-008</a> Surface Treatment Qualification</li>
- <li><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/07-SOP-700/sop-702-contamination-control-and-cleanliness.html">WI-OPS-018</a> Clean Packaging &amp; Handling</li>
- <li><a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/07-WI-700/wi-712-ultrasonic-cleaning.html">WI-OPS-019</a> Ultrasonic Cleaning Standard Work</li>
- <li><a href="../../04-Bieu-Mau/07-FRM-700/frm-711-cleanliness-verification-form.html">FRM-QA-019</a> Cleanliness Verification Record</li>
- <li><a href="../../04-Bieu-Mau/07-FRM-700/frm-709-clean-packaging-checklist.html">FRM-WHS-009</a> Clean Packaging Checklist</li>
- <li><a href="../../04-Bieu-Mau/03-FRM-300/frm-304-semiconductor-part-classification.html">FRM-ENG-005</a> Semiconductor Part Classification</li>
- <li><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/07-SOP-700/sop-702-contamination-control-and-cleanliness.html">ANNEX-QA-007</a> Surface Finish &amp; Vacuum Compatibility</li>
- <li><a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/02-ANNEX-Standards/ref-008-semi-and-csr-matrix.html">ANNEX-QMS-024</a> SEMI Standards &amp; CSR Matrix</li>
-</ul>
-<h3 class="h3">Annexes (trọng điểm)</h3>
-<ul class="list">
- <li><a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/05-WI-500/wi-504-job-dossier-and-evidence-pack.html">ANNEX-003</a> Audit Evidence Pack Master</li>
- <li><a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/02-ANNEX-Standards/ref-007-climate-change-assessment.html">ANNEX-016</a> Climate Change Assessment</li>
- <li><a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/07-WI-700/wi-721-fod-prevention-at-machine.html">ANNEX-017</a> FOD Prevention</li>
- <li><a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/02-ANNEX-Standards/ref-008-semi-and-csr-matrix.html">ANNEX-025</a> SEMI Standards &amp; CSR Matrix</li>
- <li><a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/03-ANNEX-Digital/ref-010-m365-lists-and-field-mapping.html">ANNEX-020</a> M365 Folder Blueprint</li>
- <li><a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-005-escalation-and-sla-matrix.html">ANNEX-021</a> Escalation &amp; SLA</li>
-</ul>
-
-<div class="small muted">Draft (2026-02-11): Ban hành lần đầu — scope, process map, quality gates.<br/>Draft (2026-02-25): Chuyển đổi semiconductor — thay ISO 9001:2026 mapping → SEMI Standards &amp; CSR Matrix; cập nhật document architecture (25 SOP, 44 ANNEX, 34 PROC, 24 WI, 106 FRM); thêm 10 tài liệu semiconductor (SOP-028, PROC-QA-007/008, WI-OPS-018/019, FRM-QA-019, FRM-WHS-009, FRM-ENG-005, ANNEX-QA-007, ANNEX-QMS-024); scope = CNC machining cho semiconductor equipment parts.</div>
+<div class="small muted">Viết lại theo bối cảnh tài liệu hiện hành của HESEM QMS Portal: manual tập trung vào kiến trúc hệ thống, nhóm tài liệu, workflow kiểm soát, tổ chức - RACI và chuỗi quá trình 100-900; loại bỏ các mô tả đếm số tài liệu và giả định lưu trữ đã cũ.</div>
 
 </div></div></div></div></div>
 <div class="no-screen print-disclaimer" style="display:none;text-align:center;font-size:9px;color:#999;padding:8px 0;border-top:1px solid #ddd;margin-top:20px">
@@ -732,14 +214,3 @@ td,th{max-width:400px;overflow-wrap:break-word;word-wrap:break-word}
 <script src="../../assets/app.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-

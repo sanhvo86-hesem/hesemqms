@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
 <meta charset="utf-8"/>
@@ -6,19 +6,23 @@
 <title>SOP-102 — Quality Policy Objectives and Organizational Context | HESEM QMS</title>
 <link href="../../../assets/style.css" rel="stylesheet"/>
 <style>
-/* === PAGE BREAK & OVERFLOW FIX (auto-applied) === */
-@media print {
+@media print{
   .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.vstep{page-break-inside:avoid;break-inside:avoid}
   h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
   .form-header,.sig-row,.sign-row{page-break-inside:avoid;break-inside:avoid}
   tr{page-break-inside:avoid;break-inside:avoid}
-  thead{display:table-header-group}tfoot{display:table-footer-group}
-  p{orphans:3;widows:3}.table-card{overflow:visible!important}
+  thead{display:table-header-group}
+  tfoot{display:table-footer-group}
+  p{orphans:3;widows:3}
+  .table-card{overflow:visible!important}
 }
 .page-body{overflow-x:hidden}
 .table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
 table{max-width:100%;table-layout:auto}
 td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
+.mini-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.mini-card{background:var(--bg);border:1px solid var(--ln);border-radius:var(--r);padding:16px}
+.mini-card h3{margin:0 0 8px;font-size:14px;color:var(--navy)}
 </style>
 </head>
 <body>
@@ -33,7 +37,7 @@ td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
 </div>
 <div class="title">
   <strong>SOP-102 — Quality Policy Objectives and Organizational Context</strong>
-  <span class="sub-vn"></span>
+  <span class="sub-vn">Thủ tục quản trị bối cảnh, chính sách, mục tiêu và cơ chế xem xét thay đổi hệ thống</span>
 </div>
 <div class="meta">
   <div class="row"><span><b>Mã:</b></span><span>SOP-102</span></div>
@@ -45,152 +49,164 @@ td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
 </div>
 <div class="doc-content" id="docContent"><div class="form-sheet">
 
+<div class="card">
+  <div class="badge"><span class="dot"></span>SOP-102</div>
+  <h1 class="h1" style="margin-top:10px">SOP-102 — Chính sách chất lượng, mục tiêu và bối cảnh tổ chức</h1>
+  <p class="lead">Thủ tục này chuyển chính sách cấp lãnh đạo thành cơ chế điều hành có thể kiểm soát: xác định bối cảnh, quản lý bên quan tâm và CSR, thiết lập scope, đặt mục tiêu chất lượng, và kích hoạt cập nhật hệ thống khi có thay đổi đáng kể.</p>
+</div>
+
 <div class="iso-map">
   <div class="iso-title">Chuẩn mực áp dụng</div>
-  <div class="req"><span class="req-tag shall">PHẢI</span><div>Xác định bối cảnh tổ chức và các vấn đề nội/ngoại bộ ảnh hưởng đến mục đích và định hướng chiến lược. <span class="iso-ref">ISO 4.1</span></div></div>
-<div class="req"><span class="req-tag shall">PHẢI</span><div>Xác định các bên quan tâm (interested parties) và yêu cầu liên quan đến QMS. <span class="iso-ref">ISO 4.2</span></div></div>
-<div class="req"><span class="req-tag shall">PHẢI</span><div>Xác định phạm vi QMS; duy trì thông tin dạng văn bản về phạm vi. <span class="iso-ref">ISO 4.3</span></div></div>
-<div class="req"><span class="req-tag shall">PHẢI</span><div>Thiết lập, triển khai và duy trì các quá trình QMS và tiêu chí kiểm soát. <span class="iso-ref">ISO 4.4</span></div></div>
-<div class="req"><span class="req-tag shall">PHẢI</span><div>Thiết lập chính sách chất lượng; truyền thông và sẵn có. <span class="iso-ref">ISO 5.2</span></div></div>
-<div class="req"><span class="req-tag shall">PHẢI</span><div>Thiết lập mục tiêu chất lượng có thể đo; lập kế hoạch đạt mục tiêu và theo dõi. <span class="iso-ref">ISO 6.2</span></div></div>
-<div class="req"><span class="req-tag shall">PHẢI</span><div>Xem xét rủi ro/cơ hội khi lập kế hoạch QMS; cập nhật khi bối cảnh thay đổi. <span class="iso-ref">ISO 6.1</span></div></div>
-<div class="req"><span class="req-tag should">NÊN</span><div>Đánh giá mức liên quan của biến đổi khí hậu trong bối cảnh và yêu cầu bên quan tâm theo ISO 9001 Amendment 1:2024. <span class="iso-ref">ISO 4.1</span> <span class="iso-ref">ISO 4.2</span> <span class="iso-ref">ISO 9001:2015/Amd 1:2024</span></div></div>
+  <div class="req"><span class="req-tag shall">PHẢI</span><div>Xác định bối cảnh tổ chức và các vấn đề nội bộ, ngoại bộ ảnh hưởng đến định hướng chiến lược và khả năng đạt kết quả dự kiến của QMS. <span class="iso-ref">ISO 4.1</span></div></div>
+  <div class="req"><span class="req-tag shall">PHẢI</span><div>Xác định các bên quan tâm, yêu cầu liên quan, phạm vi QMS và các quá trình cần thiết cho hệ thống. <span class="iso-ref">ISO 4.2</span> <span class="iso-ref">ISO 4.3</span> <span class="iso-ref">ISO 4.4</span></div></div>
+  <div class="req"><span class="req-tag shall">PHẢI</span><div>Thiết lập chính sách chất lượng, mục tiêu đo được, kế hoạch đạt mục tiêu và cơ chế theo dõi - xem xét - cải tiến. <span class="iso-ref">ISO 5.2</span> <span class="iso-ref">ISO 6.2</span> <span class="iso-ref">ISO 9.1</span> <span class="iso-ref">ISO 9.3</span></div></div>
+  <div class="req"><span class="req-tag should">NÊN</span><div>Đánh giá tính liên quan của climate, continuity, customer-specific requirements và thay đổi tổ chức khi cập nhật bối cảnh. <span class="iso-ref">ISO 4.1</span> <span class="iso-ref">ISO 6.1</span> <span class="iso-ref">ISO 9001 Amd.1:2024</span></div></div>
 </div>
 
 <div class="preface-block">
-  <h2 class="h2">Cách làm tại HESEM (Job Order, High-Mix Low-Volume)</h2>
-  <div class="grid-2">
-    <div>
-      <div class="card-title">Đầu vào bắt buộc</div>
-      <ul>
-        <li>SWOT + PESTLE theo FRM-121 tối thiểu 01 lần/năm hoặc khi có sự kiện lớn: thay đổi OEM, mở thêm máy/cell, đổi mô hình ca, sự cố an toàn nghiêm trọng.</li>
-        <li>Bên quan tâm và yêu cầu: khách hàng OEM, NCC vật liệu/tool, nhân sự ca, cơ quan quản lý (PCCC/môi trường), cộng đồng xung quanh.</li>
+  <h2 class="h2">Cách áp dụng tại HESEM</h2>
+  <div class="mini-grid">
+    <div class="mini-card">
+      <h3>Đầu vào chính</h3>
+      <ul class="list">
+        <li>Chiến lược kinh doanh, nhu cầu khách hàng, CSR, dữ liệu vận hành, audit, NCR/CAPA, nguồn lực và thay đổi tổ chức.</li>
+        <li>Đánh giá bối cảnh tối thiểu hằng năm hoặc khi có thay đổi lớn.</li>
       </ul>
     </div>
-    <div>
-      <div class="card-title">Đầu ra bắt buộc</div>
-      <ul>
-        <li>Scope QMS (đoạn mô tả phạm vi) được công bố trên cổng QMS.</li>
-        <li>Process map &amp; tương tác quá trình: dùng làm khung khi audit, khi xây KPI và khi mở CAPA hệ thống.</li>
-        <li>Mục tiêu chất lượng dạng “chỉ số + ngưỡng + chủ sở hữu + kỳ đo”.</li>
+    <div class="mini-card">
+      <h3>Đầu ra chính</h3>
+      <ul class="list">
+        <li>Scope QMS được công bố.</li>
+        <li>Mục tiêu cấp công ty và mục tiêu bộ phận có owner, metric, target và nguồn dữ liệu.</li>
+        <li>Hành động cập nhật tài liệu, rủi ro, đào tạo hoặc review khi bối cảnh thay đổi.</li>
       </ul>
-      <div class="note"><b>Quy tắc cascade:</b> Mục tiêu cấp công ty → phòng ban → cá nhân. Mỗi mục tiêu <b>PHẢI</b> có cách đo và nguồn dữ liệu (Epicor, log QC, log ship, OEE, audit log).</div>
     </div>
   </div>
 </div>
 
 <h2 class="h2">1. Mục đích</h2>
-<p>Thiết lập cách viết/chuyển tải chính sách chất lượng, cách phân tích bối cảnh, quản lý bên quan tâm, xác định phạm vi QMS và cascade mục tiêu để đo và điều hành theo dữ liệu.</p>
-<h2 class="h2">2. Phạm vi</h2>
-<p>Áp dụng cho cấp công ty và toàn bộ phòng ban tại HESEM, bao gồm mục tiêu theo tháng/quý/năm và các đánh giá bối cảnh liên quan hoạt động gia công CNC bán dẫn.</p>
-<h2 class="h2">3. Thuật ngữ</h2>
+<p>Thiết lập cách HESEM xác định và cập nhật bối cảnh tổ chức, truyền đạt chính sách chất lượng, thiết lập mục tiêu chất lượng, xác định phạm vi QMS và chuyển hóa thay đổi hệ thống thành hành động kiểm soát có bằng chứng.</p>
 
+<h2 class="h2">2. Phạm vi</h2>
+<p>Áp dụng cho cấp công ty và toàn bộ chủ quá trình tại HESEM. Thủ tục này bao phủ các hoạt động liên quan đến chính sách, mục tiêu, bối cảnh, bên quan tâm, CSR, climate relevance, phạm vi QMS và việc xem xét thay đổi có thể ảnh hưởng tới hệ thống.</p>
+
+<h2 class="h2">3. Thuật ngữ</h2>
 <div class="table-card"><table class="table">
 <thead><tr><th>Thuật ngữ</th><th>Diễn giải</th></tr></thead>
 <tbody>
-<tr><td><b>Chính sách chất lượng</b> (Quality Policy)</td><td>Cam kết cấp CEO về định hướng chất lượng, tuân thủ và cải tiến; dùng để đặt mục tiêu và đào tạo.</td></tr>
-<tr><td><b>Mục tiêu chất lượng</b> (Quality Objectives)</td><td>Chỉ số đo được theo kỳ (tháng/quý/năm) có ngưỡng đạt và kế hoạch hành động.</td></tr>
-<tr><td><b>Bối cảnh tổ chức</b> (Context)</td><td>Các yếu tố nội bộ/ngoại bộ tác động năng lực gia công CNC bán dẫn: năng lực máy, nhân sự ca, CMM, độ sạch, NCC vật liệu, rủi ro logistics…</td></tr>
-<tr><td><b>Bên quan tâm</b> (Interested Parties)</td><td>Nhóm/cá nhân có thể ảnh hưởng hoặc bị ảnh hưởng bởi QMS: khách hàng, nhân viên, NCC, cơ quan quản lý, cộng đồng.</td></tr>
-<tr><td><b>Phạm vi QMS</b> (Scope)</td><td>Mô tả hoạt động/sản phẩm/dịch vụ nằm trong QMS và địa điểm áp dụng.</td></tr>
-<tr><td><b>Đánh giá biến đổi khí hậu</b> (Climate Change Relevance)</td><td>Đánh giá “có/không” và mức tác động của khí hậu tới bối cảnh và yêu cầu bên quan tâm; ghi FRM-124.</td></tr>
+<tr><td><b>Chính sách chất lượng</b></td><td>Cam kết cấp lãnh đạo về định hướng chất lượng, tuân thủ và cải tiến, làm nền cho các mục tiêu và quyết định điều hành.</td></tr>
+<tr><td><b>Mục tiêu chất lượng</b></td><td>Chỉ số đo được có mục tiêu, kỳ đo, nguồn dữ liệu, chủ sở hữu và ngưỡng hành động.</td></tr>
+<tr><td><b>Bối cảnh tổ chức</b></td><td>Tập hợp các yếu tố nội bộ, ngoại bộ ảnh hưởng tới định hướng chiến lược và hiệu lực QMS.</td></tr>
+<tr><td><b>Bên quan tâm</b></td><td>Các cá nhân/nhóm có thể ảnh hưởng hoặc bị ảnh hưởng bởi QMS, bao gồm khách hàng, nhân sự, NCC, cơ quan quản lý và bên liên quan khác.</td></tr>
+<tr><td><b>CSR</b></td><td>Customer-specific requirements; yêu cầu riêng của khách hàng cần được chuyển thành kiểm soát trong tài liệu và vận hành.</td></tr>
+<tr><td><b>Scope QMS</b></td><td>Mô tả hoạt động, sản phẩm, dịch vụ và địa điểm nằm trong hệ thống quản lý chất lượng.</td></tr>
 </tbody></table></div>
 
-<h2 class="h2">4. RACI</h2>
-
+<h2 class="h2">4. Trách nhiệm</h2>
 <div class="table-card"><table class="table">
 <thead><tr><th>Vai trò</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead>
 <tbody>
 <tr><td><b>QMS Engineer</b></td><td>X</td><td></td><td></td><td></td></tr>
-<tr><td><b>QA Manager</b></td><td></td><td>X</td><td></td><td></td></tr>
-<tr><td><b>CEO / Tổng Giám đốc</b></td><td></td><td></td><td>X</td><td></td></tr>
-<tr><td><b>Production Director</b></td><td></td><td></td><td>X</td><td></td></tr>
-<tr><td><b>Engineering Lead</b></td><td></td><td></td><td>X</td><td></td></tr>
-<tr><td><b>SC Manager</b></td><td></td><td></td><td>X</td><td></td></tr>
-<tr><td><b>Finance Manager</b></td><td></td><td></td><td>X</td><td></td></tr>
-<tr><td><b>HR Manager</b></td><td></td><td></td><td>X</td><td></td></tr>
-<tr><td><b>IT Admin</b></td><td></td><td></td><td>X</td><td></td></tr>
-<tr><td><b>Epicor System Administrator</b></td><td></td><td></td><td>X</td><td></td></tr>
-<tr><td><b>EHS Specialist</b></td><td></td><td></td><td>X</td><td></td></tr>
-<tr><td><b>Toàn bộ nhân viên (All employees)</b></td><td></td><td></td><td></td><td>X</td></tr>
+<tr><td><b>QA Manager</b></td><td>X</td><td>X</td><td></td><td></td></tr>
+<tr><td><b>Tổng Giám đốc</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>Các process owner / trưởng bộ phận</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>HR Manager / Training owner</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>IT / ERP / data owners</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>Toàn bộ quản lý liên quan</b></td><td></td><td></td><td></td><td>X</td></tr>
 </tbody></table></div>
 
 <h2 class="h2">5. Quy trình</h2>
 
-<h3 class="h3">5.1 Thiết lập &amp; truyền thông Chính sách chất lượng</h3>
+<h3 class="h3">5.1 Thiết lập và truyền đạt chính sách chất lượng</h3>
 <ul>
-  <li>CEO <b>PHẢI</b> phê duyệt chính sách chất lượng và mục tiêu cấp công ty tối thiểu 01 lần/năm.</li>
-  <li>QA Manager <b>PHẢI</b> công bố chính sách trên cổng QMS và dán tại khu vực xưởng/QA/packaging.</li>
-  <li>HR Manager <b>PHẢI</b> đưa chính sách vào đào tạo onboarding; lưu record đào tạo theo SOP-801 (nếu áp dụng).</li>
+  <li>Tổng Giám đốc phê duyệt <a href="../../../02-Tai-Lieu-He-Thong/02-Policies-Objectives/pol-qms-001-quality-policy.html">POL-QMS-001</a> và bảo đảm chính sách phù hợp với định hướng chiến lược.</li>
+  <li>QA Manager và QMS Engineer công bố chính sách trên portal, liên kết với <a href="../../../02-Tai-Lieu-He-Thong/01-Quality-Manual/qms-man-001-qms-manual.html">QMS-MAN-001</a> và chuyển chính sách thành yêu cầu điều hành thực tế.</li>
+  <li>HR hoặc training owner phải đưa chính sách vào onboarding, OJT và các chương trình đào tạo khi có thay đổi lớn.</li>
 </ul>
 
-<h3 class="h3">5.2 Phân tích bối cảnh (Context) – FRM-121</h3>
+<h3 class="h3">5.2 Xem xét bối cảnh tổ chức</h3>
 <div class="vflow">
-  <div class="vstep"><div class="vnum">1</div><div class="vtext">QMS Engineer <b>PHẢI</b> thu thập dữ liệu: OTD, PPM/escape, NCR/CAPA, downtime/OEE, năng lực CMM, thiếu vật tư/tool, audit findings, và phản hồi khách hàng.</div></div>
-  <div class="vstep"><div class="vnum">2</div><div class="vtext">Tổ chức workshop 60–90 phút với các bộ phận: Production, Engineering, Quality, Supply Chain, EHS; điền SWOT và PESTLE vào FRM-121.</div></div>
-  <div class="vstep"><div class="vnum">3</div><div class="vtext">Mỗi vấn đề “High impact” <b>PHẢI</b> có hành động: giảm rủi ro (SOP-103) hoặc cải tiến (SOP-903), gán chủ trì và deadline.</div></div>
+  <div class="vstep"><div class="vnum">1</div><div class="vtext">QMS Engineer thu thập dữ liệu đầu vào: chiến lược, khách hàng, KPI, audit findings, NCR/CAPA, nguồn lực, thay đổi tổ chức, công nghệ, rủi ro chuỗi cung ứng và sự kiện gián đoạn.</div></div>
+  <div class="vstep"><div class="vnum">2</div><div class="vtext">Tổ chức xem xét bối cảnh với các process owner và ghi nhận kết quả trên <a href="../../../04-Bieu-Mau/01-FRM-100/frm-121-context-analysis-swot-pestle.html">FRM-121</a>.</div></div>
+  <div class="vstep"><div class="vnum">3</div><div class="vtext">Mọi vấn đề có tác động đáng kể phải được chuyển thành một trong các hành động sau: cập nhật risk register, cập nhật mục tiêu, cập nhật tài liệu, mở CAPA/kaizen hoặc đưa vào management review.</div></div>
 </div>
 
-<h3 class="h3">5.3 Bên quan tâm &amp; yêu cầu – FRM-122/FRM-123</h3>
+<h3 class="h3">5.3 Bên quan tâm, yêu cầu và CSR</h3>
 <ul>
-  <li>Danh sách bên quan tâm <b>PHẢI</b> lập theo FRM-122, tối thiểu gồm: OEM thiết bị bán dẫn, NCC vật liệu/dao/mạ, nhân sự ca, cơ quan PCCC/môi trường, và cộng đồng xung quanh.</li>
-  <li>Yêu cầu của bên quan tâm <b>PHẢI</b> được dịch thành điều kiện kiểm soát: CTQ, hồ sơ, yêu cầu sạch/đóng gói, truy vết lot/serial, yêu cầu bảo mật.</li>
-  <li>Yêu cầu khách hàng về CSR (Customer Specific Requirements) <b>PHẢI</b> lưu và theo dõi theo FRM-125.</li>
+  <li>Danh sách bên quan tâm phải được duy trì trên <a href="../../../04-Bieu-Mau/01-FRM-100/frm-122-interested-parties-register.html">FRM-122</a>; yêu cầu phải được ghi nhận trên <a href="../../../04-Bieu-Mau/01-FRM-100/frm-123-interested-party-requirements-register.html">FRM-123</a>.</li>
+  <li>CSR và flowdown của khách hàng phải được ghi trên <a href="../../../04-Bieu-Mau/01-FRM-100/frm-125-customer-csr-register.html">FRM-125</a> và được dịch thành điểm kiểm soát trong SOP/WI/FRM liên quan.</li>
+  <li>Khi xuất hiện yêu cầu mới từ khách hàng, luật định hoặc ngành, QMS Engineer phải đánh giá xem có cần cập nhật scope, objective, risk, form, training hoặc workflow hay không.</li>
 </ul>
 
-<h3 class="h3">5.4 Xác định phạm vi QMS (Scope) – FRM-121</h3>
+<h3 class="h3">5.4 Xác định và duy trì phạm vi QMS</h3>
 <ul>
-  <li>Phạm vi QMS <b>PHẢI</b> nêu rõ: gia công CNC chính xác theo đơn hàng tại Việt Nam, bao gồm lập kế hoạch, mua hàng, gia công, deburr, cleaning/packaging, kiểm tra và giao hàng.</li>
-  <li>Nếu có điều khoản ISO “không áp dụng”, QMS Engineer <b>PHẢI</b> ghi lý do và được QA Manager phê duyệt.</li>
+  <li>Scope QMS phải nêu rõ hoạt động nằm trong hệ thống, các địa điểm áp dụng và điều khoản không áp dụng nếu có.</li>
+  <li>Mô tả scope phải nhất quán giữa manual, SOP này và các tài liệu công bố trên portal.</li>
+  <li>Nếu có exclusion, lý do phải được ghi rõ và không được làm suy giảm khả năng cung cấp sản phẩm/dịch vụ phù hợp.</li>
 </ul>
 
-<h3 class="h3">5.5 Bản đồ quá trình &amp; tương tác (Process Map)</h3>
-<ul>
-  <li>QMS Engineer <b>PHẢI</b> duy trì danh sách quá trình cấp công ty: Customer &amp; Commercial (Series 200), Engineering (300), Supply Chain (400), Production (500), Quality (600), Logistics/Purity (700), Support (800), Performance (900).</li>
-  <li>Mỗi quá trình <b>PHẢI</b> có: đầu vào/đầu ra, owner, KPI, rủi ro chính và điểm giao (handshake) giữa phòng ban.</li>
-</ul>
-
-<h3 class="h3">5.6 Mục tiêu chất lượng &amp; cascade</h3>
+<h3 class="h3">5.5 Thiết lập và cascade mục tiêu chất lượng</h3>
 <div class="card">
-  <div class="card-title">Quy tắc viết mục tiêu</div>
+  <div class="card-title">Quy tắc bắt buộc cho mỗi mục tiêu</div>
   <ul>
-    <li>Mỗi mục tiêu <b>PHẢI</b> có: <b>Chỉ số</b> (metric) + <b>mức đạt</b> + <b>kỳ đo</b> + <b>nguồn dữ liệu</b> + <b>chủ sở hữu</b>.</li>
-    <li>Mục tiêu phòng ban <b>PHẢI</b> liên kết tối thiểu 01 mục tiêu cấp công ty.</li>
-    <li>Khi mục tiêu không đạt 2 kỳ liên tiếp, chủ sở hữu <b>PHẢI</b> mở hành động khắc phục/cải tiến và theo dõi theo SOP-903.</li>
+    <li>Phải có <b>metric</b>, <b>target</b>, <b>frequency</b>, <b>data source</b>, <b>owner</b> và <b>ngưỡng hành động</b>.</li>
+    <li>Phải liên kết với ít nhất một ưu tiên chiến lược, một rủi ro trọng yếu hoặc một yêu cầu khách hàng đáng kể.</li>
+    <li>Khi mục tiêu không đạt hai kỳ liên tiếp hoặc khi có một sự kiện nghiêm trọng, process owner phải mở hành động khắc phục/cải tiến và báo cáo trong review phù hợp.</li>
   </ul>
 </div>
 <ul>
-  <li>QA Manager <b>PHẢI</b> tổng hợp mục tiêu cấp công ty; Production Director/SC Manager/Engineering Lead… <b>PHẢI</b> lập mục tiêu phòng ban và hành động.</li>
-  <li>Mục tiêu cá nhân <b>NÊN</b> thể hiện trên skill matrix và đánh giá hiệu suất theo SOP-902 (nếu áp dụng).</li>
+  <li>QA Manager tổng hợp mục tiêu cấp công ty; các trưởng bộ phận lập mục tiêu cấp bộ phận và theo dõi kết quả trên nguồn dữ liệu được xác định trước.</li>
+  <li>Mục tiêu cá nhân, nếu được triển khai, phải là dẫn xuất từ mục tiêu bộ phận chứ không tách rời logic hệ thống.</li>
 </ul>
 
-<h3 class="h3">5.7 Đánh giá biến đổi khí hậu – FRM-124</h3>
+<h3 class="h3">5.6 Trigger xem xét lại bối cảnh và mục tiêu</h3>
 <ul>
-  <li>HESEM <b>PHẢI</b> đánh giá mức liên quan của biến đổi khí hậu tới bối cảnh và yêu cầu bên quan tâm theo ISO 9001:2015/Amd 1:2024.</li>
-  <li>Đầu vào tối thiểu: rủi ro mất điện/mưa bão, gián đoạn logistics, nhiệt độ/độ ẩm ảnh hưởng độ sạch và packaging, rủi ro nguồn nước/khí nén.</li>
-  <li>Kết luận “relevant / not relevant” và hành động (nếu relevant) <b>PHẢI</b> ghi FRM-124 và liên kết sang SOP-108 (contingency) hoặc SOP-103 (risk register).</li>
+  <li>Xem xét lại tối thiểu mỗi năm một lần và bắt buộc thực hiện sớm hơn khi có: khách hàng mới trọng yếu, thay đổi sản phẩm/công nghệ, thay đổi lớn về tổ chức, sự cố nghiêm trọng, yêu cầu luật định mới, thay đổi CSR, hoặc gián đoạn vận hành đáng kể.</li>
+  <li>Nếu trigger dẫn đến thay đổi tài liệu, việc cập nhật phải đi qua workflow tài liệu kiểm soát và đánh giá tác động liên quan đến RACI, đào tạo, form và risk.</li>
+  <li>Những thay đổi có tính hệ thống phải được liên kết với <a href="sop-106-change-and-configuration-management.html">SOP-106</a>, <a href="sop-103-risk-opportunity-fmea-and-control-plan.html">SOP-103</a> và khi phù hợp, với <a href="../09-SOP-900/sop-902-management-review.html">SOP-902</a>.</li>
 </ul>
 
-<h2 class="h2">6. Biểu mẫu liên quan</h2>
+<h3 class="h3">5.7 Climate và continuity relevance</h3>
 <ul>
-  <li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-121-context-analysis-swot-pestle.html">FRM-121</a> Bảng phân tích bối cảnh (SWOT + PESTLE)</li>
-  <li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-122-interested-parties-register.html">FRM-122</a> Sổ bên quan tâm</li>
-  <li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-123-interested-party-requirements-register.html">FRM-123</a> Sổ yêu cầu bên quan tâm</li>
-  <li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-124-climate-change-assessment-record.html">FRM-124</a> Biên bản đánh giá biến đổi khí hậu</li>
-  <li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-125-customer-csr-register.html">FRM-125</a> Sổ CSR khách hàng</li>
+  <li>HESEM đánh giá tính liên quan của climate change và continuity trên <a href="../../../04-Bieu-Mau/01-FRM-100/frm-124-climate-change-assessment-record.html">FRM-124</a> như một phần của bối cảnh và planning.</li>
+  <li>Đầu vào tối thiểu gồm điện, nước, nhiệt độ/độ ẩm, logistics, nguồn lực thay thế, hạ tầng IT/dữ liệu và các yếu tố có thể làm gián đoạn quá trình giao hàng hoặc phá vỡ điều kiện kiểm soát.</li>
+  <li>Nếu được xác định là relevant, kết quả phải dẫn sang hành động tại <a href="sop-108-operational-contingency-plan.html">SOP-108</a>, risk register hoặc management review.</li>
 </ul>
 
-<h2 class="h2">7. Tài liệu liên quan</h2>
+<h2 class="h2">6. Đầu ra kiểm soát</h2>
 <ul>
-  <li><a href="sop-103-risk-opportunity-fmea-and-control-plan.html">SOP-103</a> Rủi ro, cơ hội, FMEA &amp; Control Plan</li>
-  <li><a href="sop-108-operational-contingency-plan.html">SOP-108</a> Kế hoạch vận hành dự phòng</li>
-  <li>SOP-901 (Series 900) Xem xét lãnh đạo (Management Review) — tham chiếu</li>
+  <li>Policy hiện hành và scope QMS được công bố trên portal.</li>
+  <li>Bản ghi bối cảnh, bên quan tâm, yêu cầu liên quan, CSR và climate relevance được cập nhật.</li>
+  <li>Mục tiêu cấp công ty và mục tiêu bộ phận có owner, nguồn dữ liệu và chu kỳ review rõ ràng.</li>
+  <li>Danh sách hành động phát sinh do thay đổi bối cảnh được theo dõi đến khi đóng hiệu lực.</li>
 </ul>
 
+<h2 class="h2">7. Biểu mẫu liên quan</h2>
+<ul>
+  <li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-121-context-analysis-swot-pestle.html">FRM-121</a> — Bảng phân tích bối cảnh</li>
+  <li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-122-interested-parties-register.html">FRM-122</a> — Sổ bên quan tâm</li>
+  <li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-123-interested-party-requirements-register.html">FRM-123</a> — Sổ yêu cầu bên quan tâm</li>
+  <li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-124-climate-change-assessment-record.html">FRM-124</a> — Biên bản đánh giá climate relevance</li>
+  <li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-125-customer-csr-register.html">FRM-125</a> — Sổ CSR khách hàng</li>
+</ul>
+
+<h2 class="h2">8. Tài liệu liên quan</h2>
+<ul>
+  <li><a href="../../../02-Tai-Lieu-He-Thong/02-Policies-Objectives/pol-qms-001-quality-policy.html">POL-QMS-001 — Quality Policy</a></li>
+  <li><a href="../../../02-Tai-Lieu-He-Thong/02-Policies-Objectives/pol-qms-002-quality-objectives.html">POL-QMS-002 — Quality Objectives</a></li>
+  <li><a href="../../../02-Tai-Lieu-He-Thong/01-Quality-Manual/qms-man-001-qms-manual.html">QMS-MAN-001 — Quality Management System Manual</a></li>
+  <li><a href="sop-101-document-and-data-control.html">SOP-101 — Document and Data Control</a></li>
+  <li><a href="sop-103-risk-opportunity-fmea-and-control-plan.html">SOP-103 — Risk and Opportunity</a></li>
+  <li><a href="sop-105-organizational-knowledge-management.html">SOP-105 — Organizational Knowledge Management</a></li>
+  <li><a href="sop-106-change-and-configuration-management.html">SOP-106 — Change and Configuration Management</a></li>
+  <li><a href="sop-108-operational-contingency-plan.html">SOP-108 — Operational Contingency Plan</a></li>
+  <li><a href="../08-SOP-800/sop-801-competence-training-and-certification.html">SOP-801 — Competence, Training and Certification</a></li>
+  <li><a href="../09-SOP-900/sop-902-management-review.html">SOP-902 — Management Review</a></li>
+  <li><a href="../09-SOP-900/sop-903-continual-improvement-and-kaizen.html">SOP-903 — Continual Improvement and Kaizen</a></li>
+</ul>
 
 </div></div>
 </div></div></div>
+<script src="../../../assets/app.js"></script>
 </body>
 </html>
-
-
