@@ -1,0 +1,909 @@
+﻿<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ANNEX-QMS-026 — RACI Master Matrix | HESEM OS</title>
+<link href="../../../assets/style.css" rel="stylesheet"/>
+<style>
+/* Authority / RACI specific */
+.am-table { width:100%; border-collapse:collapse; font-size:10.5px; table-layout:fixed; }
+.am-table th { padding:6px 5px; text-align:center; font-size:9px; font-weight:800; color:var(--navy); background:var(--th-bg); border:1px solid var(--th-bdr); letter-spacing:.3px; text-transform:uppercase; position:sticky; top:0; z-index:2; }
+.am-table td { padding:5px 4px; text-align:center; border:1px solid var(--ln2); vertical-align:middle; line-height:1.3; }
+.am-table tbody tr:nth-child(even) { background:#fafcfe; }
+.am-table tbody tr:hover { background:#f0f4ff; }
+.am-table .row-hdr { background:var(--navy)!important; color:#fff; font-weight:700; font-size:10px; text-align:left; padding:8px 10px; letter-spacing:.5px; }
+.am-table .row-hdr td { background:var(--navy)!important; color:#fff; border-color:var(--navy); }
+.am-table .dec-name { text-align:left; font-weight:600; color:var(--ink); font-size:10.5px; padding-left:10px; white-space:normal; word-break:break-word; }
+.am-table .dec-ref { text-align:left; font-size:9px; color:var(--ink3); padding-left:10px; }
+.cell-a { background:#e3f2fd; color:#1565c0; font-weight:800; font-size:10px; }
+.cell-p { background:#fff3e0; color:#e65100; font-weight:700; font-size:10px; }
+.cell-v { background:#f3e5f5; color:#7b1fa2; font-weight:700; font-size:10px; }
+.cell-i { background:#e8f5e9; color:#2e7d32; font-weight:600; font-size:10px; }
+.cell-na { color:var(--ink4); font-size:9px; }
+/* RACI table */
+.raci-tbl { width:100%; border-collapse:collapse; font-size:11px; }
+.raci-tbl th { padding:7px 8px; text-align:center; font-size:9px; font-weight:800; color:var(--navy); background:var(--th-bg); border:1px solid var(--th-bdr); letter-spacing:.3px; text-transform:uppercase; }
+.raci-tbl td { padding:6px 8px; text-align:center; border:1px solid var(--ln2); vertical-align:middle; }
+.raci-tbl tbody tr:nth-child(even) { background:#fafcfe; }
+.raci-tbl .step-name { text-align:left; font-weight:600; color:var(--ink); font-size:11px; }
+.raci-tbl .step-num { text-align:center; font-weight:700; color:var(--navy); width:30px; }
+.r { background:#e3f2fd; color:#1565c0; font-weight:800; }
+.a { background:#fff3e0; color:#e65100; font-weight:800; }
+.c { background:#f3e5f5; color:#7b1fa2; font-weight:700; }
+.i { background:#e8f5e9; color:#2e7d32; font-weight:600; }
+.ra { background:linear-gradient(135deg,#e3f2fd 50%,#fff3e0 50%); color:#1565c0; font-weight:800; }
+.proc-section { margin:28px 0 12px; padding:14px 20px; background:var(--bg2); border:1px solid var(--ln); border-left:3px solid var(--blue); border-radius:var(--r); }
+.proc-title { font-size:13px; font-weight:700; color:var(--navy); }
+.proc-ref { font-size:11px; color:var(--ink3); margin-top:2px; }
+.toc-compact { column-count:2; column-gap:20px; font-size:11px; margin:12px 0; }
+.toc-compact a { display:block; padding:3px 0; }
+.legend-row { display:flex; gap:16px; flex-wrap:wrap; padding:12px 16px; background:var(--bg2); border:1px solid var(--ln); border-radius:var(--r); margin:12px 0; font-size:11px; }
+.legend-item { display:flex; align-items:center; gap:6px; }
+.legend-swatch { width:28px; height:18px; border-radius:3px; text-align:center; font-size:9px; font-weight:800; line-height:18px; }
+@media print { .am-table th { position:static; } }
+@media screen and (max-width:768px) { .am-table, .raci-tbl { font-size:9px; } .am-table th, .raci-tbl th { font-size:8px; padding:4px 3px; } }
+
+/* === PAGE BREAK & OVERFLOW FIX (auto-applied) === */
+@media print {
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.jd-mission,.form-sheet,.lane,.legend,.req,.auth-grid,.backup-card,.vstep{page-break-inside:avoid;break-inside:avoid}
+  h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
+  .form-header,.sig-row,.sign-row,.approval-row{page-break-inside:avoid;break-inside:avoid}
+  tr{page-break-inside:avoid;break-inside:avoid}
+  thead{display:table-header-group}tfoot{display:table-footer-group}
+  p{orphans:3;widows:3}.table-card{overflow:visible!important}
+}
+.page-body{overflow-x:hidden}
+.table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
+table{max-width:100%;table-layout:auto}
+td,th{max-width:400px;overflow-wrap:break-word;word-wrap:break-word}
+
+</style>
+</head>
+<body>
+<div class="container" style="max-width:1160px;">
+<div class="page landscape">
+<div class="page-body">
+<div class="form-header">
+<div class="fh-left">
+  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+  <div class="fh-company">
+    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+    <span>Tài liệu kiểm soát</span>
+  </div>
+</div>
+<div class="title">
+  <strong>ANNEX-QMS-026-RACI-MASTER-MATRIX — RACI Master Matrix</strong>
+  <span class="sub-vn"></span>
+</div>
+<div class="meta">
+  <div class="row"><span><b>Mã:</b></span><span>ANNEX-QMS-026-RACI-MASTER-MATRIX</span></div>
+  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+  <div class="row"><span><b>Chủ sở hữu:</b></span><span>QA/QMS</span></div>
+  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+</div>
+</div>
+<div class="doc-content" id="docContent"><div class="form-sheet"><div class="card"><div class="note">Tài liệu kiểm soát. Mọi thay đổi PHẢI theo <a href="../../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-101-document-and-data-control.html">SOP-QMS-001</a>.</div>
+<span class="badge">System Annex</span>
+<h1 class="h1" style="margin-top:12px;">ANNEX-QMS-026 — RACI Master Matrix</h1><div class="sub-vn">Ma trận RACI toàn bộ SOP &amp; PROC</div>
+<h2 class="h2">1. Mục đích</h2>
+<p>Ma trận RACI Master này quy định vai trò <b>Responsible (R)</b>, <b>Accountable (A)</b>, <b>Consulted (C)</b>, và <b>Informed (I)</b> cho MỌI bước chính trong 25 SOP và 34 PROC của HESEM QMS. Tài liệu này BẮT BUỘC được tham chiếu khi phân công công việc, đào tạo nhân sự mới, và giải quyết tranh chấp trách nhiệm.</p>
+<h2 class="h2">2. Chú giải (Legend)</h2>
+<div class="legend-row">
+<div class="legend-item"><div class="legend-swatch r">R</div><b>Responsible</b> — Người thực hiện</div>
+<div class="legend-item"><div class="legend-swatch a">A</div><b>Accountable</b> — Người chịu trách nhiệm cuối cùng (chỉ 1 / bước)</div>
+<div class="legend-item"><div class="legend-swatch c">C</div><b>Consulted</b> — Được tham vấn trước khi quyết định</div>
+<div class="legend-item"><div class="legend-swatch i">I</div><b>Informed</b> — Được thông báo sau khi quyết định</div>
+<div class="legend-item"><div class="legend-swatch ra">R/A</div><b>R/A</b> — Vừa thực hiện vừa chịu trách nhiệm</div>
+</div>
+<div class="callout"><b>Quy tắc RACI:</b> Mỗi bước chỉ có ĐÚNG 1 Accountable (A hoặc R/A). Nếu 1 vị trí vừa R vừa A, ghi "R/A". Mọi R/A trong bảng này PHẢI xuất hiện trong Core Accountabilities (§4) của JD tương ứng.</div>
+<h2 class="h2">3. Viết tắt vị trí</h2>
+<div class="table-card"><table class="table" style="font-size:11px;">
+<thead><tr><th>Mã</th><th>Vị trí</th><th>Mã</th><th>Vị trí</th><th>Mã</th><th>Vị trí</th></tr></thead>
+<tbody>
+<tr><td><b>GM</b></td><td>General Manager (EXE-01)</td><td><b>PM</b></td><td>Production Manager (PRO-01)</td><td><b>QM</b></td><td>QA Manager (QA-01)</td></tr>
+<tr><td><b>EM</b></td><td>Engineering Manager (ENG-01)</td><td><b>EST</b></td><td>Estimator (SAL-03)</td><td><b>PLM</b></td><td>Production Planner (PLA-02)</td></tr>
+<tr><td><b>PUM</b></td><td>Purchasing Manager (PUR-02)</td><td><b>WM</b></td><td>Warehouse Manager (WHS-01)</td><td><b>MM</b></td><td>Trưởng phòng Bảo trì</td></tr>
+<tr><td><b>FM</b></td><td>Finance Manager (FIN-01)</td><td><b>HRM</b></td><td>HR Manager (HR-01)</td><td><b>HSE</b></td><td>HSE Officer (HSE-01)</td></tr>
+<tr><td><b>IT</b></td><td>System Administrator</td><td><b>SS</b></td><td>Tổ trưởng ca (Shift Sup)</td><td><b>QC</b></td><td>QC Inspector</td></tr>
+<tr><td><b>SU</b></td><td>CNC Setup Operator</td><td><b>OP</b></td><td>CNC Operator</td><td><b>CAM</b></td><td>CAM/CNC Programmer</td></tr>
+<tr><td><b>DFM</b></td><td>DFM Engineer</td><td><b>BUY</b></td><td>Buyer</td><td><b>WS</b></td><td>Nhân viên Kho</td></tr>
+<tr><td><b>MT</b></td><td>Kỹ thuật viên Bảo trì</td><td colspan="4"></td></tr>
+</tbody></table></div>
+<h2 class="h2">4. Mục lục (59 tài liệu)</h2>
+<div class="toc-compact"><a href="#sop_qms_001">SOP-QMS-001 — Document Control</a>
+<a href="#sop_qms_002">SOP-QMS-002 — Quality Policy &amp; Objectives</a>
+<a href="#sop_qms_003">SOP-QMS-003 — Risk &amp; Opportunity</a>
+<a href="#sop_qms_004">SOP-QMS-004 — Internal Audit</a>
+<a href="#sop_qms_005">SOP-QMS-005 — Management Review</a>
+<a href="#sop_qms_006">SOP-QMS-006 — NC &amp; CAPA</a>
+<a href="#sop_qms_007">SOP-QMS-007 — Calibration</a>
+<a href="#sop_qms_008">SOP-QMS-008 — Change Management</a>
+<a href="#sop_qms_009">SOP-QMS-009 — First Article Inspection</a>
+<a href="#sop_qms_010">SOP-QMS-010 — External Provider Control</a>
+<a href="#sop_qms_011">SOP-QMS-011 — Data Governance</a>
+<a href="#sop_qms_012">SOP-QMS-012 — Customer Complaint &amp; Escape</a>
+<a href="#sop_qms_013">SOP-QMS-013 — Measurement System Management</a>
+<a href="#sop_qms_014">SOP-QMS-014 — Communication Management</a>
+<a href="#sop_qms_015">SOP-QMS-015 — Contingency Operation Plan</a>
+<a href="#sop_qms_016">SOP-QMS-016 — Product Safety &amp; Conformity</a>
+<a href="#sop_qms_017">SOP-QMS-017 — Configuration Management</a>
+<a href="#sop_qms_018">SOP-QMS-018 — Counterfeit Parts Prevention</a>
+<a href="#sop_qms_019">SOP-QMS-019 — Special Process Qualification</a>
+<a href="#sop_qms_020">SOP-QMS-020 — Continual Improvement &amp; Kaizen</a>
+<a href="#sop_qms_021">SOP-QMS-021 — Human Factors &amp; Error Prevention</a>
+<a href="#sop_qms_022">SOP-QMS-022 — Customer Property Control</a>
+<a href="#sop_qms_023">SOP-QMS-023 — Competence, Training &amp; Awareness</a>
+<a href="#sop_qms_024">SOP-QMS-024 — Organizational Knowledge Management</a>
+<a href="#sop_qms_025">SOP-QMS-025 — Contamination Control &amp; Cleanliness</a>
+<a href="#proc_cnc_001">PROC-CNC-001 — CNC Machining Execution</a>
+<a href="#proc_cnc_002">PROC-CNC-002 — Program &amp; Setup Release Control</a>
+<a href="#proc_eng_001">PROC-ENG-001 — Engineering DFM &amp; Quoting</a>
+<a href="#proc_eng_002">PROC-ENG-002 — Engineering Release &amp; Baseline Package</a>
+<a href="#proc_ops_001">PROC-OPS-001 — Order Fulfillment (RFQ → Cash)</a>
+<a href="#proc_ops_002">PROC-OPS-002 — Finishing &amp; Deburr</a>
+<a href="#proc_ops_003">PROC-OPS-003 — Escalation, SLA &amp; WIP Control</a>
+<a href="#proc_pla_001">PROC-PLA-001 — Production Planning &amp; Scheduling</a>
+<a href="#proc_pla_002">PROC-PLA-002 — Dispatch Control &amp; Capacity Review</a>
+<a href="#proc_qa_001">PROC-QA-001 — IPQC Reaction Plan</a>
+<a href="#proc_qa_002">PROC-QA-002 — Layered Process Audit</a>
+<a href="#proc_qa_003">PROC-QA-003 — AQL Sampling Inspection</a>
+<a href="#proc_qa_004">PROC-QA-004 — Final Inspection &amp; COC Release</a>
+<a href="#proc_qa_005">PROC-QA-005 — PFMEA &amp; Control Plan</a>
+<a href="#proc_qa_006">PROC-QA-006 — Material Traceability Flow</a>
+<a href="#proc_qa_007">PROC-QA-007 — Cleanliness Inspection &amp; Particle Count</a>
+<a href="#proc_sal_001">PROC-SAL-001 — Customer Communication &amp; Feedback</a>
+<a href="#proc_whs_001">PROC-WHS-001 — Receiving &amp; Warehouse</a>
+<a href="#proc_whs_002">PROC-WHS-002 — Packaging &amp; Labeling</a>
+<a href="#proc_whs_003">PROC-WHS-003 — Handling &amp; Preservation</a>
+<a href="#proc_fin_001">PROC-FIN-001 — Invoicing &amp; AR</a>
+<a href="#proc_fin_002">PROC-FIN-002 — Job Costing &amp; Margin Review</a>
+<a href="#proc_hr_001">PROC-HR-001 — Competency &amp; Training Admin</a>
+<a href="#proc_hse_001">PROC-HSE-001 — Incident &amp; Near-miss Management</a>
+<a href="#proc_it_001">PROC-IT-001 — User Access Provisioning/Offboarding</a>
+<a href="#proc_mnt_001">PROC-MNT-001 — Tooling &amp; Fixture Control</a>
+<a href="#proc_mnt_002">PROC-MNT-002 — Preventive Maintenance Workflow</a>
+<a href="#proc_mnt_003">PROC-MNT-003 — Crash/Incident Response</a>
+<a href="#proc_mnt_004">PROC-MNT-004 — Gage Handling &amp; Verification Gates</a>
+<a href="#proc_mnt_005">PROC-MNT-005 — Tool Life Management &amp; Replacement</a>
+<a href="#proc_pur_001">PROC-PUR-001 — Outsource Finishing</a>
+<a href="#proc_pur_002">PROC-PUR-002 — Purchasing &amp; Supplier Control</a>
+<a href="#proc_qa_008">PROC-QA-008 — Surface Treatment Qualification</a>
+<a href="#proc_sal_002">PROC-SAL-002 — Warranty &amp; RMA Process</a>
+</div>
+<h2 class="h2">5. Ma trận RACI chi tiết</h2>
+<div class="proc-section" id="sop_qms_001">
+<div class="proc-title">1. SOP-QMS-001 — Document Control</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-101-document-and-data-control.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>GM</th><th>PM</th><th>QM</th><th>EM</th><th>EST</th><th>PUM</th><th>IT</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Tạo mới/cập nhật tài liệu</td><td></td><td class="r">R</td><td class="ra">R/A</td><td class="r">R</td><td class="r">R</td><td></td><td></td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Rà soát &amp; phê duyệt</td><td class="a">A</td><td></td><td class="ra">R/A</td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Nhận diện &amp; đánh mã</td><td></td><td></td><td class="ra">R/A</td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Phát hành &amp; phân phối</td><td></td><td></td><td class="ra">R/A</td><td></td><td></td><td></td><td class="c">C</td></tr>
+<tr><td class="step-num">5</td><td class="step-name">Thu hồi tài liệu lỗi thời</td><td></td><td></td><td class="ra">R/A</td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">6</td><td class="step-name">Kiểm soát thay đổi</td><td class="a">A</td><td></td><td class="ra">R/A</td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">7</td><td class="step-name">Kiểm soát tài liệu bên ngoài</td><td></td><td></td><td class="r">R</td><td class="c">C</td><td></td><td class="c">C</td><td></td></tr>
+<tr><td class="step-num">8</td><td class="step-name">Lưu trữ &amp; hủy bỏ</td><td></td><td></td><td class="ra">R/A</td><td></td><td></td><td></td><td class="c">C</td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="sop_qms_002">
+<div class="proc-title">2. SOP-QMS-002 — Quality Policy &amp; Objectives</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-102-quality-policy-objectives-and-organizational-context.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>GM</th><th>PM</th><th>QM</th><th>EM</th><th>EST</th><th>PLM</th><th>PUM</th><th>WM</th><th>MM</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Soạn thảo/cập nhật Quality Policy</td><td class="a">A</td><td></td><td class="r">R</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Thiết lập Quality Objectives hàng năm</td><td class="a">A</td><td class="c">C</td><td class="r">R</td><td></td><td class="c">C</td><td class="c">C</td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Cascade KPI xuống phòng ban</td><td></td><td class="r">R</td><td class="r">R</td><td class="r">R</td><td class="r">R</td><td class="r">R</td><td class="r">R</td><td class="r">R</td><td class="r">R</td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Rà soát tiến độ mục tiêu</td><td class="a">A</td><td></td><td class="r">R</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="sop_qms_003">
+<div class="proc-title">3. SOP-QMS-003 — Risk &amp; Opportunity</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-103-risk-opportunity-fmea-and-control-plan.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>GM</th><th>PM</th><th>QM</th><th>EM</th><th>EST</th><th>PLM</th><th>PUM</th><th>WM</th><th>MM</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Nhận diện rủi ro &amp; cơ hội</td><td class="i">I</td><td class="r">R</td><td class="r">R</td><td class="r">R</td><td class="r">R</td><td class="r">R</td><td class="r">R</td><td class="r">R</td><td class="r">R</td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Đánh giá mức độ (Risk Score)</td><td></td><td class="c">C</td><td class="ra">R/A</td><td class="c">C</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Lập kế hoạch xử lý</td><td class="a">A</td><td></td><td class="r">R</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Theo dõi &amp; đánh giá hiệu lực</td><td class="i">I</td><td></td><td class="ra">R/A</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="sop_qms_004">
+<div class="proc-title">4. SOP-QMS-004 — Internal Audit</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh//01-SOPs//09-SOP-900//sop-901-internal-audit-and-lpa.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>GM</th><th>PM</th><th>QM</th><th>EM</th><th>EST</th><th>PLM</th><th>PUM</th><th>WM</th><th>MM</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Lập Audit Program hàng năm</td><td class="a">A</td><td></td><td class="ra">R/A</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Chỉ định Lead Auditor &amp; team</td><td></td><td></td><td class="ra">R/A</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Thực hiện audit tại hiện trường</td><td></td><td class="c">C</td><td class="r">R</td><td class="c">C</td><td class="c">C</td><td class="c">C</td><td class="c">C</td><td class="c">C</td><td class="c">C</td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Lập Audit Report &amp; phát hành NC</td><td></td><td></td><td class="ra">R/A</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">5</td><td class="step-name">Theo dõi CAPA từ audit</td><td class="i">I</td><td></td><td class="ra">R/A</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="sop_qms_005">
+<div class="proc-title">5. SOP-QMS-005 — Management Review</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh//01-SOPs//09-SOP-900//sop-902-management-review.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>GM</th><th>PM</th><th>QM</th><th>EM</th><th>EST</th><th>PLM</th><th>PUM</th><th>WM</th><th>MM</th><th>FM</th><th>HRM</th><th>HSE</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Chuẩn bị dữ liệu/agenda</td><td></td><td class="c">C</td><td class="r">R</td><td class="c">C</td><td class="c">C</td><td class="c">C</td><td class="c">C</td><td class="c">C</td><td class="c">C</td><td class="c">C</td><td class="c">C</td><td class="c">C</td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Chủ trì họp Management Review</td><td class="ra">R/A</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Ghi biên bản &amp; quyết định</td><td class="a">A</td><td></td><td class="r">R</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Theo dõi thực hiện quyết định</td><td class="i">I</td><td></td><td class="ra">R/A</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="sop_qms_006">
+<div class="proc-title">6. SOP-QMS-006 — NC &amp; CAPA</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh//01-SOPs//06-SOP-600//sop-606-ncr-capa-and-ipqc-reaction.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>GM</th><th>PM</th><th>QM</th><th>EM</th><th>SS</th><th>QC</th><th>SU</th><th>OP</th><th>WS</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Phát hiện &amp; báo cáo NC</td><td></td><td class="i">I</td><td class="i">I</td><td></td><td class="r">R</td><td class="r">R</td><td class="r">R</td><td class="r">R</td><td></td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Lập NCR Report</td><td></td><td></td><td class="a">A</td><td></td><td></td><td class="r">R</td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Cách ly sản phẩm NC</td><td></td><td></td><td class="a">A</td><td></td><td></td><td class="r">R</td><td></td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">4</td><td class="step-name">MRB disposition (scrap/rework/use-as-is)</td><td class="i">I</td><td class="c">C</td><td class="ra">R/A</td><td class="c">C</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">5</td><td class="step-name">Khởi tạo CAPA</td><td></td><td></td><td class="ra">R/A</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">6</td><td class="step-name">Root Cause Analysis (5Why/8D)</td><td></td><td class="c">C</td><td class="r">R</td><td class="c">C</td><td class="c">C</td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">7</td><td class="step-name">Thực hiện Corrective Action</td><td></td><td class="r">R</td><td class="a">A</td><td class="r">R</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">8</td><td class="step-name">Verify CAPA effectiveness</td><td></td><td></td><td class="ra">R/A</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="sop_qms_007">
+<div class="proc-title">7. SOP-QMS-007 — Calibration</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh//01-SOPs//06-SOP-600//sop-601-calibration-and-gage-control.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>QM</th><th>MM</th><th>QC</th><th>MT</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Lập Calibration Schedule</td><td class="a">A</td><td class="r">R</td><td></td><td></td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Thực hiện hiệu chuẩn nội bộ/ngoại</td><td></td><td class="a">A</td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Ghi nhận kết quả &amp; cập nhật Gage Register</td><td class="i">I</td><td class="a">A</td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Xử lý gage out-of-cal</td><td class="a">A</td><td class="r">R</td><td class="i">I</td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="sop_qms_008">
+<div class="proc-title">8. SOP-QMS-008 — Change Management</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-106-change-and-configuration-management.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>GM</th><th>PM</th><th>QM</th><th>EM</th><th>PLM</th><th>CAM</th><th>DFM</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Khởi tạo ECO/ECN request</td><td></td><td class="c">C</td><td></td><td class="r">R</td><td></td><td class="r">R</td><td class="r">R</td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Đánh giá impact (quality/cost/schedule)</td><td></td><td></td><td class="c">C</td><td class="ra">R/A</td><td class="c">C</td><td></td><td></td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Phê duyệt thay đổi</td><td class="a">A</td><td></td><td class="c">V</td><td class="a">A</td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Thực hiện thay đổi &amp; cập nhật tài liệu</td><td></td><td></td><td class="i">I</td><td class="r">R</td><td></td><td class="r">R</td><td></td></tr>
+<tr><td class="step-num">5</td><td class="step-name">Verify change effectiveness</td><td></td><td></td><td class="r">R</td><td class="a">A</td><td></td><td></td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="sop_qms_009">
+<div class="proc-title">9. SOP-QMS-009 — First Article Inspection</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/03-SOP-300/sop-302-first-article-inspection-fai.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>GM</th><th>PM</th><th>QM</th><th>EM</th><th>EST</th><th>SS</th><th>QC</th><th>SU</th><th>OP</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Xác định yêu cầu FAI (trigger)</td><td></td><td></td><td class="r">R</td><td class="c">C</td><td class="c">C</td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Lập FAI plan</td><td></td><td></td><td class="ra">R/A</td><td class="c">C</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Sản xuất First Article</td><td></td><td class="r">R</td><td></td><td></td><td></td><td class="r">R</td><td></td><td class="r">R</td><td class="r">R</td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Thực hiện đo kiểm FAI</td><td></td><td></td><td class="a">A</td><td></td><td></td><td></td><td class="r">R</td><td></td><td></td></tr>
+<tr><td class="step-num">5</td><td class="step-name">Phê duyệt FAI Report</td><td class="i">I</td><td></td><td class="a">A</td><td class="c">V</td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="sop_qms_010">
+<div class="proc-title">10. SOP-QMS-010 — External Provider Control</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/04-SOP-400/sop-401-supplier-control-and-special-process.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>GM</th><th>QM</th><th>PUM</th><th>QC</th><th>BUY</th><th>WS</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Đánh giá &amp; phê duyệt NCC mới</td><td class="a">A</td><td class="c">V</td><td class="r">R</td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Phát hành PO với flow-down yêu cầu</td><td></td><td></td><td class="a">A</td><td></td><td class="r">R</td><td></td></tr>
+<tr><td class="step-num">3</td><td class="step-name">IQC hàng nhận từ NCC</td><td></td><td class="a">A</td><td></td><td class="r">R</td><td></td><td class="c">C</td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Đánh giá hiệu suất NCC (Scorecard)</td><td></td><td class="c">V</td><td class="r">R</td><td></td><td class="r">R</td><td></td></tr>
+<tr><td class="step-num">5</td><td class="step-name">Phát hành SCAR cho NCC</td><td></td><td class="c">V</td><td class="ra">R/A</td><td></td><td class="c">C</td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="sop_qms_011">
+<div class="proc-title">11. SOP-QMS-011 — Data Governance</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-104-data-governance-records-security-and-ip-protection.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>QM</th><th>HRM</th><th>IT</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Thiết lập quy tắc dữ liệu SSOT</td><td class="a">A</td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Phân quyền truy cập M365/Epicor</td><td></td><td class="c">C</td><td class="ra">R/A</td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Giám sát tuân thủ data governance</td><td class="a">A</td><td></td><td class="r">R</td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="sop_qms_012">
+<div class="proc-title">12. SOP-QMS-012 — Customer Complaint &amp; Escape</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/02-SOP-200/sop-202-customer-complaint-feedback-rma-and-escape.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>GM</th><th>PM</th><th>QM</th><th>EM</th><th>EST</th><th>WM</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Tiếp nhận khiếu nại khách hàng</td><td></td><td></td><td class="i">I</td><td></td><td class="r">R</td><td></td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Containment action (cách ly/thu hồi)</td><td></td><td class="c">C</td><td class="ra">R/A</td><td></td><td></td><td class="c">C</td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Root cause &amp; CAPA</td><td></td><td class="c">C</td><td class="ra">R/A</td><td class="c">C</td><td></td><td></td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Phản hồi khách hàng (8D report)</td><td class="i">I</td><td></td><td class="r">R</td><td></td><td class="ra">R/A</td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="sop_qms_013">
+<div class="proc-title">13. SOP-QMS-013 — Measurement System Management</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-602-measurement-system-analysis-msagr-r.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>QM</th><th>MM</th><th>QC</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Lập kế hoạch MSA (Gage R&amp;R)</td><td class="ra">R/A</td><td class="c">C</td><td></td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Thực hiện Gage R&amp;R study</td><td class="a">A</td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Đánh giá kết quả &amp; quyết định</td><td class="ra">R/A</td><td></td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="sop_qms_014">
+<div class="proc-title">14. SOP-QMS-014 — Communication Management</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-107-communication-management.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>GM</th><th>PM</th><th>QM</th><th>EST</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Lập Communication Plan</td><td class="a">A</td><td></td><td class="r">R</td><td></td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Thực hiện communication nội bộ/ngoài</td><td class="a">A</td><td class="r">R</td><td class="r">R</td><td class="r">R</td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="sop_qms_015">
+<div class="proc-title">15. SOP-QMS-015 — Contingency Operation Plan</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-108-operational-contingency-plan.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>GM</th><th>PM</th><th>QM</th><th>EM</th><th>PLM</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Lập &amp; cập nhật Contingency Plan</td><td class="a">A</td><td class="c">C</td><td class="r">R</td><td class="c">C</td><td class="c">C</td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Kích hoạt Contingency Plan</td><td class="a">A</td><td class="r">R</td><td class="r">R</td><td></td><td></td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Phục hồi sau sự cố</td><td class="a">A</td><td class="r">R</td><td class="r">R</td><td></td><td class="c">C</td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="sop_qms_016">
+<div class="proc-title">16. SOP-QMS-016 — Product Safety &amp; Conformity</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/07-SOP-700/sop-703-product-safety-conformity-and-fod-prevention.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>GM</th><th>QM</th><th>EM</th><th>QC</th><th>OP</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Xác định yêu cầu safety sản phẩm</td><td></td><td class="a">A</td><td class="r">R</td><td></td><td></td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Kiểm tra product safety checkpoint</td><td></td><td class="a">A</td><td></td><td class="r">R</td><td class="c">C</td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Escalation safety issue</td><td class="a">A</td><td class="r">R</td><td></td><td></td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="sop_qms_017">
+<div class="proc-title">17. SOP-QMS-017 — Configuration Management</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-106-change-and-configuration-management.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>QM</th><th>EM</th><th>CAM</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Thiết lập Configuration Baseline</td><td class="c">C</td><td class="ra">R/A</td><td></td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Kiểm soát revision bản vẽ/BOM</td><td></td><td class="ra">R/A</td><td class="c">C</td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Configuration audit</td><td class="r">R</td><td class="a">A</td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="sop_qms_018">
+<div class="proc-title">18. SOP-QMS-018 — Counterfeit Parts Prevention</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh//01-SOPs//04-SOP-400//sop-402-material-verification-traceability-and-counterfeit-prevention.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>GM</th><th>QM</th><th>PUM</th><th>QC</th><th>BUY</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Đánh giá rủi ro counterfeit</td><td></td><td class="a">A</td><td class="r">R</td><td></td><td class="c">C</td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Xác minh nguồn gốc &amp; chứng từ</td><td></td><td></td><td class="a">A</td><td class="c">V</td><td class="r">R</td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Xử lý nghi ngờ counterfeit</td><td class="i">I</td><td class="ra">R/A</td><td class="c">C</td><td></td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="sop_qms_019">
+<div class="proc-title">19. SOP-QMS-019 — Special Process Qualification</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/04-SOP-400/sop-401-supplier-control-and-special-process.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>QM</th><th>EM</th><th>PUM</th><th>QC</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Xác định special process</td><td class="a">A</td><td class="r">R</td><td></td><td></td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Qualification plan &amp; thực hiện</td><td class="a">A</td><td class="r">R</td><td class="c">C</td><td></td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Giám sát NCC special process</td><td class="r">R</td><td></td><td class="r">R</td><td class="c">C</td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="sop_qms_020">
+<div class="proc-title">20. SOP-QMS-020 — Continual Improvement &amp; Kaizen</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-903-continual-improvement-and-kaizen.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>GM</th><th>PM</th><th>QM</th><th>EM</th><th>SS</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Đề xuất Kaizen/CI project</td><td></td><td class="r">R</td><td class="c">C</td><td class="r">R</td><td class="r">R</td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Phê duyệt &amp; cấp nguồn lực</td><td class="a">A</td><td></td><td class="c">C</td><td></td><td></td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Thực hiện &amp; đo lường hiệu quả</td><td></td><td class="r">R</td><td class="c">V</td><td class="r">R</td><td></td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Chuẩn hóa kết quả cải tiến</td><td></td><td></td><td class="ra">R/A</td><td class="c">C</td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="sop_qms_021">
+<div class="proc-title">21. SOP-QMS-021 — Human Factors &amp; Error Prevention</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh//01-SOPs//08-SOP-800//sop-804-human-factors-and-error-proofing.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>PM</th><th>QM</th><th>EM</th><th>HRM</th><th>HSE</th><th>SS</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Đánh giá rủi ro lỗi con người</td><td class="c">C</td><td class="r">R</td><td></td><td></td><td class="c">C</td><td class="c">C</td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Thiết lập biện pháp phòng ngừa (Poka-yoke)</td><td class="c">C</td><td class="a">A</td><td class="r">R</td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Đào tạo &amp; nhắc nhở tại hiện trường</td><td class="a">A</td><td></td><td></td><td class="i">I</td><td></td><td class="r">R</td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="sop_qms_022">
+<div class="proc-title">22. SOP-QMS-022 — Customer Property Control</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh//01-SOPs//02-SOP-200//sop-203-customer-property-control.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>GM</th><th>PM</th><th>QM</th><th>EST</th><th>WM</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Tiếp nhận &amp; đăng ký tài sản KH</td><td></td><td></td><td class="i">I</td><td class="r">R</td><td class="ra">R/A</td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Bảo quản &amp; sử dụng</td><td></td><td class="c">C</td><td></td><td></td><td class="ra">R/A</td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Báo cáo hư hỏng/mất</td><td class="i">I</td><td></td><td class="i">I</td><td class="r">R</td><td class="r">R</td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="sop_qms_023">
+<div class="proc-title">23. SOP-QMS-023 — Competence, Training &amp; Awareness</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/08-SOP-800/sop-801-competence-training-and-certification.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>GM</th><th>PM</th><th>QM</th><th>EM</th><th>HRM</th><th>SS</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Xác định yêu cầu năng lực</td><td class="a">A</td><td class="c">C</td><td class="c">C</td><td class="c">C</td><td class="r">R</td><td></td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Lập Training Plan hàng năm</td><td></td><td class="c">C</td><td class="c">C</td><td class="c">C</td><td class="ra">R/A</td><td></td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Thực hiện đào tạo &amp; OJT</td><td></td><td class="r">R</td><td></td><td class="r">R</td><td class="r">R</td><td class="r">R</td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Đánh giá năng lực &amp; cấp chứng nhận</td><td></td><td class="a">A</td><td class="c">V</td><td class="a">A</td><td class="r">R</td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="sop_qms_024">
+<div class="proc-title">24. SOP-QMS-024 — Organizational Knowledge Management</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-105-organizational-knowledge-management.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>QM</th><th>EM</th><th>HRM</th><th>IT</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Thu thập &amp; lưu trữ knowledge base</td><td class="r">R</td><td class="c">C</td><td></td><td class="c">C</td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Phân phối &amp; đào tạo</td><td class="ra">R/A</td><td></td><td class="c">C</td><td></td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Rà soát &amp; cập nhật</td><td class="ra">R/A</td><td></td><td></td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="sop_qms_025">
+<div class="proc-title">25. SOP-QMS-025 — Contamination Control &amp; Cleanliness</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh//01-SOPs//07-SOP-700//sop-702-contamination-control-and-cleanliness.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>GM</th><th>PM</th><th>QM</th><th>EM</th><th>HSE</th><th>QC</th><th>OP</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Thiết lập tiêu chuẩn cleanliness</td><td class="a">A</td><td></td><td class="r">R</td><td class="c">C</td><td class="c">C</td><td></td><td></td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Thực hiện ultrasonic cleaning/inspection</td><td></td><td class="a">A</td><td></td><td></td><td></td><td class="c">V</td><td class="r">R</td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Giám sát environment (particle count)</td><td></td><td></td><td class="a">A</td><td></td><td class="c">C</td><td class="r">R</td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_cnc_001">
+<div class="proc-title">26. PROC-CNC-001 — CNC Machining Execution</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-502-cnc-machining-operations.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>QM</th><th>SS</th><th>QC</th><th>SU</th><th>OP</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Nhận Job Package &amp; Pre-start checklist</td><td></td><td class="a">A</td><td></td><td class="r">R</td><td class="r">R</td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Setup &amp; First-piece verification</td><td></td><td class="a">A</td><td class="c">V</td><td class="r">R</td><td></td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Production run &amp; in-process control</td><td></td><td class="a">A</td><td class="c">C</td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Tool wear monitoring &amp; change</td><td></td><td class="a">A</td><td></td><td class="r">R</td><td class="r">R</td></tr>
+<tr><td class="step-num">5</td><td class="step-name">FOD prevention &amp; product safety check</td><td class="i">I</td><td class="a">A</td><td></td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">6</td><td class="step-name">Kết thúc job &amp; bàn giao QC</td><td></td><td class="a">A</td><td class="r">R</td><td></td><td class="r">R</td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_cnc_002">
+<div class="proc-title">27. PROC-CNC-002 — Program &amp; Setup Release Control</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-502-cnc-machining-operations.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>EM</th><th>SS</th><th>SU</th><th>CAM</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Nhận yêu cầu lập trình từ Build Pack</td><td class="a">A</td><td></td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Lập trình CAM &amp; simulate</td><td></td><td></td><td></td><td class="ra">R/A</td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Review &amp; release NC program</td><td class="a">A</td><td></td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Lập Setup Sheet &amp; Tooling List</td><td class="c">V</td><td></td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">5</td><td class="step-name">Verify tại máy (first run)</td><td></td><td class="i">I</td><td class="r">R</td><td class="c">C</td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_eng_001">
+<div class="proc-title">28. PROC-ENG-001 — Engineering DFM &amp; Quoting</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/03-SOP-300/sop-301-engineering-dfm-quoting-and-machining-planning.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>EM</th><th>EST</th><th>CAM</th><th>DFM</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Nhận RFQ/bản vẽ từ Estimator</td><td class="i">I</td><td class="r">R</td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Phân tích DFM &amp; khả thi gia công</td><td class="c">V</td><td></td><td></td><td class="ra">R/A</td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Ước tính routing, cycle time, chi phí</td><td class="c">V</td><td></td><td class="c">C</td><td class="r">R</td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Phản hồi DFM cho Estimator/Customer</td><td class="i">I</td><td class="ra">R/A</td><td></td><td class="r">R</td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_eng_002">
+<div class="proc-title">29. PROC-ENG-002 — Engineering Release &amp; Baseline Package</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-106-change-and-configuration-management.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>PM</th><th>QM</th><th>EM</th><th>PLM</th><th>CAM</th><th>DFM</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Chuẩn bị Build Pack (BV, program, setup sheet)</td><td></td><td></td><td class="a">A</td><td></td><td class="r">R</td><td class="r">R</td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Review CTQ &amp; control plan</td><td></td><td class="c">C</td><td class="r">R</td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Phê duyệt &amp; release Build Pack (HP-3)</td><td class="i">I</td><td></td><td class="a">A</td><td class="i">I</td><td></td><td></td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Phân phối Build Pack cho Planning/Production</td><td class="i">I</td><td></td><td class="r">R</td><td class="r">R</td><td></td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_ops_001">
+<div class="proc-title">30. PROC-OPS-001 — Order Fulfillment (RFQ → Cash)</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/02-SOP-200/sop-201-order-fulfillment-rfq-to-cash.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>PM</th><th>QM</th><th>EM</th><th>EST</th><th>PLM</th><th>PUM</th><th>WM</th><th>SS</th><th>QC</th><th>SU</th><th>OP</th><th>DFM</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">G0: RFQ tiếp nhận &amp; Contract Review</td><td></td><td class="c">C</td><td class="c">C</td><td class="ra">R/A</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">2</td><td class="step-name">G1: DFM &amp; Quoting</td><td></td><td></td><td class="a">A</td><td class="i">I</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">3</td><td class="step-name">G2: SO Entry &amp; Job Creation</td><td></td><td></td><td></td><td class="r">R</td><td class="a">A</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">4</td><td class="step-name">G3: Build Pack &amp; Material Ready</td><td></td><td></td><td class="r">R</td><td></td><td class="a">A</td><td class="r">R</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">5</td><td class="step-name">G4: Production Execution</td><td class="ra">R/A</td><td></td><td></td><td></td><td></td><td></td><td></td><td class="r">R</td><td></td><td class="r">R</td><td class="r">R</td><td></td></tr>
+<tr><td class="step-num">6</td><td class="step-name">G5: Final Inspection &amp; Ship</td><td></td><td class="ra">R/A</td><td></td><td class="i">I</td><td></td><td></td><td class="r">R</td><td></td><td class="r">R</td><td></td><td></td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_ops_002">
+<div class="proc-title">31. PROC-OPS-002 — Finishing &amp; Deburr</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-502-cnc-machining-operations.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>SS</th><th>QC</th><th>OP</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Nhận part từ CNC machining</td><td class="a">A</td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Deburr theo Work Instruction</td><td class="a">A</td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Visual inspection sau deburr</td><td class="a">A</td><td class="c">V</td><td class="r">R</td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Bàn giao cho QC Final</td><td class="a">A</td><td class="r">R</td><td class="r">R</td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_ops_003">
+<div class="proc-title">32. PROC-OPS-003 — Escalation, SLA &amp; WIP Control</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-501-production-planning-scheduling-and-dispatch-control.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>GM</th><th>PM</th><th>EST</th><th>PLM</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Theo dõi WIP Aging (RED/BLACK)</td><td></td><td class="c">C</td><td></td><td class="ra">R/A</td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Kích hoạt escalation khi OTD risk</td><td class="i">I</td><td class="r">R</td><td class="i">I</td><td class="r">R</td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Họp escalation &amp; quyết định</td><td class="a">A</td><td class="r">R</td><td class="c">C</td><td class="r">R</td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Cập nhật khách hàng</td><td></td><td></td><td class="ra">R/A</td><td class="c">C</td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_pla_001">
+<div class="proc-title">33. PROC-PLA-001 — Production Planning &amp; Scheduling</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-501-production-planning-scheduling-and-dispatch-control.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>PM</th><th>EM</th><th>EST</th><th>PLM</th><th>PUM</th><th>SS</th><th>BUY</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Thu nhận nhu cầu từ SO</td><td></td><td></td><td class="i">I</td><td class="r">R</td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Xác nhận baseline kỹ thuật (Build Pack)</td><td></td><td class="c">C</td><td></td><td class="r">R</td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Xác nhận vật tư/thuê ngoài sẵn sàng</td><td></td><td></td><td></td><td class="r">R</td><td class="c">C</td><td></td><td class="c">C</td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Lập lịch năng lực &amp; Master Schedule</td><td></td><td></td><td></td><td class="ra">R/A</td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">5</td><td class="step-name">Planning Release Checklist</td><td class="i">I</td><td></td><td></td><td class="ra">R/A</td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">6</td><td class="step-name">Bàn giao xuống xưởng</td><td class="ra">R/A</td><td></td><td></td><td class="r">R</td><td></td><td class="i">I</td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_pla_002">
+<div class="proc-title">34. PROC-PLA-002 — Dispatch Control &amp; Capacity Review</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-501-production-planning-scheduling-and-dispatch-control.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>PM</th><th>EST</th><th>PLM</th><th>SS</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Phát hành Dispatch hàng ngày</td><td></td><td></td><td class="ra">R/A</td><td></td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Capacity Review hàng tuần</td><td class="c">C</td><td></td><td class="ra">R/A</td><td></td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Điều chỉnh ưu tiên Job</td><td class="c">C</td><td class="i">I</td><td class="a">A</td><td></td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Cập nhật tiến độ từ Production</td><td class="r">R</td><td></td><td class="a">A</td><td class="r">R</td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_qa_001">
+<div class="proc-title">35. PROC-QA-001 — IPQC Reaction Plan</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-606-ncr-capa-and-ipqc-reaction.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>PM</th><th>QM</th><th>EM</th><th>SS</th><th>QC</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Kiểm tra in-process theo Control Plan</td><td></td><td class="a">A</td><td></td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Phát hiện NC &amp; kích hoạt hold</td><td></td><td class="a">A</td><td></td><td class="r">R</td><td class="r">R</td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Lập NCR &amp; cách ly</td><td></td><td class="a">A</td><td></td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Quyết định xử lý (rework/scrap)</td><td class="c">C</td><td class="a">A</td><td class="c">C</td><td></td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_qa_002">
+<div class="proc-title">36. PROC-QA-002 — Layered Process Audit</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-901-internal-audit-and-lpa.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>PM</th><th>QM</th><th>SS</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Lập lịch LPA hàng tháng</td><td></td><td class="ra">R/A</td><td></td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Thực hiện LPA tại hiện trường</td><td class="c">C</td><td class="r">R</td><td class="c">C</td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Ghi nhận findings &amp; phát hành NC</td><td></td><td class="ra">R/A</td><td></td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Follow-up corrective action</td><td class="c">C</td><td class="ra">R/A</td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_qa_003">
+<div class="proc-title">37. PROC-QA-003 — AQL Sampling Inspection</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-603-aql-sampling-inspection.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>QM</th><th>QC</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Xác định AQL level &amp; sample size</td><td class="ra">R/A</td><td class="c">C</td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Thực hiện sampling inspection</td><td class="a">A</td><td class="r">R</td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Quyết định Accept/Reject lot</td><td class="a">A</td><td class="r">R</td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_qa_004">
+<div class="proc-title">38. PROC-QA-004 — Final Inspection &amp; COC Release</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-605-final-inspection-coc-and-shipment-release.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>QM</th><th>EST</th><th>WM</th><th>SS</th><th>QC</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Kích hoạt Final Inspection</td><td class="a">A</td><td></td><td></td><td class="r">R</td><td class="r">R</td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Kiểm tra Job Dossier (Gate hồ sơ)</td><td class="a">A</td><td></td><td></td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Thực hiện Final Inspection</td><td class="a">A</td><td></td><td></td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Phát hành COC</td><td class="ra">R/A</td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">5</td><td class="step-name">Tạo Ship Release Pack &amp; bàn giao WHS</td><td class="r">R</td><td class="i">I</td><td class="ra">R/A</td><td></td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_qa_005">
+<div class="proc-title">39. PROC-QA-005 — PFMEA &amp; Control Plan</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-103-risk-opportunity-fmea-and-control-plan.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>PM</th><th>QM</th><th>EM</th><th>CAM</th><th>DFM</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Khởi tạo PFMEA cho part/process mới</td><td class="c">C</td><td class="a">A</td><td class="r">R</td><td></td><td></td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Xác định failure modes &amp; controls</td><td></td><td class="r">R</td><td class="r">R</td><td class="c">C</td><td class="c">C</td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Lập/cập nhật Control Plan</td><td></td><td class="ra">R/A</td><td class="c">C</td><td></td><td></td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Review &amp; approve Control Plan</td><td class="i">I</td><td class="a">A</td><td class="c">V</td><td></td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_qa_006">
+<div class="proc-title">40. PROC-QA-006 — Material Traceability Flow</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/04-SOP-400/sop-402-material-verification-traceability-and-counterfeit-prevention.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>QM</th><th>WM</th><th>SS</th><th>QC</th><th>OP</th><th>WS</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Gán lot/heat number khi nhận hàng</td><td></td><td class="a">A</td><td></td><td class="c">V</td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Duy trì traceability trong sản xuất</td><td></td><td></td><td class="a">A</td><td class="c">V</td><td class="r">R</td><td></td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Xác nhận traceability trước ship</td><td class="a">A</td><td class="c">C</td><td></td><td class="r">R</td><td></td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_qa_007">
+<div class="proc-title">41. PROC-QA-007 — Cleanliness Inspection &amp; Particle Count</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/07-SOP-700/sop-702-contamination-control-and-cleanliness.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>QM</th><th>SS</th><th>QC</th><th>OP</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Thực hiện cleaning theo WI</td><td></td><td class="a">A</td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Kiểm tra particle count</td><td class="a">A</td><td></td><td class="r">R</td><td></td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Quyết định pass/fail cleanliness</td><td class="a">A</td><td></td><td class="r">R</td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_sal_001">
+<div class="proc-title">42. PROC-SAL-001 — Customer Communication &amp; Feedback</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/02-SOP-200/sop-202-customer-complaint-feedback-rma-and-escape.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>GM</th><th>PM</th><th>QM</th><th>EM</th><th>EST</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Tiếp nhận &amp; ghi nhận feedback/yêu cầu KH</td><td></td><td></td><td></td><td></td><td class="ra">R/A</td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Phối hợp nội bộ xử lý feedback</td><td></td><td class="c">C</td><td class="c">C</td><td class="c">C</td><td class="r">R</td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Phản hồi khách hàng</td><td class="i">I</td><td></td><td></td><td></td><td class="ra">R/A</td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Thu thập Customer Satisfaction Survey</td><td></td><td></td><td class="i">I</td><td></td><td class="ra">R/A</td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_whs_001">
+<div class="proc-title">43. PROC-WHS-001 — Receiving &amp; Warehouse</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/07-SOP-700/sop-701-receiving-packaging-handling-and-storage.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>QM</th><th>WM</th><th>SS</th><th>QC</th><th>BUY</th><th>WS</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">G0: Pre-receiving (kiểm PO/ASN)</td><td></td><td class="a">A</td><td></td><td></td><td class="c">C</td><td class="r">R</td></tr>
+<tr><td class="step-num">2</td><td class="step-name">G1: Receiving tại dock (kiểm đếm)</td><td></td><td class="a">A</td><td></td><td></td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">3</td><td class="step-name">G2: IQC/Incoming inspection</td><td class="a">A</td><td></td><td></td><td class="r">R</td><td></td><td class="c">C</td></tr>
+<tr><td class="step-num">4</td><td class="step-name">G3: Nhập kho &amp; quản lý vị trí FIFO</td><td></td><td class="a">A</td><td></td><td></td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">5</td><td class="step-name">G4: Cấp phát cho Job (traceability)</td><td></td><td class="a">A</td><td class="i">I</td><td></td><td></td><td class="r">R</td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_whs_002">
+<div class="proc-title">44. PROC-WHS-002 — Packaging &amp; Labeling</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/07-SOP-700/sop-701-receiving-packaging-handling-and-storage.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>QM</th><th>EST</th><th>WM</th><th>FM</th><th>WS</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Nhận sản phẩm đã QA release</td><td class="i">I</td><td></td><td class="a">A</td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Đóng gói theo tiêu chuẩn semiconductor</td><td></td><td></td><td class="a">A</td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Dán label (GS1/SSCC nếu yêu cầu)</td><td></td><td></td><td class="a">A</td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Ship confirmation trên Epicor</td><td></td><td class="i">I</td><td class="ra">R/A</td><td class="i">I</td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_whs_003">
+<div class="proc-title">45. PROC-WHS-003 — Handling &amp; Preservation</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/07-SOP-700/sop-701-receiving-packaging-handling-and-storage.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>WM</th><th>HSE</th><th>SS</th><th>WS</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Cấp phát vật tư/WIP cho Production</td><td class="a">A</td><td></td><td class="i">I</td><td class="r">R</td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Bảo quản theo yêu cầu môi trường</td><td class="a">A</td><td></td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Giám sát điều kiện kho (T°C, ẩm)</td><td class="a">A</td><td class="c">C</td><td></td><td class="r">R</td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_fin_001">
+<div class="proc-title">46. PROC-FIN-001 — Invoicing &amp; AR</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/08-SOP-800/sop-803-invoicing-job-costing-and-arap.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>QM</th><th>EST</th><th>WM</th><th>FM</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Chuẩn bị bộ chứng từ giao hàng</td><td class="r">R</td><td class="c">C</td><td class="r">R</td><td></td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Kiểm tra điều kiện lập hóa đơn</td><td></td><td></td><td></td><td class="ra">R/A</td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Lập hóa đơn trong Epicor</td><td></td><td></td><td></td><td class="ra">R/A</td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Phát hành hóa đơn cho KH</td><td></td><td class="i">I</td><td></td><td class="ra">R/A</td></tr>
+<tr><td class="step-num">5</td><td class="step-name">Theo dõi công nợ &amp; nhắc nợ</td><td></td><td class="c">C</td><td></td><td class="ra">R/A</td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_fin_002">
+<div class="proc-title">47. PROC-FIN-002 — Job Costing &amp; Margin Review</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/08-SOP-800/sop-803-invoicing-job-costing-and-arap.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>GM</th><th>PM</th><th>FM</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Thu thập dữ liệu chi phí Job</td><td></td><td class="c">C</td><td class="ra">R/A</td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Phân tích margin &amp; variance</td><td></td><td></td><td class="ra">R/A</td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Báo cáo cho Management Review</td><td class="a">A</td><td></td><td class="r">R</td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_hr_001">
+<div class="proc-title">48. PROC-HR-001 — Competency &amp; Training Admin</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/08-SOP-800/sop-801-competence-training-and-certification.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>PM</th><th>QM</th><th>EM</th><th>HRM</th><th>SS</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Khởi tạo yêu cầu đào tạo</td><td class="r">R</td><td class="r">R</td><td class="r">R</td><td class="a">A</td><td></td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Lập kế hoạch &amp; chốt lịch</td><td></td><td></td><td></td><td class="ra">R/A</td><td></td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Thực hiện đào tạo/OJT</td><td class="r">R</td><td></td><td class="r">R</td><td class="a">A</td><td class="r">R</td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Đánh giá năng lực &amp; phân cấp</td><td class="a">A</td><td></td><td class="a">A</td><td class="c">V</td><td></td></tr>
+<tr><td class="step-num">5</td><td class="step-name">Phát hành chứng nhận &amp; cập nhật</td><td class="i">I</td><td></td><td class="i">I</td><td class="ra">R/A</td><td></td></tr>
+<tr><td class="step-num">6</td><td class="step-name">Tái chứng nhận</td><td class="c">C</td><td></td><td class="c">C</td><td class="ra">R/A</td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_hse_001">
+<div class="proc-title">49. PROC-HSE-001 — Incident &amp; Near-miss Management</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/08-SOP-800/sop-802-incident-near-miss-and-ehs.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>GM</th><th>PM</th><th>QM</th><th>HSE</th><th>SS</th><th>QC</th><th>OP</th><th>WS</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Phản ứng tức thời (0–10 phút)</td><td></td><td class="a">A</td><td></td><td class="r">R</td><td class="r">R</td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Báo cáo sự cố/near-miss</td><td></td><td></td><td></td><td class="a">A</td><td class="r">R</td><td></td><td class="r">R</td><td></td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Cách ly sản phẩm (nếu ảnh hưởng QC)</td><td></td><td></td><td class="a">A</td><td></td><td></td><td class="r">R</td><td></td><td class="c">C</td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Điều tra nguyên nhân gốc</td><td></td><td class="c">C</td><td></td><td class="ra">R/A</td><td class="c">C</td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">5</td><td class="step-name">Hành động khắc phục &amp; đóng sự cố</td><td class="a">A</td><td class="r">R</td><td></td><td class="r">R</td><td></td><td></td><td></td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_it_001">
+<div class="proc-title">50. PROC-IT-001 — User Access Provisioning/Offboarding</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-104-data-governance-records-security-and-ip-protection.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>QM</th><th>HRM</th><th>IT</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Yêu cầu cấp/thu hồi quyền</td><td></td><td class="r">R</td><td class="a">A</td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Cấu hình quyền M365/Epicor</td><td></td><td></td><td class="ra">R/A</td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Kiểm tra tuân thủ định kỳ</td><td class="a">A</td><td></td><td class="r">R</td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_mnt_001">
+<div class="proc-title">51. PROC-MNT-001 — Tooling &amp; Fixture Control</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-503-tooling-maintenance-pm-and-breakdown-response.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>GM</th><th>PM</th><th>EM</th><th>MM</th><th>SU</th><th>MT</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Đăng ký tooling/fixture mới</td><td></td><td></td><td class="c">C</td><td class="a">A</td><td class="r">R</td><td></td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Cấp phát &amp; thu hồi dao cụ</td><td></td><td></td><td></td><td class="a">A</td><td class="r">R</td><td></td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Kiểm tra tình trạng &amp; bảo trì</td><td></td><td></td><td></td><td class="a">A</td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Write-off tooling hỏng</td><td class="a">A</td><td class="c">V</td><td></td><td class="r">R</td><td></td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_mnt_002">
+<div class="proc-title">52. PROC-MNT-002 — Preventive Maintenance Workflow</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-503-tooling-maintenance-pm-and-breakdown-response.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>PM</th><th>MM</th><th>SS</th><th>MT</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Lập PM Schedule</td><td class="c">C</td><td class="ra">R/A</td><td></td><td></td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Thực hiện PM theo checklist</td><td></td><td class="a">A</td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Ghi nhận kết quả &amp; cập nhật log</td><td></td><td class="a">A</td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Bàn giao máy cho Production</td><td class="i">I</td><td class="ra">R/A</td><td class="i">I</td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_mnt_003">
+<div class="proc-title">53. PROC-MNT-003 — Crash/Incident Response</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-503-tooling-maintenance-pm-and-breakdown-response.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>PM</th><th>QM</th><th>MM</th><th>SS</th><th>SU</th><th>OP</th><th>MT</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Phát hiện &amp; báo cáo crash</td><td></td><td></td><td class="i">I</td><td class="r">R</td><td class="r">R</td><td class="r">R</td><td></td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Đánh giá thiệt hại</td><td class="c">C</td><td></td><td class="ra">R/A</td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Sửa chữa &amp; kiểm tra lại</td><td></td><td></td><td class="a">A</td><td></td><td></td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Bàn giao máy &amp; root cause report</td><td class="i">I</td><td class="i">I</td><td class="ra">R/A</td><td></td><td></td><td></td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_mnt_004">
+<div class="proc-title">54. PROC-MNT-004 — Gage Handling &amp; Verification Gates</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-601-calibration-and-gage-control.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>QM</th><th>MM</th><th>QC</th><th>MT</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Nhận &amp; đăng ký gage mới</td><td class="i">I</td><td class="a">A</td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Verification gate trước khi dùng</td><td></td><td class="a">A</td><td class="c">V</td><td class="r">R</td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Cấp phát cho QC/Production</td><td></td><td class="a">A</td><td></td><td class="r">R</td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_mnt_005">
+<div class="proc-title">55. PROC-MNT-005 — Tool Life Management &amp; Replacement</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-503-tooling-maintenance-pm-and-breakdown-response.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>EM</th><th>MM</th><th>SU</th><th>OP</th><th>CAM</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Thiết lập tool life standard</td><td class="r">R</td><td class="a">A</td><td></td><td></td><td class="c">C</td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Theo dõi tool life count</td><td></td><td class="a">A</td><td class="r">R</td><td class="r">R</td><td></td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Thay thế tool khi hết life</td><td></td><td class="a">A</td><td class="r">R</td><td></td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_pur_001">
+<div class="proc-title">56. PROC-PUR-001 — Outsource Finishing</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/04-SOP-400/sop-401-supplier-control-and-special-process.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>QM</th><th>EM</th><th>PUM</th><th>QC</th><th>DFM</th><th>BUY</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Xác định yêu cầu finishing (anodize/plate/HT)</td><td></td><td class="r">R</td><td class="a">A</td><td></td><td class="c">C</td><td></td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Phát hành PO outsource</td><td></td><td class="c">V</td><td class="a">A</td><td></td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Kiểm tra hàng trả về (IQC outsource)</td><td class="a">A</td><td></td><td></td><td class="r">R</td><td></td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_pur_002">
+<div class="proc-title">57. PROC-PUR-002 — Purchasing &amp; Supplier Control</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/04-SOP-400/sop-401-supplier-control-and-special-process.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>QM</th><th>PUM</th><th>BUY</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Nhận PR từ phòng ban yêu cầu</td><td></td><td class="a">A</td><td class="r">R</td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Tìm nguồn &amp; so sánh báo giá NCC</td><td></td><td class="c">V</td><td class="r">R</td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Phát hành PO trên Epicor</td><td></td><td class="a">A</td><td class="r">R</td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Theo dõi giao hàng &amp; expedite</td><td></td><td class="a">A</td><td class="r">R</td></tr>
+<tr><td class="step-num">5</td><td class="step-name">Đánh giá hiệu suất NCC</td><td class="c">V</td><td class="a">A</td><td class="r">R</td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_qa_008">
+<div class="proc-title">58. PROC-QA-008 — Surface Treatment Qualification</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/04-SOP-400/sop-401-supplier-control-and-special-process.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>GM</th><th>QM</th><th>EM</th><th>PUM</th><th>QC</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Xác định yêu cầu surface treatment</td><td></td><td class="a">A</td><td class="r">R</td><td></td><td></td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Qualification test plan</td><td></td><td class="ra">R/A</td><td class="c">C</td><td></td><td></td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Thực hiện test &amp; đánh giá</td><td></td><td class="a">A</td><td></td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Phê duyệt NCC surface treatment</td><td class="i">I</td><td class="a">A</td><td></td><td class="i">I</td><td></td></tr>
+</tbody>
+</table></div>
+<div class="proc-section" id="proc_sal_002">
+<div class="proc-title">59. PROC-SAL-002 — Warranty &amp; RMA Process</div>
+<div class="proc-ref"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/02-SOP-200/sop-202-customer-complaint-feedback-rma-and-escape.html">📄 Mở tài liệu gốc</a></div>
+</div>
+<div class="table-card"><table class="raci-tbl">
+<thead><tr><th class="step-num">#</th><th style="text-align:left;min-width:200px;">Bước / Hoạt động</th><th>GM</th><th>QM</th><th>EST</th><th>WM</th><th>FM</th><th>QC</th></tr></thead>
+<tbody><tr><td class="step-num">1</td><td class="step-name">Tiếp nhận RMA request từ KH</td><td></td><td class="i">I</td><td class="ra">R/A</td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">2</td><td class="step-name">Nhận &amp; kiểm tra hàng trả về</td><td></td><td class="a">A</td><td></td><td class="r">R</td><td></td><td class="r">R</td></tr>
+<tr><td class="step-num">3</td><td class="step-name">Quyết định xử lý (credit/replace/reject)</td><td class="i">I</td><td class="r">R</td><td class="a">A</td><td></td><td></td><td></td></tr>
+<tr><td class="step-num">4</td><td class="step-name">Phát hành credit note (nếu có)</td><td class="i">I</td><td></td><td class="a">A</td><td></td><td class="r">R</td><td></td></tr>
+</tbody>
+</table></div>
+<h2 class="h2">6. Quy tắc áp dụng</h2>
+<ul style="line-height:1.85;">
+<li>Mọi R/A (Responsible/Accountable) trong ma trận này PHẢI có tương ứng trong Core Accountabilities (§4) của JD.</li>
+<li>Khi backup thay thế, vai trò RACI được kế thừa với giới hạn theo JD §10.</li>
+<li>Khi thay đổi SOP/PROC, ma trận RACI PHẢI được cập nhật đồng thời.</li>
+<li>Tranh chấp trách nhiệm được giải quyết theo: RACI Matrix → Authority Matrix → General Manager (EXE-01) quyết định.</li>
+</ul>
+</div></div></div>
+</div></div></div>
+<div class="no-screen print-disclaimer" style="display:none;text-align:center;font-size:9px;color:#999;padding:8px 0;border-top:1px solid #ddd;margin-top:20px">⚠ Bản in không kiểm soát.</div>
+<script src="../../../assets/app.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SOP-108 — Operational Contingency Plan | HESEM QMS</title>
+<link href="../../../assets/style.css" rel="stylesheet"/>
+<style>
+/* === PAGE BREAK & OVERFLOW FIX (auto-applied) === */
+@media print {
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.vstep{page-break-inside:avoid;break-inside:avoid}
+  h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
+  .form-header,.sig-row,.sign-row{page-break-inside:avoid;break-inside:avoid}
+  tr{page-break-inside:avoid;break-inside:avoid}
+  thead{display:table-header-group}tfoot{display:table-footer-group}
+  p{orphans:3;widows:3}.table-card{overflow:visible!important}
+}
+.page-body{overflow-x:hidden}
+.table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
+table{max-width:100%;table-layout:auto}
+td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
+</style>
+</head>
+<body>
+<div class="container"><div class="page"><div class="page-body">
+<div class="form-header">
+<div class="fh-left">
+  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+  <div class="fh-company">
+    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+    <span>Tài liệu kiểm soát</span>
+  </div>
+</div>
+<div class="title">
+  <strong>SOP-108 — Operational Contingency Plan</strong>
+  <span class="sub-vn"></span>
+</div>
+<div class="meta">
+  <div class="row"><span><b>Mã:</b></span><span>SOP-108</span></div>
+  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+  <div class="row"><span><b>Chủ sở hữu:</b></span><span>QA/QMS</span></div>
+  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+</div>
+</div>
+<div class="doc-content" id="docContent"><div class="form-sheet">
+
+<div class="iso-map"><div class="iso-title">Chuẩn mực áp dụng</div><div class="req"><span class="req-tag shall">PHẢI</span><div>Xác định và duy trì kế hoạch để đảm bảo vận hành quá trình và giao hàng khi xảy ra gián đoạn. <span class="iso-ref">ISO 8.4</span> <span class="iso-ref">ISO 8.5.1</span></div></div>
+<div class="req"><span class="req-tag shall">PHẢI</span><div>Đảm bảo năng lực hạ tầng và tính sẵn sàng; lập kế hoạch ứng phó khẩn cấp khi phù hợp. <span class="iso-ref">AS9100D 8.1.1</span></div></div>
+<div class="req"><span class="req-tag should">NÊN</span><div>Bao gồm kịch bản: mất điện/mạng, downtime Epicor/M365, thiếu vật tư/tool, hỏng máy/CMM, sự cố EHS. <span class="iso-ref">ISO 6.1</span> <span class="iso-ref">ISO 7.1.3</span></div></div></div>
+
+<div class="preface-block">
+  <h2 class="h2">Mục tiêu vận hành dự phòng</h2>
+  <div class="grid-2">
+    <div>
+      <div class="card-title">Ưu tiên theo thứ tự</div>
+      <ul>
+        <li>An toàn con người và thiết bị (EHS/LOTO).</li>
+        <li>Ngăn lỗi thoát ra: kiểm soát hold/release.</li>
+        <li>Duy trì sản xuất tối thiểu cho job cam kết (hot list).</li>
+        <li>Khôi phục dữ liệu và đồng bộ hồ sơ sau sự cố.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="card-title">Offline Fallback Kit (tham chiếu SOP-101)</div>
+      <ul>
+        <li>Bản in kiểm soát các SOP trọng yếu.</li>
+        <li>Form giấy cho change, release, access, event log.</li>
+        <li>Danh bạ liên hệ khẩn và sơ đồ escalation.</li>
+      </ul>
+      <div class="note"><b>Nguyên tắc:</b> Trong chế độ dự phòng, mọi quyết định hold/release vẫn <b>PHẢI</b> do QA Manager quyết định dựa trên bằng chứng.</div>
+    </div>
+  </div>
+</div>
+
+<h2 class="h2">1. Mục đích</h2>
+<p>Duy trì vận hành 2 ca và bảo vệ chất lượng/OTD khi xảy ra gián đoạn: IT/ERP, máy móc, chuỗi cung ứng, EHS; đồng thời chuẩn hóa cách ghi nhận và phục hồi dữ liệu.</p>
+<h2 class="h2">2. Phạm vi</h2>
+<p>Áp dụng cho toàn bộ bộ phận liên quan vận hành CNC và giao hàng tại HESEM, bao gồm chế độ ngoại tuyến và khôi phục hệ thống.</p>
+<h2 class="h2">3. Thuật ngữ</h2>
+
+<div class="table-card"><table class="table">
+<thead><tr><th>Thuật ngữ</th><th>Diễn giải</th></tr></thead>
+<tbody>
+<tr><td><b>Sự kiện dự phòng</b> (Contingency Event)</td><td>Sự kiện làm gián đoạn vận hành bình thường: mất điện, mất mạng, downtime ERP, hỏng máy/CMM, thiếu vật tư/tool, thiên tai.</td></tr>
+<tr><td><b>RTO</b> (Recovery Time Objective)</td><td>Thời gian mục tiêu để khôi phục chức năng (ví dụ: Epicor hoạt động lại trong X giờ).</td></tr>
+<tr><td><b>Chế độ ngoại tuyến</b> (Offline Mode)</td><td>Vận hành bằng bản in kiểm soát và form giấy; nhập lại dữ liệu sau khi hệ thống phục hồi.</td></tr>
+<tr><td><b>Hot List</b></td><td>Danh sách job ưu tiên theo cam kết khách hàng; do Production Director phê duyệt.</td></tr>
+</tbody></table></div>
+
+<h2 class="h2">4. RACI</h2>
+
+<div class="table-card"><table class="table">
+<thead><tr><th>Vai trò</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead>
+<tbody>
+<tr><td><b>QA Manager</b></td><td>X</td><td></td><td></td><td></td></tr>
+<tr><td><b>CEO / Tổng Giám đốc</b></td><td></td><td>X</td><td></td><td></td></tr>
+<tr><td><b>IT Admin</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>Epicor System Administrator</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>Production Director</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>SC Manager</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>EHS Specialist</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>Customer Service</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>Toàn bộ nhân viên (All employees)</b></td><td></td><td></td><td></td><td>X</td></tr>
+</tbody></table></div>
+
+<h2 class="h2">5. Quy trình</h2>
+
+<h3 class="h3">5.1 Kích hoạt kế hoạch dự phòng</h3>
+<ul>
+  <li>Kế hoạch dự phòng <b>PHẢI</b> kích hoạt khi có một trong các tình huống:
+    <ul>
+      <li>Mất điện &gt; 15 phút hoặc ảnh hưởng an toàn máy.</li>
+      <li>Mất mạng/M365/Epicor không truy cập &gt; 30 phút.</li>
+      <li>Hỏng máy/CMM gây dừng job hot list &gt; 2 giờ.</li>
+      <li>Thiếu vật tư/tool có nguy cơ trễ ship trong 24–72 giờ.</li>
+      <li>Sự cố EHS (tai nạn/near-miss nghiêm trọng, PCCC, tràn hóa chất).</li>
+    </ul>
+  </li>
+  <li>QA Manager <b>PHẢI</b> ghi nhận sự kiện vào FRM-181 và thông báo escalation theo SOP-107.</li>
+</ul>
+
+<h3 class="h3">5.2 Kịch bản IT: downtime M365/SharePoint</h3>
+<div class="vflow">
+  <div class="vstep"><div class="vnum">1</div><div class="vtext">IT Admin <b>PHẢI</b> xác định phạm vi: mạng nội bộ, internet, M365 service, hoặc thiết bị người dùng.</div></div>
+  <div class="vstep"><div class="vnum">2</div><div class="vtext">Production chuyển sang Offline Fallback Kit: dùng bản in WI/Control Plan cho job đang chạy; ngừng phát hành job mới nếu thiếu tài liệu.</div></div>
+  <div class="vstep"><div class="vnum">3</div><div class="vtext">Khi phục hồi, QMS Engineer <b>PHẢI</b> đối chiếu: form giấy → upload vào SharePoint; đảm bảo không thiếu record.</div></div>
+</div>
+
+<h3 class="h3">5.3 Kịch bản ERP: downtime Epicor</h3>
+<ul>
+  <li>Epicor Admin <b>PHẢI</b> kích hoạt quy trình khôi phục/backup-restore theo runbook nội bộ.</li>
+  <li>Trong khi chờ phục hồi, Production Planner <b>PHẢI</b> dùng “job packet giấy” cho hot list và ghi log: labor, completion, scrap, WIP movement.</li>
+  <li>Sau phục hồi, dữ liệu <b>PHẢI</b> nhập lại trong 24 giờ và Finance <b>PHẢI</b> đối chiếu job costing.</li>
+</ul>
+
+<h3 class="h3">5.4 Kịch bản sản xuất: hỏng máy/CMM hoặc thiếu nhân lực</h3>
+<ul>
+  <li>Production Director <b>PHẢI</b> lập hot list và quyết định điều tải sang máy/cell khác; nếu điều tải là thay đổi cấu hình, <b>PHẢI</b> mở change theo SOP-106.</li>
+  <li>Engineering <b>PHẢI</b> đánh giá khả năng gá/dao/NC cho máy thay thế; QC <b>PHẢI</b> xác nhận first piece.</li>
+  <li>HR Manager <b>PHẢI</b> hỗ trợ điều phối nhân lực ca; người thay thế vị trí yêu cầu chứng nhận chỉ được bố trí khi còn hiệu lực chứng nhận.</li>
+</ul>
+
+<h3 class="h3">5.5 Kịch bản chuỗi cung ứng: thiếu vật tư/tool</h3>
+<ul>
+  <li>SC Manager <b>PHẢI</b> phát hành shortage list và phương án: expedite, thay NCC, hoặc dùng material/tool tương đương.</li>
+  <li>Mọi “equivalent” <b>PHẢI</b> được đánh giá rủi ro và phê duyệt trước khi dùng (Process Engineer/QA Manager tùy phạm vi), và ghi nhận theo SOP-103/106.</li>
+</ul>
+
+<h3 class="h3">5.6 Kịch bản EHS/khẩn cấp</h3>
+<ul>
+  <li>EHS Specialist <b>PHẢI</b> kích hoạt quy trình ứng phó khẩn cấp, sơ tán/LOTO theo quy định pháp luật và nội quy nhà máy.</li>
+  <li>CEO/Production Director <b>PHẢI</b> quyết định dừng/khởi động lại sản xuất theo đánh giá an toàn.</li>
+</ul>
+
+<h3 class="h3">5.7 Kết thúc sự kiện &amp; bài học kinh nghiệm</h3>
+<ul>
+  <li>Sau khi khôi phục, QA Manager <b>PHẢI</b> tổ chức review 30–60 phút: nguyên nhân, thời gian gián đoạn, ảnh hưởng OTD/quality, và hành động phòng tránh.</li>
+  <li>Bài học kinh nghiệm <b>PHẢI</b> ghi FRM-151 theo SOP-105 nếu có điểm dùng lại.</li>
+</ul>
+
+<h2 class="h2">6. Biểu mẫu liên quan</h2>
+<ul>
+  <li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-181-contingency-event-log.html">FRM-181</a> Nhật ký sự kiện dự phòng</li>
+</ul>
+
+<h2 class="h2">7. Tài liệu liên quan</h2>
+<ul>
+  <li><a href="sop-101-document-and-data-control.html">SOP-101</a> Kiểm soát tài liệu &amp; dữ liệu</li>
+  <li><a href="sop-104-data-governance-records-security-and-ip-protection.html">SOP-104</a> Quản trị dữ liệu, hồ sơ, bảo mật &amp; IP</li>
+  <li><a href="sop-105-organizational-knowledge-management.html">SOP-105</a> Quản trị tri thức tổ chức</li>
+  <li><a href="sop-107-communication-management.html">SOP-107</a> Quản lý truyền thông</li>
+</ul>
+
+
+</div></div>
+</div></div></div>
+</body>
+</html>
+
+

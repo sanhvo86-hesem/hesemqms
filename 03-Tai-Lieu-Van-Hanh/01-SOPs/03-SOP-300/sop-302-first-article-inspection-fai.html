@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SOP-302 — First Article Inspection FAI | HESEM QMS</title>
+<link href="../../../assets/style.css" rel="stylesheet"/>
+<style>
+/* === PAGE BREAK & OVERFLOW FIX (auto-applied) === */
+@media print {
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.vstep{page-break-inside:avoid;break-inside:avoid}
+  h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
+  .form-header,.sig-row,.sign-row{page-break-inside:avoid;break-inside:avoid}
+  tr{page-break-inside:avoid;break-inside:avoid}
+  thead{display:table-header-group}tfoot{display:table-footer-group}
+  p{orphans:3;widows:3}.table-card{overflow:visible!important}
+}
+.page-body{overflow-x:hidden}
+.table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
+table{max-width:100%;table-layout:auto}
+td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
+</style>
+</head>
+<body>
+<div class="container"><div class="page"><div class="page-body">
+<div class="form-header">
+<div class="fh-left">
+  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+  <div class="fh-company">
+    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+    <span>Tài liệu kiểm soát</span>
+  </div>
+</div>
+<div class="title">
+  <strong>SOP-302 — First Article Inspection FAI</strong>
+  <span class="sub-vn"></span>
+</div>
+<div class="meta">
+  <div class="row"><span><b>Mã:</b></span><span>SOP-302</span></div>
+  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+  <div class="row"><span><b>Chủ sở hữu:</b></span><span>Engineering</span></div>
+  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+</div>
+</div>
+<div class="doc-content" id="docContent"><div class="form-sheet">
+
+<div class="iso-map">
+  <div class="iso-title">Chuẩn mực áp dụng</div>
+  <div class="req"><span class="req-tag shall">PHẢI</span><div>FAI phải được hoạch định và ghi nhận để xác nhận quá trình hiện tại có khả năng tạo ra sản phẩm phù hợp yêu cầu thiết kế. <span class="iso-ref">AS9102</span> <span class="iso-ref">AS9100D 8.5.1.3</span></div></div>
+  <div class="req"><span class="req-tag shall">PHẢI</span><div>Việc release vào sản xuất chỉ được thực hiện sau khi có bằng chứng first piece/FAI phù hợp với loại thay đổi và mức ảnh hưởng. <span class="iso-ref">ISO 8.5.1</span> <span class="iso-ref">ISO 8.6</span></div></div>
+  <div class="req"><span class="req-tag should">NÊN</span><div>Dùng full FAI cho part mới hoặc revision mới có ảnh hưởng lớn; dùng partial/delta FAI cho thay đổi cục bộ có đánh giá tác động rõ ràng. <span class="iso-ref">AS9102</span></div></div>
+  <div class="req"><span class="req-tag may">ĐƯỢC PHÉP</span><div>Dùng ballooned drawing hoặc ma trận characteristic khác miễn truy vết được từng yêu cầu kỹ thuật tới kết quả đo. <span class="iso-ref">AS9102</span></div></div>
+</div>
+
+<div class="preface-block">
+  <h2 class="h2">Quy ước triển khai tại HESEM</h2>
+  <div class="grid-2">
+    <div>
+      <div class="card-title">FAI cho xưởng CNC high-mix</div>
+      <ul>
+        <li>Part mới hoặc part lâu không chạy <b>PHẢI</b> xác định trước loại FAI ở giai đoạn kickoff/planning.</li>
+        <li>FAI <b>KHÔNG PHẢI</b> là thay cho kiểm cuối; FAI là cổng chặn đầu chuỗi để chứng minh setup/process hiện tại chạy được part theo yêu cầu.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="card-title">Full / Partial / Delta</div>
+      <ul>
+        <li>Full FAI: đo/ghi đủ đặc tính yêu cầu của baseline hiện hành.</li>
+        <li>Partial/Delta FAI: chỉ đo/ghi đặc tính bị ảnh hưởng và các đặc tính liên đới sau thay đổi; phải chỉ ra baseline tham chiếu.</li>
+      </ul>
+      <div class="callout"><b>Lưu ý:</b> Cpk criteria và Reaction Plan không ghi trong SOP này. Khi job yêu cầu năng lực quá trình, dùng <b>SOP-604 §5</b>.</div>
+    </div>
+  </div>
+</div>
+
+<h2 class="h2">1. Mục đích</h2>
+<p>Thiết lập cách xác định trigger FAI, chuẩn bị hồ sơ, thực hiện full/partial/delta FAI và release sản xuất sau first article cho part CNC.</p>
+
+<h2 class="h2">2. Phạm vi</h2>
+<p>Áp dụng cho part detail, sub-assembly hoặc operation cần first article theo yêu cầu khách hàng/hợp đồng hoặc theo đánh giá rủi ro nội bộ tại HESEM.</p>
+
+<h2 class="h2">3. Thuật ngữ</h2>
+<div class="table-card"><table class="table">
+<thead><tr><th>Thuật ngữ</th><th>Diễn giải áp dụng</th></tr></thead>
+<tbody>
+<tr><td><b>Full FAI</b></td><td>Bộ FAI cho baseline hiện hành, bao quát toàn bộ characteristic yêu cầu.</td></tr>
+<tr><td><b>Partial / Delta FAI</b></td><td>FAI chỉ cho characteristic/process/feature bị ảnh hưởng; phải chỉ rõ baseline part/revision và lý do.</td></tr>
+<tr><td><b>Baseline</b></td><td>Part number/revision hoặc approved configuration đã có FAI chấp nhận trước đó.</td></tr>
+<tr><td><b>FAI Not Complete</b></td><td>FAI có characteristic chưa đạt hoặc evidence chưa đủ; không được dùng để release sản xuất hàng loạt.</td></tr>
+<tr><td><b>Characteristic Accountability</b></td><td>Quan hệ truy vết giữa từng yêu cầu bản vẽ/spec và kết quả xác minh tương ứng.</td></tr>
+</tbody></table></div>
+
+<h2 class="h2">4. RACI</h2>
+<div class="table-card"><table class="table">
+<thead><tr><th>Vai trò</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead>
+<tbody>
+<tr><td><b>QC Inspector / CMM</b></td><td>X</td><td></td><td></td><td></td></tr>
+<tr><td><b>Quality Engineer</b> (rà soát FAI)</td><td>X</td><td></td><td></td><td></td></tr>
+<tr><td><b>QA Manager</b></td><td></td><td>X</td><td></td><td></td></tr>
+<tr><td><b>Engineering Lead</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>Process Engineer</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>Production Planner</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>Shift Leader – Ca 1 / Ca 2</b></td><td></td><td></td><td></td><td>X</td></tr>
+</tbody></table></div>
+
+<h2 class="h2">5. Quy trình</h2>
+
+<h3 class="h3">5.1 FAI trigger table</h3>
+<div class="table-card"><table class="table">
+<thead><tr><th>Tình huống</th><th>Loại FAI tối thiểu</th><th>Ghi chú áp dụng tại HESEM</th></tr></thead>
+<tbody>
+<tr><td>Part mới / first production run</td><td><b>Full FAI</b></td><td>Bắt buộc trước release sản xuất hàng loạt.</td></tr>
+<tr><td>Đổi revision bản vẽ/spec</td><td><b>Full hoặc Partial/Delta</b></td><td>Dựa trên change impact; nếu ảnh hưởng datum, CTQ, fit/form/function thì nghiêng về full.</td></tr>
+<tr><td>Thay đổi machine/fixture/tooling/program/process/inspection method có thể ảnh hưởng fit/form/function</td><td><b>Partial/Delta FAI</b></td><td>Phải nêu rõ đặc tính bị ảnh hưởng và baseline tham chiếu.</td></tr>
+<tr><td>Chuyển manufacturing source hoặc special process source</td><td><b>Partial/Delta FAI</b></td><td>Áp dụng cho characteristic/process moved; nếu rủi ro cao có thể nâng lên full.</td></tr>
+<tr><td>Lapse in production dài, crash hoặc major maintenance</td><td><b>Partial/Delta hoặc Full</b></td><td>QA/Engineering quyết định theo mức ảnh hưởng; rationale phải được ghi rõ.</td></tr>
+<tr><td>Nonconformance trên FAI trước đó đã sửa</td><td><b>Partial/Delta FAI</b></td><td>Chỉ đóng FAI khi characteristic bị ảnh hưởng đã được xác minh lại.</td></tr>
+</tbody></table></div>
+
+<h3 class="h3">5.2 Chuẩn bị bộ FAI</h3>
+<ul>
+  <li>Production Planner hoặc Quality Engineer <b>PHẢI</b> xác nhận trigger FAI từ kickoff/planning và ghi vào traveler hoặc <a href="../../../04-Bieu-Mau/03-FRM-300/frm-311-fai-report.html">FRM-311</a> Báo cáo FAI.</li>
+  <li>Bộ đầu vào <b>PHẢI</b> có: drawing/spec revision hiện hành, baseline reference nếu partial/delta, material cert, special process cert, setup sheet, NC/package và kế hoạch đo.</li>
+  <li>QC/CMM <b>PHẢI</b> kiểm trạng thái release của chương trình đo bằng <a href="../../../04-Bieu-Mau/03-FRM-300/frm-305-inspection-program-release-checklist.html">FRM-305</a> Checklist release chương trình đo khi dùng CMM/program inspection.</li>
+</ul>
+
+<h3 class="h3">5.3 Thực hiện FAI</h3>
+<div class="vflow">
+  <div class="vstep"><div class="vnum">1</div><div class="vtext">QC hoặc CMM tạo mã FAI, nhận dạng part number, revision, lot/serial/WO và loại FAI (full hoặc partial/delta).</div></div>
+  <div class="vstep"><div class="vnum">2</div><div class="vtext">Ghi accountability cho toàn bộ characteristic cần xác minh; dùng ballooned drawing hoặc ma trận đặc tính khác có truy vết tương đương.</div></div>
+  <div class="vstep"><div class="vnum">3</div><div class="vtext">Đo và ghi kết quả; record rõ dụng cụ đo/chương trình đo, material cert và special process verification liên quan.</div></div>
+  <div class="vstep"><div class="vnum">4</div><div class="vtext">Khi partial/delta FAI, record <b>PHẢI</b> chỉ ra baseline part/revision và lý do thực hiện partial/delta.</div></div>
+</div>
+
+<h3 class="h3">5.4 Rà soát và quyết định</h3>
+<ul>
+  <li>Quality Engineer <b>PHẢI</b> rà soát tính đủ của FAI: identity, revision, baseline, characteristic coverage, material/process evidence và trạng thái nonconformance.</li>
+  <li>FAI có đặc tính không đạt hoặc evidence không đủ <b>PHẢI</b> ghi trạng thái “Not Complete”; không dùng để release sản xuất hàng loạt.</li>
+  <li>QA Manager quyết định release sau FAI khi characteristic áp dụng đã đạt và các nonconformance (nếu có) đã được xử lý theo quy định.</li>
+</ul>
+
+<h3 class="h3">5.5 Partial / Delta FAI</h3>
+<ul>
+  <li>Partial/Delta FAI chỉ được dùng khi phạm vi thay đổi đã được đánh giá và characteristic bị ảnh hưởng xác định rõ.</li>
+  <li>Partial/Delta FAI <b>PHẢI</b> tham chiếu baseline part number/revision hoặc approved configuration trước đó.</li>
+  <li>Bản baseline gốc <b>KHÔNG ĐƯỢC PHÉP</b> sửa chồng; partial/delta là record bổ sung.</li>
+</ul>
+
+<h3 class="h3">5.6 FAI và SPC/Cpk</h3>
+<ul>
+  <li>Nếu khách hàng hoặc control plan yêu cầu năng lực quá trình, xem <b>SOP-604 §5</b> để áp dụng tiêu chí Cpk và reaction plan.</li>
+  <li>SOP này chỉ yêu cầu first article/first piece đã xác nhận quá trình hiện tại tạo được part phù hợp tại thời điểm release.</li>
+</ul>
+
+<h2 class="h2">6. Biểu mẫu liên quan</h2>
+<ul>
+<li><a href="../../../04-Bieu-Mau/03-FRM-300/frm-311-fai-report.html">FRM-311</a> Báo cáo FAI</li>
+</ul>
+
+<h2 class="h2">7. Tài liệu liên quan</h2>
+<ul>
+<li><a href="sop-301-engineering-dfm-quoting-and-machining-planning.html">SOP-301</a> Kỹ thuật — DFM, Báo giá &amp; Lập kế hoạch gia công</li>
+<li><a href="../01-SOP-100/sop-103-risk-opportunity-fmea-and-control-plan.html">SOP-103</a> Rủi ro, Cơ hội, FMEA &amp; Control Plan</li>
+<li>SOP-604 SPC / Cpk / Reaction Plan</li>
+<li><a href="../../../04-Bieu-Mau/03-FRM-300/frm-305-inspection-program-release-checklist.html">FRM-305</a> Checklist release chương trình đo</li>
+</ul>
+
+</div></div>
+
+</div></div></div>
+</body>
+</html>
+
+

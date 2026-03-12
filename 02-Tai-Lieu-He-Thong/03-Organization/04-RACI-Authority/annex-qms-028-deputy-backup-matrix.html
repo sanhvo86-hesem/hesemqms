@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ANNEX-QMS-028 — Deputy/Backup Matrix | HESEM OS</title>
+<link href="../../../assets/style.css" rel="stylesheet"/>
+<style>
+
+.bk-tbl { width:100%; border-collapse:collapse; font-size:11px; }
+.bk-tbl th { padding:8px 8px; text-align:left; font-size:9px; font-weight:800; color:var(--navy); background:var(--th-bg); border:1px solid var(--th-bdr); letter-spacing:.3px; text-transform:uppercase; }
+.bk-tbl td { padding:7px 8px; border:1px solid var(--ln2); vertical-align:top; line-height:1.45; }
+.bk-tbl tbody tr:nth-child(even) { background:#fafcfe; }
+.bk-tbl tbody tr:hover { background:#f0f4ff; }
+.bk-tbl .dept-row { background:var(--navy)!important; color:#fff; font-weight:700; font-size:11px; }
+.bk-tbl .dept-row td { background:var(--navy)!important; color:#fff; border-color:var(--navy); }
+.pos-id { font-family:var(--mono); font-size:10px; color:var(--navy); font-weight:700; }
+.limit-tag { display:inline-block; padding:2px 8px; border-radius:3px; font-size:9px; font-weight:700; margin:1px 0; }
+.limit-fin { background:#fff5f5; color:#c92a2a; border:1px solid #ffc9c9; }
+.limit-qa { background:#fff3e0; color:#e65100; border:1px solid #ffd8a8; }
+.limit-hr { background:#f3e5f5; color:#7b1fa2; border:1px solid #d0bfff; }
+.limit-ops { background:#e3f2fd; color:#1565c0; border:1px solid #90caf9; }
+.limit-sys { background:#e8f5e9; color:#2b8a3e; border:1px solid #b2f2bb; }
+.dur-tag { display:inline-flex; padding:3px 10px; border-radius:12px; font-size:10px; font-weight:700; }
+.dur-short { background:#ebfbee; color:#2b8a3e; }
+.dur-med { background:#fff9db; color:#e67700; }
+.dur-long { background:#fff5f5; color:#c92a2a; }
+.esc-path { font-size:10px; color:var(--ink2); font-style:italic; }
+.comp-req { font-size:9px; color:var(--blue); }
+
+
+/* === PAGE BREAK & OVERFLOW FIX (auto-applied) === */
+@media print {
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.jd-mission,.form-sheet,.lane,.legend,.req,.auth-grid,.backup-card,.vstep{page-break-inside:avoid;break-inside:avoid}
+  h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
+  .form-header,.sig-row,.sign-row,.approval-row{page-break-inside:avoid;break-inside:avoid}
+  tr{page-break-inside:avoid;break-inside:avoid}
+  thead{display:table-header-group}tfoot{display:table-footer-group}
+  p{orphans:3;widows:3}.table-card{overflow:visible!important}
+}
+.page-body{overflow-x:hidden}
+.table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
+table{max-width:100%;table-layout:auto}
+td,th{max-width:400px;overflow-wrap:break-word;word-wrap:break-word}
+
+</style>
+</head>
+<body>
+<div class="container" style="max-width:1160px;">
+<div class="page landscape">
+<div class="page-body">
+<div class="form-header">
+<div class="fh-left">
+  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+  <div class="fh-company">
+    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+    <span>Tài liệu kiểm soát</span>
+  </div>
+</div>
+<div class="title">
+  <strong>ANNEX-QMS-028-DEPUTY-BACKUP-MATRIX — Deputy/Backup Matrix</strong>
+  <span class="sub-vn"></span>
+</div>
+<div class="meta">
+  <div class="row"><span><b>Mã:</b></span><span>ANNEX-QMS-028-DEPUTY-BACKUP-MATRIX</span></div>
+  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+  <div class="row"><span><b>Chủ sở hữu:</b></span><span>QA/QMS</span></div>
+  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+</div>
+</div>
+<div class="doc-content" id="docContent"><div class="form-sheet"><div class="card">
+<div class="note">Tài liệu kiểm soát. Mọi thay đổi PHẢI theo <a href="../../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-101-document-and-data-control.html">SOP-QMS-001</a>.</div>
+<span class="badge">System Annex</span>
+<h1 class="h1" style="margin-top:12px;">ANNEX-QMS-028 — Deputy/Backup Matrix</h1><div class="sub-vn">Ma trận ủy quyền/thay thế toàn công ty</div>
+<h2 class="h2">1. Mục đích</h2>
+<p>Ma trận ủy quyền/thay thế (Deputy/Backup) quy định người thay thế chính và phụ cho MỌI 51 vị trí trong HESEM Engineering, bao gồm giới hạn quyền hạn khi thay thế, thời gian tối đa, và đường escalation. Tài liệu này BẮT BUỘC được tham chiếu khi có nhân sự vắng mặt.</p>
+<h2 class="h2">2. Quy tắc bắt buộc</h2>
+<div class="callout">
+<b>5 quy tắc không thoả hiệp:</b>
+<ol style="margin:8px 0 0 20px; line-height:1.85;">
+<li><b>Backup KHÔNG được là cấp dưới trực tiếp cho quyết định tài chính</b> — VD: CNC Operator không backup Production Manager cho quyết định chi tiêu.</li>
+<li><b>Backup PHẢI có Competency Level ≥ Level−1</b> so với vị trí chính (tham chiếu C01–C19).</li>
+<li><b>Vắng &gt; 5 ngày làm việc → BẮT BUỘC escalate</b> lên cấp trên trực tiếp để chỉ định backup chính thức.</li>
+<li><b>Quyền bị GIỚI HẠN khi thay thế</b> — xem cột "Authority Limits" chi tiết cho từng vị trí.</li>
+<li><b>Safety Stop KHÔNG BAO GIỜ bị giới hạn</b> — BẤT KỲ AI cũng có quyền dừng khẩn cấp khi có nguy cơ an toàn.</li>
+</ol>
+</div>
+<h2 class="h2">3. Chú giải</h2>
+<div class="legend-row" style="font-size:11px;">
+<div class="legend-item"><span class="limit-tag limit-fin">Financial</span> Giới hạn tài chính</div>
+<div class="legend-item"><span class="limit-tag limit-qa">Quality</span> Giới hạn chất lượng</div>
+<div class="legend-item"><span class="limit-tag limit-hr">HR</span> Giới hạn nhân sự</div>
+<div class="legend-item"><span class="limit-tag limit-ops">Operations</span> Giới hạn vận hành</div>
+<div class="legend-item"><span class="limit-tag limit-sys">System</span> Giới hạn hệ thống/QMS</div>
+</div>
+<div class="legend-row" style="font-size:11px;">
+<div class="legend-item"><span class="dur-tag dur-short">Không giới hạn</span> Backup luôn sẵn sàng</div>
+<div class="legend-item"><span class="dur-tag dur-med">≤ 7 ngày</span> Thay thế ngắn hạn</div>
+<div class="legend-item"><span class="dur-tag dur-long">&gt; 7 ngày</span> Cần chỉ định chính thức General Manager (EXE-01)</div>
+</div>
+<h2 class="h2">4. Ma trận Deputy/Backup (51 vị trí)</h2>
+<div class="table-card" style="overflow-x:auto;">
+<table class="bk-tbl">
+<thead><tr>
+<th style="width:65px;">Mã vị trí</th>
+<th style="width:130px;">Chức danh</th>
+<th style="width:150px;">Primary Backup</th>
+<th style="width:140px;">Secondary Backup</th>
+<th style="width:200px;">Authority Limits khi thay thế</th>
+<th style="width:70px;">Max Duration</th>
+<th style="width:100px;">Escalation Path</th>
+<th style="width:100px;">Competency tối thiểu Backup</th>
+</tr></thead>
+<tbody><tr class="dept-row"><td colspan="8">Executive (2 vị trí)</td></tr><tr><td class="pos-id">EXE-01</td><td><b>General Manager (EXE-01)</b> <a href="../03-Job-Descriptions/01-JD-Executive/jd-chief-executive-officer.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-EXE-01]</a></td><td>Deputy Director Production (EXE-02)</td><td>QA Manager (QA-01)</td><td><span class="limit-tag limit-ops">Không phê duyệt thay đổi chiến lược ngoài quy trình HĐQT</span></td><td><span class="dur-tag dur-long">15 ngày</span></td><td class="esc-path">HĐQT / Board</td><td class="comp-req">C19 ≥ L4</td></tr><tr><td class="pos-id">EXE-02</td><td><b>Deputy Director Production (EXE-02)</b> <a href="../03-Job-Descriptions/01-JD-Executive/jd-production-director.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-EXE-02]</a></td><td>Production Manager (PRO-01)</td><td>Engineering Manager (ENG-01)</td><td><span class="limit-tag limit-ops">Không thay đổi policy QMS cấp công ty</span></td><td><span class="dur-tag dur-med">10 ngày</span></td><td class="esc-path">General Manager (EXE-01)</td><td class="comp-req">C19 ≥ L3</td></tr><tr class="dept-row"><td colspan="8">Production (7 vị trí)</td></tr><tr><td class="pos-id">PRO-01</td><td><b>Production Manager (PRO-01)</b> <a href="../03-Job-Descriptions/02-JD-Production/jd-cnc-workshop-manager.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-PRO-01]</a></td><td>Shift Supervisor (PRO-02)</td><td>Deputy Director Production (EXE-02)</td><td><span class="limit-tag limit-ops">Không phê duyệt scrap &gt; $1,000</span></td><td><span class="dur-tag dur-med">7 ngày</span></td><td class="esc-path">Deputy Director Production (EXE-02)</td><td class="comp-req">C17 ≥ L2, C19 ≥ L2</td></tr><tr><td class="pos-id">PRO-02</td><td><b>Shift Supervisor (PRO-02)</b> <a href="../03-Job-Descriptions/02-JD-Production/jd-shift-leader.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-PRO-02]</a></td><td>CNC Setup Operator (PRO-03)</td><td>Production Manager (PRO-01)</td><td><span class="limit-tag limit-ops">Không thay đổi priority trái dispatch được duyệt</span></td><td><span class="dur-tag dur-med">3 ngày</span></td><td class="esc-path">Production Manager (PRO-01)</td><td class="comp-req">C17 ≥ L2, C19 ≥ L1</td></tr><tr><td class="pos-id">PRO-03</td><td><b>CNC Setup Operator (PRO-03)</b> <a href="../03-Job-Descriptions/02-JD-Production/jd-setup-technician.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-PRO-03]</a></td><td>Shift Supervisor (PRO-02)</td><td>Tooling Technician (PRO-08)</td><td><span class="limit-tag limit-ops">Không sửa program released</span></td><td><span class="dur-tag dur-short">Không giới hạn</span></td><td class="esc-path">Shift Supervisor (PRO-02)</td><td class="comp-req">C17 ≥ L2</td></tr><tr><td class="pos-id">PRO-04</td><td><b>CNC Operator (PRO-04)</b> <a href="../03-Job-Descriptions/02-JD-Production/jd-cnc-operator.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-PRO-04]</a></td><td>Shift Supervisor (PRO-02)</td><td>CNC Setup Operator (PRO-03)</td><td><span class="limit-tag limit-ops">Không đổi setup/offset ngoài hướng dẫn</span></td><td><span class="dur-tag dur-short">Không giới hạn</span></td><td class="esc-path">Shift Supervisor (PRO-02)</td><td class="comp-req">C17 ≥ L1</td></tr><tr><td class="pos-id">PRO-05</td><td><b>Production Engineer / IE (PRO-05)</b> <a href="../03-Job-Descriptions/03-JD-Engineering/jd-process-engineer.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-PRO-05]</a></td><td>Process Engineer (ENG-04)</td><td>Production Manager (PRO-01)</td><td><span class="limit-tag limit-ops">Không đổi CTQ/control plan khi chưa duyệt</span></td><td><span class="dur-tag dur-med">7 ngày</span></td><td class="esc-path">Deputy Director Production (EXE-02)</td><td class="comp-req">C14 ≥ L3, C17 ≥ L2</td></tr><tr><td class="pos-id">PRO-07</td><td><b>Deburr &amp; Finishing Technician (PRO-07)</b> <a href="../03-Job-Descriptions/02-JD-Production/jd-deburr-technician.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-PRO-07]</a></td><td>Shift Supervisor (PRO-02)</td><td>CNC Operator (PRO-04)</td><td><span class="limit-tag limit-ops">Không release lot khi thiếu QA gate</span></td><td><span class="dur-tag dur-short">Không giới hạn</span></td><td class="esc-path">Shift Supervisor (PRO-02)</td><td class="comp-req">C03 ≥ L1</td></tr><tr><td class="pos-id">PRO-08</td><td><b>Tooling Technician (PRO-08)</b> <a href="../03-Job-Descriptions/05-JD-Supply-Chain/jd-tool-crib-tool-storekeeper.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-PRO-08]</a></td><td>CNC Setup Operator (PRO-03)</td><td>Production Engineer / IE (PRO-05)</td><td><span class="limit-tag limit-ops">Không thay đổi tooling standard chính thức</span></td><td><span class="dur-tag dur-med">5 ngày</span></td><td class="esc-path">Production Manager (PRO-01)</td><td class="comp-req">C17 ≥ L2</td></tr><tr class="dept-row"><td colspan="8">Engineering (4 vị trí)</td></tr><tr><td class="pos-id">ENG-01</td><td><b>Engineering Manager (ENG-01)</b> <a href="../03-Job-Descriptions/05-JD-Supply-Chain/jd-logistics-shipping-coordinator.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-ENG-01]</a></td><td>Process Engineer (ENG-04)</td><td>CAM/CNC Programmer (ENG-02)</td><td><span class="limit-tag limit-ops">Không phê duyệt ECO vượt authority matrix</span></td><td><span class="dur-tag dur-med">7 ngày</span></td><td class="esc-path">Deputy Director Production (EXE-02)</td><td class="comp-req">C14 ≥ L3, C19 ≥ L2</td></tr><tr><td class="pos-id">ENG-02</td><td><b>CAM/CNC Programmer (ENG-02)</b> <a href="../03-Job-Descriptions/02-JD-Production/jd-maintenance-technician.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-ENG-02]</a></td><td>Engineering Manager (ENG-01)</td><td>Process Engineer (ENG-04)</td><td><span class="limit-tag limit-ops">Không release baseline package nếu thiếu review</span></td><td><span class="dur-tag dur-med">5 ngày</span></td><td class="esc-path">Engineering Manager (ENG-01)</td><td class="comp-req">C17 ≥ L3</td></tr><tr><td class="pos-id">ENG-03</td><td><b>DFM Engineer (ENG-03)</b> <a href="../03-Job-Descriptions/05-JD-Supply-Chain/jd-tool-crib-tool-storekeeper.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-ENG-03]</a></td><td>CAM/CNC Programmer (ENG-02)</td><td>Engineering Manager (ENG-01)</td><td><span class="limit-tag limit-ops">Không chốt feasibility nếu thiếu dữ liệu CTQ</span></td><td><span class="dur-tag dur-med">5 ngày</span></td><td class="esc-path">Engineering Manager (ENG-01)</td><td class="comp-req">C14 ≥ L3, C15 ≥ L2</td></tr><tr><td class="pos-id">ENG-04</td><td><b>Process Engineer (ENG-04)</b> <a href="../03-Job-Descriptions/05-JD-Supply-Chain/jd-supply-chain-manager.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-ENG-04]</a></td><td>Engineering Manager (ENG-01)</td><td>Production Engineer / IE (PRO-05)</td><td><span class="limit-tag limit-ops">Không duyệt thay đổi routing/cycle ảnh hưởng cost &gt;5%</span></td><td><span class="dur-tag dur-med">5 ngày</span></td><td class="esc-path">Engineering Manager (ENG-01)</td><td class="comp-req">C14 ≥ L3, C17 ≥ L2</td></tr><tr class="dept-row"><td colspan="8">Quality (5 vị trí)</td></tr><tr><td class="pos-id">QA-01</td><td><b>QA Manager (QA-01)</b> <a href="../03-Job-Descriptions/05-JD-Supply-Chain/jd-warehouse-clerk.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-QA-01]</a></td><td>QC Inspector (QA-02)</td><td>Metrology Specialist (QA-03)</td><td><span class="limit-tag limit-ops">Không thay đổi QMS master docs nếu chưa được General Manager (EXE-01) phê duyệt</span></td><td><span class="dur-tag dur-med">7 ngày</span></td><td class="esc-path">General Manager (EXE-01)</td><td class="comp-req">C16 ≥ L3, C19 ≥ L2</td></tr><tr><td class="pos-id">QA-02</td><td><b>QC Inspector (QA-02)</b> <a href="../03-Job-Descriptions/02-JD-Production/jd-production-planner.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-QA-02]</a></td><td>QC Inspector (QA-02)</td><td>QA Manager (QA-01)</td><td><span class="limit-tag limit-ops">Không use-as-is CTQ nếu chưa có disposition</span></td><td><span class="dur-tag dur-short">Không giới hạn</span></td><td class="esc-path">QA Manager (QA-01)</td><td class="comp-req">C16 ≥ L2</td></tr><tr><td class="pos-id">QA-03</td><td><b>Metrology Specialist (QA-03)</b> <a href="../03-Job-Descriptions/09-JD-EHS/jd-ehs-specialist.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-QA-03]</a></td><td>QA Manager (QA-01)</td><td>QC Inspector (QA-02)</td><td><span class="limit-tag limit-ops">Không phê duyệt OOT impact khi thiếu evidence</span></td><td><span class="dur-tag dur-med">7 ngày</span></td><td class="esc-path">QA Manager (QA-01)</td><td class="comp-req">C16 ≥ L3</td></tr><tr><td class="pos-id">QA-05</td><td><b>Document Controller (QA-05)</b> <a href="../03-Job-Descriptions/10-JD-IT/jd-it-admin.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-QA-05]</a></td><td>QA Manager (QA-01)</td><td>General Manager (EXE-01)</td><td><span class="limit-tag limit-ops">Không approve DCR</span></td><td><span class="dur-tag dur-med">5 ngày</span></td><td class="esc-path">QA Manager (QA-01)</td><td class="comp-req">C02 ≥ L3</td></tr><tr><td class="pos-id">QA-06</td><td><b>Clean Tech (QA-06)</b> <a href="../03-Job-Descriptions/08-JD-HR/jd-hr-manager.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-QA-06]</a></td><td>QC Inspector (QA-02)</td><td>QA Manager (QA-01)</td><td><span class="limit-tag limit-ops">Không release cleanliness result khi chưa đủ checklist</span></td><td><span class="dur-tag dur-med">3 ngày</span></td><td class="esc-path">QA Manager (QA-01)</td><td class="comp-req">C03 ≥ L2</td></tr><tr class="dept-row"><td colspan="8">Purchasing (2 vị trí)</td></tr><tr><td class="pos-id">PUR-02</td><td><b>Purchasing Manager (PUR-02)</b> <a href="../03-Job-Descriptions/07-JD-Finance/jd-finance-manager.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-PUR-02]</a></td><td>Buyer (PUR-01)</td><td>General Manager (EXE-01)</td><td><span class="limit-tag limit-ops">Không phê duyệt PO &gt; $20,000</span></td><td><span class="dur-tag dur-med">7 ngày</span></td><td class="esc-path">General Manager (EXE-01)</td><td class="comp-req">C18 ≥ L3</td></tr><tr><td class="pos-id">PUR-01</td><td><b>Buyer (PUR-01)</b> <a href="../03-Job-Descriptions/07-JD-Finance/jd-ap-ar-and-payments-accountant.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-PUR-01]</a></td><td>Purchasing Manager (PUR-02)</td><td>Estimator (SAL-03)</td><td><span class="limit-tag limit-ops">Không phê duyệt NCC mới</span></td><td><span class="dur-tag dur-med">5 ngày</span></td><td class="esc-path">Purchasing Manager (PUR-02)</td><td class="comp-req">C18 ≥ L2</td></tr><tr class="dept-row"><td colspan="8">Estimating (1 vị trí)</td></tr><tr><td class="pos-id">SAL-03</td><td><b>Estimator (SAL-03)</b> <a href="../03-Job-Descriptions/06-JD-Sales/jd-estimator.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-SAL-03]</a></td><td>General Manager (EXE-01)</td><td>DFM Engineer (ENG-03)</td><td><span class="limit-tag limit-ops">Không phát hành final quote khi chưa được duyệt</span></td><td><span class="dur-tag dur-med">5 ngày</span></td><td class="esc-path">General Manager (EXE-01)</td><td class="comp-req">C11 ≥ L3, C14 ≥ L2</td></tr><tr class="dept-row"><td colspan="8">Planning (1 vị trí)</td></tr><tr><td class="pos-id">PLA-02</td><td><b>Production Planner (PLA-02)</b> <a href="../03-Job-Descriptions/03-JD-Engineering/jd-process-engineer.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-PLA-02]</a></td><td>Production Manager (PRO-01)</td><td>General Manager (EXE-01)</td><td><span class="limit-tag limit-ops">Không đổi priority nếu chưa có escalation hợp lệ</span></td><td><span class="dur-tag dur-med">5 ngày</span></td><td class="esc-path">Deputy Director Production (EXE-02)</td><td class="comp-req">C08 ≥ L2, C10 ≥ L2</td></tr><tr class="dept-row"><td colspan="8">Warehouse (4 vị trí)</td></tr><tr><td class="pos-id">WHS-01</td><td><b>Warehouse Manager (WHS-01)</b> <a href="../03-Job-Descriptions/04-JD-Quality/jd-qa-manager.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-WHS-01]</a></td><td>Storekeeper (WHS-03)</td><td>Purchasing Manager (PUR-02)</td><td><span class="limit-tag limit-ops">Không approve inventory adjustment &gt; $300</span></td><td><span class="dur-tag dur-med">5 ngày</span></td><td class="esc-path">General Manager (EXE-01)</td><td class="comp-req">C18 ≥ L2</td></tr><tr><td class="pos-id">WHS-02</td><td><b>Receiving Clerk (WHS-02)</b> <a href="../03-Job-Descriptions/03-JD-Engineering/jd-process-engineer.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-WHS-02]</a></td><td>Storekeeper (WHS-03)</td><td>Warehouse Manager (WHS-01)</td><td><span class="limit-tag limit-ops">Không bypass IQC/traceability gate</span></td><td><span class="dur-tag dur-med">3 ngày</span></td><td class="esc-path">Warehouse Manager (WHS-01)</td><td class="comp-req">C18 ≥ L1</td></tr><tr><td class="pos-id">WHS-03</td><td><b>Storekeeper (WHS-03)</b> <a href="../03-Job-Descriptions/03-JD-Engineering/jd-engineering-lead-manager.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-WHS-03]</a></td><td>Receiving Clerk (WHS-02)</td><td>Warehouse Manager (WHS-01)</td><td><span class="limit-tag limit-ops">Không approve stock issue trái traveler</span></td><td><span class="dur-tag dur-med">3 ngày</span></td><td class="esc-path">Warehouse Manager (WHS-01)</td><td class="comp-req">C18 ≥ L1</td></tr><tr><td class="pos-id">WHS-04</td><td><b>Shipping &amp; Packing (WHS-04)</b> <a href="../03-Job-Descriptions/03-JD-Engineering/jd-cam-nc-programmer.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-WHS-04]</a></td><td>Storekeeper (WHS-03)</td><td>Warehouse Manager (WHS-01)</td><td><span class="limit-tag limit-ops">Không release shipment khi thiếu QA release</span></td><td><span class="dur-tag dur-med">3 ngày</span></td><td class="esc-path">Warehouse Manager (WHS-01)</td><td class="comp-req">C18 ≥ L1</td></tr><tr class="dept-row"><td colspan="8">Maintenance (1 vị trí)</td></tr><tr><td class="pos-id">MNT-02</td><td><b>Maintenance Technician (MNT-02)</b> <a href="../03-Job-Descriptions/04-JD-Quality/jd-qc-inspector-cmm-programmer-operator.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-MNT-02]</a></td><td>Production Manager (PRO-01)</td><td>QA Manager (QA-01)</td><td><span class="limit-tag limit-ops">Không release machine sau crash nếu chưa verify</span></td><td><span class="dur-tag dur-med">5 ngày</span></td><td class="esc-path">Deputy Director Production (EXE-02)</td><td class="comp-req">C17 ≥ L2</td></tr><tr class="dept-row"><td colspan="8">Finance (2 vị trí)</td></tr><tr><td class="pos-id">FIN-01</td><td><b>Finance Manager (FIN-01)</b> <a href="../03-Job-Descriptions/05-JD-Supply-Chain/jd-buyer-purchasing.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-FIN-01]</a></td><td>Accounting Staff (FIN-02)</td><td>General Manager (EXE-01)</td><td><span class="limit-tag limit-ops">Không duyệt payment &gt; $10,000</span></td><td><span class="dur-tag dur-med">7 ngày</span></td><td class="esc-path">General Manager (EXE-01)</td><td class="comp-req">C08 ≥ L3, C19 ≥ L2</td></tr><tr><td class="pos-id">FIN-02</td><td><b>Accounting Staff (FIN-02)</b> <a href="../03-Job-Descriptions/05-JD-Supply-Chain/jd-supply-chain-manager.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-FIN-02]</a></td><td>Finance Manager (FIN-01)</td><td>General Manager (EXE-01)</td><td><span class="limit-tag limit-ops">Không write-off / payment ngoài phân quyền</span></td><td><span class="dur-tag dur-med">5 ngày</span></td><td class="esc-path">Finance Manager (FIN-01)</td><td class="comp-req">C08 ≥ L2</td></tr><tr class="dept-row"><td colspan="8">HR (1 vị trí)</td></tr><tr><td class="pos-id">HR-01</td><td><b>HR Manager (HR-01)</b> <a href="../03-Job-Descriptions/02-JD-Production/jd-cleaning-packaging-technician.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-HR-01]</a></td><td>General Manager (EXE-01)</td><td>QA Manager (QA-01)</td><td><span class="limit-tag limit-ops">Không quyết định nhân sự cấp quản lý nếu chưa duyệt</span></td><td><span class="dur-tag dur-med">7 ngày</span></td><td class="esc-path">General Manager (EXE-01)</td><td class="comp-req">C19 ≥ L2</td></tr><tr class="dept-row"><td colspan="8">HSE (1 vị trí)</td></tr><tr><td class="pos-id">HSE-01</td><td><b>HSE Officer (HSE-01)</b> <a href="../03-Job-Descriptions/04-JD-Quality/jd-qc-inspector-cmm-programmer-operator.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-HSE-01]</a></td><td>HR Manager (HR-01)</td><td>Production Manager (PRO-01)</td><td><span class="limit-tag limit-ops">Không đóng incident nghiêm trọng nếu chưa điều tra</span></td><td><span class="dur-tag dur-med">5 ngày</span></td><td class="esc-path">General Manager (EXE-01)</td><td class="comp-req">C01 ≥ L3</td></tr><tr class="dept-row"><td colspan="8">IT (1 vị trí)</td></tr><tr><td class="pos-id">IT-02</td><td><b>System Administrator (IT-02)</b> <a href="../03-Job-Descriptions/04-JD-Quality/jd-qms-engineer.html" style="font-size:9px;font-weight:400;color:var(--blue);">[FRM-HR-JD-IT-02]</a></td><td>General Manager (EXE-01)</td><td>QA Manager (QA-01)</td><td><span class="limit-tag limit-ops">Không thay đổi quyền hệ thống nếu thiếu ticket/phê duyệt</span></td><td><span class="dur-tag dur-med">5 ngày</span></td><td class="esc-path">General Manager (EXE-01)</td><td class="comp-req">C08 ≥ L3</td></tr></tbody></table></div>
+<h2 class="h2">5. Quy trình kích hoạt Backup</h2>
+<div class="vflow">
+<div class="vstep"><div class="vnum">1</div><div class="vtext"><b>Thông báo vắng mặt:</b> Nhân sự vắng PHẢI thông báo cấp trên ≥ 24h trước (trừ khẩn cấp). Cấp trên kích hoạt backup theo bảng trên.</div></div>
+<div class="vstep"><div class="vnum">2</div><div class="vtext"><b>Bàn giao:</b> Nhân sự vắng bàn giao công việc đang dở, hồ sơ pending, và thông tin critical cho backup. Ghi nhận trên email/M365.</div></div>
+<div class="vstep"><div class="vnum">3</div><div class="vtext"><b>Xác nhận quyền hạn:</b> Backup xác nhận đã đọc Authority Limits trong bảng trên. Cấp trên xác nhận bằng email/Teams.</div></div>
+<div class="vstep"><div class="vnum">4</div><div class="vtext"><b>Hết hạn backup:</b> Nếu đạt Max Duration mà người chính chưa quay lại → PHẢI escalate theo cột "Escalation Path".</div></div>
+<div class="vstep"><div class="vnum">5</div><div class="vtext"><b>Trở lại:</b> Nhân sự chính PHẢI nhận bàn giao ngược từ backup trong vòng 4h sau khi trở lại, xác nhận mọi quyết định đã thực hiện.</div></div>
+</div>
+<h2 class="h2">6. Tổng kết theo phòng ban</h2>
+<div class="table-card"><table class="table">
+<thead><tr><th>Phòng ban</th><th>Số vị trí</th><th>Ghi chú</th></tr></thead>
+<tbody><tr><td><b>Executive</b></td><td>2</td><td>—</td></tr><tr><td><b>Production</b></td><td>9</td><td>—</td></tr><tr><td><b>Quality (QA/QC)</b></td><td>4</td><td>—</td></tr><tr><td><b>Engineering</b></td><td>4</td><td>—</td></tr><tr><td><b>Sales</b></td><td>3</td><td>—</td></tr><tr><td><b>Planning</b></td><td>3</td><td>—</td></tr><tr><td><b>Purchasing</b></td><td>4</td><td>—</td></tr><tr><td><b>Warehouse</b></td><td>5</td><td>—</td></tr><tr><td><b>Maintenance</b></td><td>4</td><td>—</td></tr><tr><td><b>Finance</b></td><td>4</td><td>—</td></tr><tr><td><b>HR/Admin</b></td><td>4</td><td>—</td></tr><tr><td><b>HSE</b></td><td>2</td><td>—</td></tr><tr><td><b>IT</b></td><td>3</td><td>—</td></tr><tr style="font-weight:700;background:var(--th-bg);"><td>TỔNG</td><td>51</td><td></td></tr>
+</tbody></table></div>
+</div></div></div>
+</div></div></div>
+<div class="no-screen print-disclaimer" style="display:none;text-align:center;font-size:9px;color:#999;padding:8px 0;border-top:1px solid #ddd;margin-top:20px">⚠ Bản in không kiểm soát.</div>
+<script src="../../../assets/app.js"></script>
+</body>
+</html>
+
+
+
+
+
+

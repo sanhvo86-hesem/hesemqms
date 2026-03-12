@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SOP-703 — Product Safety Conformity and FOD Prevention | HESEM QMS</title>
+<link href="../../../assets/style.css" rel="stylesheet"/>
+
+<style>
+/* ═══ PAGE BREAK & OVERFLOW FIX (auto-applied) ═══ */
+@media print {
+ .card, .table-card, .callout, .note, .box, .iso-map,
+ .preface-block, .form-sheet, .lane, .legend, .req, .vstep {
+ page-break-inside: avoid;
+ break-inside: avoid;
+ }
+ h1, h2, h3, .h1, .h2, .h3 {
+ page-break-after: avoid;
+ break-after: avoid;
+ }
+ .form-header { page-break-inside: avoid; break-inside: avoid; }
+ .sig-row, .sign-row, .approval-row { page-break-inside: avoid; break-inside: avoid; }
+ tr { page-break-inside: avoid; break-inside: avoid; }
+ thead { display: table-header-group; }
+ tfoot { display: table-footer-group; }
+ p { orphans: 3; widows: 3; }
+ .table-card { overflow: visible !important; }
+}
+.page-body { overflow-x: hidden; }
+.table-card, .table-block, .table-wrap { overflow-x: auto; max-width: 100%; }
+table { max-width: 100%; table-layout: auto; }
+td, th { max-width: 420px; overflow-wrap: break-word; word-wrap: break-word; }
+</style>
+
+</head>
+<body>
+<div class="container">
+  <div class="page">
+    <div class="page-body">
+<div class="form-header">
+<div class="fh-left">
+  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+  <div class="fh-company">
+    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+    <span>Tài liệu kiểm soát</span>
+  </div>
+</div>
+<div class="title">
+  <strong>SOP-703 — Product Safety Conformity and FOD Prevention</strong>
+  <span class="sub-vn"></span>
+</div>
+<div class="meta">
+  <div class="row"><span><b>Mã:</b></span><span>SOP-703</span></div>
+  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+  <div class="row"><span><b>Chủ sở hữu:</b></span><span>Warehouse</span></div>
+  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+</div>
+</div>
+<div class="doc-content" id="docContent">
+        <div class="form-sheet">
+          <div class="iso-map">
+  <div class="iso-title">ISO / Standard mapping</div>
+  <div class="small muted">Map điều khoản hoặc chuẩn kỹ thuật vào yêu cầu triển khai tại xưởng (Point-of-Use).</div>
+  <div class="req">
+  <span class="req-tag shall">PHẢI</span>
+  <div>Đặc tính an toàn / safety-critical characteristic PHẢI được nhận diện từ drawing, PO, CSR hoặc control plan và được truyền xuống traveler, kiểm tra, packaging và hồ sơ release. <span class="iso-ref">AS9100D 8.1.3</span></div>
+</div><div class="req">
+  <span class="req-tag shall">PHẢI</span>
+  <div>Mỗi khu vực thao tác PHẢI có biện pháp phòng FOD tại điểm dùng: kiểm soát dụng cụ rời, line clearance, dọn chip/phoi, bảo vệ đầu nối/cavity và kiểm đếm vật tư tiêu hao có rủi ro rơi sót. <span class="iso-ref">AS9100D 8.5.4</span></div>
+</div><div class="req">
+  <span class="req-tag shall">PHẢI</span>
+  <div>Khi phát hiện suspect product đã ship hoặc có rủi ro ảnh hưởng an toàn/sự phù hợp, HESEM PHẢI kích hoạt stop-ship, containment, truy vết lot/serial và thông báo theo tuyến khách hàng đã quy định. <span class="iso-ref">AS9100D Product Safety</span></div>
+</div><div class="req">
+  <span class="req-tag shall">PHẢI</span>
+  <div>Thông tin không phù hợp có khả năng ảnh hưởng product safety PHẢI được đưa vào NCR/CAPA và đánh giá recall hoặc field containment khi cần. <span class="iso-ref">ISO 9001 8.7 / 10.2</span></div>
+</div><div class="req">
+  <span class="req-tag should">NÊN</span>
+  <div>Tổ chức FOD walk, line audit và đào tạo nhận thức product safety định kỳ cho từng khu vực có nguy cơ cao. <span class="iso-ref">Best practice OEM</span></div>
+</div>
+</div><div class="preface-block">
+  <h2 class="h2">Điều kiện áp dụng và kiểm soát</h2>
+  <div class="grid-2">
+    <div>
+      <p><b>Nguồn phát sinh rủi ro chính</b></p>
+      <ul><li>Sai revision hoặc sai material/lot trên linh kiện có yêu cầu đặc tính an toàn.</li><li>Dụng cụ rời, insert mẻ, vít, chip kim loại, seal plug hoặc vật lạ còn sót trong cavity/lỗ/khay.</li><li>Sai nhãn, sai chứng từ hoặc sai traceability làm lẫn lô khi cần containment hoặc recall.</li></ul>
+    </div>
+    <div>
+      <p><b>Đầu vào / Đầu ra</b></p>
+      <ul><li><b>Input:</b> drawing/spec, customer product safety note, danh mục special characteristics, dữ liệu lot/serial/job.</li><li><b>Output:</b> tuyến stop-ship/containment/notification rõ ràng, hồ sơ NCR-MRB-CAPA hoặc recall pack khi áp dụng.</li><li><b>Output:</b> FOD discipline theo khu vực và bằng chứng line clearance trước release.</li></ul>
+    </div>
+  </div>
+  <p class="callout">Quy tắc stop-ship: khi chưa xác định rõ phạm vi suspect product, HESEM <b>PHẢI</b> chặn ship rộng hơn thay vì thu hẹp thiếu cơ sở.</p>
+</div><h2 class="h2">1. Mục đích</h2>
+<p>Quy định cách nhận diện đặc tính an toàn, kiểm soát sự phù hợp liên quan product safety và ngăn FOD trong suốt luồng CNC - deburr - cleaning - packaging - shipping. Quy trình này dùng để chặn lỗi thoát ra khi part có rủi ro ảnh hưởng an toàn, độ kín, độ sạch hoặc chức năng của thiết bị khách hàng.</p>
+<h2 class="h2">2. Phạm vi</h2>
+<ul><li>Áp dụng cho mọi khu vực trực tiếp tạo, kiểm, xử lý, đóng gói và vận chuyển linh kiện của HESEM.</li><li>Áp dụng cho chi tiết có ký hiệu special / safety characteristic trên bản vẽ, traveler, control plan hoặc customer note.</li><li>Áp dụng cho FOD prevention tại máy CNC, deburr, clean pack, kho WIP, kiểm tra cuối và shipping.</li></ul>
+<h2 class="h2">3. Thuật ngữ</h2>
+<div class="table-card"><table class="table">
+<thead><tr><th>Thuật ngữ</th><th>Diễn giải</th></tr></thead>
+<tbody><tr><td><b>Product safety</b></td><td>Các yêu cầu và hành động để tránh part gây mất an toàn, mất kín, mất chức năng hoặc gây hư hại nghiêm trọng cho thiết bị của khách hàng.</td></tr><tr><td><b>Special / safety characteristic</b></td><td>Đặc tính trên drawing/spec cần kiểm soát chặt do ảnh hưởng an toàn, chức năng, độ kín, độ sạch, form-fit-function hoặc compliance.</td></tr><tr><td><b>FOD</b></td><td>Foreign Object Debris / Damage: vật lạ hoặc hư hại do vật lạ như chip, sợi, vít, đầu insert gãy, nhãn rời, tape, bụi, mảnh nhựa.</td></tr><tr><td><b>Suspect product</b></td><td>Sản phẩm chưa chứng minh được phù hợp hoặc có dấu hiệu thuộc phạm vi ảnh hưởng của sự cố.</td></tr><tr><td><b>Recall</b></td><td>Tổ chức truy tìm, chặn dùng/chặn ship và xử lý các lô đã giao có nguy cơ không phù hợp.</td></tr></tbody></table></div>
+<h2 class="h2">4. RACI</h2>
+<div class="table-card"><table class="table">
+<thead><tr><th>Hoạt động</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead>
+<tbody><tr><td>Nhận diện special/safety characteristic từ contract review đến traveler</td><td>Engineering Lead/Manager</td><td>QA Manager</td><td>Quality Engineer; Customer Service</td><td>Production Director</td></tr><tr><td>Triển khai FOD control tại máy, deburr, cleaning/packaging, kho</td><td>CNC Workshop Manager; Deburr Team Lead; Cleaning & Packaging Supervisor; Supply Chain Manager</td><td>QA Manager</td><td>Quality Engineer</td><td>Production Director</td></tr><tr><td>Containment, stop-ship và phân định suspect product</td><td>Quality Engineer</td><td>QA Manager</td><td>Production Director; Supply Chain Manager; Customer Service</td><td>CEO / Tổng Giám đốc</td></tr><tr><td>Thông báo khách hàng / tổ chức recall khi cần</td><td>Customer Service</td><td>QA Manager</td><td>Quality Engineer; Production Director</td><td>CEO / Tổng Giám đốc</td></tr><tr><td>Duy trì hồ sơ đặc tính an toàn và phản hồi sau sự cố</td><td>Quality Engineer</td><td>QA Manager</td><td>QMS Engineer; Customer Service</td><td>Supply Chain Manager</td></tr></tbody></table></div>
+<h2 class="h2">5. Nhận diện và kiểm soát đặc tính an toàn</h2>
+<h3 class="h3">5.1 Nguồn nhận diện</h3><ul><li>Bản vẽ có ký hiệu special/safety/critical characteristic.</li><li>PO hoặc CSR yêu cầu kiểm 100%, leak integrity, cleanliness critical, traceability hoặc packaging đặc biệt.</li><li>Kết luận risk review, PFMEA, NCR lịch sử hoặc customer complaint trước đó.</li></ul><h3 class="h3">5.2 Chuyển hóa xuống hiện trường</h3><ul><li>Đặc tính an toàn PHẢI xuất hiện trên setup sheet / traveler / control plan / checklist final inspection hoặc tài liệu release tương ứng.</li><li>Khu packaging/shipping PHẢI biết rõ yêu cầu bảo vệ, nhãn cảnh báo, hướng đặt và chứng từ đi kèm của part loại này.</li><li>Nếu có serial/lot trace, kho và QA không được tách bundle khi không có cách duy trì liên kết truy vết.</li></ul>
+<h2 class="h2">6. Phòng FOD theo khu vực</h2>
+<div class="table-card"><table class="table">
+<thead><tr><th>Khu vực</th><th>Điểm kiểm bắt buộc</th></tr></thead>
+<tbody><tr><td>Máy CNC / Setup</td><td>Tool shadow board hoặc vị trí quy ước; kiểm insert gãy; che bảo vệ cavity/lỗ; line clearance trước start và cuối ca.</td></tr><tr><td>Deburr</td><td>Khay part riêng từng job; kiểm đá/bàn chải/mũi dao; không để lẫn part NG với part đã hoàn tất.</td></tr><tr><td>Cleaning & Packaging</td><td>Không mang carton hở/giấy bẩn vào bàn sạch; dùng cap/plug cho lỗ mở; kiểm vật lạ trước bagging.</td></tr><tr><td>Kho / WIP staging</td><td>Khay có FRM-703; khu HOLD/NG tách riêng; không xếp lẫn nhiều lot không có vách ngăn.</td></tr><tr><td>Shipping</td><td>Đối soát phụ kiện, seal, desiccant, humidity card và label; không để loose item tự do trong thùng.</td></tr></tbody></table></div>
+<h3 class="h3">6.1 Quy tắc dừng ngay</h3><ul><li>Thiếu 1 chi tiết dụng cụ/insert/vít/plug chưa tìm thấy sau công việc.</li><li>Phát hiện mảnh gãy, chip kẹt, xơ, tape, giấy hoặc vật lạ trong cavity, túi, khay hoặc thùng.</li><li>Mất liên kết nhãn - traveler - job - lot đối với part có truy vết an toàn.</li></ul><h2 class="h2">7. Thông báo NC liên quan product safety</h2>
+<div class="vflow"><div class="vstep"><div class="vnum">1</div><div class="vtext">Người phát hiện dừng luồng liên quan, đánh dấu HOLD và báo ngay cho Shift Leader / QE / QA Manager.</div></div><div class="vstep"><div class="vnum">2</div><div class="vtext">QE xác định phạm vi suspect product theo mốc thời gian, machine, lot, operator, traveler, vật tư và dữ liệu đã ship/chưa ship.</div></div><div class="vstep"><div class="vnum">3</div><div class="vtext">QA Manager quyết định stop-ship, mức containment và có cần thông báo khách hàng ngay hay không.</div></div><div class="vstep"><div class="vnum">4</div><div class="vtext">Customer Service phát hành thông tin ra khách hàng theo dữ liệu đã được QA Manager phê duyệt; không gửi thông tin kỹ thuật chưa được kiểm chứng.</div></div><div class="vstep"><div class="vnum">5</div><div class="vtext">Nếu part đã rời HESEM, tổ chức truy vết: shipment, carton, lot, serial, POD, người nhận; lập evidence pack cho recall nếu cần.</div></div></div>
+<h2 class="h2">8. Recall và xử lý suspect product</h2>
+<div class="table-card"><table class="table">
+<thead><tr><th>Bước</th><th>Nội dung bắt buộc</th></tr></thead>
+<tbody><tr><td>1. Chặn dòng</td><td>Stop-ship nội bộ, giữ hàng tại kho, chặn booking chưa bàn giao carrier.</td></tr><tr><td>2. Xác định population</td><td>Lập danh sách lô/serial/job chịu ảnh hưởng; bao gồm WIP, FG, hàng outsource, hàng đã ship.</td></tr><tr><td>3. Thông báo</td><td>QA Manager phê duyệt nội dung kỹ thuật; Customer Service gửi khách hàng theo cửa sổ thời gian đã cam kết.</td></tr><tr><td>4. Disposition</td><td>MRB quyết định use-as-is, rework, return, scrap hoặc field action theo SOP-606 và yêu cầu khách.</td></tr><tr><td>5. Closure</td><td>Xác nhận tất cả population đã được kiểm soát và cập nhật lessons learned / poka-yoke / audit point.</td></tr></tbody></table></div>
+<h2 class="h2">9. Đào tạo, xác minh và cải tiến</h2>
+<ul><li>Nhân sự tại khu vực có nguy cơ cao PHẢI được đào tạo nhận thức product safety và FOD trước khi làm việc độc lập.</li><li>FOD walk hoặc layered verification NÊN thực hiện theo tần suất của từng khu vực; lặp lỗi 3 lần/tháng phải đưa vào CAPA hoặc CI action.</li><li>Mọi sự cố FOD/suspect product PHẢI được xem xét bổ sung vào WI-721, SOP-804 hoặc checklist release tương ứng.</li></ul>
+<h2 class="h2">Biểu mẫu liên quan</h2>
+<ul><li>FRM-643 — Sổ đặc tính an toàn</li><li>FRM-651 — NCR</li><li>FRM-652 — CAPA/8D</li><li>FRM-653 — A3/PDCA</li><li>FRM-703 — Thẻ WIP</li></ul>
+<h2 class="h2">Tài liệu liên quan</h2>
+<ul><li>SOP-605 — Kiểm tra cuối, CoC & Giải phóng xuất hàng</li><li>SOP-606 — NCR, CAPA & Phản ứng IPQC</li><li>SOP-804 — Yếu tố con người & Phòng lỗi</li><li>WI-721 — Phòng FOD tại máy</li></ul>
+<h2 class="h2">Ký duyệt</h2>
+<div class="sig-row"><div><div class="muted small"><b>Người lập</b></div><div class="sig-box"></div></div><div><div class="muted small"><b>Người rà soát</b></div><div class="sig-box"></div></div><div><div class="muted small"><b>Phê duyệt</b></div><div class="sig-box"></div></div></div><div class="annex-block">
+  <div class="annex-title">Footer</div>
+  <p class="muted">SOP chủ quản: <b>SOP-703</b> · Lưu hồ sơ theo SOP-104.</p>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

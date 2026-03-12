@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SOP-101 — Document and Data Control | HESEM QMS</title>
+<link href="../../../assets/style.css" rel="stylesheet"/>
+<style>
+/* === PAGE BREAK & OVERFLOW FIX (auto-applied) === */
+@media print {
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.vstep{page-break-inside:avoid;break-inside:avoid}
+  h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
+  .form-header,.sig-row,.sign-row{page-break-inside:avoid;break-inside:avoid}
+  tr{page-break-inside:avoid;break-inside:avoid}
+  thead{display:table-header-group}tfoot{display:table-footer-group}
+  p{orphans:3;widows:3}.table-card{overflow:visible!important}
+}
+.page-body{overflow-x:hidden}
+.table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
+table{max-width:100%;table-layout:auto}
+td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
+</style>
+</head>
+<body>
+<div class="container"><div class="page"><div class="page-body">
+<div class="form-header">
+<div class="fh-left">
+  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+  <div class="fh-company">
+    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+    <span>Tài liệu kiểm soát</span>
+  </div>
+</div>
+<div class="title">
+  <strong>SOP-101 — Document and Data Control</strong>
+  <span class="sub-vn"></span>
+</div>
+<div class="meta">
+  <div class="row"><span><b>Mã:</b></span><span>SOP-101</span></div>
+  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+  <div class="row"><span><b>Chủ sở hữu:</b></span><span>QA/QMS</span></div>
+  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+</div>
+</div>
+<div class="doc-content" id="docContent"><div class="form-sheet">
+
+<div class="iso-map">
+  <div class="iso-title">Chuẩn mực áp dụng</div>
+  <div class="req"><span class="req-tag shall">PHẢI</span><div>Kiểm soát thông tin dạng văn bản (documented information): phê duyệt trước khi phát hành, cập nhật, nhận dạng thay đổi, và sẵn có tại nơi sử dụng. <span class="iso-ref">ISO 7.5.2</span> <span class="iso-ref">ISO 7.5.3</span></div></div>
+<div class="req"><span class="req-tag shall">PHẢI</span><div>Ngăn sử dụng tài liệu lỗi thời tại hiện trường; nhận dạng rõ trạng thái phiên bản. <span class="iso-ref">ISO 7.5.3</span></div></div>
+<div class="req"><span class="req-tag shall">PHẢI</span><div>Kiểm soát cấu hình và thay đổi khi áp dụng cho bản vẽ/spec/NC và hồ sơ sản xuất. <span class="iso-ref">AS9100D 4.2.4</span> <span class="iso-ref">AS9100D 8.1.1</span></div></div>
+<div class="req"><span class="req-tag should">NÊN</span><div>Áp dụng nguyên tắc SSOT (Single Source of Truth) trên M365/SharePoint; dùng liên kết (link-not-copy) cho tài liệu vận hành. <span class="iso-ref">ISO 10013:2021</span></div></div>
+<div class="req"><span class="req-tag may">ĐƯỢC PHÉP</span><div>Duy trì bộ tài liệu ngoại tuyến (Offline Fallback Kit) để vận hành 2 ca khi mất mạng/ERP. <span class="iso-ref">ISO 8.4</span> <span class="iso-ref">ISO 7.1</span></div></div>
+</div>
+
+<div class="preface-block">
+  <h2 class="h2">Quy ước triển khai tại HESEM</h2>
+  <div class="grid-2">
+    <div>
+      <div class="card-title">SSOT &amp; Link-not-copy</div>
+      <ul>
+        <li>M365/SharePoint là nơi lưu bản gốc (master). Bản in tại xưởng chỉ là bản kiểm soát có số copy.</li>
+        <li>Tài liệu dùng tại máy CNC <b>PHẢI</b> truy cập bằng QR/link; chỉ in khi cần thao tác nhanh hoặc khi mất mạng.</li>
+        <li>File NC, setup sheet, drawing/spec khách hàng <b>PHẢI</b> gắn PN–Revision–Job và được kiểm soát theo SOP-106.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="card-title">Điểm sử dụng (Point-of-Use)</div>
+      <ul>
+        <li>Mỗi máy/cell có “Bảng QMS tại máy”: QR truy cập thư mục Job đang chạy, WI/Setup sheet, Control Plan và checklist ca.</li>
+        <li>Shift Leader <b>PHẢI</b> kiểm revision trước khi chạy job mới và khi bàn giao ca.</li>
+        <li>QC <b>PHẢI</b> từ chối kiểm nếu thiếu tài liệu đúng revision.</li>
+      </ul>
+      <div class="callout"><b>Quy tắc:</b> Thấy bản in không có dấu “BẢN KIỂM SOÁT (CONTROLLED COPY)” hoặc không có số copy → coi như <b>KHÔNG KIỂM SOÁT</b> và không dùng để sản xuất/kiểm.</div>
+    </div>
+  </div>
+</div>
+
+<h2 class="h2">1. Mục đích</h2>
+<p>Thiết lập cơ chế tạo, rà soát, phê duyệt, phát hành, cập nhật, thu hồi và lưu trữ tài liệu/hồ sơ để xưởng CNC dùng đúng revision, đúng điểm kiểm, đúng hồ sơ truy vết.</p>
+<h2 class="h2">2. Phạm vi</h2>
+<p>Áp dụng cho toàn bộ SOP/WI/FRM/REF nội bộ; bản vẽ/spec/CSR khách hàng; manual máy; chương trình NC; dữ liệu Epicor và hồ sơ chất lượng liên quan gia công CNC bán dẫn tại HESEM.</p>
+<h2 class="h2">3. Thuật ngữ</h2>
+
+<div class="table-card"><table class="table">
+<thead><tr><th>Thuật ngữ</th><th>Diễn giải áp dụng tại xưởng</th></tr></thead>
+<tbody>
+<tr><td><b>Thông tin dạng văn bản</b> (Documented Information)</td><td>Tài liệu và hồ sơ ở dạng số/in: SOP/WI/FRM, bản vẽ/spec, NC, báo cáo CMM, log ca, dữ liệu Epicor.</td></tr>
+<tr><td><b>Danh mục tổng thể tài liệu</b> (Master Document List)</td><td>FRM-101. Nơi tra cứu mã, phiên bản, trạng thái, chủ sở hữu, vị trí lưu.</td></tr>
+<tr><td><b>Phiếu thay đổi tài liệu</b> (Document Change Notice – DCN)</td><td>FRM-102. Tạo yêu cầu thay đổi, nêu lý do, tác động và phê duyệt.</td></tr>
+<tr><td><b>Bản kiểm soát</b> (Controlled Copy)</td><td>Bản in có số copy, người giữ, vị trí, ngày phát hành; được thu hồi khi có phiên bản mới.</td></tr>
+<tr><td><b>Tài liệu ngoại bộ</b> (External Document)</td><td>ISO/ASME/SEMI, manual máy, spec khách hàng, CSR, tiêu chuẩn mạ/anodize… do bên ngoài phát hành.</td></tr>
+<tr><td><b>Bộ dự phòng ngoại tuyến</b> (Offline Fallback Kit)</td><td>Bộ tài liệu tối thiểu để vận hành khi M365/Epicor không truy cập được: WI/Setup sheet/Control Plan, form giấy, danh mục tài liệu và quy trình khẩn.</td></tr>
+</tbody></table></div>
+
+<h2 class="h2">4. RACI</h2>
+
+<div class="table-card"><table class="table">
+<thead><tr><th>Vai trò</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead>
+<tbody>
+<tr><td><b>QMS Engineer</b></td><td>X</td><td></td><td></td><td></td></tr>
+<tr><td><b>QA Manager</b></td><td></td><td>X</td><td></td><td></td></tr>
+<tr><td><b>Production Director</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>Engineering Lead</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>SC Manager</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>Finance Manager</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>HR Manager</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>IT Admin</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>Epicor System Administrator</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>EHS Specialist</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>Toàn bộ nhân viên (All employees)</b></td><td></td><td></td><td></td><td>X</td></tr>
+</tbody></table></div>
+
+<h2 class="h2">5. Quy trình kiểm soát tài liệu</h2>
+
+<h3 class="h3">5.1 Mã số, cấu trúc và nhận dạng</h3>
+<ul>
+  <li>Tài liệu QMS <b>PHẢI</b> theo hệ thống mã số 100–900 series: SOP-xxx, WI-xxx, FRM-xxx, REF-xxx.</li>
+  <li>Tên file <b>PHẢI</b> chứa mã + mô tả ngắn; ví dụ: <span class="mono">sop-101-document-control.html</span>.</li>
+  <li>Mỗi tài liệu <b>PHẢI</b> có meta: Mã, Phiên bản, Ngày hiệu lực, Chủ sở hữu, Phê duyệt.</li>
+</ul>
+
+<h3 class="h3">5.2 Soạn thảo (Drafting)</h3>
+<div class="vflow">
+  <div class="vstep"><div class="vnum">1</div><div class="vtext">Người soạn <b>PHẢI</b> tạo bản nháp trong thư mục <span class="mono">/QMS/Drafts</span> trên SharePoint và điền FRM-102 (DCN) để mở thay đổi.</div></div>
+  <div class="vstep"><div class="vnum">2</div><div class="vtext">Tài liệu nháp <b>PHẢI</b> gắn watermark “DRAFT” (trong tiêu đề phụ hoặc đầu trang). Không dùng bản nháp cho sản xuất/kiểm.</div></div>
+  <div class="vstep"><div class="vnum">3</div><div class="vtext">Nếu thay đổi ảnh hưởng tới WI/Setup sheet/NC/Control Plan <b>PHẢI</b> mở đồng thời thay đổi cấu hình theo SOP-106.</div></div>
+</div>
+
+<h3 class="h3">5.3 Rà soát ngang hàng (Peer Review)</h3>
+<ul>
+  <li>QMS Engineer <b>PHẢI</b> tổ chức rà soát với các bộ phận bị ảnh hưởng và ghi FRM-105.</li>
+  <li>Rà soát <b>PHẢI</b> kiểm: tính khả thi tại xưởng, CTQ/điểm kiểm, hồ sơ cần lưu, và điều kiện an toàn/EHS nếu có.</li>
+</ul>
+
+<h3 class="h3">5.4 Chạy thử (Try-out) &amp; xác nhận hiện trường</h3>
+<ul>
+  <li>Đối với WI/Setup sheet mới hoặc thay đổi thao tác, bộ phận sở hữu <b>PHẢI</b> chạy thử tối thiểu 01 job hoặc 01 ca và ghi FRM-106.</li>
+  <li>QC/CMM <b>PHẢI</b> xác nhận điểm đo/đồ gá đo nếu WI yêu cầu đo mới hoặc thay đổi phương pháp đo.</li>
+</ul>
+
+<h3 class="h3">5.5 Phê duyệt &amp; phát hành (M365/SharePoint + Power Automate)</h3>
+<div class="vflow">
+  <div class="vstep"><div class="vnum">1</div><div class="vtext">QMS Engineer <b>PHẢI</b> gửi luồng phê duyệt (Power Automate Approval) đính kèm: tài liệu, FRM-102, FRM-105/106 (nếu có).</div></div>
+  <div class="vstep"><div class="vnum">2</div><div class="vtext">Người phê duyệt <b>PHẢI</b> kiểm: phạm vi áp dụng, RACI, điểm kiểm/record, và hiệu lực.</div></div>
+  <div class="vstep"><div class="vnum">3</div><div class="vtext">Sau khi phê duyệt, QMS Engineer <b>PHẢI</b> chuyển tài liệu từ <span class="mono">Drafts</span> sang <span class="mono">Controlled</span>, khóa quyền sửa (read-only), và cập nhật FRM-101.</div></div>
+</div>
+
+<h3 class="h3">5.6 Phân phối &amp; bản in kiểm soát</h3>
+<ul>
+  <li>Phân phối bản in <b>PHẢI</b> theo FRM-103 (Kiểm soát phát hành): mã, phiên bản, người nhận, ngày, xác nhận.</li>
+  <li>Bản in kiểm soát <b>PHẢI</b> có: dấu “BẢN KIỂM SOÁT”, số copy, vị trí đặt (máy/cell/phòng), và người giữ.</li>
+  <li>Bản in <b>ĐƯỢC PHÉP</b> dán tại điểm sử dụng (point-of-use) khi thao tác cần nhìn trực tiếp; bản in <b>PHẢI</b> được bọc/che chống dầu.</li>
+</ul>
+
+<h3 class="h3">5.7 Thu hồi tài liệu lỗi thời (Obsolete Recall)</h3>
+<ul>
+  <li>Khi phát hành phiên bản mới, QMS Engineer <b>PHẢI</b> thu hồi toàn bộ bản in phiên bản cũ trong 24 giờ và cập nhật FRM-108.</li>
+  <li>Bản mềm phiên bản cũ <b>PHẢI</b> chuyển vào thư mục <span class="mono">/QMS/Obsolete</span> với quyền chỉ đọc; gắn nhãn “OBSOLETE”.</li>
+</ul>
+
+<h3 class="h3">5.8 Kiểm soát tại nơi sử dụng (Point-of-Use Control) cho CNC</h3>
+<ul>
+  <li>Trước khi chạy job: Shift Leader <b>PHẢI</b> kiểm 3 thứ: (1) job packet đúng PN–Rev, (2) WI/Setup sheet đúng phiên bản, (3) NC đúng revision/baseline.</li>
+  <li>Trong ca: Operator <b>PHẢI</b> báo ngay khi thấy khác biệt giữa giấy/QR và điều kiện thực tế (dao/fixture/offset) → dừng và gọi Setup/Engineering.</li>
+  <li>QC/CMM <b>PHẢI</b> xác nhận đang dùng đúng bản vẽ/spec; nếu khách cập nhật revision trong lúc job đang chạy thì xử lý theo SOP-106.</li>
+</ul>
+
+<h3 class="h3">5.9 Tài liệu ngoại bộ (External Documents)</h3>
+<ul>
+  <li>Tài liệu ngoại bộ <b>PHẢI</b> có danh mục và vị trí lưu (có thể nằm trong FRM-101 hoặc danh mục riêng trong SharePoint).</li>
+  <li>Bản vẽ/spec/CSR của khách hàng <b>PHẢI</b> lưu trong thư mục dự án/khách hàng có kiểm soát truy cập theo SOP-104.</li>
+  <li>Manual máy và tiêu chuẩn ISO/ASME/SEMI <b>NÊN</b> lưu bản PDF read-only; nếu dùng bản giấy thì <b>PHẢI</b> dán nhãn “EXTERNAL CONTROLLED”.</li>
+</ul>
+
+<h3 class="h3">5.10 Offline Fallback Kit</h3>
+<div class="card">
+  <div class="card-title">Thành phần tối thiểu</div>
+  <ul>
+    <li>01 bản in kiểm soát: SOP-101, SOP-104, SOP-106, SOP-108.</li>
+    <li>Form giấy: FRM-102, FRM-103, FRM-108, FRM-141, FRM-181.</li>
+    <li>Danh mục tài liệu (FRM-101) bản in mới nhất.</li>
+    <li>Hướng dẫn khôi phục IT và danh bạ liên hệ khẩn (IT/ERP/Production/QA).</li>
+  </ul>
+  <div class="note"><b>Vận hành khi mất hệ thống:</b> Production Planner phát hành job packet giấy; mọi thay đổi revision <b>PHẢI</b> được xác nhận bằng email/biên bản; khi hệ thống phục hồi, dữ liệu <b>PHẢI</b> nhập lại vào M365/Epicor trong 24 giờ.</div>
+</div>
+
+<h3 class="h3">5.11 Kiểm tra tuân thủ</h3>
+<ul>
+  <li>QMS Engineer <b>PHẢI</b> audit tuân thủ tài liệu tại xưởng tối thiểu hàng tháng theo FRM-104 (Checklist triển khai).</li>
+  <li>Phát hiện dùng sai revision <b>PHẢI</b> xử lý ngay: dừng, cô lập, thông báo QA Manager và mở NCR/CAPA theo SOP-605 (nếu áp dụng).</li>
+</ul>
+
+<h2 class="h2">6. Biểu mẫu liên quan</h2>
+<ul>
+  <li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-101-master-document-register.html">FRM-101</a> Danh mục tổng thể tài liệu</li>
+  <li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-102-document-change-request.html">FRM-102</a> Phiếu thay đổi tài liệu (DCN)</li>
+  <li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-103-document-issue-control.html">FRM-103</a> Kiểm soát phát hành</li>
+  <li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-104-document-implementation-checklist.html">FRM-104</a> Checklist triển khai tài liệu</li>
+  <li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-105-peer-review-log.html">FRM-105</a> Nhật ký rà soát ngang hàng</li>
+  <li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-106-pilot-run-log.html">FRM-106</a> Nhật ký chạy thử</li>
+  <li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-108-controlled-copy-register.html">FRM-108</a> Sổ đăng ký bản kiểm soát</li>
+  <li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-109-access-rights-and-dcr-matrix.html">FRM-109</a> Ma trận quyền truy cập &amp; DCR</li>
+  <li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-110-m365-configuration-checklist.html">FRM-110</a> Checklist cấu hình M365</li>
+  <li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-111-quarterly-access-review.html">FRM-111</a> Rà soát quyền truy cập hàng quý</li>
+</ul>
+
+<h2 class="h2">7. Tài liệu liên quan</h2>
+<ul>
+  <li><a href="sop-104-data-governance-records-security-and-ip-protection.html">SOP-104</a> Quản trị dữ liệu, hồ sơ, bảo mật &amp; bảo vệ IP</li>
+  <li><a href="sop-106-change-and-configuration-management.html">SOP-106</a> Quản lý thay đổi &amp; cấu hình</li>
+  <li><a href="sop-108-operational-contingency-plan.html">SOP-108</a> Kế hoạch vận hành dự phòng</li>
+</ul>
+
+
+</div></div>
+</div></div></div>
+</body>
+</html>
+
+

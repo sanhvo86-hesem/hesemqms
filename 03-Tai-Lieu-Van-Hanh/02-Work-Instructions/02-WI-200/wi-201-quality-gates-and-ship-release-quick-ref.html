@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WI-201 — Quality Gates and Ship Release Quick Ref | HESEM QMS</title>
+<link href="../../../assets/style.css" rel="stylesheet"/>
+<style>
+/* === PAGE BREAK & OVERFLOW FIX (auto-applied) === */
+@media print {
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.vstep{page-break-inside:avoid;break-inside:avoid}
+  h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
+  .form-header,.sig-row,.sign-row{page-break-inside:avoid;break-inside:avoid}
+  tr{page-break-inside:avoid;break-inside:avoid}
+  thead{display:table-header-group}tfoot{display:table-footer-group}
+  p{orphans:3;widows:3}.table-card{overflow:visible!important}
+}
+.page-body{overflow-x:hidden}
+.table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
+table{max-width:100%;table-layout:auto}
+td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
+</style>
+</head>
+<body>
+<div class="container"><div class="page"><div class="page-body">
+<div class="form-header">
+<div class="fh-left">
+  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+  <div class="fh-company">
+    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+    <span>Tài liệu kiểm soát</span>
+  </div>
+</div>
+<div class="title">
+  <strong>WI-201 — Quality Gates and Ship Release Quick Ref</strong>
+  <span class="sub-vn"></span>
+</div>
+<div class="meta">
+  <div class="row"><span><b>Mã:</b></span><span>WI-201</span></div>
+  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+  <div class="row"><span><b>Chủ sở hữu:</b></span><span>Sales</span></div>
+  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+</div>
+</div>
+<div class="doc-content" id="docContent"><div class="form-sheet">
+
+<h2 class="h2">1. Mục đích</h2>
+<p>Nhắc nhanh tại hiện trường các điều kiện pass/fail cho G0 → G5, người được quyền quyết định, hồ sơ bắt buộc và action khi gate fail.</p>
+
+<h2 class="h2">2. PPE</h2>
+<ul>
+  <li>Khi treo poster tại xưởng: không yêu cầu PPE riêng.</li>
+  <li>Khi dùng WI này để xác nhận trực tiếp tại hiện trường <b>PHẢI</b> mang PPE theo khu vực: giày bảo hộ, kính, găng tay sạch hoặc găng chống cắt nếu áp dụng.</li>
+</ul>
+
+<h2 class="h2">3. Dụng cụ</h2>
+<ul>
+  <li>Job packet / traveler / bản vẽ đúng revision</li>
+  <li>Bút đánh dấu gate hoặc tem trạng thái</li>
+  <li>Truy cập Epicor / SharePoint / hồ sơ giấy dự phòng</li>
+</ul>
+
+<h2 class="h2">4. Các bước</h2>
+<div class="table-card"><table class="table">
+<thead><tr><th>Gate</th><th>Tiêu chí pass</th><th>Người quyết định</th><th>Hồ sơ bắt buộc</th><th>Action khi fail</th></tr></thead>
+<tbody>
+<tr><td><b>G0 — Đơn hàng</b></td><td>PO, drawing/spec, revision, CSR, packaging/label, due date đã chốt</td><td>Customer Service</td><td><a href="../../../04-Bieu-Mau/02-FRM-200/frm-201-rfq-register.html">FRM-201</a> Sổ RFQ, <a href="../../../04-Bieu-Mau/02-FRM-200/frm-202-contract-review-checklist.html">FRM-202</a> Contract review</td><td>Dừng xác nhận đơn; yêu cầu khách xác minh revision/PO/CSR; không mở WO.</td></tr>
+<tr><td><b>G1 — Vật tư</b></td><td>Material, tooling, WI, NC, gauge/CMM slot và routing đã sẵn sàng</td><td>Production Planner</td><td><a href="../../../04-Bieu-Mau/02-FRM-200/frm-203-job-traveler.html">FRM-203</a> Traveler, <a href="../../../04-Bieu-Mau/02-FRM-200/frm-204-job-kickoff-checklist.html">FRM-204</a> Kickoff, <a href="../../../04-Bieu-Mau/03-FRM-300/frm-302-setup-sheet.html">FRM-302</a> Setup Sheet</td><td>Không release job; mở shortage/escalation; cập nhật lại kế hoạch.</td></tr>
+<tr><td><b>G2 — Setup</b></td><td>Setup đúng revision; first piece hoặc FAI đạt</td><td>QC / QA theo quy định</td><td><a href="../../../04-Bieu-Mau/03-FRM-300/frm-302-setup-sheet.html">FRM-302</a> Setup Sheet, <a href="../../../04-Bieu-Mau/03-FRM-300/frm-311-fai-report.html">FRM-311</a> FAI Report khi áp dụng</td><td>Stop–segregate–call QC/Engineering; chỉnh setup; đo lại đặc tính ảnh hưởng.</td></tr>
+<tr><td><b>G3 — First Piece / In-Process</b></td><td>CTQ ổn định, sampling đạt, drift trong giới hạn phản ứng</td><td>Shift Leader + QC</td><td>Traveler, log IPQC, record tool/offset khi áp dụng</td><td>Hold WIP; 100% screening hoặc tăng tần suất kiểm; escalation nếu drift lặp.</td></tr>
+<tr><td><b>G4 — Final / Ship Pack</b></td><td>Final inspection đạt; qty, label, packaging và hồ sơ đầy đủ</td><td>QA</td><td><a href="../../../04-Bieu-Mau/02-FRM-200/frm-206-job-completion-checklist.html">FRM-206</a> Checklist hoàn thiện, hồ sơ SOP-605</td><td>Không đóng gói/không ship; sửa nhãn/chứng từ; mở NCR nếu có lỗi sản phẩm.</td></tr>
+<tr><td><b>G5 — Final / Ship</b></td><td>QA release, carrier/booking, chứng từ và invoice data hoàn tất</td><td>QA Manager</td><td>Ship release pack, POD/tracking, invoice request</td><td>Stop-ship; báo Customer Service và Finance; chỉ mở lại khi đủ release evidence.</td></tr>
+</tbody></table></div>
+
+<h2 class="h2">5. Tiêu chí</h2>
+<ul>
+  <li>Gate trước chưa pass thì gate sau <b>KHÔNG ĐƯỢC PHÉP</b> bắt đầu.</li>
+  <li>Mọi gate <b>PHẢI</b> có record rõ mã job/lot/revision và người xác nhận.</li>
+  <li>Khi job đổi revision, đổi machine, đổi process hoặc có complaint mở, G0/G1/G2 <b>PHẢI</b> rà soát lại.</li>
+</ul>
+
+<h2 class="h2">6. Xử lý bất thường</h2>
+<ul>
+  <li>Thiếu hệ thống IT/ERP: dùng traveler giấy và bộ offline theo <a href="../../01-SOPs/01-SOP-100/sop-108-operational-contingency-plan.html">SOP-108</a> SOP-108.</li>
+  <li>Sai revision: cô lập toàn bộ WIP/finished goods liên quan; chuyển <a href="../../01-SOPs/01-SOP-100/sop-106-change-and-configuration-management.html">SOP-106</a> SOP-106 để đánh giá tác động.</li>
+  <li>Escape hoặc complaint khách hàng: chuyển <a href="../../01-SOPs/02-SOP-200/sop-202-customer-complaint-feedback-rma-and-escape.html">SOP-202</a> SOP-202 và SOP-606 ngay.</li>
+</ul>
+
+<h2 class="h2">7. SOP liên quan</h2>
+<ul>
+<li><a href="../../01-SOPs/02-SOP-200/sop-201-order-fulfillment-rfq-to-cash.html">SOP-201</a> Thực hiện đơn hàng — RFQ đến Cash</li>
+<li><a href="../../01-SOPs/03-SOP-300/sop-302-first-article-inspection-fai.html">SOP-302</a> Kiểm tra sản phẩm đầu tiên — FAI</li>
+<li><a href="../../01-SOPs/01-SOP-100/sop-106-change-and-configuration-management.html">SOP-106</a> Quản lý thay đổi &amp; Cấu hình</li>
+<li><a href="../../01-SOPs/01-SOP-100/sop-108-operational-contingency-plan.html">SOP-108</a> Kế hoạch vận hành dự phòng</li>
+<li>SOP-605 Giải phóng xuất hàng</li>
+</ul>
+
+</div></div>
+
+</div></div></div>
+</body>
+</html>
+
+

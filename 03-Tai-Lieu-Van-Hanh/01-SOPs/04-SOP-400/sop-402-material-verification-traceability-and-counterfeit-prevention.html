@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SOP-402 — Material Verification Traceability and Counterfeit Prevention | HESEM QMS</title>
+<link href="../../../assets/style.css" rel="stylesheet"/>
+<style>
+/* === PAGE BREAK & OVERFLOW FIX (auto-applied) === */
+@media print {
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.vstep{page-break-inside:avoid;break-inside:avoid}
+  h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
+  .form-header,.sig-row,.sign-row{page-break-inside:avoid;break-inside:avoid}
+  tr{page-break-inside:avoid;break-inside:avoid}
+  thead{display:table-header-group}tfoot{display:table-footer-group}
+  p{orphans:3;widows:3}.table-card{overflow:visible!important}
+}
+.page-body{overflow-x:hidden}
+.table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
+table{max-width:100%;table-layout:auto}
+td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
+</style>
+</head>
+<body>
+<div class="container"><div class="page"><div class="page-body">
+<div class="form-header">
+<div class="fh-left">
+  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+  <div class="fh-company">
+    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+    <span>Tài liệu kiểm soát</span>
+  </div>
+</div>
+<div class="title">
+  <strong>SOP-402 — Material Verification Traceability and Counterfeit Prevention</strong>
+  <span class="sub-vn"></span>
+</div>
+<div class="meta">
+  <div class="row"><span><b>Mã:</b></span><span>SOP-402</span></div>
+  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+  <div class="row"><span><b>Chủ sở hữu:</b></span><span>Purchasing</span></div>
+  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+</div>
+</div>
+<div class="doc-content" id="docContent"><div class="form-sheet">
+
+<div class="iso-map">
+  <div class="iso-title">Chuẩn mực áp dụng</div>
+  <div class="req"><span class="req-tag shall">PHẢI</span><div>Vật liệu và sản phẩm nhận vào phải được nhận dạng, truy vết và xác minh theo mức rủi ro; dữ liệu cert/test report phải được xem xét khi dùng để chứng minh conformity. <span class="iso-ref">ISO 8.4.2</span> <span class="iso-ref">ISO 8.5.2</span> <span class="iso-ref">AS9100D 8.4.2</span></div></div>
+  <div class="req"><span class="req-tag shall">PHẢI</span><div>Phải có quá trình ngăn vật tư/phụ tùng giả hoặc nghi giả đi vào chuỗi cung ứng; part/vật liệu nghi giả phải bị cách ly và không được tái nhập luồng. <span class="iso-ref">AS9100D 8.1.4</span> <span class="iso-ref">AS9100D 8.7</span></div></div>
+  <div class="req"><span class="req-tag should">NÊN</span><div>Đối với stainless wetted surface dùng trong ứng dụng bán dẫn, cert package nên liên hệ được đến yêu cầu F19/F20, finish/passivation và lot/heat cụ thể. <span class="iso-ref">SEMI F19</span></div></div>
+  <div class="req"><span class="req-tag may">ĐƯỢC PHÉP</span><div>Xác thực độ chính xác test report qua nguồn ngoài hoặc thử nội bộ khi material/process được đánh giá là significant operational risk. <span class="iso-ref">AS9100D 8.4.2</span></div></div>
+</div>
+
+<div class="preface-block">
+  <h2 class="h2">Quy ước triển khai tại HESEM</h2>
+  <div class="grid-2">
+    <div>
+      <div class="card-title">Truy vết lot/heat trong Epicor</div>
+      <ul>
+        <li>Material nhận vào <b>PHẢI</b> ghi heat/lot, supplier cert, ngày nhận, PO và trạng thái IQC.</li>
+        <li>Khi cắt phôi, split lot hoặc chuyển job, traceability <b>PHẢI</b> giữ từ raw material tới WO/op/final pack.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="card-title">Counterfeit prevention thực dụng</div>
+      <ul>
+        <li>Tập trung vào 03 điểm: nguồn mua, chứng từ xác thực và dấu hiệu bất thường trên nhãn/tình trạng vật tư.</li>
+        <li>Vật tư nghi giả <b>PHẢI</b> đưa vào HOLD, dán cảnh báo và chặn tái nhập.</li>
+      </ul>
+      <div class="callout"><b>Quy tắc:</b> thiếu mill cert/CoA/CoC hoặc cert không truy về lot/heat thì coi là chưa đủ điều kiện dùng, trừ khi có chấp thuận bằng văn bản theo đúng cấp thẩm quyền.</div>
+    </div>
+  </div>
+</div>
+
+<h2 class="h2">1. Mục đích</h2>
+<p>Chuẩn hóa việc xác thực vật liệu, duy trì truy vết lot/heat, kiểm soát cert và ngăn hàng giả/hàng nghi giả đi vào sản xuất hoặc xuất ra khách hàng.</p>
+
+<h2 class="h2">2. Phạm vi</h2>
+<p>Áp dụng cho raw material, part outsource trả về, special process cert, consumable/packaging critical theo flowdown, và mọi hồ sơ xác thực vật liệu dùng để release part tại HESEM.</p>
+
+<h2 class="h2">3. Thuật ngữ</h2>
+<div class="table-card"><table class="table">
+<thead><tr><th>Thuật ngữ</th><th>Diễn giải áp dụng</th></tr></thead>
+<tbody>
+<tr><td><b>Mill Cert / MTR</b></td><td>Chứng chỉ vật liệu từ nhà sản xuất hoặc nguồn được ủy quyền, thể hiện grade, heat/lot, kết quả test và authorization.</td></tr>
+<tr><td><b>CoA / CoC</b></td><td>Chứng chỉ phân tích / chứng nhận phù hợp cho material hoặc process.</td></tr>
+<tr><td><b>Heat / Lot Traceability</b></td><td>Khả năng truy part hoặc phôi ngược về heat/lot vật liệu, process batch và WO nhận hàng.</td></tr>
+<tr><td><b>Suspect Counterfeit</b></td><td>Vật tư/phụ tùng/chứng từ có dấu hiệu không chính thống hoặc không thể xác minh nguồn gốc.</td></tr>
+<tr><td><b>SEMI F19</b></td><td>Specification cho chất lượng bề mặt ướt (wetted surface) của stainless components dùng trong hệ phân phối hóa chất/khí của fab bán dẫn.</td></tr>
+</tbody></table></div>
+
+<h2 class="h2">4. RACI</h2>
+<div class="table-card"><table class="table">
+<thead><tr><th>Vai trò</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead>
+<tbody>
+<tr><td><b>Warehouse Clerk</b></td><td>X</td><td></td><td></td><td></td></tr>
+<tr><td><b>Quality Engineer</b> (xác minh)</td><td>X</td><td></td><td></td><td></td></tr>
+<tr><td><b>QA Manager</b></td><td></td><td>X</td><td></td><td></td></tr>
+<tr><td><b>Buyer</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>SC Manager</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>Production Planner</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>IT Admin</b> / <b>Epicor System Administrator</b></td><td></td><td></td><td>X</td><td></td></tr>
+</tbody></table></div>
+
+<h2 class="h2">5. Quy trình</h2>
+
+<h3 class="h3">5.1 Nhận hàng và quarantine</h3>
+<ul>
+  <li>Warehouse Clerk <b>PHẢI</b> nhận hàng vào khu IQC/HOLD; không issue cho sản xuất trước khi xác nhận status.</li>
+  <li>Thông tin nhận vào <b>PHẢI</b> ghi trên <a href="../../../04-Bieu-Mau/04-FRM-400/frm-412-receiving-and-iqc-log.html">FRM-412</a> Nhật ký nhận &amp; IQC: supplier, PO, item, qty, material grade, heat/lot, cert received, trạng thái bao gói/nhãn.</li>
+  <li>Hàng outsource trả về <b>PHẢI</b> dùng thêm <a href="../../../04-Bieu-Mau/04-FRM-400/frm-411-outsourced-processing-incoming-inspection.html">FRM-411</a> KT hàng gia công ngoài để xác minh qty, ngoại quan, cert và special process evidence.</li>
+</ul>
+
+<h3 class="h3">5.2 Xác minh chứng chỉ</h3>
+<div class="table-card"><table class="table">
+<thead><tr><th>Loại chứng chỉ</th><th>Điểm kiểm tối thiểu</th><th>Action khi không đạt</th></tr></thead>
+<tbody>
+<tr><td>Mill Cert / MTR</td><td>Grade, heat/lot, kích thước, standard/spec, kết quả test, authorization</td><td>HOLD; hỏi supplier; nếu cần xác minh thêm thì thử ngoài/nội bộ</td></tr>
+<tr><td>CoA / CoC</td><td>Part/process ID, revision/spec, batch/lot, ngày, người/đơn vị xác nhận</td><td>HOLD; yêu cầu re-issue hoặc clarification</td></tr>
+<tr><td>Special process cert</td><td>Spec process, class/type, batch reference, part/qty hoặc dispatch reference</td><td>HOLD; không chuyển công đoạn kế tiếp</td></tr>
+<tr><td>SEMI F19/F20 related cert</td><td>Material grade, wetted surface/process evidence, surface/finish references khi flowdown yêu cầu</td><td>HOLD; QA/Engineering review mức chấp nhận</td></tr>
+</tbody></table></div>
+
+<h3 class="h3">5.3 Duy trì truy vết lot/heat</h3>
+<ul>
+  <li>Heat/lot từ cert <b>PHẢI</b> nhập Epicor hoặc log tương đương trước khi cấp phát cho job.</li>
+  <li>Khi cắt phôi hoặc chia lô, traceability <b>PHẢI</b> được chuyển qua traveler/WIP tag/record hệ thống để không mất liên kết raw-to-job.</li>
+  <li>Lost traceability <b>PHẢI</b> coi là nonconformance; QA Manager quyết định HOLD, re-identification hoặc loại bỏ.</li>
+</ul>
+
+<h3 class="h3">5.4 Dấu hiệu hàng giả hoặc nghi giả</h3>
+<ul>
+  <li>Dấu hiệu thường gặp: nhãn/bao gói khác thường, cert sai format hoặc thiếu nguồn xác thực, lot/heat không khớp, xóa sửa nhãn, nguồn mua ngoài ASL, sai grade/marking, condition bề mặt bất thường so với commodity.</li>
+  <li>Vật tư nghi giả <b>PHẢI</b> dán HOLD, đưa vào <a href="../../../04-Bieu-Mau/04-FRM-400/frm-413-hold-and-disposition-log.html">FRM-413</a> Nhật ký Hold &amp; Disposition và báo Buyer + QA Manager ngay.</li>
+  <li>Part/vật tư nghi giả <b>KHÔNG ĐƯỢC PHÉP</b> trả lại chuỗi cung ứng ở trạng thái có thể tái sử dụng khi chưa có quyết định xử lý theo quy định.</li>
+</ul>
+
+<h3 class="h3">5.5 Disposition và escalation</h3>
+<ul>
+  <li>QA Manager quyết định disposition: accept, further verification, return to supplier, scrap/destruct, hoặc customer notification khi áp dụng.</li>
+  <li>Khi vật liệu/process có significant operational risk, Quality Engineer <b>NÊN</b> xác thực thêm bằng nguồn ngoài hoặc thử nội bộ trước khi release.</li>
+  <li>Nếu issue bắt nguồn từ supplier, <b>PHẢI</b> chuyển <a href="sop-401-supplier-control-and-special-process.html">SOP-401</a> SOP-401 để mở SCAR hoặc tái đánh giá NCC.</li>
+</ul>
+
+<h3 class="h3">5.6 Link với SEMI F19</h3>
+<ul>
+  <li>Đối với stainless components có flowdown wetted surface trong ứng dụng bán dẫn, cert package <b>PHẢI</b> đối chiếu với spec khách hàng hoặc purchase flowdown liên quan SEMI F19/F20.</li>
+  <li>Engineering/Quality <b>PHẢI</b> làm rõ trước khi mua hoặc release nếu yêu cầu gồm surface finish, passivation/electropolish, particle/surface condition hoặc test method liên quan.</li>
+</ul>
+
+<h2 class="h2">6. Biểu mẫu liên quan</h2>
+<ul>
+<li><a href="../../../04-Bieu-Mau/04-FRM-400/frm-411-outsourced-processing-incoming-inspection.html">FRM-411</a> KT hàng gia công ngoài</li>
+<li><a href="../../../04-Bieu-Mau/04-FRM-400/frm-412-receiving-and-iqc-log.html">FRM-412</a> Nhật ký nhận &amp; IQC</li>
+<li><a href="../../../04-Bieu-Mau/04-FRM-400/frm-413-hold-and-disposition-log.html">FRM-413</a> Nhật ký Hold &amp; Disposition</li>
+</ul>
+
+<h2 class="h2">7. Tài liệu liên quan</h2>
+<ul>
+<li><a href="sop-401-supplier-control-and-special-process.html">SOP-401</a> Nhà cung cấp, Kiểm soát NCC &amp; Special Process</li>
+<li><a href="../02-SOP-200/sop-201-order-fulfillment-rfq-to-cash.html">SOP-201</a> Thực hiện đơn hàng — RFQ đến Cash</li>
+<li><a href="../01-SOP-100/sop-104-data-governance-records-security-and-ip-protection.html">SOP-104</a> Quản trị dữ liệu, Hồ sơ, Bảo mật &amp; Bảo vệ IP</li>
+</ul>
+
+</div></div>
+
+</div></div></div>
+</body>
+</html>
+
+

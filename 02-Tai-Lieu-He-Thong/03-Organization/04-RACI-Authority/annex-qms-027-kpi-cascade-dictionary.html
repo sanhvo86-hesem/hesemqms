@@ -1,0 +1,752 @@
+﻿<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ANNEX-QMS-027 — KPI Cascade Dictionary | HESEM OS</title>
+<link href="../../../assets/style.css" rel="stylesheet"/>
+<style>
+
+.tier-banner { padding:14px 20px; border-radius:var(--r); margin:24px 0 8px; font-size:13px; font-weight:700; }
+.tier-1 { background:#0c2d48; color:#fff; }
+.tier-2 { background:#1565c0; color:#fff; }
+.tier-3 { background:#42a5f5; color:#fff; }
+.tier-4 { background:#90caf9; color:#0c2d48; }
+.tier-label { font-size:10px; text-transform:uppercase; letter-spacing:1px; opacity:.8; display:block; margin-bottom:2px; }
+.kpi-tbl { width:100%; border-collapse:collapse; font-size:10.5px; }
+.kpi-tbl th { padding:7px 6px; text-align:left; font-size:9px; font-weight:800; color:var(--navy); background:var(--th-bg); border:1px solid var(--th-bdr); letter-spacing:.3px; text-transform:uppercase; }
+.kpi-tbl td { padding:6px 6px; border:1px solid var(--ln2); vertical-align:top; line-height:1.4; }
+.kpi-tbl tbody tr:nth-child(even) { background:#fafcfe; }
+.kpi-tbl tbody tr:hover { background:#f0f4ff; }
+.kpi-id { font-family:var(--mono); font-weight:700; color:var(--navy); font-size:10px; white-space:nowrap; }
+.tgt-g { background:#ebfbee; color:#2b8a3e; font-weight:700; padding:2px 6px; border-radius:3px; font-size:10px; display:inline-block; }
+.tgt-a { background:#fff9db; color:#e67700; font-weight:700; padding:2px 6px; border-radius:3px; font-size:10px; display:inline-block; }
+.tgt-r { background:#fff5f5; color:#c92a2a; font-weight:700; padding:2px 6px; border-radius:3px; font-size:10px; display:inline-block; }
+.cascade-tag { font-size:9px; color:var(--blue); background:var(--blue-l); padding:1px 6px; border-radius:3px; display:inline-block; margin:1px 0; }
+.cascade-down { font-size:9px; color:#7b1fa2; background:#f3e5f5; padding:1px 6px; border-radius:3px; display:inline-block; margin:1px 0; }
+.dept-sec { background:var(--bg2); border:1px solid var(--ln); border-left:3px solid var(--blue); border-radius:var(--r); padding:10px 16px; margin:16px 0 6px; }
+.dept-title { font-size:12px; font-weight:700; color:var(--navy); }
+.dept-ref { font-size:10px; color:var(--ink3); }
+.flow-diagram { display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap; padding:20px; background:var(--bg2); border:1px solid var(--ln); border-radius:var(--r); margin:16px 0; }
+.flow-box { padding:10px 16px; border-radius:var(--r); text-align:center; font-size:11px; font-weight:700; min-width:120px; }
+.flow-arrow { font-size:18px; color:var(--ink3); }
+
+/* ═══ PAGE BREAK & OVERFLOW FIX (auto-applied) ═══ */
+@media print {
+ .card, .table-card, .callout, .note, .box, .iso-map,
+ .preface-block, .jd-mission, .form-sheet, .lane,
+ .legend, .req, .auth-grid, .backup-card, .vstep {
+ page-break-inside: avoid;
+ break-inside: avoid;
+ }
+ h1, h2, h3, .h1, .h2, .h3 {
+ page-break-after: avoid;
+ break-after: avoid;
+ }
+ .form-header {
+ page-break-inside: avoid;
+ break-inside: avoid;
+ }
+ .sig-row, .sign-row, .approval-row {
+ page-break-inside: avoid;
+ break-inside: avoid;
+ }
+ tr { page-break-inside: avoid; break-inside: avoid; }
+ thead { display: table-header-group; }
+ tfoot { display: table-footer-group; }
+ p { orphans: 3; widows: 3; }
+ .table-card { overflow: visible !important; }
+}
+.page-body { overflow-x: hidden; }
+.table-card, .table-block, .table-wrap { overflow-x: auto; max-width: 100%; }
+table { max-width: 100%; table-layout: auto; }
+td, th { max-width: 400px; overflow-wrap: break-word; word-wrap: break-word; }
+
+</style>
+</head>
+<body>
+<div class="container" style="max-width:1160px;">
+<div class="page landscape">
+<div class="page-body">
+<div class="form-header">
+<div class="fh-left">
+  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+  <div class="fh-company">
+    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+    <span>Tài liệu kiểm soát</span>
+  </div>
+</div>
+<div class="title">
+  <strong>ANNEX-QMS-027-KPI-CASCADE-DICTIONARY — KPI Cascade Dictionary</strong>
+  <span class="sub-vn"></span>
+</div>
+<div class="meta">
+  <div class="row"><span><b>Mã:</b></span><span>ANNEX-QMS-027-KPI-CASCADE-DICTIONARY</span></div>
+  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+  <div class="row"><span><b>Chủ sở hữu:</b></span><span>QA/QMS</span></div>
+  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+</div>
+</div>
+<div class="doc-content" id="docContent"><div class="form-sheet"><div class="card">
+<div class="note">Tài liệu kiểm soát. Mọi thay đổi PHẢI theo <a href="../../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-101-document-and-data-control.html">SOP-QMS-001</a>.</div>
+<span class="badge">System Annex</span>
+<h1 class="h1" style="margin-top:12px;">ANNEX-QMS-027 — KPI Cascade Dictionary</h1><div class="sub-vn">Từ điển KPI Cascade toàn công ty (4 tầng)</div>
+<h2 class="h2">1. Mục đích</h2>
+<p>Từ điển KPI Cascade quy định MỌI chỉ số hiệu suất trọng yếu (KPI) của HESEM Engineering theo 4 tầng cascade: Công ty → Phòng ban → Nhóm/Dây chuyền → Cá nhân. Mỗi KPI có định nghĩa chính xác, ngưỡng Green/Amber/Red, và liên kết rõ ràng với KPI cấp trên/dưới. Bao gồm các KPI đặc thù ngành semiconductor.</p>
+<h2 class="h2">2. Cascade Flow</h2>
+<div class="flow-diagram">
+<div class="flow-box tier-1"><span class="tier-label">Tầng 1</span>COMPANY<br/>7 KPIs<br/><span style="font-size:9px;">POL-QMS-002</span></div>
+<div class="flow-arrow">→</div>
+<div class="flow-box tier-2"><span class="tier-label">Tầng 2</span>DEPARTMENT<br/>47 KPIs<br/><span style="font-size:9px;">DEP Annexes</span></div>
+<div class="flow-arrow">→</div>
+<div class="flow-box tier-3"><span class="tier-label">Tầng 3</span>SEMI-SPECIFIC<br/>4 KPIs + Team<br/><span style="font-size:9px;">PROC/WI</span></div>
+<div class="flow-arrow">→</div>
+<div class="flow-box tier-4"><span class="tier-label">Tầng 4</span>INDIVIDUAL<br/>18 KPIs<br/><span style="font-size:9px;">JD §7</span></div>
+</div>
+<div class="callout"><b>Nguyên tắc Cascade:</b> KPI cá nhân (Tầng 4) PHẢI là subset của KPI phòng ban (Tầng 2). KPI phòng ban PHẢI cascade từ Mục tiêu chất lượng công ty (Tầng 1). Không được tồn tại KPI mồ côi (orphan) — mỗi KPI phải link ít nhất 1 cấp trên.</div>
+<div class="tier-banner tier-1"><span class="tier-label">Tầng 1 — Company Level</span>Mục tiêu chất lượng công ty — liên kết <a href="../../02-Policies-Objectives/pol-qms-002-quality-objectives.html" style="color:#fff;text-decoration:underline;">POL-QMS-002</a></div>
+<div class="table-card" style="overflow-x:auto;"><table class="kpi-tbl"><thead><tr>
+<th style="width:70px;">KPI ID</th><th style="width:170px;">Tên &amp; Định nghĩa</th>
+<th style="width:140px;">Công thức (Num / Den)</th><th style="width:100px;">Mục tiêu (G/A/R)</th>
+<th style="width:50px;">Tần suất</th><th style="width:110px;">Nguồn (SSOT)</th>
+<th style="width:100px;">Owner (A)</th><th style="width:110px;">Cascades From ↑</th>
+<th style="width:110px;">Cascades To ↓</th></tr></thead><tbody><tr>
+<td class="kpi-id">KPI-CO-01</td>
+<td><b>On-Time Delivery (OTD)</b><br/><span style="font-size:9px;color:var(--ink3);">Tỷ lệ giao hàng đúng hạn</span></td>
+<td style="font-size:10px;">Số shipments giao đúng/sớm Promise Date <span style="color:var(--ink3);">÷</span> Tổng shipments trong kỳ</td>
+<td><span class="tgt-g">🟢 ≥ 95%</span><br/><span class="tgt-a">🟡 90–94%</span><br/><span class="tgt-r">🔴 &lt; 90%</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">Epicor Ship Confirm</td>
+<td style="font-size:10px;">General Manager (EXE-01)</td>
+<td><span class="cascade-tag">↑ POL-QMS-002 (QO-01)</span></td>
+<td><span class="cascade-down">↓ KPI-SAL-01</span><br/><span class="cascade-down">↓ KPI-PLA-01</span><br/><span class="cascade-down">↓ KPI-PRO-02</span></td>
+</tr><tr>
+<td class="kpi-id">KPI-CO-02</td>
+<td><b>First Pass Yield (FPY)</b><br/><span style="font-size:9px;color:var(--ink3);">Tỷ lệ đạt ngay lần đầu tại Final Inspection</span></td>
+<td style="font-size:10px;">Số lot đạt ngay (không rework) <span style="color:var(--ink3);">÷</span> Tổng lot kiểm tra</td>
+<td><span class="tgt-g">🟢 ≥ 98%</span><br/><span class="tgt-a">🟡 95–97%</span><br/><span class="tgt-r">🔴 &lt; 95%</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">Final Inspection Records (M365)</td>
+<td style="font-size:10px;">QA Manager (QA-01)</td>
+<td><span class="cascade-tag">↑ POL-QMS-002 (QO-02)</span></td>
+<td><span class="cascade-down">↓ KPI-QA-01</span><br/><span class="cascade-down">↓ KPI-PRO-03</span></td>
+</tr><tr>
+<td class="kpi-id">KPI-CO-03</td>
+<td><b>Internal NCR Rate</b><br/><span style="font-size:9px;color:var(--ink3);">Tỷ lệ NCR nội bộ</span></td>
+<td style="font-size:10px;">Số NCR phát sinh <span style="color:var(--ink3);">÷</span> 100 Job đóng trong kỳ</td>
+<td><span class="tgt-g">🟢 ≤ 3/100</span><br/><span class="tgt-a">🟡 4–5/100</span><br/><span class="tgt-r">🔴 &gt; 5/100</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">NCR Register (M365)</td>
+<td style="font-size:10px;">QA Manager (QA-01)</td>
+<td><span class="cascade-tag">↑ POL-QMS-002 (QO-03)</span></td>
+<td><span class="cascade-down">↓ KPI-QA-02</span><br/><span class="cascade-down">↓ KPI-PRO-03</span></td>
+</tr><tr>
+<td class="kpi-id">KPI-CO-04</td>
+<td><b>CAPA On-Time Closure</b><br/><span style="font-size:9px;color:var(--ink3);">Tỷ lệ đóng CAPA đúng hạn</span></td>
+<td style="font-size:10px;">Số CAPA đóng ≤ 30 ngày <span style="color:var(--ink3);">÷</span> Tổng CAPA trong kỳ</td>
+<td><span class="tgt-g">🟢 ≥ 95%</span><br/><span class="tgt-a">🟡 85–94%</span><br/><span class="tgt-r">🔴 &lt; 85%</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">CAPA Log (M365)</td>
+<td style="font-size:10px;">QA Manager (QA-01)</td>
+<td><span class="cascade-tag">↑ POL-QMS-002 (QO-04)</span></td>
+<td><span class="cascade-down">↓ KPI-QA-02</span></td>
+</tr><tr>
+<td class="kpi-id">KPI-CO-05</td>
+<td><b>Customer Complaint Rate</b><br/><span style="font-size:9px;color:var(--ink3);">Tỷ lệ khiếu nại khách hàng</span></td>
+<td style="font-size:10px;">Số khiếu nại <span style="color:var(--ink3);">÷</span> 50 shipments</td>
+<td><span class="tgt-g">🟢 ≤ 1/50</span><br/><span class="tgt-a">🟡 2/50</span><br/><span class="tgt-r">🔴 &gt; 2/50</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">Customer Complaint Log (M365)</td>
+<td style="font-size:10px;">Estimator (SAL-03)</td>
+<td><span class="cascade-tag">↑ POL-QMS-002 (QO-05)</span></td>
+<td><span class="cascade-down">↓ KPI-SAL-03</span><br/><span class="cascade-down">↓ KPI-QA-04</span></td>
+</tr><tr>
+<td class="kpi-id">KPI-CO-06</td>
+<td><b>Revenue &amp; Gross Margin</b><br/><span style="font-size:9px;color:var(--ink3);">Doanh thu và biên lợi nhuận gộp</span></td>
+<td style="font-size:10px;">Doanh thu thực tế &amp; (Revenue − COGS) <span style="color:var(--ink3);">÷</span> Budget &amp; Revenue</td>
+<td><span class="tgt-g">🟢 Đạt/vượt budget</span><br/><span class="tgt-a">🟡 90–99% budget</span><br/><span class="tgt-r">🔴 &lt; 90% budget</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">Epicor Financial Reports</td>
+<td style="font-size:10px;">General Manager (EXE-01)</td>
+<td><span class="cascade-tag">↑ POL-QMS-002</span></td>
+<td><span class="cascade-down">↓ KPI-FIN-01</span><br/><span class="cascade-down">↓ KPI-SAL-04</span></td>
+</tr><tr>
+<td class="kpi-id">KPI-CO-07</td>
+<td><b>Employee Safety (LTIR)</b><br/><span style="font-size:9px;color:var(--ink3);">Tỷ lệ sự cố mất thời gian lao động</span></td>
+<td style="font-size:10px;">Số LTI × 200,000 <span style="color:var(--ink3);">÷</span> Tổng giờ lao động</td>
+<td><span class="tgt-g">🟢 0</span><br/><span class="tgt-a">🟡 1–2 LTI/năm</span><br/><span class="tgt-r">🔴 &gt; 2 LTI/năm</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">HSE Incident Register</td>
+<td style="font-size:10px;">HSE Officer (HSE-01)</td>
+<td><span class="cascade-tag">↑ POL-QMS-002</span></td>
+<td><span class="cascade-down">↓ KPI-HSE-01</span><br/><span class="cascade-down">↓ KPI-PRO-05</span></td>
+</tr></tbody></table></div>
+<div class="tier-banner tier-2"><span class="tier-label">Tầng 2 — Department Level</span>KPI phòng ban — liên kết Department Annexes</div>
+<div class="dept-sec"><div class="dept-title">Production</div><div class="dept-ref"><a href="../../../10-Training-Academy/01-Competency-System/03-Matrices/training-matrix-production.html">ANNEX-DEP-PRO-001</a></div></div><div class="table-card" style="overflow-x:auto;"><table class="kpi-tbl"><thead><tr>
+<th style="width:70px;">KPI ID</th><th style="width:170px;">Tên &amp; Định nghĩa</th>
+<th style="width:140px;">Công thức (Num / Den)</th><th style="width:100px;">Mục tiêu (G/A/R)</th>
+<th style="width:50px;">Tần suất</th><th style="width:110px;">Nguồn (SSOT)</th>
+<th style="width:100px;">Owner (A)</th><th style="width:110px;">Cascades From ↑</th>
+<th style="width:110px;">Cascades To ↓</th></tr></thead><tbody><tr>
+<td class="kpi-id">KPI-PRO-01</td>
+<td><b>OEE / Utilization</b><br/><span style="font-size:9px;color:var(--ink3);">Hiệu suất sử dụng máy tổng thể</span></td>
+<td style="font-size:10px;">Availability × Performance × Quality <span style="color:var(--ink3);">÷</span> 100%</td>
+<td><span class="tgt-g">🟢 ≥ 65%</span><br/><span class="tgt-a">🟡 55–64%</span><br/><span class="tgt-r">🔴 &lt; 55%</span></td>
+<td>Tuần</td>
+<td style="font-size:10px;">Epicor + Machine runtime</td>
+<td style="font-size:10px;">Production Manager (PRO-01)</td>
+<td><span class="cascade-tag">↑ KPI-CO-01</span><br/><span class="cascade-tag">↑ KPI-CO-06</span></td>
+<td><span class="cascade-down">↓ KPI-PRO-01a</span><br/><span class="cascade-down">↓ KPI-PRO-01b</span></td>
+</tr><tr>
+<td class="kpi-id">KPI-PRO-02</td>
+<td><b>Schedule Adherence</b><br/><span style="font-size:9px;color:var(--ink3);">Tỷ lệ hoàn thành đúng Dispatch</span></td>
+<td style="font-size:10px;">Số Op hoàn thành đúng kế hoạch <span style="color:var(--ink3);">÷</span> Tổng Op trong Dispatch</td>
+<td><span class="tgt-g">🟢 ≥ 90%</span><br/><span class="tgt-a">🟡 80–89%</span><br/><span class="tgt-r">🔴 &lt; 80%</span></td>
+<td>Tuần</td>
+<td style="font-size:10px;">Epicor Job/Op completion</td>
+<td style="font-size:10px;">Production Manager (PRO-01)</td>
+<td><span class="cascade-tag">↑ KPI-CO-01</span></td>
+<td><span class="cascade-down">↓ KPI-PRO-02a (per shift)</span></td>
+</tr><tr>
+<td class="kpi-id">KPI-PRO-03</td>
+<td><b>Scrap Rate</b><br/><span style="font-size:9px;color:var(--ink3);">Tỷ lệ phế phẩm (theo giá trị)</span></td>
+<td style="font-size:10px;">Giá trị scrap <span style="color:var(--ink3);">÷</span> Tổng giá trị sản xuất</td>
+<td><span class="tgt-g">🟢 ≤ 2%</span><br/><span class="tgt-a">🟡 2.1–3%</span><br/><span class="tgt-r">🔴 &gt; 3%</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">Epicor scrap transactions</td>
+<td style="font-size:10px;">Production Manager (PRO-01)</td>
+<td><span class="cascade-tag">↑ KPI-CO-02</span><br/><span class="cascade-tag">↑ KPI-CO-03</span></td>
+<td><span class="cascade-down">↓ KPI-PRO-03a (per operator)</span></td>
+</tr><tr>
+<td class="kpi-id">KPI-PRO-04</td>
+<td><b>Rework Hours</b><br/><span style="font-size:9px;color:var(--ink3);">Tỷ lệ giờ rework</span></td>
+<td style="font-size:10px;">Giờ rework <span style="color:var(--ink3);">÷</span> Tổng giờ lao động</td>
+<td><span class="tgt-g">🟢 ≤ 3%</span><br/><span class="tgt-a">🟡 3.1–5%</span><br/><span class="tgt-r">🔴 &gt; 5%</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">Epicor Labor rework code</td>
+<td style="font-size:10px;">Production Manager (PRO-01)</td>
+<td><span class="cascade-tag">↑ KPI-CO-02</span></td>
+<td>—</td>
+</tr><tr>
+<td class="kpi-id">KPI-PRO-05</td>
+<td><b>Safety (LTI)</b><br/><span style="font-size:9px;color:var(--ink3);">Sự cố mất thời gian lao động</span></td>
+<td style="font-size:10px;">Số LTI <span style="color:var(--ink3);">÷</span> —</td>
+<td><span class="tgt-g">🟢 0</span><br/><span class="tgt-a">🟡 1</span><br/><span class="tgt-r">🔴 &gt; 1</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">HSE Incident Register</td>
+<td style="font-size:10px;">Production Manager (PRO-01)</td>
+<td><span class="cascade-tag">↑ KPI-CO-07</span></td>
+<td>—</td>
+</tr></tbody></table></div>
+<div class="dept-sec"><div class="dept-title">Quality (QA/QC)</div><div class="dept-ref"><a href="../../../10-Training-Academy/01-Competency-System/03-Matrices/training-matrix-quality.html">ANNEX-DEP-QA-001</a></div></div><div class="table-card" style="overflow-x:auto;"><table class="kpi-tbl"><thead><tr>
+<th style="width:70px;">KPI ID</th><th style="width:170px;">Tên &amp; Định nghĩa</th>
+<th style="width:140px;">Công thức (Num / Den)</th><th style="width:100px;">Mục tiêu (G/A/R)</th>
+<th style="width:50px;">Tần suất</th><th style="width:110px;">Nguồn (SSOT)</th>
+<th style="width:100px;">Owner (A)</th><th style="width:110px;">Cascades From ↑</th>
+<th style="width:110px;">Cascades To ↓</th></tr></thead><tbody><tr>
+<td class="kpi-id">KPI-QA-01</td>
+<td><b>First Pass Yield (FPY)</b><br/><span style="font-size:9px;color:var(--ink3);">FPY tại phòng QC</span></td>
+<td style="font-size:10px;">Parts passed first inspection <span style="color:var(--ink3);">÷</span> Total inspected</td>
+<td><span class="tgt-g">🟢 ≥ 95%</span><br/><span class="tgt-a">🟡 90–94%</span><br/><span class="tgt-r">🔴 &lt; 90%</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">Epicor inspection data</td>
+<td style="font-size:10px;">QA Manager (QA-01)</td>
+<td><span class="cascade-tag">↑ KPI-CO-02</span></td>
+<td><span class="cascade-down">↓ KPI-QA-01a (per inspector)</span></td>
+</tr><tr>
+<td class="kpi-id">KPI-QA-02</td>
+<td><b>NCR Aging</b><br/><span style="font-size:9px;color:var(--ink3);">Tỷ lệ NCR đóng đúng hạn</span></td>
+<td style="font-size:10px;">NCR closed ≤ 30 ngày <span style="color:var(--ink3);">÷</span> Tổng NCR</td>
+<td><span class="tgt-g">🟢 100%</span><br/><span class="tgt-a">🟡 90–99%</span><br/><span class="tgt-r">🔴 &lt; 90%</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">NCR Register (M365)</td>
+<td style="font-size:10px;">QA Manager (QA-01)</td>
+<td><span class="cascade-tag">↑ KPI-CO-03</span><br/><span class="cascade-tag">↑ KPI-CO-04</span></td>
+<td>—</td>
+</tr><tr>
+<td class="kpi-id">KPI-QA-03</td>
+<td><b>DPPM</b><br/><span style="font-size:9px;color:var(--ink3);">Defective Parts Per Million giao cho KH</span></td>
+<td style="font-size:10px;">Defective parts returned × 1,000,000 <span style="color:var(--ink3);">÷</span> Total parts shipped</td>
+<td><span class="tgt-g">🟢 ≤ 500</span><br/><span class="tgt-a">🟡 501–1000</span><br/><span class="tgt-r">🔴 &gt; 1000</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">NCR Register + Epicor</td>
+<td style="font-size:10px;">QA Manager (QA-01)</td>
+<td><span class="cascade-tag">↑ KPI-CO-05</span></td>
+<td>—</td>
+</tr><tr>
+<td class="kpi-id">KPI-QA-04</td>
+<td><b>Customer Escape Rate</b><br/><span style="font-size:9px;color:var(--ink3);">Số lỗi thoát đến khách hàng</span></td>
+<td style="font-size:10px;">Số escape <span style="color:var(--ink3);">÷</span> —</td>
+<td><span class="tgt-g">🟢 0</span><br/><span class="tgt-a">🟡 &gt; 0 (contained)</span><br/><span class="tgt-r">🔴 Repeat escape</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">Customer Complaint Log</td>
+<td style="font-size:10px;">QA Manager (QA-01)</td>
+<td><span class="cascade-tag">↑ KPI-CO-05</span></td>
+<td>—</td>
+</tr><tr>
+<td class="kpi-id">KPI-QA-05</td>
+<td><b>Gage Calibration On-Time</b><br/><span style="font-size:9px;color:var(--ink3);">Tỷ lệ hiệu chuẩn đúng hạn</span></td>
+<td style="font-size:10px;">Gage hiệu chuẩn đúng hạn <span style="color:var(--ink3);">÷</span> Tổng gage trong schedule</td>
+<td><span class="tgt-g">🟢 100%</span><br/><span class="tgt-a">🟡 95–99%</span><br/><span class="tgt-r">🔴 &lt; 95%</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">Gage Register</td>
+<td style="font-size:10px;">QA Manager (QA-01)</td>
+<td><span class="cascade-tag">↑ KPI-CO-02</span></td>
+<td>—</td>
+</tr></tbody></table></div>
+<div class="dept-sec"><div class="dept-title">Estimating</div><div class="dept-ref"><a href="../../../10-Training-Academy/01-Competency-System/03-Matrices/training-matrix-estimating.html">ANNEX-DEP-SAL-001</a></div></div><div class="table-card" style="overflow-x:auto;"><table class="kpi-tbl"><thead><tr>
+<th style="width:70px;">KPI ID</th><th style="width:170px;">Tên &amp; Định nghĩa</th>
+<th style="width:140px;">Công thức (Num / Den)</th><th style="width:100px;">Mục tiêu (G/A/R)</th>
+<th style="width:50px;">Tần suất</th><th style="width:110px;">Nguồn (SSOT)</th>
+<th style="width:100px;">Owner (A)</th><th style="width:110px;">Cascades From ↑</th>
+<th style="width:110px;">Cascades To ↓</th></tr></thead><tbody><tr>
+<td class="kpi-id">KPI-SAL-01</td>
+<td><b>On-Time Delivery (OTD)</b><br/><span style="font-size:9px;color:var(--ink3);">OTD toàn bộ đơn hàng</span></td>
+<td style="font-size:10px;">Shipments giao đúng hạn <span style="color:var(--ink3);">÷</span> Tổng shipments</td>
+<td><span class="tgt-g">🟢 ≥ 95%</span><br/><span class="tgt-a">🟡 90–94%</span><br/><span class="tgt-r">🔴 &lt; 90%</span></td>
+<td>Tuần</td>
+<td style="font-size:10px;">Epicor Ship Confirm</td>
+<td style="font-size:10px;">Estimator (SAL-03)</td>
+<td><span class="cascade-tag">↑ KPI-CO-01</span></td>
+<td>—</td>
+</tr><tr>
+<td class="kpi-id">KPI-SAL-02</td>
+<td><b>Quote Response Time</b><br/><span style="font-size:9px;color:var(--ink3);">Thời gian phản hồi RFQ</span></td>
+<td style="font-size:10px;">Ngày trung bình từ RFQ → báo giá <span style="color:var(--ink3);">÷</span> —</td>
+<td><span class="tgt-g">🟢 ≤ 3 ngày</span><br/><span class="tgt-a">🟡 4–5 ngày</span><br/><span class="tgt-r">🔴 &gt; 5 ngày</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">RFQ Register</td>
+<td style="font-size:10px;">Estimator (SAL-03)</td>
+<td><span class="cascade-tag">↑ KPI-CO-01</span></td>
+<td>—</td>
+</tr><tr>
+<td class="kpi-id">KPI-SAL-03</td>
+<td><b>Customer Satisfaction Score</b><br/><span style="font-size:9px;color:var(--ink3);">Điểm hài lòng khách hàng</span></td>
+<td style="font-size:10px;">Trung bình điểm survey <span style="color:var(--ink3);">÷</span> Thang 5.0</td>
+<td><span class="tgt-g">🟢 ≥ 4.0</span><br/><span class="tgt-a">🟡 3.5–3.9</span><br/><span class="tgt-r">🔴 &lt; 3.5</span></td>
+<td>Quý</td>
+<td style="font-size:10px;">Survey Results</td>
+<td style="font-size:10px;">Estimator (SAL-03)</td>
+<td><span class="cascade-tag">↑ KPI-CO-05</span></td>
+<td>—</td>
+</tr><tr>
+<td class="kpi-id">KPI-SAL-04</td>
+<td><b>Order Entry Accuracy</b><br/><span style="font-size:9px;color:var(--ink3);">Tỷ lệ nhập đơn hàng chính xác</span></td>
+<td style="font-size:10px;">SO nhập đúng vs PO khách <span style="color:var(--ink3);">÷</span> Tổng SO</td>
+<td><span class="tgt-g">🟢 ≥ 99%</span><br/><span class="tgt-a">🟡 97–98%</span><br/><span class="tgt-r">🔴 &lt; 97%</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">Epicor SO vs PO check</td>
+<td style="font-size:10px;">Estimator (SAL-03)</td>
+<td><span class="cascade-tag">↑ KPI-CO-06</span></td>
+<td>—</td>
+</tr></tbody></table></div>
+<div class="dept-sec"><div class="dept-title">Engineering</div><div class="dept-ref"><a href="../../../10-Training-Academy/01-Competency-System/03-Matrices/training-matrix-engineering.html">ANNEX-DEP-ENG-001</a></div></div><div class="table-card" style="overflow-x:auto;"><table class="kpi-tbl"><thead><tr>
+<th style="width:70px;">KPI ID</th><th style="width:170px;">Tên &amp; Định nghĩa</th>
+<th style="width:140px;">Công thức (Num / Den)</th><th style="width:100px;">Mục tiêu (G/A/R)</th>
+<th style="width:50px;">Tần suất</th><th style="width:110px;">Nguồn (SSOT)</th>
+<th style="width:100px;">Owner (A)</th><th style="width:110px;">Cascades From ↑</th>
+<th style="width:110px;">Cascades To ↓</th></tr></thead><tbody><tr>
+<td class="kpi-id">KPI-ENG-01</td>
+<td><b>DFM Turnaround Time</b><br/><span style="font-size:9px;color:var(--ink3);">Thời gian phản hồi DFM</span></td>
+<td style="font-size:10px;">Ngày từ RFQ → DFM feedback <span style="color:var(--ink3);">÷</span> —</td>
+<td><span class="tgt-g">🟢 ≤ 5 ngày</span><br/><span class="tgt-a">🟡 6–7 ngày</span><br/><span class="tgt-r">🔴 &gt; 7 ngày</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">DFM Tracker (M365)</td>
+<td style="font-size:10px;">Trưởng phòng KT</td>
+<td><span class="cascade-tag">↑ KPI-SAL-02</span><br/><span class="cascade-tag">↑ KPI-CO-01</span></td>
+<td><span class="cascade-down">↓ KPI-ENG-01a (DFM Eng)</span></td>
+</tr><tr>
+<td class="kpi-id">KPI-ENG-02</td>
+<td><b>First-pass Setup Yield</b><br/><span style="font-size:9px;color:var(--ink3);">Setup đạt ngay lần đầu</span></td>
+<td style="font-size:10px;">Setup passed first verification <span style="color:var(--ink3);">÷</span> Total setups</td>
+<td><span class="tgt-g">🟢 ≥ 90%</span><br/><span class="tgt-a">🟡 80–89%</span><br/><span class="tgt-r">🔴 &lt; 80%</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">Setup Verification Records</td>
+<td style="font-size:10px;">Trưởng phòng KT</td>
+<td><span class="cascade-tag">↑ KPI-CO-02</span></td>
+<td><span class="cascade-down">↓ KPI-ENG-02a (CAM)</span><br/><span class="cascade-down">↓ KPI-PRO-SU-01</span></td>
+</tr><tr>
+<td class="kpi-id">KPI-ENG-03</td>
+<td><b>ECO Response Time</b><br/><span style="font-size:9px;color:var(--ink3);">Thời gian xử lý ECO</span></td>
+<td style="font-size:10px;">Ngày từ ECO request → close <span style="color:var(--ink3);">÷</span> —</td>
+<td><span class="tgt-g">🟢 ≤ 10 ngày</span><br/><span class="tgt-a">🟡 11–15 ngày</span><br/><span class="tgt-r">🔴 &gt; 15 ngày</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">ECO Register (M365)</td>
+<td style="font-size:10px;">Trưởng phòng KT</td>
+<td><span class="cascade-tag">↑ KPI-CO-01</span></td>
+<td>—</td>
+</tr><tr>
+<td class="kpi-id">KPI-ENG-04</td>
+<td><b>Rev Error Rate</b><br/><span style="font-size:9px;color:var(--ink3);">Tỷ lệ release sai revision</span></td>
+<td style="font-size:10px;">Releases sai revision <span style="color:var(--ink3);">÷</span> Total releases</td>
+<td><span class="tgt-g">🟢 ≤ 1%</span><br/><span class="tgt-a">🟡 1.1–2%</span><br/><span class="tgt-r">🔴 &gt; 2%</span></td>
+<td>Quý</td>
+<td style="font-size:10px;">PROC-ENG-002 records</td>
+<td style="font-size:10px;">Trưởng phòng KT</td>
+<td><span class="cascade-tag">↑ KPI-CO-03</span></td>
+<td>—</td>
+</tr></tbody></table></div>
+<div class="dept-sec"><div class="dept-title">Planning</div><div class="dept-ref"><a href="../../../10-Training-Academy/01-Competency-System/03-Matrices/training-matrix-planning-purchasing.html">ANNEX-DEP-PLA-001</a></div></div><div class="table-card" style="overflow-x:auto;"><table class="kpi-tbl"><thead><tr>
+<th style="width:70px;">KPI ID</th><th style="width:170px;">Tên &amp; Định nghĩa</th>
+<th style="width:140px;">Công thức (Num / Den)</th><th style="width:100px;">Mục tiêu (G/A/R)</th>
+<th style="width:50px;">Tần suất</th><th style="width:110px;">Nguồn (SSOT)</th>
+<th style="width:100px;">Owner (A)</th><th style="width:110px;">Cascades From ↑</th>
+<th style="width:110px;">Cascades To ↓</th></tr></thead><tbody><tr>
+<td class="kpi-id">KPI-PLA-01</td>
+<td><b>Schedule Adherence</b><br/><span style="font-size:9px;color:var(--ink3);">Tuân thủ lịch điều độ</span></td>
+<td style="font-size:10px;">Op hoàn thành đúng Dispatch <span style="color:var(--ink3);">÷</span> Total Op dispatched</td>
+<td><span class="tgt-g">🟢 ≥ 90%</span><br/><span class="tgt-a">🟡 80–89%</span><br/><span class="tgt-r">🔴 &lt; 80%</span></td>
+<td>Tuần</td>
+<td style="font-size:10px;">Epicor Dispatch vs Actual</td>
+<td style="font-size:10px;">Trưởng phòng KH</td>
+<td><span class="cascade-tag">↑ KPI-CO-01</span></td>
+<td><span class="cascade-down">↓ KPI-PRO-02</span></td>
+</tr><tr>
+<td class="kpi-id">KPI-PLA-02</td>
+<td><b>WIP Aging (RED+BLACK)</b><br/><span style="font-size:9px;color:var(--ink3);">Tỷ lệ WIP quá hạn nghiêm trọng</span></td>
+<td style="font-size:10px;">WIP items RED+BLACK <span style="color:var(--ink3);">÷</span> Total WIP</td>
+<td><span class="tgt-g">🟢 ≤ 5%</span><br/><span class="tgt-a">🟡 6–10%</span><br/><span class="tgt-r">🔴 &gt; 10%</span></td>
+<td>Ngày</td>
+<td style="font-size:10px;">WIP Aging Log (FRM-OPS-007)</td>
+<td style="font-size:10px;">Trưởng phòng KH</td>
+<td><span class="cascade-tag">↑ KPI-CO-01</span></td>
+<td>—</td>
+</tr><tr>
+<td class="kpi-id">KPI-PLA-03</td>
+<td><b>Capacity Utilization</b><br/><span style="font-size:9px;color:var(--ink3);">Tỷ lệ sử dụng năng lực</span></td>
+<td style="font-size:10px;">Scheduled hours <span style="color:var(--ink3);">÷</span> Available hours</td>
+<td><span class="tgt-g">🟢 75–90%</span><br/><span class="tgt-a">🟡 60–74% hoặc &gt; 90%</span><br/><span class="tgt-r">🔴 &lt; 60%</span></td>
+<td>Tuần</td>
+<td style="font-size:10px;">Capacity Review</td>
+<td style="font-size:10px;">Trưởng phòng KH</td>
+<td><span class="cascade-tag">↑ KPI-CO-06</span></td>
+<td>—</td>
+</tr></tbody></table></div>
+<div class="dept-sec"><div class="dept-title">Purchasing</div><div class="dept-ref"><a href="../../../10-Training-Academy/01-Competency-System/03-Matrices/training-matrix-planning-purchasing.html">ANNEX-DEP-PUR-001</a></div></div><div class="table-card" style="overflow-x:auto;"><table class="kpi-tbl"><thead><tr>
+<th style="width:70px;">KPI ID</th><th style="width:170px;">Tên &amp; Định nghĩa</th>
+<th style="width:140px;">Công thức (Num / Den)</th><th style="width:100px;">Mục tiêu (G/A/R)</th>
+<th style="width:50px;">Tần suất</th><th style="width:110px;">Nguồn (SSOT)</th>
+<th style="width:100px;">Owner (A)</th><th style="width:110px;">Cascades From ↑</th>
+<th style="width:110px;">Cascades To ↓</th></tr></thead><tbody><tr>
+<td class="kpi-id">KPI-PUR-01</td>
+<td><b>Supplier OTD</b><br/><span style="font-size:9px;color:var(--ink3);">NCC giao hàng đúng hạn</span></td>
+<td style="font-size:10px;">PO nhận đúng hạn <span style="color:var(--ink3);">÷</span> Tổng PO</td>
+<td><span class="tgt-g">🟢 ≥ 90%</span><br/><span class="tgt-a">🟡 80–89%</span><br/><span class="tgt-r">🔴 &lt; 80%</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">Epicor PO Receipt vs Due</td>
+<td style="font-size:10px;">Trưởng phòng MH</td>
+<td><span class="cascade-tag">↑ KPI-CO-01</span></td>
+<td><span class="cascade-down">↓ KPI-PUR-01a (per buyer)</span></td>
+</tr><tr>
+<td class="kpi-id">KPI-PUR-02</td>
+<td><b>Supplier Quality (IQC Reject)</b><br/><span style="font-size:9px;color:var(--ink3);">Tỷ lệ lot bị reject IQC</span></td>
+<td style="font-size:10px;">Lots rejected IQC <span style="color:var(--ink3);">÷</span> Total lots received</td>
+<td><span class="tgt-g">🟢 ≤ 1%</span><br/><span class="tgt-a">🟡 1.1–2%</span><br/><span class="tgt-r">🔴 &gt; 2%</span></td>
+<td>Quý</td>
+<td style="font-size:10px;">IQC data + SCAR</td>
+<td style="font-size:10px;">Trưởng phòng MH</td>
+<td><span class="cascade-tag">↑ KPI-CO-02</span><br/><span class="cascade-tag">↑ KPI-CO-03</span></td>
+<td>—</td>
+</tr><tr>
+<td class="kpi-id">KPI-PUR-03</td>
+<td><b>PO Cycle Time</b><br/><span style="font-size:9px;color:var(--ink3);">Thời gian phát hành PO</span></td>
+<td style="font-size:10px;">Ngày từ PR → PO issued <span style="color:var(--ink3);">÷</span> —</td>
+<td><span class="tgt-g">🟢 ≤ 2 ngày</span><br/><span class="tgt-a">🟡 3 ngày</span><br/><span class="tgt-r">🔴 &gt; 3 ngày</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">Epicor PO Entry</td>
+<td style="font-size:10px;">Trưởng phòng MH</td>
+<td><span class="cascade-tag">↑ KPI-CO-01</span></td>
+<td>—</td>
+</tr><tr>
+<td class="kpi-id">KPI-PUR-04</td>
+<td><b>Cost Savings</b><br/><span style="font-size:9px;color:var(--ink3);">Tiết kiệm chi phí vs budget</span></td>
+<td style="font-size:10px;">Saving amount <span style="color:var(--ink3);">÷</span> Budget amount</td>
+<td><span class="tgt-g">🟢 ≥ 3%/năm</span><br/><span class="tgt-a">🟡 1–2.9%</span><br/><span class="tgt-r">🔴 &lt; 1%</span></td>
+<td>Quý</td>
+<td style="font-size:10px;">PO price analysis</td>
+<td style="font-size:10px;">Trưởng phòng MH</td>
+<td><span class="cascade-tag">↑ KPI-CO-06</span></td>
+<td>—</td>
+</tr></tbody></table></div>
+<div class="dept-sec"><div class="dept-title">Warehouse</div><div class="dept-ref"><a href="../../../10-Training-Academy/01-Competency-System/03-Matrices/training-matrix-warehouse.html">ANNEX-DEP-WHS-001</a></div></div><div class="table-card" style="overflow-x:auto;"><table class="kpi-tbl"><thead><tr>
+<th style="width:70px;">KPI ID</th><th style="width:170px;">Tên &amp; Định nghĩa</th>
+<th style="width:140px;">Công thức (Num / Den)</th><th style="width:100px;">Mục tiêu (G/A/R)</th>
+<th style="width:50px;">Tần suất</th><th style="width:110px;">Nguồn (SSOT)</th>
+<th style="width:100px;">Owner (A)</th><th style="width:110px;">Cascades From ↑</th>
+<th style="width:110px;">Cascades To ↓</th></tr></thead><tbody><tr>
+<td class="kpi-id">KPI-WHS-01</td>
+<td><b>Inventory Accuracy</b><br/><span style="font-size:9px;color:var(--ink3);">Độ chính xác tồn kho</span></td>
+<td style="font-size:10px;">Cycle Count matches <span style="color:var(--ink3);">÷</span> Total counts</td>
+<td><span class="tgt-g">🟢 ≥ 98%</span><br/><span class="tgt-a">🟡 95–97%</span><br/><span class="tgt-r">🔴 &lt; 95%</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">Epicor Cycle Count</td>
+<td style="font-size:10px;">Warehouse Manager (WHS-01)</td>
+<td><span class="cascade-tag">↑ KPI-CO-06</span></td>
+<td>—</td>
+</tr><tr>
+<td class="kpi-id">KPI-WHS-02</td>
+<td><b>Receiving Turnaround</b><br/><span style="font-size:9px;color:var(--ink3);">Thời gian nhận hàng → nhập kho</span></td>
+<td style="font-size:10px;">Thời gian trung bình <span style="color:var(--ink3);">÷</span> —</td>
+<td><span class="tgt-g">🟢 ≤ 4 giờ</span><br/><span class="tgt-a">🟡 4–8 giờ</span><br/><span class="tgt-r">🔴 &gt; 8 giờ</span></td>
+<td>Tuần</td>
+<td style="font-size:10px;">Receiving Log</td>
+<td style="font-size:10px;">Warehouse Manager (WHS-01)</td>
+<td><span class="cascade-tag">↑ KPI-CO-01</span></td>
+<td>—</td>
+</tr><tr>
+<td class="kpi-id">KPI-WHS-03</td>
+<td><b>Shipping Accuracy</b><br/><span style="font-size:9px;color:var(--ink3);">Tỷ lệ xuất hàng chính xác</span></td>
+<td style="font-size:10px;">Shipments đúng qty/part <span style="color:var(--ink3);">÷</span> Total shipments</td>
+<td><span class="tgt-g">🟢 ≥ 99.5%</span><br/><span class="tgt-a">🟡 98–99.4%</span><br/><span class="tgt-r">🔴 &lt; 98%</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">Shipping Records</td>
+<td style="font-size:10px;">Warehouse Manager (WHS-01)</td>
+<td><span class="cascade-tag">↑ KPI-CO-01</span><br/><span class="cascade-tag">↑ KPI-CO-05</span></td>
+<td>—</td>
+</tr><tr>
+<td class="kpi-id">KPI-WHS-04</td>
+<td><b>FIFO Compliance</b><br/><span style="font-size:9px;color:var(--ink3);">Tuân thủ xuất hàng theo FIFO</span></td>
+<td style="font-size:10px;">FIFO violations <span style="color:var(--ink3);">÷</span> Total issues</td>
+<td><span class="tgt-g">🟢 100%</span><br/><span class="tgt-a">🟡 1 vi phạm</span><br/><span class="tgt-r">🔴 &gt; 1 vi phạm</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">FIFO Audit</td>
+<td style="font-size:10px;">Warehouse Manager (WHS-01)</td>
+<td><span class="cascade-tag">↑ KPI-QA-05</span></td>
+<td>—</td>
+</tr></tbody></table></div>
+<div class="dept-sec"><div class="dept-title">Maintenance</div><div class="dept-ref"><a href="../../../10-Training-Academy/01-Competency-System/03-Matrices/training-matrix-maintenance.html">ANNEX-DEP-MNT-001</a></div></div><div class="table-card" style="overflow-x:auto;"><table class="kpi-tbl"><thead><tr>
+<th style="width:70px;">KPI ID</th><th style="width:170px;">Tên &amp; Định nghĩa</th>
+<th style="width:140px;">Công thức (Num / Den)</th><th style="width:100px;">Mục tiêu (G/A/R)</th>
+<th style="width:50px;">Tần suất</th><th style="width:110px;">Nguồn (SSOT)</th>
+<th style="width:100px;">Owner (A)</th><th style="width:110px;">Cascades From ↑</th>
+<th style="width:110px;">Cascades To ↓</th></tr></thead><tbody><tr>
+<td class="kpi-id">KPI-MNT-01</td>
+<td><b>PM Compliance Rate</b><br/><span style="font-size:9px;color:var(--ink3);">Tỷ lệ PM đúng lịch</span></td>
+<td style="font-size:10px;">PM done đúng schedule <span style="color:var(--ink3);">÷</span> Total PM planned</td>
+<td><span class="tgt-g">🟢 ≥ 95%</span><br/><span class="tgt-a">🟡 85–94%</span><br/><span class="tgt-r">🔴 &lt; 85%</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">PM Schedule vs Actual</td>
+<td style="font-size:10px;">Trưởng phòng BT</td>
+<td><span class="cascade-tag">↑ KPI-PRO-01</span></td>
+<td><span class="cascade-down">↓ KPI-MNT-01a (per tech)</span></td>
+</tr><tr>
+<td class="kpi-id">KPI-MNT-02</td>
+<td><b>MTTR</b><br/><span style="font-size:9px;color:var(--ink3);">Mean Time To Repair</span></td>
+<td style="font-size:10px;">Tổng thời gian sửa chữa <span style="color:var(--ink3);">÷</span> Số lần breakdown</td>
+<td><span class="tgt-g">🟢 ≤ 4 giờ</span><br/><span class="tgt-a">🟡 4–8 giờ</span><br/><span class="tgt-r">🔴 &gt; 8 giờ</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">Breakdown Log</td>
+<td style="font-size:10px;">Trưởng phòng BT</td>
+<td><span class="cascade-tag">↑ KPI-PRO-01</span></td>
+<td>—</td>
+</tr><tr>
+<td class="kpi-id">KPI-MNT-03</td>
+<td><b>Machine Availability</b><br/><span style="font-size:9px;color:var(--ink3);">Tỷ lệ máy sẵn sàng</span></td>
+<td style="font-size:10px;">Uptime <span style="color:var(--ink3);">÷</span> Total available time</td>
+<td><span class="tgt-g">🟢 ≥ 90%</span><br/><span class="tgt-a">🟡 85–89%</span><br/><span class="tgt-r">🔴 &lt; 85%</span></td>
+<td>Tuần</td>
+<td style="font-size:10px;">Downtime Log + Epicor</td>
+<td style="font-size:10px;">Trưởng phòng BT</td>
+<td><span class="cascade-tag">↑ KPI-PRO-01</span></td>
+<td>—</td>
+</tr><tr>
+<td class="kpi-id">KPI-MNT-04</td>
+<td><b>Gage Calibration On-Time</b><br/><span style="font-size:9px;color:var(--ink3);">Hiệu chuẩn đúng hạn</span></td>
+<td style="font-size:10px;">Gage cal đúng hạn <span style="color:var(--ink3);">÷</span> Total in schedule</td>
+<td><span class="tgt-g">🟢 100%</span><br/><span class="tgt-a">🟡 95–99%</span><br/><span class="tgt-r">🔴 &lt; 95%</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">Gage Register</td>
+<td style="font-size:10px;">Trưởng phòng BT</td>
+<td><span class="cascade-tag">↑ KPI-QA-05</span></td>
+<td>—</td>
+</tr></tbody></table></div>
+<div class="dept-sec"><div class="dept-title">Finance</div><div class="dept-ref"><a href="../../../10-Training-Academy/01-Competency-System/03-Matrices/training-matrix-finance-hr.html">ANNEX-DEP-FIN-001</a></div></div><div class="table-card" style="overflow-x:auto;"><table class="kpi-tbl"><thead><tr>
+<th style="width:70px;">KPI ID</th><th style="width:170px;">Tên &amp; Định nghĩa</th>
+<th style="width:140px;">Công thức (Num / Den)</th><th style="width:100px;">Mục tiêu (G/A/R)</th>
+<th style="width:50px;">Tần suất</th><th style="width:110px;">Nguồn (SSOT)</th>
+<th style="width:100px;">Owner (A)</th><th style="width:110px;">Cascades From ↑</th>
+<th style="width:110px;">Cascades To ↓</th></tr></thead><tbody><tr>
+<td class="kpi-id">KPI-FIN-01</td>
+<td><b>Job Costing Accuracy</b><br/><span style="font-size:9px;color:var(--ink3);">Độ chính xác chi phí Job</span></td>
+<td style="font-size:10px;">Actual cost vs Estimated <span style="color:var(--ink3);">÷</span> Estimated cost</td>
+<td><span class="tgt-g">🟢 Variance ≤ 5%</span><br/><span class="tgt-a">🟡 5.1–10%</span><br/><span class="tgt-r">🔴 &gt; 10%</span></td>
+<td>Quý</td>
+<td style="font-size:10px;">Cost Report (PROC-FIN-002)</td>
+<td style="font-size:10px;">Trưởng phòng TC</td>
+<td><span class="cascade-tag">↑ KPI-CO-06</span></td>
+<td>—</td>
+</tr><tr>
+<td class="kpi-id">KPI-FIN-02</td>
+<td><b>AR Aging &gt; 60 ngày</b><br/><span style="font-size:9px;color:var(--ink3);">Công nợ quá hạn</span></td>
+<td style="font-size:10px;">AR &gt; 60 ngày <span style="color:var(--ink3);">÷</span> Tổng AR</td>
+<td><span class="tgt-g">🟢 ≤ 5%</span><br/><span class="tgt-a">🟡 5.1–10%</span><br/><span class="tgt-r">🔴 &gt; 10%</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">AR Aging Report</td>
+<td style="font-size:10px;">Trưởng phòng TC</td>
+<td><span class="cascade-tag">↑ KPI-CO-06</span></td>
+<td>—</td>
+</tr><tr>
+<td class="kpi-id">KPI-FIN-03</td>
+<td><b>Invoice Accuracy</b><br/><span style="font-size:9px;color:var(--ink3);">Tỷ lệ hóa đơn chính xác</span></td>
+<td style="font-size:10px;">Invoices đúng <span style="color:var(--ink3);">÷</span> Total invoices</td>
+<td><span class="tgt-g">🟢 ≥ 99%</span><br/><span class="tgt-a">🟡 97–98%</span><br/><span class="tgt-r">🔴 &lt; 97%</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">Invoice Records</td>
+<td style="font-size:10px;">Trưởng phòng TC</td>
+<td><span class="cascade-tag">↑ KPI-CO-06</span></td>
+<td>—</td>
+</tr></tbody></table></div>
+<div class="dept-sec"><div class="dept-title">HR/Admin</div><div class="dept-ref"><a href="../../../10-Training-Academy/01-Competency-System/03-Matrices/training-matrix-finance-hr.html">ANNEX-DEP-HR-001</a></div></div><div class="table-card" style="overflow-x:auto;"><table class="kpi-tbl"><thead><tr>
+<th style="width:70px;">KPI ID</th><th style="width:170px;">Tên &amp; Định nghĩa</th>
+<th style="width:140px;">Công thức (Num / Den)</th><th style="width:100px;">Mục tiêu (G/A/R)</th>
+<th style="width:50px;">Tần suất</th><th style="width:110px;">Nguồn (SSOT)</th>
+<th style="width:100px;">Owner (A)</th><th style="width:110px;">Cascades From ↑</th>
+<th style="width:110px;">Cascades To ↓</th></tr></thead><tbody><tr>
+<td class="kpi-id">KPI-HR-01</td>
+<td><b>Training Completion Rate</b><br/><span style="font-size:9px;color:var(--ink3);">Tỷ lệ đào tạo hoàn thành vs plan</span></td>
+<td style="font-size:10px;">Sessions completed <span style="color:var(--ink3);">÷</span> Planned sessions</td>
+<td><span class="tgt-g">🟢 100%</span><br/><span class="tgt-a">🟡 90–99%</span><br/><span class="tgt-r">🔴 &lt; 90%</span></td>
+<td>Quý</td>
+<td style="font-size:10px;">Training Records (M365)</td>
+<td style="font-size:10px;">HR Manager (HR-01)</td>
+<td><span class="cascade-tag">↑ KPI-CO-02</span><br/><span class="cascade-tag">↑ KPI-CO-07</span></td>
+<td>—</td>
+</tr><tr>
+<td class="kpi-id">KPI-HR-02</td>
+<td><b>Turnover Rate</b><br/><span style="font-size:9px;color:var(--ink3);">Tỷ lệ nghỉ việc tự nguyện</span></td>
+<td style="font-size:10px;">Voluntary resignations <span style="color:var(--ink3);">÷</span> Headcount bình quân</td>
+<td><span class="tgt-g">🟢 ≤ 10%/năm</span><br/><span class="tgt-a">🟡 10.1–15%</span><br/><span class="tgt-r">🔴 &gt; 15%</span></td>
+<td>Quý</td>
+<td style="font-size:10px;">HR System</td>
+<td style="font-size:10px;">HR Manager (HR-01)</td>
+<td><span class="cascade-tag">↑ KPI-CO-06</span></td>
+<td>—</td>
+</tr><tr>
+<td class="kpi-id">KPI-HR-03</td>
+<td><b>Competency Gap Closure</b><br/><span style="font-size:9px;color:var(--ink3);">Tỷ lệ đóng gap năng lực</span></td>
+<td style="font-size:10px;">Gaps closed <span style="color:var(--ink3);">÷</span> Total gaps identified</td>
+<td><span class="tgt-g">🟢 ≥ 85%/năm</span><br/><span class="tgt-a">🟡 70–84%</span><br/><span class="tgt-r">🔴 &lt; 70%</span></td>
+<td>Quý</td>
+<td style="font-size:10px;">Skill Matrix (FRM-HR-TRN-007)</td>
+<td style="font-size:10px;">HR Manager (HR-01)</td>
+<td><span class="cascade-tag">↑ KPI-CO-02</span></td>
+<td>—</td>
+</tr></tbody></table></div>
+<div class="dept-sec"><div class="dept-title">HSE</div><div class="dept-ref"><a href="../../../10-Training-Academy/01-Competency-System/03-Matrices/training-matrix-hse.html">ANNEX-DEP-HSE-001</a></div></div><div class="table-card" style="overflow-x:auto;"><table class="kpi-tbl"><thead><tr>
+<th style="width:70px;">KPI ID</th><th style="width:170px;">Tên &amp; Định nghĩa</th>
+<th style="width:140px;">Công thức (Num / Den)</th><th style="width:100px;">Mục tiêu (G/A/R)</th>
+<th style="width:50px;">Tần suất</th><th style="width:110px;">Nguồn (SSOT)</th>
+<th style="width:100px;">Owner (A)</th><th style="width:110px;">Cascades From ↑</th>
+<th style="width:110px;">Cascades To ↓</th></tr></thead><tbody><tr>
+<td class="kpi-id">KPI-HSE-01</td>
+<td><b>LTIR</b><br/><span style="font-size:9px;color:var(--ink3);">Tỷ lệ sự cố mất thời gian</span></td>
+<td style="font-size:10px;">LTI × 200,000 <span style="color:var(--ink3);">÷</span> Tổng giờ lao động</td>
+<td><span class="tgt-g">🟢 0</span><br/><span class="tgt-a">🟡 &lt; 2</span><br/><span class="tgt-r">🔴 &gt; 2</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">Incident Register</td>
+<td style="font-size:10px;">HSE Officer (HSE-01)</td>
+<td><span class="cascade-tag">↑ KPI-CO-07</span></td>
+<td><span class="cascade-down">↓ KPI-PRO-05</span></td>
+</tr><tr>
+<td class="kpi-id">KPI-HSE-02</td>
+<td><b>Near-miss Reporting</b><br/><span style="font-size:9px;color:var(--ink3);">Số báo cáo near-miss</span></td>
+<td style="font-size:10px;">Near-miss reports <span style="color:var(--ink3);">÷</span> —</td>
+<td><span class="tgt-g">🟢 ≥ 5/tháng</span><br/><span class="tgt-a">🟡 3–4</span><br/><span class="tgt-r">🔴 &lt; 3</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">Near-miss Log</td>
+<td style="font-size:10px;">HSE Officer (HSE-01)</td>
+<td><span class="cascade-tag">↑ KPI-CO-07</span></td>
+<td>—</td>
+</tr><tr>
+<td class="kpi-id">KPI-HSE-03</td>
+<td><b>5S Audit Score</b><br/><span style="font-size:9px;color:var(--ink3);">Điểm kiểm tra 5S</span></td>
+<td style="font-size:10px;">Audit score <span style="color:var(--ink3);">÷</span> 100%</td>
+<td><span class="tgt-g">🟢 ≥ 80%</span><br/><span class="tgt-a">🟡 70–79%</span><br/><span class="tgt-r">🔴 &lt; 70%</span></td>
+<td>Tháng</td>
+<td style="font-size:10px;">5S Audit Checklist</td>
+<td style="font-size:10px;">HSE Officer (HSE-01)</td>
+<td><span class="cascade-tag">↑ KPI-CO-07</span></td>
+<td>—</td>
+</tr></tbody></table></div>
+<div class="tier-banner tier-3"><span class="tier-label">Tầng 3 — Semiconductor-Specific</span>KPI đặc thù ngành bán dẫn</div>
+<div class="table-card" style="overflow-x:auto;"><table class="kpi-tbl">
+<thead><tr><th style="width:70px;">KPI ID</th><th style="width:150px;">Tên &amp; Định nghĩa</th>
+<th style="width:130px;">Công thức</th><th style="width:90px;">Mục tiêu (G/A/R)</th>
+<th style="width:50px;">Tần suất</th><th style="width:100px;">Nguồn (SSOT)</th>
+<th style="width:90px;">Owner</th><th style="width:100px;">Cascades From ↑</th>
+<th style="width:100px;">Tài liệu QMS</th></tr></thead><tbody><tr>
+<td class="kpi-id">KPI-SEMI-01</td>
+<td><b>Cleanliness Pass Rate</b><br/><span style="font-size:9px;color:var(--ink3);">Tỷ lệ đạt kiểm tra sạch (ultrasonic/particle)</span></td>
+<td style="font-size:10px;">Parts pass cleanliness inspection <span style="color:var(--ink3);">÷</span> Total parts inspected</td>
+<td><span class="tgt-g">🟢 ≥ 98%</span><br/><span class="tgt-a">🟡 95–97%</span><br/><span class="tgt-r">🔴 &lt; 95%</span></td>
+<td>Tuần</td><td style="font-size:10px;">Cleanliness Inspection Log</td><td style="font-size:10px;">QA Manager (QA-01)</td>
+<td><span class="cascade-tag">↑ KPI-QA-01</span><br/><span class="cascade-tag">↑ KPI-CO-02</span></td>
+<td style="font-size:10px;"><a href="../../../03-Tai-Lieu-Van-Hanh//01-SOPs//07-SOP-700//sop-702-contamination-control-and-cleanliness.html">SOP-QMS-025</a>, <a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/07-SOP-700/sop-702-contamination-control-and-cleanliness.html">PROC-QA-007</a></td></tr><tr>
+<td class="kpi-id">KPI-SEMI-02</td>
+<td><b>Particle Count NCR</b><br/><span style="font-size:9px;color:var(--ink3);">NCR liên quan particle count vượt ngưỡng</span></td>
+<td style="font-size:10px;">NCR do particle count fail <span style="color:var(--ink3);">÷</span> —</td>
+<td><span class="tgt-g">🟢 0/tháng</span><br/><span class="tgt-a">🟡 1/tháng</span><br/><span class="tgt-r">🔴 &gt; 1/tháng</span></td>
+<td>Tháng</td><td style="font-size:10px;">NCR Register (filter: particle)</td><td style="font-size:10px;">QA Manager (QA-01)</td>
+<td><span class="cascade-tag">↑ KPI-CO-03</span><br/><span class="cascade-tag">↑ KPI-QA-02</span></td>
+<td style="font-size:10px;"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/07-SOP-700/sop-702-contamination-control-and-cleanliness.html">PROC-QA-007</a></td></tr><tr>
+<td class="kpi-id">KPI-SEMI-03</td>
+<td><b>Surface Finish Compliance</b><br/><span style="font-size:9px;color:var(--ink3);">Tỷ lệ đạt yêu cầu nhám bề mặt (Ra/Rz)</span></td>
+<td style="font-size:10px;">Parts đạt surface finish spec <span style="color:var(--ink3);">÷</span> Total parts inspected surface finish</td>
+<td><span class="tgt-g">🟢 ≥ 99%</span><br/><span class="tgt-a">🟡 97–98%</span><br/><span class="tgt-r">🔴 &lt; 97%</span></td>
+<td>Tuần</td><td style="font-size:10px;">Inspection Report (surface finish fields)</td><td style="font-size:10px;">QA Manager (QA-01)</td>
+<td><span class="cascade-tag">↑ KPI-QA-01</span><br/><span class="cascade-tag">↑ KPI-CO-02</span></td>
+<td style="font-size:10px;"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-605-final-inspection-coc-and-shipment-release.html">PROC-QA-004</a></td></tr><tr>
+<td class="kpi-id">KPI-SEMI-04</td>
+<td><b>Material Traceability Coverage</b><br/><span style="font-size:9px;color:var(--ink3);">Tỷ lệ lot có traceability đầy đủ</span></td>
+<td style="font-size:10px;">Lots with full traceability (heat/lot) <span style="color:var(--ink3);">÷</span> Total lots shipped</td>
+<td><span class="tgt-g">🟢 100%</span><br/><span class="tgt-a">🟡 98–99%</span><br/><span class="tgt-r">🔴 &lt; 98%</span></td>
+<td>Tháng</td><td style="font-size:10px;">Traceability Records</td><td style="font-size:10px;">Warehouse Manager (WHS-01)</td>
+<td><span class="cascade-tag">↑ KPI-WHS-01</span><br/><span class="cascade-tag">↑ KPI-CO-02</span></td>
+<td style="font-size:10px;"><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/04-SOP-400/sop-402-material-verification-traceability-and-counterfeit-prevention.html">PROC-QA-006</a></td></tr></tbody></table></div>
+<div class="tier-banner tier-4"><span class="tier-label">Tầng 4 — Individual Level</span>KPI cá nhân — liên kết JD §7</div>
+<div class="dept-sec"><div class="dept-title">Shift Supervisor</div><div class="dept-ref">Tham chiếu JD §7</div></div><div class="table-card"><table class="kpi-tbl">
+<thead><tr><th>KPI ID</th><th>Tên</th><th>Cách đo</th><th>Mục tiêu</th><th>Cascade From ↑</th></tr></thead><tbody><tr><td class="kpi-id">KPI-SS-01</td><td><b>Shift Output vs Dispatch</b></td><td>% Op hoàn thành trong ca</td><td><span class="tgt-g">≥ 90%</span></td><td><span class="cascade-tag">↑ KPI-PRO-02</span></td></tr><tr><td class="kpi-id">KPI-SS-02</td><td><b>Shift Scrap Count</b></td><td>Parts scrap / ca</td><td><span class="tgt-g">≤ 1% output</span></td><td><span class="cascade-tag">↑ KPI-PRO-03</span></td></tr><tr><td class="kpi-id">KPI-SS-03</td><td><b>Handover Timeliness</b></td><td>% bàn giao ca đúng giờ</td><td><span class="tgt-g">100%</span></td><td><span class="cascade-tag">↑ KPI-PRO-02</span></td></tr></tbody></table></div>
+<div class="dept-sec"><div class="dept-title">QC Inspector</div><div class="dept-ref">Tham chiếu JD §7</div></div><div class="table-card"><table class="kpi-tbl">
+<thead><tr><th>KPI ID</th><th>Tên</th><th>Cách đo</th><th>Mục tiêu</th><th>Cascade From ↑</th></tr></thead><tbody><tr><td class="kpi-id">KPI-QCI-01</td><td><b>Inspection Accuracy</b></td><td>% đo đúng vs re-audit</td><td><span class="tgt-g">≥ 99%</span></td><td><span class="cascade-tag">↑ KPI-QA-01</span></td></tr><tr><td class="kpi-id">KPI-QCI-02</td><td><b>Inspection Turnaround</b></td><td>Thời gian từ nhận → kết quả</td><td><span class="tgt-g">≤ 4h</span></td><td><span class="cascade-tag">↑ KPI-CO-01</span></td></tr><tr><td class="kpi-id">KPI-QCI-03</td><td><b>NCR Report Timeliness</b></td><td>% NCR lập trong 24h</td><td><span class="tgt-g">100%</span></td><td><span class="cascade-tag">↑ KPI-QA-02</span></td></tr></tbody></table></div>
+<div class="dept-sec"><div class="dept-title">CNC Setup Operator</div><div class="dept-ref">Tham chiếu JD §7</div></div><div class="table-card"><table class="kpi-tbl">
+<thead><tr><th>KPI ID</th><th>Tên</th><th>Cách đo</th><th>Mục tiêu</th><th>Cascade From ↑</th></tr></thead><tbody><tr><td class="kpi-id">KPI-SU-01</td><td><b>First Piece Pass Rate</b></td><td>% First Piece đạt ngay</td><td><span class="tgt-g">≥ 95%</span></td><td><span class="cascade-tag">↑ KPI-ENG-02</span></td></tr><tr><td class="kpi-id">KPI-SU-02</td><td><b>Setup Time vs Standard</b></td><td>Actual / Standard</td><td><span class="tgt-g">≤ 110%</span></td><td><span class="cascade-tag">↑ KPI-PRO-01</span></td></tr><tr><td class="kpi-id">KPI-SU-03</td><td><b>Tooling Waste</b></td><td>Giá trị dao hỏng do setup sai</td><td><span class="tgt-g">≤ $200/tháng</span></td><td><span class="cascade-tag">↑ KPI-PRO-03</span></td></tr></tbody></table></div>
+<div class="dept-sec"><div class="dept-title">CNC Operator</div><div class="dept-ref">Tham chiếu JD §7</div></div><div class="table-card"><table class="kpi-tbl">
+<thead><tr><th>KPI ID</th><th>Tên</th><th>Cách đo</th><th>Mục tiêu</th><th>Cascade From ↑</th></tr></thead><tbody><tr><td class="kpi-id">KPI-OP-01</td><td><b>Parts/Hour vs Standard</b></td><td>Output / Standard cycle</td><td><span class="tgt-g">≥ 95%</span></td><td><span class="cascade-tag">↑ KPI-PRO-01</span></td></tr><tr><td class="kpi-id">KPI-OP-02</td><td><b>Self-inspection Compliance</b></td><td>% checkpoint hoàn tất</td><td><span class="tgt-g">100%</span></td><td><span class="cascade-tag">↑ KPI-QA-01</span></td></tr><tr><td class="kpi-id">KPI-OP-03</td><td><b>Time Entry Timeliness</b></td><td>% Labor entry trong ngày</td><td><span class="tgt-g">100%</span></td><td><span class="cascade-tag">↑ KPI-PRO-02</span></td></tr></tbody></table></div>
+<div class="dept-sec"><div class="dept-title">CAM/CNC Programmer</div><div class="dept-ref">Tham chiếu JD §7</div></div><div class="table-card"><table class="kpi-tbl">
+<thead><tr><th>KPI ID</th><th>Tên</th><th>Cách đo</th><th>Mục tiêu</th><th>Cascade From ↑</th></tr></thead><tbody><tr><td class="kpi-id">KPI-CAM-01</td><td><b>Program Release Turnaround</b></td><td>Ngày từ BV → released</td><td><span class="tgt-g">≤ 3 ngày</span></td><td><span class="cascade-tag">↑ KPI-ENG-01</span></td></tr><tr><td class="kpi-id">KPI-CAM-02</td><td><b>Setup Yield (program-related)</b></td><td>% setup đạt (program fault)</td><td><span class="tgt-g">≥ 95%</span></td><td><span class="cascade-tag">↑ KPI-ENG-02</span></td></tr><tr><td class="kpi-id">KPI-CAM-03</td><td><b>Cycle Time Optimization</b></td><td>% giảm cycle time YoY</td><td><span class="tgt-g">≥ 5%</span></td><td><span class="cascade-tag">↑ KPI-PRO-01</span></td></tr></tbody></table></div>
+<div class="dept-sec"><div class="dept-title">Buyer</div><div class="dept-ref">Tham chiếu JD §7</div></div><div class="table-card"><table class="kpi-tbl">
+<thead><tr><th>KPI ID</th><th>Tên</th><th>Cách đo</th><th>Mục tiêu</th><th>Cascade From ↑</th></tr></thead><tbody><tr><td class="kpi-id">KPI-BUY-01</td><td><b>PO Cycle Time</b></td><td>Ngày PR → PO</td><td><span class="tgt-g">≤ 2 ngày</span></td><td><span class="cascade-tag">↑ KPI-PUR-03</span></td></tr><tr><td class="kpi-id">KPI-BUY-02</td><td><b>Supplier OTD (assigned)</b></td><td>% PO đúng hạn (NCC phụ trách)</td><td><span class="tgt-g">≥ 90%</span></td><td><span class="cascade-tag">↑ KPI-PUR-01</span></td></tr><tr><td class="kpi-id">KPI-BUY-03</td><td><b>Cost Savings</b></td><td>% tiết kiệm</td><td><span class="tgt-g">≥ 3%/năm</span></td><td><span class="cascade-tag">↑ KPI-PUR-04</span></td></tr></tbody></table></div>
+<h2 class="h2">3. Tổng kết</h2>
+<div class="table-card"><table class="table">
+<thead><tr><th>Tầng</th><th>Phạm vi</th><th>Số KPI</th><th>Rà soát</th></tr></thead>
+<tbody>
+<tr><td><b>Tầng 1</b></td><td>Company — Quality Objectives</td><td>7</td><td>Management Review (2×/năm)</td></tr>
+<tr><td><b>Tầng 2</b></td><td>Department — DEP Annexes</td><td>42</td><td>Monthly Department Review</td></tr>
+<tr><td><b>Tầng 3</b></td><td>Semiconductor-Specific</td><td>4</td><td>Weekly Quality Review</td></tr>
+<tr><td><b>Tầng 4</b></td><td>Individual — JD §7</td><td>18</td><td>Monthly 1-on-1 / Performance Review</td></tr>
+<tr style="font-weight:700;background:var(--th-bg);"><td colspan="2">TỔNG</td><td>71</td><td></td></tr>
+</tbody></table></div>
+<h2 class="h2">4. Quy tắc sử dụng</h2>
+<ul style="line-height:1.85;">
+<li>Mỗi KPI Tầng 4 PHẢI cascade từ ít nhất 1 KPI Tầng 2 — KHÔNG được tồn tại KPI mồ côi.</li>
+<li>Ngưỡng Green/Amber/Red PHẢI được rà soát mỗi quý bởi Department Owner.</li>
+<li>Khi KPI ở mức RED ≥ 2 kỳ liên tiếp → BẮT BUỘC escalate lên General Manager (EXE-01) và mở CAPA.</li>
+<li>Khi KPI ở mức AMBER ≥ 3 kỳ liên tiếp → BẮT BUỘC lập Action Plan.</li>
+<li>Mọi thay đổi KPI target PHẢI qua Management Review hoặc phê duyệt General Manager (EXE-01).</li>
+<li>Nguồn dữ liệu (SSOT) PHẢI là Epicor Kinetic hoặc M365 — KHÔNG được dùng Excel ngoài hệ thống.</li>
+</ul>
+</div></div></div>
+</div></div></div>
+<div class="no-screen print-disclaimer" style="display:none;text-align:center;font-size:9px;color:#999;padding:8px 0;border-top:1px solid #ddd;margin-top:20px">⚠ Bản in không kiểm soát.</div>
+<script src="../../../assets/app.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+

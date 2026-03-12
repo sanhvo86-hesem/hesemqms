@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SOP-503 — Tooling Maintenance PM and Breakdown Response | HESEM QMS</title>
+<link href="../../../assets/style.css" rel="stylesheet"/>
+<style>
+/* === PAGE BREAK & OVERFLOW FIX (auto-applied) === */
+@media print {
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.vstep{page-break-inside:avoid;break-inside:avoid}
+  h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
+  .form-header,.sig-row,.sign-row{page-break-inside:avoid;break-inside:avoid}
+  tr{page-break-inside:avoid;break-inside:avoid}
+  thead{display:table-header-group}tfoot{display:table-footer-group}
+  p{orphans:3;widows:3}.table-card{overflow:visible!important}
+}
+.page-body{overflow-x:hidden}
+.table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
+table{max-width:100%;table-layout:auto}
+td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
+</style>
+</head>
+<body>
+<div class="container"><div class="page"><div class="page-body">
+<div class="form-header">
+<div class="fh-left">
+  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+  <div class="fh-company">
+    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+    <span>Tài liệu kiểm soát</span>
+  </div>
+</div>
+<div class="title">
+  <strong>SOP-503 — Tooling Maintenance PM and Breakdown Response</strong>
+  <span class="sub-vn"></span>
+</div>
+<div class="meta">
+  <div class="row"><span><b>Mã:</b></span><span>SOP-503</span></div>
+  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+  <div class="row"><span><b>Chủ sở hữu:</b></span><span>Production</span></div>
+  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+</div>
+</div>
+<div class="doc-content" id="docContent"><div class="form-sheet">
+
+<div class="iso-map">
+  <div class="iso-title">Chuẩn mực áp dụng</div>
+  <div class="req"><span class="req-tag shall">PHẢI</span><div>Lập lịch PM, xử lý breakdown, quản tooling/fixture, phụ tùng, vendor service và machine history bằng record kiểm soát; không sửa chữa ngoài hệ thống rồi mới nhập lại sau. <span class="iso-ref">ISO 7.1.3</span> <span class="iso-ref">ISO 8.5.1</span></div></div>
+  <div class="req"><span class="req-tag shall">PHẢI</span><div>Đánh giá ảnh hưởng chất lượng sau crash, major maintenance hoặc lỗi liên quan spindle/trục/kẹp; chỉ release máy khi điều kiện chức năng và chất lượng đã được xác nhận. <span class="iso-ref">ISO 8.5.1</span> <span class="iso-ref">ISO 8.7</span></div></div>
+  <div class="req"><span class="req-tag should">NÊN</span><div>Áp dụng TPM theo hướng operator-mainteance cùng tham gia: làm sạch, kiểm tra, bôi trơn, phát hiện sớm bất thường và theo dõi six losses qua downtime/changeover/scrap. <span class="iso-ref">ISO 7.1.3</span></div></div>
+  <div class="req"><span class="req-tag may">ĐƯỢC PHÉP</span><div>Dùng OEM service hoặc nhà cung cấp bên ngoài cho can thiệp chuyên sâu, miễn phạm vi việc làm, phụ tùng thay, re-qualification và release máy có record nội bộ. <span class="iso-ref">ISO 8.4.1</span></div></div>
+</div>
+
+<div class="preface-block">
+  <h2 class="h2">Quy ước triển khai tại HESEM</h2>
+  <div class="grid-2">
+    <div><div class="card-title">Phạm vi bảo trì và tooling</div><ul>
+<li>PM <b>PHẢI</b> theo lịch định kỳ và theo giờ chạy của máy quan trọng.</li>
+<li>Breakdown <b>PHẢI</b> có thời điểm bắt đầu, thời điểm khôi phục, nguyên nhân, phụ tùng, tác động job và bằng chứng test lại.</li>
+<li>Tooling/fixture <b>PHẢI</b> có ID, tình trạng, vị trí lưu, lịch verify hoặc lịch thay.</li>
+</ul></div>
+    <div><div class="card-title">Nguyên tắc release máy</div><ul>
+<li>Máy sau PM lớn, crash hoặc thay bộ phận ảnh hưởng chính xác <b>PHẢI</b> qua bước kiểm chức năng và xác nhận chất lượng trước khi chạy lại job thật.</li>
+<li>Machine history <b>PHẢI</b> đủ để thấy lỗi lặp, MTBF/MTTR, phụ tùng thay và vendor đã can thiệp.</li>
+<li>Gage equipment inventory <b>NÊN</b> cập nhật chung với bảo trì để tránh dùng thiết bị đo quá hạn hoặc mất kiểm soát.</li>
+</ul></div>
+  </div>
+  <div class="callout"><b>Quy tắc:</b> lỗi safety interlock, guard, chuck/collet, spindle, trục quay 5-axis hoặc dấu hiệu crash chưa đánh giá xong là trạng thái <b>HOLD MÁY</b>; cấm đưa job mới vào máy.</div>
+</div>
+
+<h2 class="h2">1. Mục đích</h2><p>Chuẩn hóa bảo trì thiết bị, quản tooling/fixture, PM, phản ứng sự cố, re-qualification sau sửa chữa, quản phụ tùng và machine history để máy CNC duy trì khả năng gia công ổn định cho chi tiết bán dẫn và giảm downtime lặp.</p>
+
+<h2 class="h2">2. Phạm vi</h2><p>Áp dụng cho Maintenance Technician, Production Director, CNC Workshop Manager, QA, Warehouse/Tool Crib và nhà cung cấp dịch vụ bên ngoài khi quản lịch PM, tooling, fixture, crash report, machine history, gage inventory và phản ứng breakdown trong toàn bộ xưởng CNC HESEM.</p>
+
+<h2 class="h2">3. Thuật ngữ</h2><div class="table-card"><table class="table"><thead><tr><th>Thuật ngữ</th><th>Diễn giải áp dụng</th></tr></thead><tbody><tr><td><b>PM</b> (Preventive Maintenance)</td><td>Bảo trì phòng ngừa theo thời gian, giờ chạy hoặc event định kỳ.</td></tr><tr><td><b>Breakdown</b></td><td>Sự cố phát sinh làm máy dừng, giảm chức năng hoặc có rủi ro chất lượng/safety.</td></tr><tr><td><b>Re-qualification</b></td><td>Tập kiểm chức năng và xác nhận sau bảo trì hoặc sự cố trước khi đưa máy chạy lại sản phẩm thật.</td></tr><tr><td><b>Tooling</b></td><td>Dao cụ, holder, collet, chuck jaw, fixture và phụ kiện gá ảnh hưởng trực tiếp đến gia công.</td></tr><tr><td><b>MTBF / MTTR</b></td><td>Chỉ số thời gian trung bình giữa 2 sự cố và thời gian trung bình để sửa xong.</td></tr></tbody></table></div>
+
+<h2 class="h2">4. RACI</h2><div class="table-card"><table class="table"><thead><tr><th>Vai trò</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead><tbody><tr><td><b>Maintenance Technician</b></td><td>X</td><td></td><td></td><td></td></tr><tr><td><b>Production Director</b></td><td></td><td>X</td><td></td><td></td></tr><tr><td><b>CNC Workshop Manager</b></td><td></td><td></td><td>X</td><td></td></tr><tr><td><b>QA Manager</b></td><td></td><td></td><td>X</td><td></td></tr><tr><td><b>Production Planner</b></td><td></td><td></td><td>X</td><td></td></tr><tr><td><b>Warehouse Clerk / Tool Crib</b></td><td></td><td></td><td>X</td><td></td></tr><tr><td><b>Process Engineer</b></td><td></td><td></td><td>X</td><td></td></tr><tr><td><b>CNC Operator</b></td><td></td><td></td><td></td><td>X</td></tr></tbody></table></div>
+
+<h2 class="h2">5. Quy trình</h2>
+
+<h3 class="h3">5.1 Lịch PM và kiểm soát overdue</h3><ul>
+  <li>Maintenance Technician <b>PHẢI</b> lập lịch PM và checklist cho từng Machine ID bằng <a href="../../../04-Bieu-Mau/05-FRM-500/frm-521-pm-checklist.html">FRM-521</a> Checklist PM và machine history tương ứng.</li>
+  <li>Lịch PM <b>PHẢI</b> bám theo OEM, lịch sử hỏng hóc, mức tải sử dụng, độ critical của máy và tác động đến CTQ/FTQ của part family.</li>
+  <li>Máy quá hạn PM <b>PHẢI</b> được nhận diện trên dashboard; Production Director quyết định dừng bù PM hoặc cho chạy ngoại lệ có giới hạn thời gian và có record.</li>
+  <li>Operator và Shift Leader <b>NÊN</b> tham gia các bước autonomous maintenance cơ bản: vệ sinh, kiểm leak, mức dầu/coolant, âm thanh bất thường, tình trạng guard/interlock.</li>
+</ul>
+
+<h3 class="h3">5.2 Thực hiện PM và release sau PM</h3><ol>
+  <li>Nhận bàn giao máy ở trạng thái an toàn; chốt job đang chạy, tool đang lắp, condition của machine và khoanh vùng khu vực.</li>
+  <li>LOTO khi can thiệp vào điện, khí, thủy lực hoặc bộ phận quay; cấm bỏ qua vì lý do “chỉ làm nhanh vài phút”.</li>
+  <li>Thực hiện hạng mục PM theo checklist: bôi trơn, lọc, dây đai, làm sạch sensor, kiểm hệ coolant, kiểm chuck/collet/fixturing, backup parameter khi cần.</li>
+  <li>Chạy test chức năng sau PM: warm-up, home axes, spindle run, kẹp/mở, coolant, probe/tool setter, interlock và chương trình kiểm tra không cắt.</li>
+  <li>Nếu PM ảnh hưởng trục, spindle, rotary, chuck, probe, bar feeder hoặc hệ đo, QA/Engineering <b>PHẢI</b> review mức re-qualification cần thiết trước release.</li>
+  <li>Chỉ release máy khi <a href="../../../04-Bieu-Mau/05-FRM-500/frm-521-pm-checklist.html">FRM-521</a> Checklist PM hoàn tất, machine status đã cập nhật trong <a href="../../../04-Bieu-Mau/05-FRM-500/frm-524-machine-history-log.html">FRM-524</a> Nhật ký máy và không còn hold safety/chất lượng.</li>
+</ol>
+
+<h3 class="h3">5.3 Breakdown response</h3><ul>
+  <li>Khi máy down, Production hoặc Shift Leader <b>PHẢI</b> ghi downtime ngay trên <a href="../../../04-Bieu-Mau/05-FRM-500/frm-512-downtime-log.html">FRM-512</a> Nhật ký Downtime và thông báo Maintenance.</li>
+  <li>Maintenance <b>PHẢI</b> phân loại mức ưu tiên: safety critical, quality critical, throughput impact hoặc non-critical; ưu tiên sửa theo mức rủi ro chứ không chỉ theo tiếng lớn hay yêu cầu miệng.</li>
+  <li>Quá trình sửa <b>PHẢI</b> ghi nguyên nhân, parts replaced, temporary fix hay permanent fix, vendor involvement và thời gian phục hồi.</li>
+  <li>Nếu sự cố có khả năng ảnh hưởng sản phẩm đang chạy hoặc last good window, QA <b>PHẢI</b> đánh giá phạm vi WIP bị ảnh hưởng trước khi máy resume.</li>
+</ul>
+
+<h3 class="h3">5.4 Crash hoặc sự cố va chạm</h3><ul>
+  <li>Crash, near-crash, tool pull-out gây va chạm, spindle hit, chuck interference, rotary collision hoặc transfer error <b>PHẢI</b> mở <a href="../../../04-Bieu-Mau/05-FRM-500/frm-522-crash-report.html">FRM-522</a> Crash Report.</li>
+  <li>Người vận hành <b>PHẢI</b> giữ nguyên bằng chứng tối thiểu: màn hình alarm, tool/offset đang dùng, chương trình, hình hiện trường và tình trạng chi tiết nếu an toàn cho phép.</li>
+  <li>Máy sau crash <b>PHẢI</b> ở trạng thái hold cho đến khi hoàn tất kiểm cơ khí/chức năng và xác định phạm vi ảnh hưởng đến job/WIP.</li>
+  <li>Không resume chỉ vì “chạy thử thấy vẫn quay”; máy va chạm phải qua bước re-qualification tương ứng mức độ.</li>
+</ul>
+
+<h3 class="h3">5.5 Tooling, fixture và spare parts</h3><ul>
+  <li>Tooling/fixture <b>PHẢI</b> đăng ký trên <a href="../../../04-Bieu-Mau/05-FRM-500/frm-523-tooling-register.html">FRM-523</a> Sổ tooling với Tool/Fixture ID, vị trí lưu, tình trạng, part family áp dụng, ngày verify và owner.</li>
+  <li>Fixture hoặc holder có dấu hiệu mòn, nứt, ren hỏng, mặt chuẩn trầy, kẹp yếu hoặc không rõ tình trạng <b>PHẢI</b> tách ra khỏi khu vực dùng tốt.</li>
+  <li>Spare parts critical cho spindle/chuck/bar feeder/coolant/probe <b>NÊN</b> có min-max để giảm downtime kéo dài.</li>
+  <li>Khi dùng vendor service hoặc thay part OEM, Maintenance <b>PHẢI</b> lưu vendor note, serial/part number và bằng chứng test lại.</li>
+</ul>
+
+<div class="table-card"><table class="table"><thead><tr><th>Loại đối tượng</th><th>Thông tin tối thiểu phải có</th></tr></thead><tbody><tr><td>Cutting tool / holder</td><td>Tool ID, holder type, runout check khi áp dụng, baseline life, tình trạng</td></tr><tr><td>Fixture / chuck jaw / collet</td><td>Fixture ID, machine family, datum orientation, lần verify gần nhất, hạn chế sử dụng</td></tr><tr><td>Spare parts</td><td>Part number, vendor, stock level, máy áp dụng, lead time</td></tr><tr><td>Vendor service</td><td>Ngày làm, phạm vi can thiệp, phụ tùng thay, kết quả test</td></tr></tbody></table></div>
+
+<h3 class="h3">5.6 Machine history và dữ liệu bảo trì</h3><ul>
+  <li>Mỗi machine <b>PHẢI</b> có <a href="../../../04-Bieu-Mau/05-FRM-500/frm-524-machine-history-log.html">FRM-524</a> Nhật ký máy ghi PM, breakdown, crash, parts replaced, parameter backup, vendor visit và kết quả re-qualification.</li>
+  <li>Machine history <b>NÊN</b> đủ để tính MTBF, MTTR, repeat failure by subsystem và downtime by cause.</li>
+  <li>Downtime, PM overdue, crash frequency và recurring alarms <b>PHẢI</b> được review trong họp Tier 2/Tier 3 hoặc dashboard tuần.</li>
+</ul>
+
+<h3 class="h3">5.7 Gage equipment inventory</h3><ul>
+  <li>Danh mục thiết bị đo hỗ trợ tại xưởng <b>PHẢI</b> cập nhật trong <a href="../../../04-Bieu-Mau/05-FRM-500/frm-525-gage-equipment-inventory.html">FRM-525</a> Kiểm kê thiết bị đo: ID, loại, range, resolution, location, calibration due và trạng thái sử dụng.</li>
+  <li>Thiết bị đo quá hạn, hỏng, mất seal hoặc nghi ngờ sai số <b>PHẢI</b> được chặn sử dụng và nhận dạng rõ trạng thái.</li>
+  <li>Danh mục này hỗ trợ planning và maintenance biết gage nào sẵn sàng tại cell, nhưng tiêu chí MSA/calibration chuyên sâu sẽ theo SOP-602 (ngoài - workstream B).</li>
+</ul>
+
+<h3 class="h3">5.8 Hold và release bắt buộc</h3><ul>
+  <li>HOLD SAFETY: lỗi guard/interlock/LOTO/chuck safety/bar feeder safety chưa giải quyết.</li>
+  <li>HOLD QUALITY: sự cố liên quan spindle, trục, probe, rotary, chuck, fixture alignment hoặc crash chưa đánh giá xong.</li>
+  <li>HOLD PM: quá hạn PM với máy critical nhưng chưa có phê duyệt ngoại lệ.</li>
+  <li>RELEASE: chỉ khi machine function đạt, bằng chứng sửa xong hoàn tất, phạm vi WIP đã được QA chốt nếu cần, và machine history cập nhật.</li>
+</ul>
+
+<h2 class="h2">6. Biểu mẫu liên quan</h2><ul>
+  <li><a href="../../../04-Bieu-Mau/05-FRM-500/frm-521-pm-checklist.html">FRM-521</a> Checklist PM</li>
+  <li><a href="../../../04-Bieu-Mau/05-FRM-500/frm-522-crash-report.html">FRM-522</a> Crash Report</li>
+  <li><a href="../../../04-Bieu-Mau/05-FRM-500/frm-523-tooling-register.html">FRM-523</a> Sổ tooling</li>
+  <li><a href="../../../04-Bieu-Mau/05-FRM-500/frm-524-machine-history-log.html">FRM-524</a> Nhật ký máy</li>
+  <li><a href="../../../04-Bieu-Mau/05-FRM-500/frm-525-gage-equipment-inventory.html">FRM-525</a> Kiểm kê thiết bị đo</li>
+  <li><a href="../../../04-Bieu-Mau/05-FRM-500/frm-512-downtime-log.html">FRM-512</a> Nhật ký Downtime</li>
+</ul>
+
+<h2 class="h2">7. Tài liệu liên quan</h2><ul>
+  <li><a href="sop-502-cnc-machining-operations.html">SOP-502</a> Vận hành gia công CNC</li>
+  <li><a href="../../02-Work-Instructions/05-WI-500/wi-516-machine-operation-quick-card.html">WI-516</a> Hướng dẫn vận hành máy nhanh</li>
+  <li>SOP-602 MSA / Calibration / Gage Control (ngoài - workstream B)</li>
+  <li>SOP-606 Điều tra nguyên nhân / CAPA khi lỗi lặp (ngoài - workstream B)</li>
+</ul>
+
+</div></div>
+
+</div></div></div>
+</body>
+</html>
+
+

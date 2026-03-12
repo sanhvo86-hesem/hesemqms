@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SOP-901 — Internal Audit and LPA | HESEM QMS</title>
+<link href="../../../assets/style.css" rel="stylesheet"/>
+
+<style>
+/* ═══ PAGE BREAK & OVERFLOW FIX (auto-applied) ═══ */
+@media print {
+ .card, .table-card, .callout, .note, .box, .iso-map,
+ .preface-block, .form-sheet, .lane, .legend, .req, .vstep {
+ page-break-inside: avoid;
+ break-inside: avoid;
+ }
+ h1, h2, h3, .h1, .h2, .h3 {
+ page-break-after: avoid;
+ break-after: avoid;
+ }
+ .form-header { page-break-inside: avoid; break-inside: avoid; }
+ .sig-row, .sign-row, .approval-row { page-break-inside: avoid; break-inside: avoid; }
+ tr { page-break-inside: avoid; break-inside: avoid; }
+ thead { display: table-header-group; }
+ tfoot { display: table-footer-group; }
+ p { orphans: 3; widows: 3; }
+ .table-card { overflow: visible !important; }
+}
+.page-body { overflow-x: hidden; }
+.table-card, .table-block, .table-wrap { overflow-x: auto; max-width: 100%; }
+table { max-width: 100%; table-layout: auto; }
+td, th { max-width: 420px; overflow-wrap: break-word; word-wrap: break-word; }
+</style>
+
+</head>
+<body>
+<div class="container">
+  <div class="page">
+    <div class="page-body">
+<div class="form-header">
+<div class="fh-left">
+  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+  <div class="fh-company">
+    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+    <span>Tài liệu kiểm soát</span>
+  </div>
+</div>
+<div class="title">
+  <strong>SOP-901 — Internal Audit and LPA</strong>
+  <span class="sub-vn"></span>
+</div>
+<div class="meta">
+  <div class="row"><span><b>Mã:</b></span><span>SOP-901</span></div>
+  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+  <div class="row"><span><b>Chủ sở hữu:</b></span><span>QA/QMS</span></div>
+  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+</div>
+</div>
+<div class="doc-content" id="docContent">
+        <div class="form-sheet">
+          <div class="iso-map">
+  <div class="iso-title">ISO / Standard mapping</div>
+  <div class="small muted">Map điều khoản hoặc chuẩn kỹ thuật vào yêu cầu triển khai tại xưởng (Point-of-Use).</div>
+  <div class="req">
+  <span class="req-tag shall">PHẢI</span>
+  <div>Chương trình đánh giá nội bộ PHẢI theo <b>risk-based approach</b>, xét đến thay đổi, kết quả kỳ trước, rủi ro process, phản hồi khách hàng và hiệu suất quá trình. <span class="iso-ref">ISO 19011:2018</span></div>
+</div><div class="req">
+  <span class="req-tag shall">PHẢI</span>
+  <div>Đánh giá PHẢI dựa trên bằng chứng khách quan, độc lập tương đối với khu vực được audit khi khả thi, và phân loại phát hiện thành Major / Minor / OFI theo quy tắc thống nhất. <span class="iso-ref">ISO 19011:2018</span></div>
+</div><div class="req">
+  <span class="req-tag shall">PHẢI</span>
+  <div>LPA shop floor PHẢI ngắn, bám đúng point-of-use, tập trung kỷ luật thực thi thay vì chỉ rà tài liệu; lặp lỗi trên LPA phải được nâng cấp thành hành động khắc phục. <span class="iso-ref">Best practice LPA</span></div>
+</div><div class="req">
+  <span class="req-tag shall">PHẢI</span>
+  <div>Hồ sơ audit PHẢI có evidence pack đủ: plan, checklist, bằng chứng, báo cáo, hành động, xác nhận đóng. <span class="iso-ref">ISO 19011 / ISO 9001 9.2</span></div>
+</div><div class="req">
+  <span class="req-tag should">NÊN</span>
+  <div>Kết hợp on-site với review hồ sơ từ xa khi cần, nhưng điểm chặn vận hành ở xưởng NÊN được xác minh trực tiếp. <span class="iso-ref">ISO 19011 ICT consideration</span></div>
+</div>
+</div><div class="preface-block">
+  <h2 class="h2">Điều kiện áp dụng và kiểm soát</h2>
+  <div class="grid-2">
+    <div>
+      <p><b>Loại đánh giá trong SOP</b></p>
+      <ul><li><b>Internal audit:</b> đánh giá hệ thống / quy trình / sản phẩm theo chương trình năm.</li><li><b>LPA:</b> Layered Process Audit ngắn tại xưởng, tập trung điểm tuân thủ ở machine, WIP, clean pack, shipping, label, safety/FOD.</li><li><b>Follow-up audit:</b> xác minh hiệu lực sau NC, CAPA hoặc thay đổi lớn.</li></ul>
+    </div>
+    <div>
+      <p><b>Đầu ra / hồ sơ</b></p>
+      <ul><li><b>Output:</b> chương trình audit năm, kế hoạch audit, checklist, báo cáo phát hiện và evidence pack.</li><li><b>Output:</b> FRM-901 checklist audit, FRM-902 checklist LPA, action closure link tới SOP-606/SOP-903 khi cần.</li></ul>
+    </div>
+  </div>
+  <p class="callout">Nguyên tắc: audit để nhìn hiệu lực thực thi; nếu tài liệu đúng nhưng point-of-use sai thì kết luận theo thực tế point-of-use.</p>
+</div><h2 class="h2">1. Mục đích</h2>
+<p>Thiết lập chương trình đánh giá nội bộ và LPA cho HESEM theo hướng risk-based, process-based và bám sát hoạt động thực tế tại xưởng CNC.</p>
+<h2 class="h2">2. Phạm vi</h2>
+<ul><li>Áp dụng cho toàn bộ process và bộ phận trong phạm vi QMS của HESEM.</li><li>Bao gồm audit hệ thống, audit quá trình, audit sản phẩm, follow-up audit và LPA shop floor.</li></ul>
+<h2 class="h2">3. Thuật ngữ</h2>
+<div class="table-card"><table class="table">
+<thead><tr><th>Thuật ngữ</th><th>Diễn giải</th></tr></thead>
+<tbody><tr><td><b>Audit criteria</b></td><td>Chuẩn dùng để đánh giá: SOP/WI/FRM, customer requirements, mục tiêu/KPI, luật/quy định và tiêu chí nội bộ.</td></tr><tr><td><b>Audit evidence</b></td><td>Hồ sơ, quan sát, phỏng vấn, dữ liệu, ảnh hoặc dấu vết thực tế dùng để kết luận.</td></tr><tr><td><b>Major NC</b></td><td>Thiếu vắng hoặc breakdown có hệ thống, có nguy cơ lỗi thoát, vi phạm yêu cầu nghiêm trọng hoặc lặp lại chưa khắc phục.</td></tr><tr><td><b>Minor NC</b></td><td>Lệch đơn lẻ, cục bộ, chưa cho thấy breakdown hệ thống nhưng cần sửa trong thời hạn quy định.</td></tr><tr><td><b>OFI</b></td><td>Opportunity for Improvement — gợi ý cải thiện, chưa đến mức NC.</td></tr><tr><td><b>LPA</b></td><td>Layered Process Audit: đánh giá ngắn, lặp lại nhiều lớp để kiểm kỷ luật thực thi tại point-of-use.</td></tr></tbody></table></div>
+<h2 class="h2">4. RACI</h2>
+<div class="table-card"><table class="table">
+<thead><tr><th>Hoạt động</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead>
+<tbody><tr><td>Lập chương trình audit năm và điều phối lịch</td><td>Internal Auditor (Outsource); QMS Engineer</td><td>QA Manager</td><td>CEO / Tổng Giám đốc</td><td>Production Director</td></tr><tr><td>Chuẩn bị checklist, kế hoạch, thông báo và evidence request</td><td>QMS Engineer</td><td>QA Manager</td><td>Internal Auditor (Outsource)</td><td>Supply Chain Manager</td></tr><tr><td>Thực hiện audit/LPA và phát hành phát hiện</td><td>Internal Auditor (Outsource)</td><td>QA Manager</td><td>QMS Engineer</td><td>CEO / Tổng Giám đốc</td></tr><tr><td>Theo dõi closure, xác minh hiệu lực</td><td>QMS Engineer</td><td>QA Manager</td><td>Internal Auditor (Outsource); Quality Engineer</td><td>CEO / Tổng Giám đốc</td></tr></tbody></table></div>
+<h2 class="h2">5. Xây dựng chương trình audit năm</h2>
+<div class="table-card"><table class="table">
+<thead><tr><th>Yếu tố đưa vào mức ưu tiên</th><th>Ví dụ tại HESEM</th></tr></thead>
+<tbody><tr><td>Thay đổi</td><td>Máy mới, layout mới, clean process mới, ERP/process change, nhân sự chủ chốt thay đổi.</td></tr><tr><td>Kết quả trước đó</td><td>NC chưa đóng, lỗi tái diễn, CAPA không hiệu lực, customer complaint.</td></tr><tr><td>Hiệu suất quá trình</td><td>OTD xấu, scrap/rework tăng, calibration compliance kém, môi trường clean pack lệch.</td></tr><tr><td>Rủi ro khách hàng / sản phẩm</td><td>Part bán dẫn Class A, special characteristic, purity-critical, leak-tight part.</td></tr></tbody></table></div>
+<ul><li>Chương trình audit PHẢI bao phủ các process chính trong kỳ 12 tháng. Process rủi ro cao có thể audit nhiều lần hơn.</li><li>LPA không thay thế internal audit; LPA dùng để kiểm kỷ luật thực thi thường xuyên tại điểm làm việc.</li></ul><h2 class="h2">6. Chuẩn bị và thực hiện internal audit</h2>
+<div class="vflow"><div class="vstep"><div class="vnum">1</div><div class="vtext">Xác định mục tiêu, phạm vi, tiêu chí, khu vực và audit team; gửi thông báo đủ sớm cho bộ phận liên quan.</div></div><div class="vstep"><div class="vnum">2</div><div class="vtext">Chuẩn bị FRM-901 theo process, dữ liệu KPI, NC cũ, customer requirement và thay đổi mới.</div></div><div class="vstep"><div class="vnum">3</div><div class="vtext">Họp mở đầu ngắn: xác nhận phạm vi, đầu mối, an toàn khu vực, thời gian và quy tắc bằng chứng.</div></div><div class="vstep"><div class="vnum">4</div><div class="vtext">Thực hiện audit bằng phỏng vấn, quan sát point-of-use, kiểm hồ sơ chọn mẫu và đối chiếu thực tế - tài liệu - dữ liệu.</div></div><div class="vstep"><div class="vnum">5</div><div class="vtext">Họp kết thúc: nêu phát hiện, bằng chứng chính, mức độ phát hiện và thời hạn phản hồi.</div></div></div>
+<h2 class="h2">7. Quy tắc phân loại phát hiện</h2>
+<div class="table-card"><table class="table">
+<thead><tr><th>Loại phát hiện</th><th>Dấu hiệu điển hình</th><th>Hành động tối thiểu</th></tr></thead>
+<tbody><tr><td><b>Major</b></td><td>Quy trình thiếu hoặc không vận hành; lặp lại nhiều lần; có nguy cơ escape hoặc ảnh hưởng khách hàng lớn</td><td>Containment ngay, phân tích nguyên nhân, CAPA chính thức, follow-up audit</td></tr><tr><td><b>Minor</b></td><td>Lệch cục bộ, một vài bằng chứng cho thấy chưa tuân thủ</td><td>Sửa lỗi, hành động khắc phục, xác minh đóng</td></tr><tr><td><b>OFI</b></td><td>Cơ hội làm tốt hơn, chuẩn hóa hoặc giảm rủi ro</td><td>Đưa vào CI / A3 nếu chấp nhận</td></tr></tbody></table></div>
+<h2 class="h2">8. LPA shop floor</h2>
+<h3 class="h3">8.1 Cách chạy LPA</h3><ul><li>Thời lượng thường 5-15 phút/lần, tập trung đúng điểm chặn: revision tại máy, gage status, first piece, WIP card, clean pack, shipping label, FOD, PPE.</li><li>Người thực hiện LPA có thể là cấp quản lý nhiều lớp khác nhau theo lịch, nhưng checklist và quy tắc ghi nhận phải thống nhất.</li><li>Một lỗi lặp lại trên cùng câu hỏi LPA từ 3 lần trở lên PHẢI được nâng thành action hệ thống hoặc CAPA.</li></ul><h3 class="h3">8.2 Nguyên tắc lấy mẫu</h3><ul><li>Ưu tiên máy đang chạy, job gần ship, khu vực vừa thay đổi, ca đêm hoặc khu vực có khiếu nại / NCR gần đây.</li><li>Không báo trước toàn bộ nội dung câu hỏi để giữ giá trị xác minh thực thi thật.</li></ul>
+<h2 class="h2">9. Evidence pack và closure</h2>
+<ul><li>Evidence pack tối thiểu gồm: audit plan, checklist, bằng chứng ảnh/record, attendance/opening-closing note, báo cáo phát hiện, phản hồi action, xác nhận đóng.</li><li>QMS Engineer theo dõi deadline closure. Major NC hoặc action quá hạn phải escalated lên QA Manager và xem xét trong MR khi cần.</li><li>Khi đóng NC, người xác minh phải kiểm thực tế nếu phát hiện liên quan point-of-use, không đóng chỉ dựa trên email cam kết.</li></ul>
+<h2 class="h2">Biểu mẫu liên quan</h2>
+<ul><li>FRM-901 — Checklist audit</li><li>FRM-902 — Checklist LPA</li><li>FRM-651 — NCR</li><li>FRM-652 — CAPA/8D</li></ul>
+<h2 class="h2">Tài liệu liên quan</h2>
+<ul><li>SOP-606 — NCR, CAPA & Phản ứng IPQC</li><li>SOP-902 — Xem xét lãnh đạo</li><li>SOP-903 — Cải tiến liên tục & Kaizen</li></ul>
+<h2 class="h2">Ký duyệt</h2>
+<div class="sig-row"><div><div class="muted small"><b>Người lập</b></div><div class="sig-box"></div></div><div><div class="muted small"><b>Người rà soát</b></div><div class="sig-box"></div></div><div><div class="muted small"><b>Phê duyệt</b></div><div class="sig-box"></div></div></div><div class="annex-block">
+  <div class="annex-title">Footer</div>
+  <p class="muted">SOP chủ quản: <b>SOP-901</b> · Lưu hồ sơ theo SOP-104.</p>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

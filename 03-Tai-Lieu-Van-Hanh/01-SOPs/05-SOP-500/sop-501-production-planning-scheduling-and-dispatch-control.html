@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SOP-501 — Production Planning Scheduling and Dispatch Control | HESEM QMS</title>
+<link href="../../../assets/style.css" rel="stylesheet"/>
+<style>
+/* === PAGE BREAK & OVERFLOW FIX (auto-applied) === */
+@media print {
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.vstep{page-break-inside:avoid;break-inside:avoid}
+  h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
+  .form-header,.sig-row,.sign-row{page-break-inside:avoid;break-inside:avoid}
+  tr{page-break-inside:avoid;break-inside:avoid}
+  thead{display:table-header-group}tfoot{display:table-footer-group}
+  p{orphans:3;widows:3}.table-card{overflow:visible!important}
+}
+.page-body{overflow-x:hidden}
+.table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
+table{max-width:100%;table-layout:auto}
+td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
+</style>
+</head>
+<body>
+<div class="container"><div class="page"><div class="page-body">
+<div class="form-header">
+<div class="fh-left">
+  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+  <div class="fh-company">
+    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+    <span>Tài liệu kiểm soát</span>
+  </div>
+</div>
+<div class="title">
+  <strong>SOP-501 — Production Planning Scheduling and Dispatch Control</strong>
+  <span class="sub-vn"></span>
+</div>
+<div class="meta">
+  <div class="row"><span><b>Mã:</b></span><span>SOP-501</span></div>
+  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+  <div class="row"><span><b>Chủ sở hữu:</b></span><span>Production</span></div>
+  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+</div>
+</div>
+<div class="doc-content" id="docContent"><div class="form-sheet">
+
+<div class="iso-map">
+  <div class="iso-title">Chuẩn mực áp dụng</div>
+  <div class="req"><span class="req-tag shall">PHẢI</span><div>Lập kế hoạch tuần, dispatch ngày và release job packet theo dữ liệu đã khóa revision, năng lực máy, năng lực CMM, vật tư và trạng thái hold; không phát hành bằng ưu tiên miệng hoặc file rời. <span class="iso-ref">ISO 8.1</span> <span class="iso-ref">ISO 8.5.1</span> <span class="iso-ref">AS9100D 8.1.1</span></div></div>
+  <div class="req"><span class="req-tag shall">PHẢI</span><div>Kiểm soát tình trạng WIP, tồn đọng quá tuổi, thiếu vật tư và thay đổi ưu tiên; mọi thay đổi trong cửa sổ ca phải có người phê chuẩn và có record. <span class="iso-ref">ISO 8.1</span> <span class="iso-ref">ISO 8.5.1</span></div></div>
+  <div class="req"><span class="req-tag should">NÊN</span><div>Dùng visual WIP board, họp Tier 1/2/3, chỉ số OTD nội bộ, OEE, setup loss và queue age để chặn nghẽn tại máy, deburr, QC và clean-pack. <span class="iso-ref">ISO 9.1.3</span></div></div>
+  <div class="req"><span class="req-tag may">ĐƯỢC PHÉP</span><div>Dùng Epicor, bảng điện tử hoặc bảng từ tại xưởng để hiển thị dispatch, miễn dữ liệu hiển thị khớp nguồn điều độ đã phát hành. <span class="iso-ref">ISO 7.5</span></div></div>
+</div>
+
+<div class="preface-block">
+  <h2 class="h2">Quy ước triển khai tại HESEM</h2>
+  <div class="grid-2">
+    <div><div class="card-title">Chu kỳ kế hoạch</div><ul>
+<li>Weekly plan <b>PHẢI</b> chốt theo tuần làm việc, năng lực 2 ca và backlog đã xác nhận.</li>
+<li>Daily dispatch <b>PHẢI</b> phát hành trước giờ nhận ca, có danh sách top priorities, hold list và shortage list.</li>
+<li>Job packet <b>PHẢI</b> có traveler, routing, WI/NC reference, CTQ, yêu cầu bao gói và hồ sơ bắt buộc.</li>
+</ul></div>
+    <div><div class="card-title">Quy tắc xưởng HMLV</div><ul>
+<li>Không mở quá nhiều job song song tại cùng cell; ưu tiên hoàn tất operation đang mở trước khi kéo job mới.</li>
+<li>WIP aging <b>PHẢI</b> escalation theo ngưỡng giờ/ngày đã định; hàng chờ CMM, outsource, rework phải có owner.</li>
+<li>Shortage <b>PHẢI</b> được gắn mã nguyên nhân: material, tool, program, fixture, inspection, clean-pack hoặc customer hold.</li>
+</ul></div>
+  </div>
+  <div class="callout"><b>Nguyên tắc:</b> dispatch là lệnh điều độ duy nhất trong ca. Tự ý đổi thứ tự, tách lô, đổi máy hoặc nhảy công đoạn khi chưa có phê chuẩn được xem là lệch hệ thống.</div>
+</div>
+
+<h2 class="h2">1. Mục đích</h2><p>Chuẩn hóa việc chuyển PO/job thành kế hoạch tuần, dispatch ngày và kiểm soát WIP theo mô hình job order, high-mix low-volume, 2 ca 12 giờ tại HESEM; chặn release thiếu điều kiện, giảm hàng chờ quá tuổi và giữ dữ liệu đủ để truy vết, đo OTD nội bộ và đối chiếu giá thành.</p>
+
+<h2 class="h2">2. Phạm vi</h2><p>Áp dụng cho Production Planner, CNC Workshop Manager, Shift Leader, Setup Technician, CNC Operator, Deburr, Cleaning-Packaging, QA, Warehouse và Maintenance khi lập kế hoạch tuần, phát hành dispatch, kiểm soát job packet, điều độ trong ngày, quản WIP aging, xử lý shortage và bàn giao ca cho mọi job CNC bán dẫn tại HESEM.</p>
+
+<h2 class="h2">3. Thuật ngữ</h2><div class="table-card"><table class="table"><thead><tr><th>Thuật ngữ</th><th>Diễn giải áp dụng</th></tr></thead><tbody><tr><td><b>Weekly plan</b></td><td>Kế hoạch tuần đã cân bằng sơ bộ theo due date, work center, năng lực 2 ca, CMM, deburr, clean-pack và outsource.</td></tr><tr><td><b>Daily dispatch</b></td><td>Danh sách ưu tiên chạy trong ngày/ca, theo work center hoặc machine cell, có job/operation, qty, CTQ, hold notes và owner.</td></tr><tr><td><b>Job packet</b></td><td>Bộ hồ sơ dùng tại hiện trường: traveler, routing, setup sheet, WI/NC reference, CTQ, inspection note, packaging note và hold points.</td></tr><tr><td><b>WIP aging</b></td><td>Tuổi chờ của job/operation tính từ thời điểm vào hàng chờ hiện tại đến thời điểm rà soát.</td></tr><tr><td><b>Shortage</b></td><td>Tình trạng thiếu điều kiện để chạy hoặc chuyển bước: thiếu material, tool, fixture, program, gage, manpower, outsource slot hoặc ship instruction.</td></tr><tr><td><b>Dispatch freeze window</b></td><td>Khoảng thời gian ngay trước và trong ca mà việc đổi thứ tự chạy chỉ được thực hiện theo escalation đã phê chuẩn.</td></tr></tbody></table></div>
+
+<h2 class="h2">4. RACI</h2><div class="table-card"><table class="table"><thead><tr><th>Vai trò</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead><tbody><tr><td><b>Production Planner</b></td><td>X</td><td></td><td></td><td></td></tr><tr><td><b>Production Director</b></td><td></td><td>X</td><td></td><td></td></tr><tr><td><b>CNC Workshop Manager</b></td><td></td><td></td><td>X</td><td></td></tr><tr><td><b>Shift Leader</b></td><td></td><td></td><td>X</td><td></td></tr><tr><td><b>QA Manager</b></td><td></td><td></td><td>X</td><td></td></tr><tr><td><b>Warehouse Clerk</b></td><td></td><td></td><td>X</td><td></td></tr><tr><td><b>Maintenance Technician</b></td><td></td><td></td><td>X</td><td></td></tr><tr><td><b>Customer Service</b></td><td></td><td></td><td></td><td>X</td></tr></tbody></table></div>
+
+<h2 class="h2">5. Quy trình</h2>
+
+<h3 class="h3">5.1 Đầu vào lập kế hoạch</h3><ul>
+  <li>Production Planner <b>PHẢI</b> lấy đầu vào từ <a href="../02-SOP-200/sop-201-order-fulfillment-rfq-to-cash.html">SOP-201</a> Thực hiện đơn hàng - RFQ đến Cash gồm due date, split ship, CSR, revision đã khóa và trạng thái order acknowledgement.</li>
+  <li>Đầu vào kỹ thuật <b>PHẢI</b> khớp <a href="../03-SOP-300/sop-301-engineering-dfm-quoting-and-machining-planning.html">SOP-301</a> Kỹ thuật - DFM, Báo giá &amp; Lập kế hoạch gia công: routing, setup sheet, WI/NC reference, fixture/tool standard, yêu cầu CMM và FAI.</li>
+  <li>Đầu vào cung ứng <b>PHẢI</b> lấy từ <a href="../04-SOP-400/sop-401-supplier-control-and-special-process.html">SOP-401</a> Nhà cung cấp, Kiểm soát NCC &amp; Special Process và <a href="../04-SOP-400/sop-402-material-verification-traceability-and-counterfeit-prevention.html">SOP-402</a> Xác thực vật liệu, Truy vết &amp; Phòng hàng giả: ngày sẵn sàng vật tư, cert, outsource slot và shortage mở.</li>
+  <li>Đầu vào chất lượng <b>PHẢI</b> gồm hold list, NCR/MRB mở, nhu cầu CMM, first piece/FAI trigger và lịch clean-pack hoặc ship window nếu có.</li>
+  <li>Lập kế hoạch <b>KHÔNG ĐƯỢC PHÉP</b> dùng revision chưa release, schedule bản cũ hoặc dữ liệu miệng không có record.</li>
+</ul>
+
+<h3 class="h3">5.2 Lập kế hoạch tuần và cân bằng năng lực 2 ca</h3><ul>
+  <li>Production Planner <b>PHẢI</b> review backlog tối thiểu 01 lần/tuần và cập nhật lại khi có expedite, machine down dài giờ, thiếu vật tư hoặc thay đổi revision.</li>
+  <li>Khi cân bằng tải, Planner <b>PHẢI</b> xem đồng thời: số giờ setup, số giờ cắt, nhu cầu first piece/CMM, deburr load, clean-pack load và outsource turn-around time.</li>
+  <li>Thứ tự ưu tiên mặc định: (1) job gần due date hoặc commit khách hàng; (2) job có cửa sổ outsource hoặc clean-pack cố định; (3) job đang WIP để giải phóng queue; (4) job có CTQ/FAI cần giữ slot máy và CMM liên tục; (5) job mới đủ điều kiện nhưng chưa WIP.</li>
+  <li>Năng lực 2 ca <b>PHẢI</b> cân theo machine family, capability class và kỹ năng setup; không gán 5-axis hoặc mill-turn phức tạp cho ca không có người đủ thẩm quyền setup.</li>
+  <li>Khi load vượt 85% năng lực hữu dụng của work center trong tuần, Planner <b>PHẢI</b> mở capacity review với Production Director để quyết định OT, chuyển tải, outsource một phần hoặc đàm phán lại lịch.</li>
+</ul>
+
+<div class="note"><b>Khuyến nghị vận hành:</b> slot setup nên được bảo vệ riêng trên kế hoạch tuần để tránh OEE ảo do “đẩy setup vào ngoài giờ” và để tính đúng mất mát changeover.</div>
+
+<div class="table-card"><table class="table"><thead><tr><th>Máy / Cell</th><th>Giờ khả dụng / tuần</th><th>Giờ setup dự kiến</th><th>Giờ chạy dự kiến</th><th>Điểm nghẽn phụ trợ</th><th>Hành động</th></tr></thead><tbody><tr><td>3-axis VMC</td><td>___</td><td>___</td><td>___</td><td>Tool preset / Deburr</td><td>___</td></tr><tr><td>5-axis</td><td>___</td><td>___</td><td>___</td><td>CMM / Fixture / QA</td><td>___</td></tr><tr><td>Lathe</td><td>___</td><td>___</td><td>___</td><td>Bar feeder / QC</td><td>___</td></tr><tr><td>Mill-Turn</td><td>___</td><td>___</td><td>___</td><td>Setup tech / CMM</td><td>___</td></tr></tbody></table></div>
+
+<h3 class="h3">5.3 Planning release và phát hành job packet</h3><ul>
+  <li>Trước khi phát hành lần đầu, Planner <b>PHẢI</b> hoàn tất <a href="../../../04-Bieu-Mau/05-FRM-500/frm-501-planning-release-checklist.html">FRM-501</a> Checklist planning release cho từng job hoặc từng lot release.</li>
+  <li>Job packet <b>PHẢI</b> chứa tối thiểu: <a href="../../../04-Bieu-Mau/02-FRM-200/frm-203-job-traveler.html">FRM-203</a> Job Traveler, routing, setup sheet, WI/NC reference, CTQ list, inspection notes, packaging note và record map trong <a href="../../../04-Bieu-Mau/02-FRM-200/frm-205-job-dossier-index.html">FRM-205</a> Mục lục hồ sơ Job.</li>
+  <li>Chứng cứ và link hồ sơ <b>PHẢI</b> gom theo <a href="../../02-Work-Instructions/05-WI-500/wi-504-job-dossier-and-evidence-pack.html">WI-504</a> Lập hồ sơ Job &amp; Tập hợp bằng chứng; file nháp, ảnh chụp màn hình không gắn job hoặc NC chưa release <b>KHÔNG ĐƯỢC PHÉP</b> đưa vào packet.</li>
+  <li>Nếu planning release bị fail vì thiếu material, thiếu tool, thiếu CMM slot, thiếu WI/NC hoặc thiếu packaging requirement, job <b>PHẢI</b> giữ ở trạng thái Not Ready/Hold và không được đưa lên dispatch.</li>
+  <li>Planner <b>PHẢI</b> ghi rõ revision lock, traveler revision, NC/program revision, setup sheet revision và yêu cầu special handling nếu chi tiết thuộc nhóm bề mặt nhạy cảm hoặc độ sạch cao.</li>
+</ul>
+
+<div class="table-card"><table class="table"><thead><tr><th>Hạng mục packet</th><th>Nguồn</th><th>Kiểm tra trước release</th></tr></thead><tbody><tr><td>Traveler / routing</td><td>SOP-201 / ERP</td><td>WO, PN, revision, qty, op sequence đúng</td></tr><tr><td>Setup sheet / WI / NC ref</td><td>SOP-301</td><td>Ref đúng op, đúng machine family, đúng revision</td></tr><tr><td>CTQ / first piece / FAI</td><td>SOP-302 / QA planning</td><td>Có trigger và record path rõ</td></tr><tr><td>Material / cert / lot</td><td>SOP-402</td><td>Lot/heat/cert sẵn sàng, không hold</td></tr><tr><td>Packaging / label / ship note</td><td>SOP-201 / WI-505</td><td>Yêu cầu khớp PO/CSR</td></tr></tbody></table></div>
+
+<h3 class="h3">5.4 Dispatch ngày và quy tắc đổi ưu tiên</h3><ul>
+  <li>Dispatch ngày <b>PHẢI</b> phát hành bằng <a href="../../../04-Bieu-Mau/05-FRM-500/frm-502-daily-dispatch-list.html">FRM-502</a> Danh sách dispatch hàng ngày trước giờ nhận ca; nội dung gồm machine/cell, job-op, qty, ưu tiên, CTQ note, shortage/hold note và owner.</li>
+  <li>Quy tắc điều độ hiện trường <b>PHẢI</b> theo <a href="../../02-Work-Instructions/05-WI-500/wi-501-dispatch-capacity-and-wip-rules.html">WI-501</a> Quy tắc Dispatch, Năng lực &amp; WIP. Job nào không nằm trên dispatch hoặc chưa pass planning release thì không được khởi động.</li>
+  <li>Tự ý đổi thứ tự chỉ được phép khi có một trong các điều kiện sau: bảo vệ due date cao hơn, bảo vệ an toàn thiết bị, loại bỏ hàng chờ đang chặn toàn cell, hoặc do thiếu điều kiện của job đang xếp trước.</li>
+  <li>Mọi đổi ưu tiên trong freeze window <b>PHẢI</b> được Shift Leader ghi lại và Planner cập nhật lại danh sách dispatch trong cùng ca; nếu ảnh hưởng due date khách hàng thì Customer Service phải được thông báo.</li>
+  <li>Dispatch nên hiển thị trực quan theo 03 trạng thái: Running, Ready Next, Hold/Shortage; màu sắc được phép dùng nhưng text trạng thái vẫn phải rõ để tránh hiểu sai.</li>
+</ul>
+
+<h3 class="h3">5.5 Kiểm soát WIP aging</h3><ul>
+  <li>Planner <b>PHẢI</b> cập nhật <a href="../../../04-Bieu-Mau/05-FRM-500/frm-503-wip-aging-report.html">FRM-503</a> Báo cáo WIP aging tối thiểu mỗi ngày 01 lần; với job high-priority hoặc đang ship window thì cập nhật mỗi ca.</li>
+  <li>Ngưỡng escalation mặc định: > 24 giờ tại 01 queue = cấp cell; > 48 giờ = cấp workshop; > 72 giờ hoặc có nguy cơ trễ due date = cấp Production Director.</li>
+  <li>WIP chờ do chất lượng, chờ CMM, chờ MRB hoặc chờ khách hàng trả lời <b>PHẢI</b> được tách khỏi WIP sản xuất bình thường để không che mờ queue thực.</li>
+  <li>Planner và Shift Leader <b>PHẢI</b> ưu tiên kéo hàng “gần xong” để mở chỗ cho cell, trừ khi doing so tạo rủi ro trễ cao hơn cho job cam kết gần hơn.</li>
+  <li>WIP aging report <b>PHẢI</b> có owner, nguyên nhân, hành động, due date hành động và thời điểm review lại.</li>
+</ul>
+
+<div class="table-card"><table class="table"><thead><tr><th>Bucket tuổi chờ</th><th>Ví dụ nguyên nhân</th><th>Escalation</th></tr></thead><tbody><tr><td>0-24h</td><td>Đợi machine slot / QC verify / deburr</td><td>Shift Leader theo dõi</td></tr><tr><td>24-48h</td><td>Thiếu tool / thiếu CMM slot / queue mất cân bằng</td><td>CNC Workshop Manager + Planner</td></tr><tr><td>48-72h</td><td>Outsource trễ / machine down / material hold</td><td>Production Director review</td></tr><tr><td>>72h hoặc sát due date</td><td>Nguy cơ OTD</td><td>Escalation Tier 2/Tier 3 + CS khi cần</td></tr></tbody></table></div>
+
+<h3 class="h3">5.6 Shortage management</h3><ul>
+  <li>Mỗi shortage <b>PHẢI</b> có mã và owner rõ: MAT, TOOL, FIXTURE, PROGRAM, QA, CLEAN-PACK, OUTSOURCE, CUSTOMER hoặc MACHINE.</li>
+  <li>Shortage do vật tư, cert, outsource <b>PHẢI</b> phản ánh về Supply Chain; shortage do program/setup/tool standard phản ánh về Engineering; shortage do hold/NCR phản ánh về QA; shortage do machine phản ánh về Maintenance.</li>
+  <li>Planner <b>PHẢI</b> review shortage list trong họp Tier 1/Tier 2. Shortage lặp lại trên cùng PN/part family <b>NÊN</b> chuyển thành action hệ thống hoặc kaizen.</li>
+  <li>Không được che shortage bằng cách phát hành traveler thiếu dữ liệu hoặc kéo job lên máy trước khi đủ điều kiện.</li>
+</ul>
+
+<h3 class="h3">5.7 Bảng WIP trực quan và bàn giao ca</h3><ul>
+  <li>Mỗi cell hoặc khu vực chính <b>PHẢI</b> có visual WIP board thể hiện ít nhất: job đang chạy, job ready next, machine down, shortage, hold và target output trong ca.</li>
+  <li>Bàn giao ca <b>PHẢI</b> dùng <a href="../../../04-Bieu-Mau/05-FRM-500/frm-504-shift-handover-log.html">FRM-504</a> Nhật ký bàn giao ca để chốt tình trạng machine, last good piece, tool đang dùng, offset đặc biệt, shortage mở và hành động dở dang.</li>
+  <li>Nếu job dừng giữa chừng ở điểm rủi ro cao, Shift Leader <b>PHẢI</b> ghi rõ safe state, tool đang gá, WCS đang dùng, lot đang mở và điều kiện cần verify trước khi resume.</li>
+  <li>Họp Tier 1/2/3 <b>NÊN</b> triển khai theo <a href="../../02-Work-Instructions/05-WI-500/wi-502-tier-1-2-3-daily-management.html">WI-502</a> Quản lý hàng ngày Tier 1/2/3 và dashboard theo <a href="../../02-Work-Instructions/05-WI-500/wi-503-kpi-scoreboard-and-dashboard.html">WI-503</a> Bảng điểm KPI &amp; Dashboard.</li>
+</ul>
+
+<h3 class="h3">5.8 Chỉ số và đóng vòng phản hồi</h3><ul>
+  <li>Chỉ số tối thiểu của SOP này: internal OTD, planning adherence, số job overdue trong WIP aging, số đổi ưu tiên trong freeze window, queue time tại CMM/deburr/clean-pack và số shortage lặp.</li>
+  <li>Khi planning adherence dưới mục tiêu hoặc WIP aging tăng lặp 03 kỳ liên tiếp, Production Director <b>PHẢI</b> mở action review năng lực, setup loss, bottleneck phụ trợ hoặc sai dữ liệu release.</li>
+  <li>Các bài học liên quan planning release, dispatch discipline và shortage recurring <b>NÊN</b> ghi vào FRM-151 theo SOP-105.</li>
+</ul>
+
+<h2 class="h2">6. Biểu mẫu liên quan</h2><ul>
+  <li><a href="../../../04-Bieu-Mau/05-FRM-500/frm-501-planning-release-checklist.html">FRM-501</a> Checklist planning release</li>
+  <li><a href="../../../04-Bieu-Mau/05-FRM-500/frm-502-daily-dispatch-list.html">FRM-502</a> Danh sách dispatch hàng ngày</li>
+  <li><a href="../../../04-Bieu-Mau/05-FRM-500/frm-503-wip-aging-report.html">FRM-503</a> Báo cáo WIP aging</li>
+  <li><a href="../../../04-Bieu-Mau/05-FRM-500/frm-504-shift-handover-log.html">FRM-504</a> Nhật ký bàn giao ca</li>
+</ul>
+
+<h2 class="h2">7. Tài liệu liên quan</h2><ul>
+  <li><a href="../02-SOP-200/sop-201-order-fulfillment-rfq-to-cash.html">SOP-201</a> Thực hiện đơn hàng - RFQ đến Cash</li>
+  <li><a href="../03-SOP-300/sop-301-engineering-dfm-quoting-and-machining-planning.html">SOP-301</a> Kỹ thuật - DFM, Báo giá &amp; Lập kế hoạch gia công</li>
+  <li><a href="../04-SOP-400/sop-401-supplier-control-and-special-process.html">SOP-401</a> Nhà cung cấp, Kiểm soát NCC &amp; Special Process</li>
+  <li><a href="../../02-Work-Instructions/05-WI-500/wi-501-dispatch-capacity-and-wip-rules.html">WI-501</a> Quy tắc Dispatch, Năng lực &amp; WIP</li>
+  <li><a href="../../02-Work-Instructions/05-WI-500/wi-502-tier-1-2-3-daily-management.html">WI-502</a> Quản lý hàng ngày Tier 1/2/3</li>
+  <li><a href="../../02-Work-Instructions/05-WI-500/wi-503-kpi-scoreboard-and-dashboard.html">WI-503</a> Bảng điểm KPI &amp; Dashboard</li>
+  <li>SOP-605 Giải phóng xuất hàng (ngoài - workstream B)</li>
+</ul>
+
+</div></div>
+
+</div></div></div>
+</body>
+</html>
+
+

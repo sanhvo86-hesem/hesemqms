@@ -1,0 +1,197 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SOP-502 — CNC Machining Operations | HESEM QMS</title>
+<link href="../../../assets/style.css" rel="stylesheet"/>
+<style>
+/* === PAGE BREAK & OVERFLOW FIX (auto-applied) === */
+@media print {
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.vstep{page-break-inside:avoid;break-inside:avoid}
+  h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
+  .form-header,.sig-row,.sign-row{page-break-inside:avoid;break-inside:avoid}
+  tr{page-break-inside:avoid;break-inside:avoid}
+  thead{display:table-header-group}tfoot{display:table-footer-group}
+  p{orphans:3;widows:3}.table-card{overflow:visible!important}
+}
+.page-body{overflow-x:hidden}
+.table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
+table{max-width:100%;table-layout:auto}
+td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
+</style>
+</head>
+<body>
+<div class="container"><div class="page"><div class="page-body">
+<div class="form-header">
+<div class="fh-left">
+  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+  <div class="fh-company">
+    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+    <span>Tài liệu kiểm soát</span>
+  </div>
+</div>
+<div class="title">
+  <strong>SOP-502 — CNC Machining Operations</strong>
+  <span class="sub-vn"></span>
+</div>
+<div class="meta">
+  <div class="row"><span><b>Mã:</b></span><span>SOP-502</span></div>
+  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+  <div class="row"><span><b>Chủ sở hữu:</b></span><span>Production</span></div>
+  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+</div>
+</div>
+<div class="doc-content" id="docContent"><div class="form-sheet">
+
+<div class="iso-map">
+  <div class="iso-title">Chuẩn mực áp dụng</div>
+  <div class="req"><span class="req-tag shall">PHẢI</span><div>Thực hiện setup, first piece, chạy hàng loạt, tool change, offset correction, thermal stabilization và handover theo trình tự đã phát hành; không gia công khi program, setup sheet, traveler hoặc revision không khớp. <span class="iso-ref">ISO 8.5.1</span> <span class="iso-ref">ISO 8.5.6</span></div></div>
+  <div class="req"><span class="req-tag shall">PHẢI</span><div>Ghi nhận downtime, tool life, setup loss, scrap/rework và điểm dừng chất lượng ngay tại máy hoặc trong hệ thống được chỉ định; cấm nhập bù cuối ngày từ trí nhớ. <span class="iso-ref">ISO 7.5</span> <span class="iso-ref">ISO 8.5.2</span></div></div>
+  <div class="req"><span class="req-tag should">NÊN</span><div>Dùng tín hiệu máy, xu hướng tải trục chính, rung, nhiệt, thời gian chu kỳ và số lần sửa offset để phát hiện sớm nguy cơ drift hoặc lỗi bề mặt. <span class="iso-ref">ISO 9.1.1</span></div></div>
+  <div class="req"><span class="req-tag may">ĐƯỢC PHÉP</span><div>Tự động hóa giám sát máy hoặc dùng ghi nhận thủ công theo ca, miễn logic phản ứng, record và traceability theo job vẫn được giữ. <span class="iso-ref">ISO 7.1.5</span></div></div>
+</div>
+
+<div class="preface-block">
+  <h2 class="h2">Quy ước triển khai tại HESEM</h2>
+  <div class="grid-2">
+    <div><div class="card-title">Điểm khóa trong setup</div><ul>
+<li>Setup <b>PHẢI</b> bắt đầu từ job packet đã release, đúng machine family, đúng fixture, đúng tool list và đúng WCS.</li>
+<li>First piece <b>PHẢI</b> xác nhận trước khi chạy batch; với chi tiết có trigger FAI thì thêm record theo SOP-302.</li>
+<li>Offset correction <b>PHẢI</b> có căn cứ đo; không sửa offset hàng loạt theo cảm giác.</li>
+</ul></div>
+    <div><div class="card-title">Ổn định quá trình</div><ul>
+<li>Theo dõi in-process <b>PHẢI</b> tập trung vào CTQ, bề mặt chức năng, burr, thermal drift, tool wear và tín hiệu bất thường của máy.</li>
+<li>Downtime, scrap và rework <b>PHẢI</b> ghi theo job để phân tích OEE và risk recurrence.</li>
+<li>Restart giữa chương trình <b>PHẢI</b> quay về safe state; job rủi ro cao cần Shift Leader verify trước khi chạy lại.</li>
+</ul></div>
+  </div>
+  <div class="callout"><b>Lưu ý:</b> Giám sát SPC, quy tắc Western Electric, OOC và reaction plan năng lực quá trình không ghi trong SOP này. Khi job yêu cầu SPC hoặc dừng dây chuyền do xu hướng dữ liệu, áp dụng <b>SOP-604</b> (ngoài - workstream B).</div>
+</div>
+
+<h2 class="h2">1. Mục đích</h2><p>Chuẩn hóa trình tự vận hành CNC tại máy cho xưởng 2 ca: setup, first piece, chạy hàng, đổi dao, sửa offset, phản ứng drift, ghi downtime, xử lý scrap/rework tại máy, bàn giao ca và giám sát tín hiệu máy để giữ đúng revision, đúng dung sai và bề mặt cho linh kiện bán dẫn.</p>
+
+<h2 class="h2">2. Phạm vi</h2><p>Áp dụng cho toàn bộ công đoạn phay 3 trục, phay 5 trục, tiện CNC, mill-turn và các máy tương đương trong phạm vi xưởng CNC HESEM; bao gồm Setup Technician, CNC Operator, Shift Leader, CNC Workshop Manager, QA, Engineering và Maintenance khi vận hành sản xuất, run thử, theo dõi trong quá trình và bàn giao ca.</p>
+
+<h2 class="h2">3. Thuật ngữ</h2><div class="table-card"><table class="table"><thead><tr><th>Thuật ngữ</th><th>Diễn giải áp dụng</th></tr></thead><tbody><tr><td><b>First piece</b></td><td>Chi tiết đầu tiên sau setup, thay tool lớn, đổi revision, đổi fixture, restart sau crash hoặc sau bảo trì có ảnh hưởng khả năng gia công.</td></tr><tr><td><b>Thermal drift</b></td><td>Sự dịch chuyển kích thước do biến thiên nhiệt của máy, spindle, coolant, môi trường hoặc fixture.</td></tr><tr><td><b>Predictive quality trigger</b></td><td>Dấu hiệu sớm cho thấy nguy cơ tạo lỗi dù sản phẩm hiện tại có thể chưa fail: tải spindle tăng dần, rung tăng, chu kỳ kéo dài, offset sửa liên tục, nhiệt tăng nhanh.</td></tr><tr><td><b>Safe state</b></td><td>Trạng thái đủ an toàn để resume: spindle dừng, tool ở vùng clear, WCS xác nhận, chương trình biết chính xác điểm restart.</td></tr><tr><td><b>Last known good</b></td><td>Mốc kiểm gần nhất mà sản phẩm và điều kiện quá trình đã được xác nhận đạt.</td></tr></tbody></table></div>
+
+<h2 class="h2">4. RACI</h2><div class="table-card"><table class="table"><thead><tr><th>Vai trò</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead><tbody><tr><td><b>Setup Technician</b></td><td>X</td><td></td><td></td><td></td></tr><tr><td><b>CNC Operator</b></td><td>X</td><td></td><td></td><td></td></tr><tr><td><b>CNC Workshop Manager</b></td><td></td><td>X</td><td></td><td></td></tr><tr><td><b>Shift Leader</b></td><td></td><td></td><td>X</td><td></td></tr><tr><td><b>Process Engineer</b></td><td></td><td></td><td>X</td><td></td></tr><tr><td><b>Quality Engineer / QC Inspector</b></td><td></td><td></td><td>X</td><td></td></tr><tr><td><b>Maintenance Technician</b></td><td></td><td></td><td>X</td><td></td></tr><tr><td><b>Production Planner</b></td><td></td><td></td><td></td><td>X</td></tr></tbody></table></div>
+
+<h2 class="h2">5. Quy trình</h2>
+
+<h3 class="h3">5.1 Điều kiện trước khi setup</h3><ul>
+  <li>Máy, fixture, tool và record <b>PHẢI</b> phù hợp với <a href="sop-501-production-planning-scheduling-and-dispatch-control.html">SOP-501</a> Lập kế hoạch sản xuất, Lịch trình &amp; Kiểm soát Dispatch và job packet đã phát hành.</li>
+  <li>Setup Technician <b>PHẢI</b> đối chiếu traveler, setup sheet và WI tương ứng: <a href="../../02-Work-Instructions/05-WI-500/wi-511-machine-type-quick-reference.html">WI-511</a> Bảng tra nhanh loại máy CNC, <a href="../../02-Work-Instructions/05-WI-500/wi-512-3-axis-vertical-milling-guide.html">WI-512</a> Hướng dẫn phay đứng 3 trục, <a href="../../02-Work-Instructions/05-WI-500/wi-513-5-axis-milling-guide.html">WI-513</a> Hướng dẫn phay 5 trục, <a href="../../02-Work-Instructions/05-WI-500/wi-514-cnc-turning-guide.html">WI-514</a> Hướng dẫn tiện CNC hoặc <a href="../../02-Work-Instructions/05-WI-500/wi-515-mill-turn-guide.html">WI-515</a> Hướng dẫn Mill-Turn.</li>
+  <li>Trước khi gá phôi, người setup <b>PHẢI</b> xác nhận machine condition: warm-up hoàn tất, alarm đã clear có kiểm soát, coolant đủ, khí nén ổn định, guard/interlock hoạt động và khu vực gá sạch chip/FOD.</li>
+  <li>Nếu phát hiện sai revision, sai fixture, tool bị quá hạn, gage không sẵn sàng hoặc machine có alarm ảnh hưởng trục/chính xác, job <b>PHẢI</b> dừng trước setup và escalation ngay.</li>
+</ul>
+
+<h3 class="h3">5.2 Workflow setup chuẩn</h3><ol>
+  <li>Xác nhận machine family, WCS/datum, fixture orientation và tool list theo setup sheet; dán nhận dạng WCS hoặc fixture khi có nhiều vị trí gá.</li>
+  <li>Lắp fixture, torque theo chuẩn nếu có; làm sạch bề mặt chuẩn và mặt tiếp xúc; không được gá trên bề mặt còn chip hoặc dầu bẩn.</li>
+  <li>Load program/NC từ nguồn đã release; đọc header/comment để xác nhận PN, operation, revision, program ID và machine compatibility.</li>
+  <li>Set WCS bằng phương pháp được chỉ định; với job rủi ro cao hoặc 5-axis nên ưu tiên probing thay cho set tay. Mọi offset đặc biệt phải ghi vào record setup.</li>
+  <li>Load tool, kiểm tra tool number, holder, length/diameter offset, tool condition, runout khi cần; tool tạo CTQ hoặc Ra chức năng phải được xem là tool critical.</li>
+  <li>Dry-run hoặc single-block vùng rủi ro: gần clamp, đổi mặt, chuyển trục quay, transfer, parting hoặc retract thấp.</li>
+  <li>Hoàn tất <a href="../../../04-Bieu-Mau/05-FRM-500/frm-511-setup-and-first-piece-record.html">FRM-511</a> Phiếu Setup &amp; First Piece trước khi cắt chi tiết first piece.</li>
+</ol>
+
+<h3 class="h3">5.3 Protocol first piece</h3><ul>
+  <li>First piece <b>PHẢI</b> được nhận dạng rõ, giữ riêng với batch và không trộn với sản phẩm trước khi QC/QA xác nhận.</li>
+  <li>Người setup và QC <b>PHẢI</b> đo ít nhất các CTQ, bề mặt chức năng, hướng lắp và feature rủi ro theo <a href="../../../04-Bieu-Mau/05-FRM-500/frm-511-setup-and-first-piece-record.html">FRM-511</a> Phiếu Setup &amp; First Piece.</li>
+  <li>Khi trigger FAI được kích hoạt theo <a href="../03-SOP-300/sop-302-first-article-inspection-fai.html">SOP-302</a> Kiểm tra sản phẩm đầu tiên - FAI, first piece chỉ được release sau khi record FAI tương ứng đạt.</li>
+  <li>Nếu first piece fail, máy <b>PHẢI</b> dừng; không được “chạy tạm thêm vài cái để xem”. Chỉ resume sau khi nguyên nhân đã rõ, chỉnh sửa đã kiểm chứng và first piece mới đạt.</li>
+  <li>Shift Leader được quyền chặn release trong ca khi có nghi ngờ drift hoặc dấu hiệu máy không ổn định, nhưng accountability tổng thể vẫn thuộc CNC Workshop Manager.</li>
+</ul>
+
+<h3 class="h3">5.4 Giám sát trong quá trình</h3><ul>
+  <li>CNC Operator <b>PHẢI</b> kiểm theo tần suất trên traveler/control plan: kích thước trọng yếu, bề mặt, burr, tool wear sign, phoi, coolant và tiếng máy bất thường.</li>
+  <li>Tần suất kiểm có thể tăng khi part family mới, job CTQ cao, bề mặt yêu cầu Ra thấp, tool nearing life limit hoặc machine vừa restart sau dừng dài.</li>
+  <li>Nếu phát hiện 02 lần liên tiếp cần sửa offset trên cùng đặc tính, Shift Leader <b>PHẢI</b> xem đây là tín hiệu drift và gọi QC/Engineering để review nguyên nhân gốc trước khi tiếp tục.</li>
+  <li>Giám sát SPC khi áp dụng phải tuân thủ SOP-604. Dừng dây chuyền, giữ lô, quy tắc OOC và reaction plan theo SOP-604 §6.</li>
+</ul>
+
+<div class="table-card"><table class="table"><thead><tr><th>Nhóm tín hiệu</th><th>Dấu hiệu bất thường</th><th>Phản ứng tối thiểu</th></tr></thead><tbody><tr><td>Kích thước / CTQ</td><td>Drift về một phía, cần sửa offset liên tục</td><td>Dừng tại điểm an toàn, đo xác nhận, gọi QC</td></tr><tr><td>Bề mặt / burr</td><td>Ra xấu, chatter, burr tăng nhanh, xước</td><td>Kiểm tool/holder/fixturing, thay tool nếu cần</td></tr><tr><td>Nhiệt / môi trường</td><td>Machine nóng bất thường, Delta T tăng nhanh</td><td>Áp dụng mục 5.6 thermal drift</td></tr><tr><td>Chu kỳ / tải máy</td><td>Cycle time kéo dài, spindle load tăng, vibration tăng</td><td>Mở predictive trigger theo mục 5.10</td></tr></tbody></table></div>
+
+<h3 class="h3">5.5 Tool change và quản lý offset</h3><ul>
+  <li>Tool life <b>PHẢI</b> được ghi trên <a href="../../../04-Bieu-Mau/05-FRM-500/frm-513-tool-life-log.html">FRM-513</a> Nhật ký Tool Life cho tool critical hoặc tool theo baseline. Không chờ đến khi bề mặt fail mới thay dao nếu baseline đã chạm ngưỡng.</li>
+  <li>Thay dao planned <b>PHẢI</b> thực hiện trước ngưỡng rủi ro với tool tạo CTQ hoặc bề mặt chức năng. Sau thay dao, offset mới phải được verify bằng cut nhẹ hoặc chi tiết xác nhận phù hợp.</li>
+  <li>Mọi thay đổi offset vượt giới hạn wear bình thường, hoặc thay holder/dao gây thay đổi lớn, <b>PHẢI</b> kích hoạt kiểm lại first piece một phần trên đặc tính bị ảnh hưởng.</li>
+  <li>Gãy dao, insert sứt, mất kẹp, tool pull-out hoặc runout bất thường <b>PHẢI</b> được xem là stop-the-line; giữ sản phẩm từ last known good và gọi QC ngay.</li>
+  <li>Setup loss và thời gian changeover <b>NÊN</b> ghi vào <a href="../../../04-Bieu-Mau/05-FRM-500/frm-514-smed-changeover-sheet.html">FRM-514</a> SMED để cải tiến theo nhóm machine/part family.</li>
+</ul>
+
+<h3 class="h3">5.6 Thermal drift và ổn định nhiệt</h3><ul>
+  <li>Đầu ca hoặc sau dừng dài, máy <b>PHẢI</b> warm-up theo quick card hoặc OEM practice; job dung sai hẹp không được cắt chi tiết khi spindle và trục chưa ổn định nhiệt.</li>
+  <li>Với chi tiết bán dẫn có tolerance trong vùng ±0.005-0.025 mm hoặc Ra 0.4-0.8 μm, Setup Technician <b>PHẢI</b> kiểm tra thêm nhiệt máy, coolant, môi trường xung quanh và tình trạng fixture.</li>
+  <li>Khi nhiệt độ môi trường hoặc thân máy thay đổi nhanh, Shift Leader <b>PHẢI</b> giảm batch size kiểm, tăng xác nhận CTQ hoặc dừng tạm để ổn định trước khi tiếp tục finishing.</li>
+  <li>Các thao tác như mở cửa lâu, thay fixture nặng, chạy spindle tải cao liên tục hoặc thay coolant <b>NÊN</b> được xem là yếu tố kích hoạt review thermal drift.</li>
+</ul>
+
+<h3 class="h3">5.7 Ghi downtime và bất thường thiết bị</h3><ul>
+  <li>Downtime từ 15 phút trở lên hoặc downtime có nguy cơ chất lượng <b>PHẢI</b> ghi ngay trên <a href="../../../04-Bieu-Mau/05-FRM-500/frm-512-downtime-log.html">FRM-512</a> Nhật ký Downtime với Machine ID, symptom, job-op và owner xử lý.</li>
+  <li>Nếu downtime do máy, alarm trục, spindle, chuck, bar feeder hoặc sensor, Maintenance <b>PHẢI</b> tham gia theo <a href="sop-503-tooling-maintenance-pm-and-breakdown-response.html">SOP-503</a> Bảo trì - Tooling, PM &amp; Ứng phó sự cố.</li>
+  <li>Operator không được reset alarm lặp lại nhiều lần để tiếp tục chạy nếu chưa rõ nguyên nhân; alarm lặp là dữ liệu điều tra, không phải chướng ngại cần xóa bỏ.</li>
+  <li>Downtime vì thiếu tool, thiếu material, thiếu QA slot hoặc shortage khác vẫn phải được mã hóa rõ để dữ liệu OEE và planning đúng bản chất.</li>
+</ul>
+
+<h3 class="h3">5.8 Scrap, rework và cách ly tại máy</h3><ul>
+  <li>Phát hiện scrap hoặc nghi ngờ nonconforming <b>PHẢI</b> cách ly ngay tại máy, nhận dạng rõ lot/job/op, số lượng nghi ngờ và mốc last known good.</li>
+  <li>Rework tại máy chỉ được thực hiện khi có disposition rõ từ QA/Engineering; không tự ý “đánh lại cho đẹp” hoặc thay đổi toolpath mà chưa có chấp thuận.</li>
+  <li>Sau rework, sản phẩm <b>PHẢI</b> được kiểm lại trên đặc tính bị ảnh hưởng và record phải chỉ ra đây là sản phẩm sau rework.</li>
+  <li>Scrap/rework quantity <b>PHẢI</b> nhập theo job để phục vụ job costing và phân tích recurrence.</li>
+</ul>
+
+<h3 class="h3">5.9 Bàn giao ca và safe restart</h3><ul>
+  <li>Bàn giao ca <b>PHẢI</b> dùng <a href="../../../04-Bieu-Mau/05-FRM-500/frm-504-shift-handover-log.html">FRM-504</a> Nhật ký bàn giao ca và ghi: machine status, program đang chạy, tool critical đang dùng, offset note, last checked piece, shortage/hold, việc còn lại.</li>
+  <li>Restart giữa chương trình chỉ được phép khi operator xác nhận đúng safe state và đọc lại đoạn chương trình sẽ chạy; với 5-axis, mill-turn hoặc phần transfer/parting, Shift Leader nên verify trực tiếp.</li>
+  <li>Nếu người nhận ca không nắm chắc trạng thái, job <b>PHẢI</b> lùi về bước verify chứ không được tiếp tục dựa trên suy đoán.</li>
+  <li>Quick card vận hành tại máy <b>NÊN</b> treo theo <a href="../../02-Work-Instructions/05-WI-500/wi-516-machine-operation-quick-card.html">WI-516</a> Hướng dẫn vận hành máy nhanh.</li>
+</ul>
+
+<h3 class="h3">5.10 Digital monitoring và predictive quality triggers</h3><ul>
+  <li>Nguồn dữ liệu được phép gồm: controller log, spindle load, vibration, spindle/bearing temperature, coolant pressure/flow, cycle time, tool life counter và số lần sửa offset.</li>
+  <li>Các trigger tối thiểu nên cài đặt hoặc rà soát theo ca: tải spindle tăng dần qua nhiều chi tiết; rung tăng đột ngột; cycle time dài hơn baseline; nhiệt tăng nhanh; offset cùng hướng được chỉnh lặp; alarm cùng code lặp trong ngày.</li>
+  <li>Khi trigger xảy ra, Shift Leader <b>PHẢI</b> quyết định một trong các phản ứng: tăng tần suất kiểm, thay tool sớm, giữ batch nhỏ, gọi Maintenance, gọi QA, hoặc dừng máy để xác nhận.</li>
+  <li>Record trigger <b>PHẢI</b> gắn với job/part/machine để phục vụ phân tích tương quan giữa tín hiệu máy và lỗi chất lượng.</li>
+</ul>
+
+<div class="table-card"><table class="table"><thead><tr><th>Trigger</th><th>Ví dụ dấu hiệu</th><th>Phản ứng</th></tr></thead><tbody><tr><td>Load trend</td><td>Spindle load tăng dần qua 5-10 pcs</td><td>Inspect tool / giữ 100% kiểm đặc tính chịu ảnh hưởng</td></tr><tr><td>Vibration spike</td><td>Rung tăng đột ngột sau thay dao hoặc sau restart</td><td>Dừng tại safe point, kiểm holder/fixture/runout</td></tr><tr><td>Thermal rise</td><td>Temp hoặc Delta T tăng nhanh trong ca</td><td>Tăng kiểm CTQ, xem lại warm-up, cân nhắc tạm dừng</td></tr><tr><td>Cycle time drift</td><td>Chu kỳ dài hơn baseline không giải thích được</td><td>Kiểm phoi, coolant, tool wear, pause flags</td></tr><tr><td>Offset corrections repeated</td><td>Sửa cùng chiều nhiều lần</td><td>Gọi QC/Engineering, xem như drift</td></tr></tbody></table></div>
+
+<h3 class="h3">5.11 Stop-the-line bắt buộc</h3><ul>
+  <li>Sai revision giữa traveler, setup sheet, program, tool list hoặc inspection note.</li>
+  <li>Thiếu release first piece hoặc first piece fail.</li>
+  <li>Không có gage/fixture verify cho CTQ.</li>
+  <li>Crash, rung bất thường, alarm trục/spindle lặp, mất kẹp, tool gãy hoặc suspect shift của WCS.</li>
+  <li>Dấu hiệu xước bề mặt chức năng, burr không kiểm soát, contamination/FOD trên chi tiết bán dẫn.</li>
+</ul>
+
+<h2 class="h2">6. Biểu mẫu liên quan</h2><ul>
+  <li><a href="../../../04-Bieu-Mau/05-FRM-500/frm-511-setup-and-first-piece-record.html">FRM-511</a> Phiếu Setup &amp; First Piece</li>
+  <li><a href="../../../04-Bieu-Mau/05-FRM-500/frm-512-downtime-log.html">FRM-512</a> Nhật ký Downtime</li>
+  <li><a href="../../../04-Bieu-Mau/05-FRM-500/frm-513-tool-life-log.html">FRM-513</a> Nhật ký Tool Life</li>
+  <li><a href="../../../04-Bieu-Mau/05-FRM-500/frm-514-smed-changeover-sheet.html">FRM-514</a> SMED</li>
+  <li><a href="../../../04-Bieu-Mau/05-FRM-500/frm-504-shift-handover-log.html">FRM-504</a> Nhật ký bàn giao ca</li>
+</ul>
+
+<h2 class="h2">7. Tài liệu liên quan</h2><ul>
+  <li><a href="sop-501-production-planning-scheduling-and-dispatch-control.html">SOP-501</a> Lập kế hoạch sản xuất, Lịch trình &amp; Kiểm soát Dispatch</li>
+  <li><a href="sop-503-tooling-maintenance-pm-and-breakdown-response.html">SOP-503</a> Bảo trì - Tooling, PM &amp; Ứng phó sự cố</li>
+  <li><a href="../03-SOP-300/sop-302-first-article-inspection-fai.html">SOP-302</a> Kiểm tra sản phẩm đầu tiên - FAI</li>
+  <li><a href="../../02-Work-Instructions/05-WI-500/wi-511-machine-type-quick-reference.html">WI-511</a> Bảng tra nhanh loại máy CNC</li>
+  <li><a href="../../02-Work-Instructions/05-WI-500/wi-512-3-axis-vertical-milling-guide.html">WI-512</a> Hướng dẫn phay đứng 3 trục</li>
+  <li><a href="../../02-Work-Instructions/05-WI-500/wi-513-5-axis-milling-guide.html">WI-513</a> Hướng dẫn phay 5 trục</li>
+  <li><a href="../../02-Work-Instructions/05-WI-500/wi-514-cnc-turning-guide.html">WI-514</a> Hướng dẫn tiện CNC</li>
+  <li><a href="../../02-Work-Instructions/05-WI-500/wi-515-mill-turn-guide.html">WI-515</a> Hướng dẫn Mill-Turn</li>
+  <li><a href="../../02-Work-Instructions/05-WI-500/wi-516-machine-operation-quick-card.html">WI-516</a> Hướng dẫn vận hành máy nhanh</li>
+  <li>SOP-604 SPC / OOC / Reaction Plan (ngoài - workstream B)</li>
+</ul>
+
+</div></div>
+
+</div></div></div>
+</body>
+</html>
+
+

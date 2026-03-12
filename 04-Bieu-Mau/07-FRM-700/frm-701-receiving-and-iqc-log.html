@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FRM-701 — Receiving and IQC Log | HESEM QMS</title>
+<link href="../../assets/style.css" rel="stylesheet"/>
+
+<style>
+/* ═══ PAGE BREAK & OVERFLOW FIX (auto-applied) ═══ */
+@media print {
+ .card, .table-card, .callout, .note, .box, .iso-map,
+ .preface-block, .form-sheet, .lane, .legend, .req, .vstep {
+ page-break-inside: avoid;
+ break-inside: avoid;
+ }
+ h1, h2, h3, .h1, .h2, .h3 {
+ page-break-after: avoid;
+ break-after: avoid;
+ }
+ .form-header { page-break-inside: avoid; break-inside: avoid; }
+ .sig-row, .sign-row, .approval-row { page-break-inside: avoid; break-inside: avoid; }
+ tr { page-break-inside: avoid; break-inside: avoid; }
+ thead { display: table-header-group; }
+ tfoot { display: table-footer-group; }
+ p { orphans: 3; widows: 3; }
+ .table-card { overflow: visible !important; }
+}
+.page-body { overflow-x: hidden; }
+.table-card, .table-block, .table-wrap { overflow-x: auto; max-width: 100%; }
+table { max-width: 100%; table-layout: auto; }
+td, th { max-width: 420px; overflow-wrap: break-word; word-wrap: break-word; }
+</style>
+
+</head>
+<body>
+<div class="container">
+  <div class="page landscape">
+    <div class="page-body">
+<div class="form-header">
+<div class="fh-left">
+  <a class="brand-logo" href="../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+  <div class="fh-company">
+    <a href="../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+    <span>Tài liệu kiểm soát</span>
+  </div>
+</div>
+<div class="title">
+  <strong>FRM-701 — Receiving and IQC Log</strong>
+  <span class="sub-vn"></span>
+</div>
+<div class="meta">
+  <div class="row"><span><b>Mã:</b></span><span>FRM-701</span></div>
+  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+  <div class="row"><span><b>Chủ sở hữu:</b></span><span>Warehouse</span></div>
+  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+</div>
+</div>
+<div class="doc-content" id="docContent">
+        <div class="form-sheet">
+          <h2 class="h2">Thông tin nhận hàng</h2>
+<div class="table-card"><table class="form-table"><tr><th style='width:22%'>Ngày/giờ nhận</th><td><div class="input" style="min-height:30px"></div></td><th style='width:22%'>Supplier / Khách gửi</th><td><div class="input" style="min-height:30px"></div></td></tr><tr><th style='width:22%'>PO / Job</th><td><div class="input" style="min-height:30px"></div></td><th style='width:22%'>Packing list / AWB</th><td><div class="input" style="min-height:30px"></div></td></tr><tr><th style='width:22%'>Số kiện</th><td><div class="input" style="min-height:30px"></div></td><th style='width:22%'>Người nhận</th><td><div class="input" style="min-height:30px"></div></td></tr><tr><th style='width:22%'>Loại hàng</th><td><span class='chk'></span>Raw material &nbsp; <span class='chk'></span>Outsource return &nbsp; <span class='chk'></span>Customer supplied &nbsp; <span class='chk'></span>Packaging</td><th style='width:22%'>Tình trạng kiện</th><td><span class='chk'></span>OK &nbsp; <span class='chk'></span>Móp/rách &nbsp; <span class='chk'></span>Ướt &nbsp; <span class='chk'></span>Seal hở</td></tr></table></div>
+<h2 class="h2">Kiểm hồ sơ / chứng từ</h2>
+<div class="table-card"><table class="table">
+<thead><tr><th>#</th><th>Hạng mục kiểm</th><th>OK</th><th>NG/HOLD</th><th>Ghi chú</th></tr></thead>
+<tbody><tr><td>1</td><td>PO / Job / PN / Revision khớp</td><td><span class='chk'></span></td><td><span class='chk'></span></td><td><div class="input" style="min-height:30px"></div></td></tr><tr><td>2</td><td>Qty khớp packing list</td><td><span class='chk'></span></td><td><span class='chk'></span></td><td><div class="input" style="min-height:30px"></div></td></tr><tr><td>3</td><td>Có material cert / COC khi áp dụng</td><td><span class='chk'></span></td><td><span class='chk'></span></td><td><div class="input" style="min-height:30px"></div></td></tr><tr><td>4</td><td>Lot / heat / serial có thể truy vết</td><td><span class='chk'></span></td><td><span class='chk'></span></td><td><div class="input" style="min-height:30px"></div></td></tr><tr><td>5</td><td>Không có dấu hiệu hư hại bao gói ảnh hưởng part</td><td><span class='chk'></span></td><td><span class='chk'></span></td><td><div class="input" style="min-height:30px"></div></td></tr></tbody></table></div>
+<h2 class="h2">Chi tiết lô / IQC</h2>
+<div class="table-card"><table class="table">
+<thead><tr><th>#</th><th>PN / Mô tả</th><th>Revision / Spec</th><th>Lot/Heat/Serial</th><th>Qty</th><th>Kết quả IQC</th><th>Disposition</th><th>Vị trí</th></tr></thead>
+<tbody><tr><td>1</td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><span class='chk'></span>PASS &nbsp; <span class='chk'></span>HOLD &nbsp; <span class='chk'></span>NG</td><td><div class="input" style="min-height:30px"></div></td></tr><tr><td>2</td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><span class='chk'></span>PASS &nbsp; <span class='chk'></span>HOLD &nbsp; <span class='chk'></span>NG</td><td><div class="input" style="min-height:30px"></div></td></tr><tr><td>3</td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><span class='chk'></span>PASS &nbsp; <span class='chk'></span>HOLD &nbsp; <span class='chk'></span>NG</td><td><div class="input" style="min-height:30px"></div></td></tr><tr><td>4</td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><span class='chk'></span>PASS &nbsp; <span class='chk'></span>HOLD &nbsp; <span class='chk'></span>NG</td><td><div class="input" style="min-height:30px"></div></td></tr><tr><td>5</td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><span class='chk'></span>PASS &nbsp; <span class='chk'></span>HOLD &nbsp; <span class='chk'></span>NG</td><td><div class="input" style="min-height:30px"></div></td></tr><tr><td>6</td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><span class='chk'></span>PASS &nbsp; <span class='chk'></span>HOLD &nbsp; <span class='chk'></span>NG</td><td><div class="input" style="min-height:30px"></div></td></tr><tr><td>7</td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><span class='chk'></span>PASS &nbsp; <span class='chk'></span>HOLD &nbsp; <span class='chk'></span>NG</td><td><div class="input" style="min-height:30px"></div></td></tr><tr><td>8</td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><div class="input" style="min-height:30px"></div></td><td><span class='chk'></span>PASS &nbsp; <span class='chk'></span>HOLD &nbsp; <span class='chk'></span>NG</td><td><div class="input" style="min-height:30px"></div></td></tr></tbody></table></div>
+<h2 class="h2">Ghi chú / hành động</h2>
+<div class="table-card"><table class="form-table"><tr><th style='width:22%'>Thiếu / lệch</th><td><div class="input" style="min-height:52px"></div></td><th style='width:22%'>Người xác nhận IQC</th><td><div class="input" style="min-height:30px"></div></td></tr><tr><th style='width:22%'>Hành động tiếp theo</th><td><div class="input" style="min-height:52px"></div></td><th style='width:22%'>Ngày hoàn tất</th><td><div class="input" style="min-height:30px"></div></td></tr></table></div>
+<h2 class="h2">Ký duyệt</h2>
+<div class="sig-row"><div><div class="muted small"><b>Người lập</b></div><div class="sig-box"></div></div><div><div class="muted small"><b>Rà soát</b></div><div class="sig-box"></div></div><div><div class="muted small"><b>Phê duyệt</b></div><div class="sig-box"></div></div></div><div class="annex-block">
+  <div class="annex-title">Footer</div>
+  <p class="muted">SOP chủ quản: <b>SOP-701</b> · Lưu hồ sơ theo SOP-104.</p>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

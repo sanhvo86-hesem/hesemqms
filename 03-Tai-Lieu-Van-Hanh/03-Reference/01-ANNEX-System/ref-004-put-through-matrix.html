@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>REF-004 — Put Through Matrix | HESEM QMS</title>
+<link href="../../../assets/style.css" rel="stylesheet"/>
+<style>
+/* PAGE BREAK & OVERFLOW FIX */
+@media print {
+ .card, .table-card, .callout, .note, .box, .iso-map,
+ .preface-block, .form-sheet, .lane, .legend, .req, .vstep, .auth-grid {
+ page-break-inside: avoid;
+ break-inside: avoid;
+ }
+ h1, h2, h3, .h1, .h2, .h3 {
+ page-break-after: avoid;
+ break-after: avoid;
+ }
+ .form-header { page-break-inside: avoid; break-inside: avoid; }
+ tr { page-break-inside: avoid; break-inside: avoid; }
+ thead { display: table-header-group; }
+ tfoot { display: table-footer-group; }
+ p { orphans: 3; widows: 3; }
+ .table-card { overflow: visible !important; }
+}
+.page-body { overflow-x: hidden; }
+.table-card, .table-block, .table-wrap { overflow-x: auto; max-width: 100%; }
+table { max-width: 100%; table-layout: auto; }
+td, th { max-width: 420px; overflow-wrap: break-word; word-wrap: break-word; }
+.role-code {font-family: var(--mono); font-size: 11px; background: var(--bg3); padding: 2px 6px; border-radius: 5px;}
+.raci-cell {text-align:center; font-weight:700; width:34px; min-width:34px; padding:6px 4px !important;}
+.raci-A {background:#fff5f5; color:#c92a2a;}
+.raci-R {background:#e7f5ff; color:#1864ab;}
+.raci-C {background:#fff9db; color:#e67700;}
+.raci-I {background:#ebfbee; color:#2b8a3e;}
+.portal-grid {display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:16px;}
+.portal-card {background:var(--bg); border:1px solid var(--ln); border-radius:var(--r); padding:18px;}
+.portal-card h3 {font-size:14px; color:var(--navy); margin:0 0 8px;}
+.doc-link-list {list-style:none; margin:0; padding:0;}
+.doc-link-list li {padding:6px 0 6px 16px; position:relative;}
+.doc-link-list li:before {content:"•"; position:absolute; left:0; color:var(--blue);}
+.inline-tag {display:inline-block;padding:3px 8px;border:1px solid var(--ln);border-radius:999px;font-size:10px;font-weight:700;background:var(--bg2);margin-right:6px;margin-bottom:6px;}
+.svg-wrap {background:var(--bg); border:1px solid var(--ln); border-radius:var(--r); padding:16px; overflow:auto;}
+.nav-toc a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;margin:6px 0;background:var(--bg);}
+kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--ln);padding:2px 5px;border-radius:4px;background:#fff;}
+
+</style>
+
+</head>
+<body>
+<div class="container">
+  <div class="page">
+    <div class="page-body">
+<div class="form-header">
+<div class="fh-left">
+  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+  <div class="fh-company">
+    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+    <span>Tài liệu kiểm soát</span>
+  </div>
+</div>
+<div class="title">
+  <strong>REF-004 — Put Through Matrix</strong>
+  <span class="sub-vn"></span>
+</div>
+<div class="meta">
+  <div class="row"><span><b>Mã:</b></span><span>REF-004</span></div>
+  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+  <div class="row"><span><b>Chủ sở hữu:</b></span><span>QA/QMS</span></div>
+  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+</div>
+</div>
+<div class="doc-content" id="docContent">
+        <div class="form-sheet">
+
+<div class="iso-map">
+  <div class="iso-title">Put-Through</div>
+  <div class="req"><span class="req-tag shall">PHẢI</span><div>Bất kỳ dòng nghiệp vụ nào được chọn để audit đều phải truy được theo chuỗi ISO / SOP → Form → Record. Không có record thì xem như chưa hoàn thành bước kiểm soát.</div></div>
+</div>
+<h2 class="h2">1. Bảng tra Put-Through</h2>
+<div class="table-card"><table class="table"><thead><tr><th>Dòng nghiệp vụ</th><th>Clause</th><th>SOP</th><th>Form điển hình</th><th>Record mong đợi</th></tr></thead><tbody><tr><td>RFQ / Contract Review</td><td>8.2</td><td>SOP-201, SOP-301</td><td>Quotation package, contract review checklist</td><td>Order file / quote record</td></tr><tr><td>Supplier approval &amp; receiving</td><td>8.4, 8.5.4</td><td>SOP-401, SOP-402, SOP-701</td><td>Receiving log, cert packet, location / status label</td><td>Incoming lot record / IQC evidence</td></tr><tr><td>First piece / process setup</td><td>8.1, 8.5.1</td><td>SOP-301, SOP-302, SOP-502</td><td>Setup sheet, first piece record</td><td>Traveler + FAI / first piece record</td></tr><tr><td>In-process control</td><td>9.1</td><td>SOP-602, SOP-603, SOP-604</td><td>GRR study, AQL record, SPC log</td><td>Inspection record / chart / hold log</td></tr><tr><td>Final inspection &amp; ship release</td><td>8.6</td><td>SOP-605, SOP-701</td><td>Final inspection report, CoC register, ship checklist</td><td>Shipment dossier</td></tr><tr><td>NCR / CAPA / improvement</td><td>8.7, 10.2, 10.3</td><td>SOP-606, SOP-903</td><td>NCR, CAPA/8D, A3/PDCA</td><td>Closed action evidence</td></tr></tbody></table></div>
+<h2 class="h2">2. Cách dùng trong audit</h2>
+<div class="card">
+  <ol>
+    <li>Chọn 1 đơn hàng hoặc 1 lot vật tư.</li>
+    <li>Truy từ clause / yêu cầu audit sang SOP điều khiển.</li>
+    <li>Mở Form phải dùng cho công đoạn đó.</li>
+    <li>Kiểm record thực tế tại M365 / Epicor / file hiện trường.</li>
+    <li>Ghi chênh lệch nếu chuỗi bị đứt.</li>
+  </ol>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sales And Customer Service — Department Handbook | HESEM QMS</title>
+<link href="../../../assets/style.css" rel="stylesheet"/>
+<style>
+/* PAGE BREAK & OVERFLOW FIX */
+@media print {
+ .card, .table-card, .callout, .note, .box, .iso-map,
+ .preface-block, .form-sheet, .lane, .legend, .req, .vstep, .auth-grid {
+ page-break-inside: avoid;
+ break-inside: avoid;
+ }
+ h1, h2, h3, .h1, .h2, .h3 {
+ page-break-after: avoid;
+ break-after: avoid;
+ }
+ .form-header { page-break-inside: avoid; break-inside: avoid; }
+ tr { page-break-inside: avoid; break-inside: avoid; }
+ thead { display: table-header-group; }
+ tfoot { display: table-footer-group; }
+ p { orphans: 3; widows: 3; }
+ .table-card { overflow: visible !important; }
+}
+.page-body { overflow-x: hidden; }
+.table-card, .table-block, .table-wrap { overflow-x: auto; max-width: 100%; }
+table { max-width: 100%; table-layout: auto; }
+td, th { max-width: 420px; overflow-wrap: break-word; word-wrap: break-word; }
+.role-code {font-family: var(--mono); font-size: 11px; background: var(--bg3); padding: 2px 6px; border-radius: 5px;}
+.raci-cell {text-align:center; font-weight:700; width:34px; min-width:34px; padding:6px 4px !important;}
+.raci-A {background:#fff5f5; color:#c92a2a;}
+.raci-R {background:#e7f5ff; color:#1864ab;}
+.raci-C {background:#fff9db; color:#e67700;}
+.raci-I {background:#ebfbee; color:#2b8a3e;}
+.portal-grid {display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:16px;}
+.portal-card {background:var(--bg); border:1px solid var(--ln); border-radius:var(--r); padding:18px;}
+.portal-card h3 {font-size:14px; color:var(--navy); margin:0 0 8px;}
+.doc-link-list {list-style:none; margin:0; padding:0;}
+.doc-link-list li {padding:6px 0 6px 16px; position:relative;}
+.doc-link-list li:before {content:"•"; position:absolute; left:0; color:var(--blue);}
+.inline-tag {display:inline-block;padding:3px 8px;border:1px solid var(--ln);border-radius:999px;font-size:10px;font-weight:700;background:var(--bg2);margin-right:6px;margin-bottom:6px;}
+.svg-wrap {background:var(--bg); border:1px solid var(--ln); border-radius:var(--r); padding:16px; overflow:auto;}
+.nav-toc a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;margin:6px 0;background:var(--bg);}
+kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--ln);padding:2px 5px;border-radius:4px;background:#fff;}
+
+</style>
+
+</head>
+<body>
+<div class="container">
+  <div class="page">
+    <div class="page-body">
+<div class="form-header">
+<div class="fh-left">
+  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+  <div class="fh-company">
+    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+    <span>Tài liệu kiểm soát</span>
+  </div>
+</div>
+<div class="title">
+  <strong>Sales And Customer Service — Department Handbook</strong>
+  <span class="sub-vn"></span>
+</div>
+<div class="meta">
+  <div class="row"><span><b>Mã:</b></span><span>DEPT-SALES-AND-CUSTOMER-SERVICE-HANDBOOK</span></div>
+  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+  <div class="row"><span><b>Chủ sở hữu:</b></span><span>HR</span></div>
+  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+</div>
+</div>
+<div class="doc-content" id="docContent">
+        <div class="form-sheet">
+
+<div class="iso-map">
+  <div class="iso-title">Department control intent</div>
+  <div class="req"><span class="req-tag shall">PHẢI</span><div>Phòng ban PHẢI vận hành theo output của JD phòng ban, SOP đang hiệu lực và các gate hold / release có liên quan.</div></div>
+  <div class="req"><span class="req-tag should">NÊN</span><div>Các KPI trong sổ tay này NÊN được dùng thống nhất trong daily management và management review.</div></div>
+</div>
+<div class="preface-block">
+  <div class="grid-2">
+    <div>
+      <p><b>Vai trò thuộc phòng</b></p>
+      <div><span class="inline-tag">Estimator</span><span class="inline-tag">Customer Service</span></div>
+    </div>
+    <div>
+      <p><b>Mã tài liệu chính</b></p>
+      <div><span class="inline-tag">SOP-201</span><span class="inline-tag">SOP-202</span><span class="inline-tag">SOP-203</span><span class="inline-tag">SOP-107</span><span class="inline-tag">WI-601</span><span class="inline-tag">FRM-641</span><span class="inline-tag">FRM-642</span><span class="inline-tag">FRM-651</span><span class="inline-tag">FRM-654</span></div>
+    </div>
+  </div>
+</div>
+<h2 class="h2">1. Mục tiêu phòng ban</h2><p>Quản trị đầu vào thương mại và dịch vụ khách hàng; bảo đảm báo giá đúng năng lực, đơn hàng đúng revision/CSR, thông tin xuyên suốt và chứng từ khách hàng chính xác.</p>
+<h2 class="h2">2. Phạm vi</h2><p>RFQ, báo giá, contract review, order acknowledgement, quản trị thay đổi PO, quản trị yêu cầu chứng từ/nhãn, điều phối thông tin tiến độ, điều phối phản hồi complaint theo tuyến thương mại.</p>
+<h2 class="h2">3. Trách nhiệm bắt buộc</h2><ul><li>Thiết lập hồ sơ yêu cầu khách hàng theo PN–Revision–PO line: bản vẽ, spec, yêu cầu đo/CMM, yêu cầu hồ sơ, yêu cầu đóng gói/nhãn, yêu cầu truy vết lot/serial.</li><li>Quản trị RFQ/Quotation theo job order: khóa giả định, điều kiện loại trừ, lead time, MOQ khi áp dụng.</li><li>Thực hiện contract review thương mại trước khi xác nhận đơn: kiểm khớp báo giá–PO–CSR–revision.</li><li>Phát hành order acknowledgement; quản change request của khách và phát hành thông báo thay đổi nội bộ.</li><li>Là đầu mối giao tiếp khách hàng hằng ngày: tiến độ, lịch ship, chứng từ, portal update (nếu có).</li><li>Điều phối chứng từ giao hàng: yêu cầu COC/COA, packing list, label, PO reference, ship instruction; kiểm đồng nhất dữ liệu trước ship.</li><li>Tiếp nhận complaint tuyến thương mại; thu thập dữ liệu PO/ship/lot/job, chuyển Quality xử lý kỹ thuật và theo dõi deadline phản hồi.</li></ul>
+<h2 class="h2">4. Quyền hạn</h2><ul><li>Từ chối xác nhận PO/đổi revision nếu thiếu dữ liệu hoặc không có xác nhận văn bản.</li><li>Khóa revision và CSR trong hồ sơ đơn hàng; chỉ mở khi có thay đổi được phê duyệt.</li></ul>
+<h2 class="h2">5. Đầu ra bắt buộc</h2><p>RFQ log, quotation package, contract review checklist, order acknowledgement, order change log, customer communication log, shipping doc request package, complaint log (tuyến thương mại).</p>
+<h2 class="h2">6. KPI</h2><p>Độ chính xác báo giá, lỗi sai revision/PO line, lỗi chứng từ, thời gian phản hồi RFQ/PO, OTD theo khách.</p>
+<h2 class="h2">7. Giao diện phòng ban</h2>
+<div class="table-card"><table class="table">
+<thead><tr><th>Điểm giao tiếp</th><th>Nhận từ</th><th>Giao cho</th><th>Chứng từ / record đi kèm</th></tr></thead>
+<tbody>
+<tr><td>Thông tin đầu vào / yêu cầu</td><td>Phòng liền trước theo RFQ → Ship</td><td>Phòng ban này</td><td>PO, revision, traveler, WI/NC, checklist, release record</td></tr>
+<tr><td>Escalation bất thường</td><td>Nhân sự hiện trường / owner job</td><td>Trưởng phòng / QA Manager / CEO theo mức độ</td><td>NCR, hold log, incident log, action log</td></tr>
+<tr><td>Đầu ra bắt buộc</td><td>Phòng ban này</td><td>Phòng liền sau hoặc khách hàng nội bộ</td><td>Record đã ký, trạng thái system, nhãn, chứng từ ship, báo cáo KPI</td></tr>
+</tbody></table></div>
+<h2 class="h2">8. SOP / WI / Form liên quan</h2>
+<div class="table-card"><table class="table"><tbody><tr><th>SOP liên quan</th><td>SOP-201<br/>SOP-202<br/>SOP-203<br/>SOP-107</td></tr><tr><th>WI liên quan</th><td>WI-601</td></tr><tr><th>Biểu mẫu chính</th><td>FRM-641<br/>FRM-642<br/>FRM-651<br/>FRM-654</td></tr></tbody></table></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

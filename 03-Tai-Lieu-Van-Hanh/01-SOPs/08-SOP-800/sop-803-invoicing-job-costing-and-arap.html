@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SOP-803 — Invoicing Job Costing and AR AP | HESEM QMS</title>
+<link href="../../../assets/style.css" rel="stylesheet"/>
+
+<style>
+/* ═══ PAGE BREAK & OVERFLOW FIX (auto-applied) ═══ */
+@media print {
+ .card, .table-card, .callout, .note, .box, .iso-map,
+ .preface-block, .form-sheet, .lane, .legend, .req, .vstep {
+ page-break-inside: avoid;
+ break-inside: avoid;
+ }
+ h1, h2, h3, .h1, .h2, .h3 {
+ page-break-after: avoid;
+ break-after: avoid;
+ }
+ .form-header { page-break-inside: avoid; break-inside: avoid; }
+ .sig-row, .sign-row, .approval-row { page-break-inside: avoid; break-inside: avoid; }
+ tr { page-break-inside: avoid; break-inside: avoid; }
+ thead { display: table-header-group; }
+ tfoot { display: table-footer-group; }
+ p { orphans: 3; widows: 3; }
+ .table-card { overflow: visible !important; }
+}
+.page-body { overflow-x: hidden; }
+.table-card, .table-block, .table-wrap { overflow-x: auto; max-width: 100%; }
+table { max-width: 100%; table-layout: auto; }
+td, th { max-width: 420px; overflow-wrap: break-word; word-wrap: break-word; }
+</style>
+
+</head>
+<body>
+<div class="container">
+  <div class="page">
+    <div class="page-body">
+<div class="form-header">
+<div class="fh-left">
+  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+  <div class="fh-company">
+    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+    <span>Tài liệu kiểm soát</span>
+  </div>
+</div>
+<div class="title">
+  <strong>SOP-803 — Invoicing Job Costing and AR AP</strong>
+  <span class="sub-vn"></span>
+</div>
+<div class="meta">
+  <div class="row"><span><b>Mã:</b></span><span>SOP-803</span></div>
+  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+  <div class="row"><span><b>Chủ sở hữu:</b></span><span>HR/EHS</span></div>
+  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+</div>
+</div>
+<div class="doc-content" id="docContent">
+        <div class="form-sheet">
+          <div class="iso-map">
+  <div class="iso-title">ISO / Standard mapping</div>
+  <div class="small muted">Map điều khoản hoặc chuẩn kỹ thuật vào yêu cầu triển khai tại xưởng (Point-of-Use).</div>
+  <div class="req">
+  <span class="req-tag shall">PHẢI</span>
+  <div>Hóa đơn chỉ được phát hành trên cơ sở shipment đã release và bộ chứng từ giao hàng phù hợp; sai dữ liệu invoice PHẢI được khóa và sửa qua tuyến kiểm soát của Finance. <span class="iso-ref">Kế toán nội bộ / thuế</span></div>
+</div><div class="req">
+  <span class="req-tag shall">PHẢI</span>
+  <div>Job costing PHẢI tổng hợp labor, material, outsource, rework, scrap và COPQ theo từng Job Order để phục vụ review biên lợi nhuận. <span class="iso-ref">Internal control</span></div>
+</div><div class="req">
+  <span class="req-tag shall">PHẢI</span>
+  <div>Payroll package PHẢI được Finance Manager rà soát và trình <b>CEO / Tổng Giám đốc</b> phê duyệt trước khi chi trả. <span class="iso-ref">Internal control</span></div>
+</div><div class="req">
+  <span class="req-tag shall">PHẢI</span>
+  <div>Báo cáo quản trị ngày 15 PHẢI gồm ít nhất doanh thu, AR/AP aging, cashflow, biến động giá thành job, COPQ và các điểm cần hành động. <span class="iso-ref">Management reporting</span></div>
+</div><div class="req">
+  <span class="req-tag should">NÊN</span>
+  <div>Invoice request nên đối soát chéo PO line, part/job, shipment date và chứng từ QA để tránh credit note hoặc tranh chấp công nợ. <span class="iso-ref">Best practice</span></div>
+</div>
+</div><div class="preface-block">
+  <h2 class="h2">Điều kiện áp dụng và kiểm soát</h2>
+  <div class="grid-2">
+    <div>
+      <p><b>Nguồn dữ liệu đầu vào</b></p>
+      <ul><li>Shipment release và ship set đã hoàn tất từ kho/QA/customer service.</li><li>Dữ liệu labor, completion, scrap, rework, outsource từ các bộ phận liên quan.</li><li>AR/AP, bảng lương, chi phí phát sinh và chứng từ thuế.</li></ul>
+    </div>
+    <div>
+      <p><b>Đầu ra / hồ sơ</b></p>
+      <ul><li><b>Output:</b> FRM-821 phiếu yêu cầu hóa đơn, invoice, AR/AP aging, payroll package, report ngày 15.</li><li><b>Output:</b> báo cáo job costing và COPQ để hỗ trợ quyết định quản trị.</li></ul>
+    </div>
+  </div>
+  <p class="callout">Nguyên tắc: SOP này do Finance Manager sở hữu. Riêng bước duyệt payroll là bước phê duyệt điều hành của CEO, không thay đổi A tổng thể của SOP.</p>
+</div><h2 class="h2">1. Mục đích</h2>
+<p>Thiết lập luồng tài chính cho HESEM gồm yêu cầu hóa đơn, hạch toán công nợ, tập hợp giá thành theo Job Order, payroll và báo cáo quản trị định kỳ.</p>
+<h2 class="h2">2. Phạm vi</h2>
+<ul><li>Áp dụng cho Finance Manager, General Ledger & Payroll Accountant, AP/AR & Payments Accountant và các bộ phận cung cấp dữ liệu đầu vào.</li><li>Bao gồm invoice request, phát hành hóa đơn, AR/AP, payroll, job costing, COPQ và báo cáo quản trị ngày 15.</li></ul>
+<h2 class="h2">3. Thuật ngữ</h2>
+<div class="table-card"><table class="table">
+<thead><tr><th>Thuật ngữ</th><th>Diễn giải</th></tr></thead>
+<tbody><tr><td><b>Invoice request</b></td><td>Yêu cầu phát hành hóa đơn dựa trên shipment hoặc milestone được chấp nhận.</td></tr><tr><td><b>Job costing</b></td><td>Tập hợp và phân bổ chi phí theo Job Order để nhìn biên lợi nhuận thực tế.</td></tr><tr><td><b>COPQ</b></td><td>Cost of Poor Quality — chi phí scrap, rework, sorting, concession, return hoặc chi phí chất lượng xấu.</td></tr><tr><td><b>AR/AP</b></td><td>Accounts Receivable / Accounts Payable — phải thu / phải trả.</td></tr></tbody></table></div>
+<h2 class="h2">4. RACI</h2>
+<div class="table-card"><table class="table">
+<thead><tr><th>Hoạt động</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead>
+<tbody><tr><td>Tiếp nhận invoice request, kiểm ship set và phát hành hóa đơn</td><td>Finance Manager</td><td>Finance Manager</td><td>AP/AR & Payments Accountant; Customer Service; Logistics / Shipping Coordinator</td><td>CEO / Tổng Giám đốc</td></tr><tr><td>Theo dõi AR/AP, đối chiếu công nợ và thanh toán</td><td>Finance Manager</td><td>Finance Manager</td><td>AP/AR & Payments Accountant; General Ledger & Payroll Accountant</td><td>CEO / Tổng Giám đốc</td></tr><tr><td>Tập hợp job costing, review COPQ và biến động margin</td><td>Finance Manager</td><td>Finance Manager</td><td>Production Director; Quality Engineer; Supply Chain Manager</td><td>CEO / Tổng Giám đốc</td></tr><tr><td>Lập payroll package và trình CEO phê duyệt</td><td>Finance Manager</td><td>Finance Manager</td><td>HR Manager</td><td>CEO / Tổng Giám đốc</td></tr><tr><td>Phát hành báo cáo ngày 15</td><td>Finance Manager</td><td>Finance Manager</td><td>Production Director; CEO / Tổng Giám đốc</td><td>QA Manager</td></tr></tbody></table></div>
+<h2 class="h2">5. Luồng phát hành hóa đơn</h2>
+<div class="vflow"><div class="vstep"><div class="vnum">1</div><div class="vtext">Kho/Shipping và QA hoàn tất shipment release; Customer Service hoặc Finance lập FRM-821 nếu cần hóa đơn theo đợt ship/mốc thanh toán.</div></div><div class="vstep"><div class="vnum">2</div><div class="vtext">Finance kiểm PO line, customer name, tax info, shipment date, part/job, qty, đơn giá, điều kiện thanh toán và chứng từ đính kèm.</div></div><div class="vstep"><div class="vnum">3</div><div class="vtext">Nếu dữ liệu chưa khớp, Finance giữ trạng thái chờ và trả về bộ phận nguồn để sửa; không phát hành hóa đơn ước lượng thiếu bằng chứng.</div></div><div class="vstep"><div class="vnum">4</div><div class="vtext">Khi dữ liệu khớp, Finance phát hành invoice, gửi khách theo kênh quy định và lưu linkage giữa invoice - shipment - PO line.</div></div></div>
+<h2 class="h2">6. AR / AP và công nợ</h2>
+<ul><li>AR phải được theo dõi aging; quá hạn phải có người chịu trách nhiệm follow-up và lịch escalations.</li><li>AP chỉ thanh toán trên cơ sở chứng từ hợp lệ, đối chiếu PO / nhận hàng / invoice NCC theo nguyên tắc kiểm soát nội bộ.</li><li>Credit note, debit note, invoice adjustment PHẢI lưu vết người yêu cầu, lý do và tài liệu gốc.</li></ul>
+<h2 class="h2">7. Job costing, COPQ và review biên lợi nhuận</h2>
+<div class="table-card"><table class="table">
+<thead><tr><th>Nhóm chi phí</th><th>Nguồn dữ liệu</th></tr></thead>
+<tbody><tr><td>Labor / machine time</td><td>Báo cáo sản xuất, time entry, downtime có phân loại</td></tr><tr><td>Material / consumables</td><td>Xuất kho, vật tư, insert/tool tiêu hao theo job khi có</td></tr><tr><td>Outsource / logistics</td><td>PO, invoice NCC, chi phí shipping và chi phí đặc biệt liên quan job</td></tr><tr><td>Scrap / rework / concession</td><td>NCR, rework record, MRB, labor phụ trội, sorting</td></tr></tbody></table></div>
+<ul><li>Finance Manager rà soát job có variance lớn, margin thấp bất thường hoặc COPQ tăng. Kết quả review dùng cho pricing, CI và MR.</li><li>Khi dữ liệu sản xuất chưa đủ hoặc chưa đóng job, Finance phải nêu rõ giả định tạm thời trong report.</li></ul><h2 class="h2">8. Payroll</h2>
+<ul><li>HR cung cấp dữ liệu chấm công/OT; Production Director xác nhận OT sản xuất; Finance tổng hợp payroll package.</li><li>Finance Manager rà soát tính đầy đủ, các khoản phụ cấp/khấu trừ và trình CEO phê duyệt cuối cùng trước khi chi trả.</li><li>Mọi chỉnh sửa sau duyệt payroll phải có lý do, bằng chứng và phê duyệt lại theo ngưỡng nội bộ.</li></ul>
+<h2 class="h2">9. Báo cáo ngày 15 và tuân thủ thuế</h2>
+<ul><li>Báo cáo ngày 15 gửi CEO và Production Director tối thiểu gồm: doanh thu, phải thu/quá hạn, phải trả, cashflow, tình trạng giá thành job, COPQ, điểm rủi ro tài chính.</li><li>Finance quản hồ sơ thuế, giải trình cơ quan thuế và retention theo quy định hiện hành.</li></ul>
+<h2 class="h2">Biểu mẫu liên quan</h2>
+<ul><li>FRM-821 — Phiếu yêu cầu hóa đơn</li></ul>
+<h2 class="h2">Tài liệu liên quan</h2>
+<ul><li>SOP-701 — Kho vận — Nhận, Đóng gói, Xử lý & Bảo quản</li><li>SOP-901 — Đánh giá nội bộ & LPA</li><li>SOP-902 — Xem xét lãnh đạo</li></ul>
+<h2 class="h2">Ký duyệt</h2>
+<div class="sig-row"><div><div class="muted small"><b>Người lập</b></div><div class="sig-box"></div></div><div><div class="muted small"><b>Finance Manager</b></div><div class="sig-box"></div></div><div><div class="muted small"><b>Phê duyệt CEO (payroll theo bước riêng)</b></div><div class="sig-box"></div></div></div><div class="annex-block">
+  <div class="annex-title">Footer</div>
+  <p class="muted">SOP chủ quản: <b>SOP-803</b> · Lưu hồ sơ theo SOP-104.</p>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

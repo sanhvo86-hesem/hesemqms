@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WI-511 — Machine Type Quick Reference | HESEM QMS</title>
+<link href="../../../assets/style.css" rel="stylesheet"/>
+<style>
+/* === PAGE BREAK & OVERFLOW FIX (auto-applied) === */
+@media print {
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.vstep{page-break-inside:avoid;break-inside:avoid}
+  h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
+  .form-header,.sig-row,.sign-row{page-break-inside:avoid;break-inside:avoid}
+  tr{page-break-inside:avoid;break-inside:avoid}
+  thead{display:table-header-group}tfoot{display:table-footer-group}
+  p{orphans:3;widows:3}.table-card{overflow:visible!important}
+}
+.page-body{overflow-x:hidden}
+.table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
+table{max-width:100%;table-layout:auto}
+td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
+</style>
+</head>
+<body>
+<div class="container"><div class="page"><div class="page-body">
+<div class="form-header">
+<div class="fh-left">
+  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+  <div class="fh-company">
+    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+    <span>Tài liệu kiểm soát</span>
+  </div>
+</div>
+<div class="title">
+  <strong>WI-511 — Machine Type Quick Reference</strong>
+  <span class="sub-vn"></span>
+</div>
+<div class="meta">
+  <div class="row"><span><b>Mã:</b></span><span>WI-511</span></div>
+  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+  <div class="row"><span><b>Chủ sở hữu:</b></span><span>Production</span></div>
+  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+</div>
+</div>
+<div class="doc-content" id="docContent"><div class="form-sheet">
+
+<h2 class="h2">1. Mục đích</h2><p>Dùng khi routing part mới, đổi cell hoặc cần kiểm nhanh machine-family phù hợp với mức dung sai và bề mặt.</p>
+
+<h2 class="h2">2. PPE</h2><ul>
+  <li>Khi dùng trong văn phòng: không áp dụng PPE đặc biệt.</li>
+  <li>Khi xuống máy xác minh cell: kính và giày bảo hộ.</li>
+</ul>
+
+<h2 class="h2">3. Dụng cụ</h2><ul>
+  <li>Bản vẽ / spec / routing</li>
+  <li>Danh mục machine capability nội bộ</li>
+  <li>Thông tin năng lực CMM và đồ gá</li>
+</ul>
+
+<h2 class="h2">4. Các bước</h2><h3 class="h3">4.1 Bảng tra nhanh</h3><div class="table-card"><table class="table"><thead><tr><th>Loại máy</th><th>Capability chính</th><th>Precision class gợi ý</th><th>Linh kiện bán dẫn phù hợp</th><th>Lưu ý chọn máy</th></tr></thead><tbody><tr><td>VMC 3 trục</td><td>Pocket, face, drill, tapping, contour đơn giản; fixture ổn định</td><td>PC-3: ±0.020 đến ±0.025 mm</td><td>Bracket, cover, block, plate, manifold đơn giản</td><td>Ưu tiên khi datum đơn giản, ít side access, CTQ tập trung 1-2 mặt</td></tr><tr><td>5-axis</td><td>Multi-face, contour phức tạp, giảm số lần gá, kiểm soát tool reach</td><td>PC-1/PC-2: ±0.005 đến ±0.015 mm</td><td>Arm, complex manifold, body có nhiều mặt nghiêng/undercut</td><td>Chọn khi cần giữ tương quan nhiều mặt hoặc giảm stack-up do nhiều lần gá</td></tr><tr><td>CNC lathe</td><td>OD/ID turning, groove, thread, parting, live tool cơ bản</td><td>PC-2/PC-3: ±0.010 đến ±0.020 mm</td><td>Bushing, ring, nozzle body, shaft, fitting tròn xoay</td><td>Kiểm chặt runout, chuck jaw, chip control và parting</td></tr><tr><td>Mill-Turn</td><td>Turning + milling + drilling trên cùng lần gá, transfer/sub-spindle</td><td>PC-1/PC-2: ±0.005 đến ±0.015 mm</td><td>Spool, valve body nhỏ, connector body, part có feature quanh chu vi</td><td>Chọn khi cần giảm re-clamp và giữ đồng tâm/đồng vị trí giữa tiện - phay</td></tr></tbody></table></div>
+
+<h3 class="h3">4.2 Quy tắc chọn máy</h3><ul>
+  <li>Ưu tiên máy giữ được ít lần gá nhất mà vẫn đáp ứng tool access, độ cứng vững và khả năng đo kiểm.</li>
+  <li>Không đưa chi tiết yêu cầu ±0.005 mm hoặc surface critical lên máy chỉ phù hợp PC-3 nếu chưa có xác nhận từ Engineering/QA.</li>
+  <li>Xem thêm lead time setup, risk collision, availability của probe/tool setter, bar feeder, rotary calibration và năng lực người setup.</li>
+</ul>
+
+<h3 class="h3">4.3 Yêu cầu đặc thù bán dẫn</h3><ul>
+  <li>Dung sai thường nằm trong vùng ±0.005-0.025 mm và Ra 0.4-0.8 μm; việc chọn máy phải xem xét đồng thời nhiệt, rung, tool reach và khả năng bảo vệ bề mặt.</li>
+  <li>Chi tiết có bề mặt chức năng hoặc bề mặt wetted <b>PHẢI</b> ưu tiên máy và đồ gá giảm re-clamp, giảm dấu kẹp và giảm nguy cơ xước.</li>
+  <li>Khi chi tiết làm bằng stainless, aluminum sạch hoặc vật liệu dễ xước, cần xem xét riêng coolant cleanliness, chip evacuation và phương án bảo vệ sau gia công.</li>
+</ul>
+
+<h2 class="h2">5. Tiêu chí</h2><div class="table-card"><table class="table"><thead><tr><th>Tiêu chí</th><th>Đạt khi</th></tr></thead><tbody><tr><td>Chọn machine family</td><td>Machine đáp ứng capability, precision class và access của feature</td></tr><tr><td>Chọn setup owner</td><td>Ca làm việc có đủ Setup Technician/Operator phù hợp độ phức tạp</td></tr><tr><td>Rủi ro đã nhìn thấy</td><td>Collision, burr, thermal drift, chip evacuation và đo kiểm đã được tính</td></tr></tbody></table></div>
+
+<h2 class="h2">6. Xử lý bất thường</h2><ul>
+  <li>Không có máy phù hợp theo planning hiện tại: escalated Engineering + Production Director để đổi routing hoặc thương lượng lịch.</li>
+  <li>Machine available nhưng capability nghi ngờ: không gán tạm để “chạy thử”; yêu cầu review kỹ thuật trước.</li>
+  <li>Chi tiết thuộc part family mới: bắt buộc DFM/setup review trước khi release.</li>
+</ul>
+
+<h2 class="h2">7. SOP liên quan</h2><ul>
+  <li><a href="../../01-SOPs/03-SOP-300/sop-301-engineering-dfm-quoting-and-machining-planning.html">SOP-301</a> Kỹ thuật - DFM, Báo giá &amp; Lập kế hoạch gia công</li>
+  <li><a href="../../01-SOPs/05-SOP-500/sop-501-production-planning-scheduling-and-dispatch-control.html">SOP-501</a> Lập kế hoạch sản xuất, Lịch trình &amp; Kiểm soát Dispatch</li>
+  <li><a href="../../01-SOPs/05-SOP-500/sop-502-cnc-machining-operations.html">SOP-502</a> Vận hành gia công CNC</li>
+</ul>
+
+</div></div>
+
+</div></div></div>
+</body>
+</html>
+
+

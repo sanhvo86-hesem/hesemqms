@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SOP-603 — AQL Sampling Inspection | HESEM QMS</title>
+<link href="../../../assets/style.css" rel="stylesheet"/>
+<style>
+/* ═══ PAGE BREAK & OVERFLOW FIX (auto-applied) ═══ */
+@media print {
+ .card, .table-card, .callout, .note, .box, .iso-map,
+ .preface-block, .form-sheet, .lane, .legend, .req, .vstep {
+ page-break-inside: avoid;
+ break-inside: avoid;
+ }
+ h1, h2, h3, .h1, .h2, .h3 {
+ page-break-after: avoid;
+ break-after: avoid;
+ }
+ .form-header { page-break-inside: avoid; break-inside: avoid; }
+ .sig-row, .sign-row, .approval-row { page-break-inside: avoid; break-inside: avoid; }
+ tr { page-break-inside: avoid; break-inside: avoid; }
+ thead { display: table-header-group; }
+ tfoot { display: table-footer-group; }
+ p { orphans: 3; widows: 3; }
+ .table-card { overflow: visible !important; }
+}
+.page-body { overflow-x: hidden; }
+.table-card, .table-block, .table-wrap { overflow-x: auto; max-width: 100%; }
+table { max-width: 100%; table-layout: auto; }
+td, th { max-width: 420px; overflow-wrap: break-word; word-wrap: break-word; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="page">
+    <div class="page-body">
+<div class="form-header">
+<div class="fh-left">
+  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+  <div class="fh-company">
+    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+    <span>Tài liệu kiểm soát</span>
+  </div>
+</div>
+<div class="title">
+  <strong>SOP-603 — AQL Sampling Inspection</strong>
+  <span class="sub-vn"></span>
+</div>
+<div class="meta">
+  <div class="row"><span><b>Mã:</b></span><span>SOP-603</span></div>
+  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+  <div class="row"><span><b>Chủ sở hữu:</b></span><span>QA/QC</span></div>
+  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+</div>
+</div>
+<div class="doc-content" id="docContent">
+        <div class="form-sheet">
+          <div class="iso-map">
+  <div class="iso-title">ISO / Standard mapping</div>
+  <div class="small muted">Map điều khoản gắn trực tiếp vào yêu cầu triển khai tại xưởng (Point-of-Use). “PHẢI/NÊN/ĐƯỢC PHÉP” dùng nhất quán.</div>
+  <div class="req">
+  <span class="req-tag shall">PHẢI</span>
+  <div>Lấy mẫu kiểm tra PHẢI dựa trên kế hoạch xác định (sampling plan) và tiêu chí chấp nhận/loại theo AQL; không tự ý giảm mẫu khi chưa có phê duyệt. <span class="iso-ref">ISO 9001:2015 8.6</span></div>
+</div><div class="req">
+  <span class="req-tag shall">PHẢI</span>
+  <div>Gage dùng cho lấy mẫu PHẢI có hiệu chuẩn (SOP-601) và đạt MSA theo SOP-602 khi áp dụng cho CTQ/SPC. <span class="iso-ref">ISO 9001:2015 7.1.5</span></div>
+</div><div class="req">
+  <span class="req-tag shall">PHẢI</span>
+  <div>Áp dụng bảng lấy mẫu theo ISO 2859-1: lựa chọn inspection level, code letter, sample size và Ac/Re; tuân thủ switching rules. <span class="iso-ref">ISO 2859-1</span></div>
+</div><div class="req">
+  <span class="req-tag may">ĐƯỢC PHÉP</span>
+  <div>Khách hàng được phép override AQL/inspection level bằng văn bản (CSR/PO note). Khi override: PHẢI lưu bằng chứng trong job packet. <span class="iso-ref">Customer requirement</span></div>
+</div>
+</div>
+<div class="preface-block">
+  <h2 class="h2">Điều kiện áp dụng và kiểm soát</h2>
+  <div class="grid-2">
+    <div>
+      <p><b>ÁP DỤNG KHI</b></p>
+      <ul class="list"><li>Khi kiểm tra incoming/outgoing theo lô (lot) cho sản phẩm HMLV.</li><li>Khi áp dụng kiểm tra IPQC theo lô công đoạn (operation lot).</li><li>Khi khách hàng yêu cầu AQL hoặc xác suất phát hiện cụ thể (CSR).</li></ul>
+    </div>
+    <div>
+      <p><b>Đầu vào / Đầu ra</b></p>
+      <ul class="list"><li><b>Input:</b> Lot definition (PO line/job/operation), qty lô, phân loại đặc tính: CTQ/General/Visual.</li><li><b>Input:</b> AQL mục tiêu (mặc định HESEM hoặc theo KH), inspection level.</li><li><b>Output:</b> Kết quả Ac/Re, quyết định Accept/Reject lô và hành động tiếp theo.</li><li><b>Output:</b> FRM-621 + NCR/CAPA khi reject hoặc phát hiện NG nghiêm trọng.</li></ul>
+    </div>
+  </div>
+  <p class="callout"><b>Điều kiện tiên quyết:</b> Gage PHẢI có MSA (SOP-602) và hiệu chuẩn (SOP-601). Thiếu điều kiện: không được phép ra quyết định Accept/Reject.</p>
+</div>
+
+<h2 class="h2">1. Mục đích</h2>
+<p>Thiết lập lấy mẫu AQL theo ISO 2859-1 để ra quyết định <b>Accept/Reject</b> lô, kiểm soát rủi ro thoát lỗi và chuẩn hóa switching rules.</p>
+
+<h2 class="h2">2. Phạm vi</h2>
+<ul>
+  <li>Áp dụng cho IQC/OQC và các điểm kiểm theo lô trong sản xuất (nếu áp dụng).</li>
+  <li>Áp dụng cho đặc tính biến số và thuộc tính, bao gồm ngoại quan theo WI-601.</li>
+</ul>
+
+<h2 class="h2">3. Thuật ngữ</h2>
+<div class="table-card"><table class="table">
+<thead><tr><th>Thuật ngữ</th><th>Diễn giải áp dụng tại HESEM</th></tr></thead>
+<tbody><tr><td><b>Lot (Lô)</b></td><td>Tập hợp sản phẩm cùng PN/rev, cùng điều kiện sản xuất và được trình kiểm tra như một đơn vị quyết định.</td></tr><tr><td><b>AQL (Acceptable Quality Level)</b></td><td>Mức chất lượng chấp nhận. ISO 2859-1 dùng để chọn Ac/Re theo AQL và cỡ mẫu.</td></tr><tr><td><b>Inspection Level</b></td><td>Mức kiểm tra (General I/II/III hoặc Special S1–S4) ảnh hưởng code letter và sample size.</td></tr><tr><td><b>Ac/Re</b></td><td>Số lượng NG tối đa chấp nhận (Ac) và số lượng NG để loại (Re) trong cỡ mẫu.</td></tr><tr><td><b>Switching rules</b></td><td>Quy tắc chuyển Normal ↔ Tightened ↔ Reduced dựa trên lịch sử lô.</td></tr><tr><td><b>Defect class</b></td><td>Phân loại đặc tính: CTQ (AQL 0.65), General (AQL 1.0), Visual (AQL 2.5) hoặc theo KH.</td></tr></tbody></table></div>
+
+<h2 class="h2">4. RACI</h2>
+<div class="table-card"><table class="table">
+<thead><tr><th>Hoạt động</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead>
+<tbody><tr><td>Thiết lập/duy trì quy tắc AQL mặc định và template plan</td><td>Quality Engineer</td><td>QA Manager</td><td>Customer Service</td><td>QC Inspector/CMM; Production Director</td></tr><tr><td>Chọn lot, inspection level, code letter và sample size</td><td>Quality Engineer</td><td>QA Manager</td><td>Production Planner</td><td>QC Inspector/CMM</td></tr><tr><td>Thực hiện kiểm tra lấy mẫu và ghi FRM-621</td><td>QC Inspector/CMM</td><td>QA Manager</td><td>Quality Engineer</td><td>CNC Workshop Manager</td></tr><tr><td>Áp dụng switching rules và quyết định trạng thái lot (Accept/Reject/Screen)</td><td>Quality Engineer</td><td>QA Manager</td><td>Production Director</td><td>Supply Chain Manager; Customer Service</td></tr></tbody></table></div><h2 class="h2">5. Quy định mặc định HESEM</h2>
+<div class="table-card"><table class="table">
+<thead><tr><th>Nhóm đặc tính</th><th>AQL mặc định</th><th>Ghi chú</th></tr></thead>
+<tbody>
+<tr><td><b>CTQ</b></td><td><b>0.65</b></td><td>Áp dụng cho đặc tính ảnh hưởng fit/function/safety; KH có thể override bằng văn bản</td></tr>
+<tr><td><b>General</b></td><td><b>1.0</b></td><td>Áp dụng cho đặc tính không CTQ nhưng có dung sai kỹ thuật</td></tr>
+<tr><td><b>Visual</b></td><td><b>2.5</b></td><td>Áp dụng cho kiểm ngoại quan theo WI-601</td></tr>
+</tbody></table></div>
+
+<h2 class="h2">6. Quy trình lấy mẫu theo ISO 2859-1</h2>
+
+<h3 class="h3">6.1 Xác định lot và đặc tính kiểm</h3>
+<ul>
+  <li>Lot PHẢI được xác định rõ theo job packet: PN/rev, PO line, qty, operation (nếu IPQC theo công đoạn).</li>
+  <li>Quality Engineer PHẢI phân loại đặc tính: CTQ / General / Visual và xác định AQL tương ứng.</li>
+</ul>
+
+<h3 class="h3">6.2 Chọn inspection level</h3>
+<ul>
+  <li>Mặc định: <b>General Inspection Level II</b> cho OQC/IQC.</li>
+  <li><span class="req-tag may">ĐƯỢC PHÉP</span> dùng Level I hoặc Special (S1–S4) khi:
+    <ul>
+      <li>Lô nhỏ, rủi ro thấp, đặc tính không CTQ.</li>
+      <li>Kiểm tra phá hủy hoặc thời gian đo dài, có đánh giá rủi ro và phê duyệt QA Manager.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 class="h3">6.3 Tra bảng code letter và sample size</h3>
+<p>QC Inspector/CMM tra bảng ISO 2859-1 theo <b>lot size</b> và <b>inspection level</b> để lấy <b>code letter</b>, sau đó tra bảng sampling plan để xác định <b>sample size</b> và <b>Ac/Re</b> theo AQL.</p>
+<div class="note"><b>Quy tắc:</b> Không tự ý thay đổi code letter hoặc sample size. Nếu KH yêu cầu khác, PHẢI có bằng chứng (CSR/PO) trong job packet.</div>
+
+<h3 class="h3">6.4 Thực hiện kiểm tra và phán quyết Ac/Re</h3>
+<div class="vflow">
+  <div class="vstep"><div class="vnum">1</div><div class="vtext"><b>Lấy mẫu ngẫu nhiên</b> từ lô đã xác định; tránh lấy theo thứ tự đầu/cuối lô nếu có nguy cơ bias.</div></div>
+  <div class="vstep"><div class="vnum">2</div><div class="vtext"><b>Kiểm tra</b> theo kế hoạch: đo kích thước, ngoại quan (WI-601), và/hoặc test chức năng. Ghi FRM-621.</div></div>
+  <div class="vstep"><div class="vnum">3</div><div class="vtext"><b>Đếm NG</b> theo tiêu chí phân loại. So với Ac/Re của kế hoạch.</div></div>
+  <div class="vstep"><div class="vnum">4</div><div class="vtext"><b>Phán quyết</b>: NG ≤ Ac ⇒ <b>Accept</b> lô. NG ≥ Re ⇒ <b>Reject</b> lô.</div></div>
+</div>
+
+<h3 class="h3">6.5 Switching rules (Normal → Tightened → Reduced)</h3>
+<div class="table-card"><table class="table">
+<thead><tr><th>Trạng thái hiện tại</th><th>Điều kiện chuyển</th><th>Trạng thái mới</th></tr></thead>
+<tbody>
+<tr><td><b>Normal</b></td><td>Trong 5 lô liên tiếp: có <b>2 lô bị Reject</b> (theo cùng family/đặc tính)</td><td><b>Tightened</b></td></tr>
+<tr><td><b>Tightened</b></td><td>Có <b>5 lô liên tiếp Accept</b></td><td><b>Normal</b></td></tr>
+<tr><td><b>Normal</b></td><td>Có <b>10 lô liên tiếp Accept</b> <i>và</i> không có NCR major <i>và</i> QE xác nhận quá trình ổn định</td><td><b>Reduced</b></td></tr>
+<tr><td><b>Reduced</b></td><td>Bất kỳ lô nào Reject hoặc có cảnh báo quá trình (OOC) hoặc thay đổi lớn (machine/tool/method)</td><td><b>Normal</b></td></tr>
+</tbody></table></div>
+<p class="muted">Switching rules áp dụng theo ISO 2859-1; khi KH quy định khác thì ưu tiên yêu cầu KH và lưu bằng chứng.</p>
+
+<h3 class="h3">6.6 Disposition khi Reject</h3>
+<ul>
+  <li>QC Inspector/CMM PHẢI gắn trạng thái <b>HOLD</b> và cô lập lô.</li>
+  <li>Quality Engineer PHẢI mở NCR theo SOP-606 và đề xuất containment: 100% screening, rework, scrap hoặc return.</li>
+  <li>Chỉ được giải phóng lô sau khi (1) có disposition MRB được QA Manager phê duyệt và (2) kiểm tra lại đạt.</li>
+</ul>
+
+<h2 class="h2">Biểu mẫu liên quan</h2>
+<ul><li>FRM-621 — Phiếu kiểm tra AQL</li></ul>
+
+<h2 class="h2">Tài liệu liên quan</h2>
+<ul>
+  <li>SOP-601 — Hiệu chuẩn &amp; Kiểm soát Gage</li>
+  <li>SOP-602 — MSA / GR&amp;R</li>
+  <li>SOP-604 — SPC &amp; Năng lực</li>
+  <li>SOP-606 — NCR/CAPA</li>
+  <li>ISO 2859-1 — Sampling procedures for inspection by attributes</li>
+</ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

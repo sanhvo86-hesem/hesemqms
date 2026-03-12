@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ORG-AUTH-001 — Authority Matrix | HESEM QMS</title>
+<link href="../../../assets/style.css" rel="stylesheet"/>
+<style>
+/* PAGE BREAK & OVERFLOW FIX */
+@media print {
+ .card, .table-card, .callout, .note, .box, .iso-map,
+ .preface-block, .form-sheet, .lane, .legend, .req, .vstep, .auth-grid {
+ page-break-inside: avoid;
+ break-inside: avoid;
+ }
+ h1, h2, h3, .h1, .h2, .h3 {
+ page-break-after: avoid;
+ break-after: avoid;
+ }
+ .form-header { page-break-inside: avoid; break-inside: avoid; }
+ tr { page-break-inside: avoid; break-inside: avoid; }
+ thead { display: table-header-group; }
+ tfoot { display: table-footer-group; }
+ p { orphans: 3; widows: 3; }
+ .table-card { overflow: visible !important; }
+}
+.page-body { overflow-x: hidden; }
+.table-card, .table-block, .table-wrap { overflow-x: auto; max-width: 100%; }
+table { max-width: 100%; table-layout: auto; }
+td, th { max-width: 420px; overflow-wrap: break-word; word-wrap: break-word; }
+.role-code {font-family: var(--mono); font-size: 11px; background: var(--bg3); padding: 2px 6px; border-radius: 5px;}
+.raci-cell {text-align:center; font-weight:700; width:34px; min-width:34px; padding:6px 4px !important;}
+.raci-A {background:#fff5f5; color:#c92a2a;}
+.raci-R {background:#e7f5ff; color:#1864ab;}
+.raci-C {background:#fff9db; color:#e67700;}
+.raci-I {background:#ebfbee; color:#2b8a3e;}
+.portal-grid {display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:16px;}
+.portal-card {background:var(--bg); border:1px solid var(--ln); border-radius:var(--r); padding:18px;}
+.portal-card h3 {font-size:14px; color:var(--navy); margin:0 0 8px;}
+.doc-link-list {list-style:none; margin:0; padding:0;}
+.doc-link-list li {padding:6px 0 6px 16px; position:relative;}
+.doc-link-list li:before {content:"•"; position:absolute; left:0; color:var(--blue);}
+.inline-tag {display:inline-block;padding:3px 8px;border:1px solid var(--ln);border-radius:999px;font-size:10px;font-weight:700;background:var(--bg2);margin-right:6px;margin-bottom:6px;}
+.svg-wrap {background:var(--bg); border:1px solid var(--ln); border-radius:var(--r); padding:16px; overflow:auto;}
+.nav-toc a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;margin:6px 0;background:var(--bg);}
+kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--ln);padding:2px 5px;border-radius:4px;background:#fff;}
+
+</style>
+
+</head>
+<body>
+<div class="container">
+  <div class="page">
+    <div class="page-body">
+<div class="form-header">
+<div class="fh-left">
+  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+  <div class="fh-company">
+    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+    <span>Tài liệu kiểm soát</span>
+  </div>
+</div>
+<div class="title">
+  <strong>AUTHORITY-MATRIX — Authority Matrix</strong>
+  <span class="sub-vn"></span>
+</div>
+<div class="meta">
+  <div class="row"><span><b>Mã:</b></span><span>AUTHORITY-MATRIX</span></div>
+  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+  <div class="row"><span><b>Chủ sở hữu:</b></span><span>QA/QMS</span></div>
+  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+</div>
+</div>
+<div class="doc-content" id="docContent">
+        <div class="form-sheet">
+
+<div class="iso-map">
+  <div class="iso-title">Authority governance</div>
+  <div class="req"><span class="req-tag shall">PHẢI</span><div>Quyền phê duyệt và quyền thực hiện PHẢI tách bạch tại các điểm rủi ro cao: release xuất, NCR disposition, payroll và ngân sách.</div></div>
+  <div class="req"><span class="req-tag should">NÊN</span><div>Khi workflow điện tử được triển khai trên M365 / Power Automate, danh mục quyền trong ma trận này NÊN là nguồn cấu hình duy nhất (SSOT) cho routing và escalation.</div></div>
+</div>
+<h2 class="h2">1. Authority Matrix</h2>
+<div class="table-card"><table class="table">
+<thead><tr><th>Thẩm quyền</th><th>Phê duyệt</th><th>Đề xuất</th><th>Thực hiện</th><th>Được thông báo</th></tr></thead>
+<tbody>
+<tr><th>Phê duyệt tài liệu kiểm soát</th><td>QA Manager<br/>CEO cho tài liệu cấp công ty</td><td>QMS Engineer<br/>Process owner</td><td>QMS Engineer</td><td>Trưởng phòng liên quan</td></tr><tr><th>Disposition NCR / MRB</th><td>QA Manager</td><td>Quality Engineer<br/>Production Director / Engineering Lead khi cần phân tích</td><td>QC Inspector/CMM + bộ phận thực hiện rework/scrap</td><td>Customer Service<br/>Supply Chain Manager<br/>CEO khi major</td></tr><tr><th>Release xuất hàng</th><td>QA Manager</td><td>QC Inspector / CMM Programmer-Operator</td><td>Logistics / Shipping Coordinator</td><td>Customer Service<br/>Supply Chain Manager<br/>Production Director</td></tr><tr><th>Dừng sản xuất vì chất lượng</th><td>QA Manager<br/>Production Director</td><td>Quality Engineer<br/>Shift Leader</td><td>CNC Workshop Manager / Shift Leader</td><td>Customer Service<br/>Engineering Lead/Manager</td></tr><tr><th>Phê duyệt nhà cung cấp</th><td>Supply Chain Manager</td><td>Buyer / Purchasing<br/>Quality Engineer khi special process</td><td>Buyer / Purchasing</td><td>QA Manager<br/>Finance Manager</td></tr><tr><th>Ký hồ sơ đào tạo / chứng nhận</th><td>HR Manager<br/>QA Manager cho hồ sơ QMS</td><td>Trưởng phòng chuyên môn</td><td>HR Manager</td><td>CEO<br/>Finance Manager khi liên quan cost</td></tr><tr><th>Phê duyệt kế hoạch calibration</th><td>QA Manager</td><td>Quality Engineer</td><td>QC Inspector / CMM Programmer-Operator</td><td>QMS Engineer<br/>Supply Chain Manager</td></tr><tr><th>Ngân sách</th><td>CEO</td><td>Finance Manager<br/>Trưởng phòng</td><td>Finance Manager / AP-AR & Payments Accountant</td><td>QA Manager<br/>Production Director</td></tr><tr><th>Payroll</th><td>CEO</td><td>Finance Manager</td><td>General Ledger & Payroll Accountant</td><td>HR Manager</td></tr><tr><th>OT</th><td>Production Director / Trưởng phòng</td><td>Shift Leader / Trưởng bộ phận</td><td>HR Manager + General Ledger & Payroll Accountant</td><td>CEO<br/>Finance Manager</td></tr><tr><th>Dừng an toàn</th><td>EHS Specialist<br/>CEO cho dừng kéo dài / diện rộng</td><td>Bất kỳ người lao động / Shift Leader / Maintenance Technician</td><td>Quản lý khu vực + EHS Specialist</td><td>QA Manager<br/>HR Manager<br/>Production Director</td></tr>
+</tbody></table></div>
+<h2 class="h2">2. Quy tắc ràng buộc</h2>
+<ul>
+  <li>Không vai trò nào được tự phê duyệt hành động của chính mình tại các nghiệp vụ có tác động tài chính hoặc shipment release nếu SOP yêu cầu tách bạch.</li>
+  <li>Khi tình huống khẩn cấp đồng thời liên quan <b>chất lượng + an toàn</b>, quyền dừng tại hiện trường PHẢI ưu tiên EHS Specialist / QA Manager / Production Director; khôi phục chỉ sau khi điều kiện giải phóng đã được xác nhận.</li>
+  <li>Payroll là trường hợp ngoại lệ: Finance Manager quản trị nghiệp vụ nhưng phê duyệt cuối kỳ PHẢI là CEO theo JD và SOP-803.</li>
+</ul>
+<h2 class="h2">3. Liên kết SOP</h2>
+<div class="table-card"><table class="table">
+<thead><tr><th>Thẩm quyền</th><th>SOP liên quan</th></tr></thead>
+<tbody>
+<tr><td>Phê duyệt tài liệu</td><td>SOP-101, SOP-106, SOP-901</td></tr>
+<tr><td>Disposition NCR / MRB</td><td>SOP-606</td></tr>
+<tr><td>Release xuất</td><td>SOP-605, SOP-701</td></tr>
+<tr><td>Dừng sản xuất / Dừng an toàn</td><td>SOP-604, SOP-606, SOP-802</td></tr>
+<tr><td>Phê duyệt NCC</td><td>SOP-401</td></tr>
+<tr><td>Ký đào tạo</td><td>SOP-801</td></tr>
+<tr><td>Phê duyệt calibration</td><td>SOP-601</td></tr>
+<tr><td>Ngân sách / Payroll / OT</td><td>SOP-803</td></tr>
+</tbody></table></div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

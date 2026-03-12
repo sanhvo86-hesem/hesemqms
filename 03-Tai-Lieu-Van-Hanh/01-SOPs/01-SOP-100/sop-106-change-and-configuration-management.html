@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SOP-106 — Change and Configuration Management | HESEM QMS</title>
+<link href="../../../assets/style.css" rel="stylesheet"/>
+<style>
+/* === PAGE BREAK & OVERFLOW FIX (auto-applied) === */
+@media print {
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.vstep{page-break-inside:avoid;break-inside:avoid}
+  h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
+  .form-header,.sig-row,.sign-row{page-break-inside:avoid;break-inside:avoid}
+  tr{page-break-inside:avoid;break-inside:avoid}
+  thead{display:table-header-group}tfoot{display:table-footer-group}
+  p{orphans:3;widows:3}.table-card{overflow:visible!important}
+}
+.page-body{overflow-x:hidden}
+.table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
+table{max-width:100%;table-layout:auto}
+td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
+</style>
+</head>
+<body>
+<div class="container"><div class="page"><div class="page-body">
+<div class="form-header">
+<div class="fh-left">
+  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+  <div class="fh-company">
+    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+    <span>Tài liệu kiểm soát</span>
+  </div>
+</div>
+<div class="title">
+  <strong>SOP-106 — Change and Configuration Management</strong>
+  <span class="sub-vn"></span>
+</div>
+<div class="meta">
+  <div class="row"><span><b>Mã:</b></span><span>SOP-106</span></div>
+  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+  <div class="row"><span><b>Chủ sở hữu:</b></span><span>QA/QMS</span></div>
+  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+</div>
+</div>
+<div class="doc-content" id="docContent"><div class="form-sheet">
+
+<div class="iso-map"><div class="iso-title">Chuẩn mực áp dụng</div><div class="req"><span class="req-tag shall">PHẢI</span><div>Khi cần thay đổi QMS, tổ chức <b>PHẢI</b> thực hiện thay đổi theo kế hoạch và đánh giá tính toàn vẹn QMS. <span class="iso-ref">ISO 6.3</span></div></div>
+<div class="req"><span class="req-tag shall">PHẢI</span><div>Kiểm soát thay đổi trong sản xuất/dịch vụ; xem xét và phê duyệt thay đổi trước khi áp dụng. <span class="iso-ref">ISO 8.5.6</span></div></div>
+<div class="req"><span class="req-tag shall">PHẢI</span><div>Thiết lập và duy trì quản lý cấu hình (Configuration Management) khi áp dụng cho sản phẩm/đơn hàng. <span class="iso-ref">AS9100D 8.1.2 (tham chiếu)</span> <span class="iso-ref">AS9100D 4.2.4</span></div></div>
+<div class="req"><span class="req-tag should">NÊN</span><div>Định nghĩa baseline theo PN–Rev–Process–NC–Fixture–Gage; thực hiện configuration audit trước shipment khi rủi ro cao. <span class="iso-ref">ISO 10013:2021</span></div></div></div>
+
+<div class="preface-block">
+  <h2 class="h2">Baseline cấu hình cho Job Order</h2>
+  <div class="grid-2">
+    <div>
+      <div class="card-title">Thành phần baseline</div>
+      <ul>
+        <li>PN + Revision + CSR phiên bản</li>
+        <li>Routing/Operation sequence (Epicor)</li>
+        <li>WI/Setup sheet + CTQ list</li>
+        <li>NC program + post + tool list</li>
+        <li>Fixture/softjaw, setup datum, gage/CMM program</li>
+      </ul>
+    </div>
+    <div>
+      <div class="card-title">Điểm kích hoạt Change</div>
+      <ul>
+        <li>Khách đổi revision / sửa dung sai / thêm CTQ.</li>
+        <li>Nội bộ đổi máy/dao/fixture/phương pháp đo/packaging.</li>
+        <li>Rework theo MRB cần hướng dẫn kỹ thuật.</li>
+      </ul>
+      <div class="callout"><b>Không có ECR/ECO = không áp dụng thay đổi.</b> Shift Leader và QC <b>PHẢI</b> dừng khi thấy thay đổi chưa có số ECO.</div>
+    </div>
+  </div>
+</div>
+
+<h2 class="h2">1. Mục đích</h2>
+<p>Kiểm soát thay đổi kỹ thuật và cấu hình để xưởng CNC chạy đúng baseline, tránh nhầm revision, và có bằng chứng phê duyệt trước khi áp dụng.</p>
+<h2 class="h2">2. Phạm vi</h2>
+<p>Áp dụng cho thay đổi ảnh hưởng sản phẩm/đơn hàng: bản vẽ/spec/CSR, routing/Epicor, WI/Setup sheet, NC, fixture/tool, CMM program, packaging/label và rework instruction.</p>
+<h2 class="h2">3. Thuật ngữ</h2>
+
+<div class="table-card"><table class="table">
+<thead><tr><th>Thuật ngữ</th><th>Diễn giải</th></tr></thead>
+<tbody>
+<tr><td><b>ECR</b> (Engineering Change Request)</td><td>Yêu cầu thay đổi kỹ thuật: đề xuất, lý do, rủi ro, phạm vi ảnh hưởng. Dùng FRM-161.</td></tr>
+<tr><td><b>ECO/ECN</b> (Engineering Change Order/Notice)</td><td>Lệnh/Thông báo thay đổi đã được phê duyệt kèm effectivity và gói tài liệu phát hành.</td></tr>
+<tr><td><b>Baseline</b></td><td>Tập hợp cấu hình chuẩn được phép chạy cho PN–Rev tại thời điểm phát hành.</td></tr>
+<tr><td><b>Effectivity</b></td><td>Điều kiện hiệu lực của change: từ Job#, lot#, serial#, hoặc ngày/ca.</td></tr>
+<tr><td><b>Configuration Audit</b></td><td>Kiểm chứng hồ sơ và revision tại điểm sử dụng trước khi chạy/ship theo checklist FRM-163.</td></tr>
+</tbody></table></div>
+
+<h2 class="h2">4. RACI</h2>
+
+<div class="table-card"><table class="table">
+<thead><tr><th>Vai trò</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead>
+<tbody>
+<tr><td><b>Engineering Lead</b></td><td>X</td><td></td><td></td><td></td></tr>
+<tr><td><b>QMS Engineer</b></td><td>X</td><td></td><td></td><td></td></tr>
+<tr><td><b>QA Manager</b></td><td></td><td>X</td><td></td><td></td></tr>
+<tr><td><b>Production Director</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>Production Planner</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>Process Engineer</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>CAM/NC Programmer</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>CNC Workshop Manager</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>QC Inspector / CMM</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>Customer Service</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>SC Manager</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>Toàn bộ nhân viên (All employees)</b></td><td></td><td></td><td></td><td>X</td></tr>
+</tbody></table></div>
+
+<h2 class="h2">5. Quy trình</h2>
+
+<h3 class="h3">5.1 Phân loại thay đổi</h3>
+<div class="table-card"><table class="table">
+<thead><tr><th>Loại change</th><th>Ví dụ</th><th>Yêu cầu xử lý</th></tr></thead>
+<tbody>
+<tr><td><b>Customer-driven</b></td><td>Đổi bản vẽ/spec/CSR; đổi qty/due date; yêu cầu chứng từ/packaging mới</td><td>Customer Service <b>PHẢI</b> xác nhận bằng văn bản; mở ECR; effectivity theo PO line/Job.</td></tr>
+<tr><td><b>Engineering/process</b></td><td>Đổi dao/fixture/máy; thay đường chạy; thay phương pháp đo</td><td>Engineering <b>PHẢI</b> mở ECR; QE đánh giá CTQ/inspection; cập nhật WI/Control Plan.</td></tr>
+<tr><td><b>Temporary deviation</b></td><td>Dùng tool equivalent; chạy máy khác do hỏng máy</td><td><b>PHẢI</b> đánh giá rủi ro, giới hạn thời gian/lot, và ghi rõ điều kiện quay về baseline.</td></tr>
+</tbody></table></div>
+
+<h3 class="h3">5.2 Mở ECR – FRM-161</h3>
+<div class="vflow">
+  <div class="vstep"><div class="vnum">1</div><div class="vtext">Người đề xuất (Engineering/Production/Quality/Supply Chain) <b>PHẢI</b> điền FRM-161: mô tả change, lý do, phạm vi ảnh hưởng, rủi ro CTQ, và effectivity dự kiến.</div></div>
+  <div class="vstep"><div class="vnum">2</div><div class="vtext">QMS Engineer <b>PHẢI</b> kiểm mã số, tài liệu liên quan (SOP/WI/FRM, drawing/spec, NC) và tạo log thay đổi.</div></div>
+</div>
+
+<h3 class="h3">5.3 Đánh giá tác động – FRM-162</h3>
+<ul>
+  <li>Engineering Lead <b>PHẢI</b> chủ trì đánh giá tác động theo FRM-162 với tối thiểu: QE, Production Planner, CNC Workshop Manager, QC/CMM, Supply Chain (nếu liên quan vật tư/tool).</li>
+  <li>Nội dung đánh giá <b>PHẢI</b> gồm: CTQ bị ảnh hưởng, yêu cầu đo/đồ gá đo, yêu cầu packaging/cleanliness, năng lực máy/cell, và rủi ro lịch giao.</li>
+  <li>Nếu change có rủi ro cao, <b>PHẢI</b> yêu cầu first-piece lại và/hoặc tăng kiểm theo Control Plan.</li>
+</ul>
+
+<h3 class="h3">5.4 Phê duyệt ECO/ECN &amp; phát hành Engineering Release</h3>
+<ul>
+  <li>QA Manager là người phê duyệt cuối (A). ECO <b>PHẢI</b> có: mô tả, tài liệu cập nhật, effectivity, và điều kiện rollback.</li>
+  <li>QMS Engineer <b>PHẢI</b> cập nhật tài liệu theo SOP-101 (nếu có) và phát hành gói release: WI/Setup sheet, NC, Control Plan, CMM program, và thông báo đến Production.</li>
+  <li>Customer-driven change <b>PHẢI</b> cập nhật hồ sơ đơn hàng (PN–Rev–PO line) theo SOP-201/202 (tham chiếu) trước khi chạy.</li>
+</ul>
+
+<h3 class="h3">5.5 Triển khai change tại xưởng</h3>
+<div class="vflow">
+  <div class="vstep"><div class="vnum">1</div><div class="vtext">Production Planner <b>PHẢI</b> cập nhật job packet/routing/Epicor theo effectivity; không phát hành job nếu thiếu gói release.</div></div>
+  <div class="vstep"><div class="vnum">2</div><div class="vtext">Shift Leader <b>PHẢI</b> kiểm revision tại máy: bản vẽ/spec, WI/Setup sheet, NC; ghi nhận vào log ca hoặc checklist nếu yêu cầu.</div></div>
+  <div class="vstep"><div class="vnum">3</div><div class="vtext">QC/CMM <b>PHẢI</b> xác nhận first piece theo CTQ; chỉ cho phép chạy tiếp khi đạt.</div></div>
+</div>
+
+<h3 class="h3">5.6 Configuration Audit – FRM-163</h3>
+<ul>
+  <li>Configuration audit <b>PHẢI</b> áp dụng khi:
+    <ul>
+      <li>Part có CTQ chặt, hoặc khách yêu cầu kiểm soát cấu hình nghiêm.</li>
+      <li>Change ảnh hưởng nhiều tài liệu (drawing + NC + CMM + packaging).</li>
+      <li>Chuẩn bị giao hàng lô đầu sau change.</li>
+    </ul>
+  </li>
+  <li>QMS Engineer hoặc QE <b>PHẢI</b> dùng FRM-163 kiểm: đúng revision, đúng link, đúng bản in kiểm soát, và hồ sơ đi kèm.</li>
+</ul>
+
+<h3 class="h3">5.7 Thu hồi &amp; quản lý phiên bản lỗi thời</h3>
+<ul>
+  <li>NC/program cũ <b>PHẢI</b> chuyển vào thư mục Obsolete theo SOP-101; tại máy chỉ giữ phiên bản hiện hành.</li>
+  <li>Fixture/tool bị thay thế <b>NÊN</b> dán nhãn “OBSOLETE/DO NOT USE” và đưa vào khu vực cách ly.</li>
+</ul>
+
+<h2 class="h2">6. Biểu mẫu liên quan</h2>
+<ul>
+  <li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-161-ecr-eco.html">FRM-161</a> ECR/ECO</li>
+  <li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-162-change-impact-matrix.html">FRM-162</a> Ma trận tác động thay đổi</li>
+  <li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-163-configuration-audit-checklist.html">FRM-163</a> Checklist audit cấu hình</li>
+</ul>
+
+<h2 class="h2">7. Tài liệu liên quan</h2>
+<ul>
+  <li><a href="sop-101-document-and-data-control.html">SOP-101</a> Kiểm soát tài liệu &amp; dữ liệu</li>
+  <li><a href="sop-103-risk-opportunity-fmea-and-control-plan.html">SOP-103</a> Rủi ro, cơ hội, FMEA &amp; Control Plan</li>
+  <li>SOP-201/202 (Series 200) Contract Review &amp; Order Change — tham chiếu</li>
+</ul>
+
+
+</div></div>
+</div></div></div>
+</body>
+</html>
+
+

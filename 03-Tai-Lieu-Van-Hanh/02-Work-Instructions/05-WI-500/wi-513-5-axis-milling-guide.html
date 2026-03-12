@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WI-513 — 5 Axis Milling Guide | HESEM QMS</title>
+<link href="../../../assets/style.css" rel="stylesheet"/>
+<style>
+/* === PAGE BREAK & OVERFLOW FIX (auto-applied) === */
+@media print {
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.vstep{page-break-inside:avoid;break-inside:avoid}
+  h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
+  .form-header,.sig-row,.sign-row{page-break-inside:avoid;break-inside:avoid}
+  tr{page-break-inside:avoid;break-inside:avoid}
+  thead{display:table-header-group}tfoot{display:table-footer-group}
+  p{orphans:3;widows:3}.table-card{overflow:visible!important}
+}
+.page-body{overflow-x:hidden}
+.table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
+table{max-width:100%;table-layout:auto}
+td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
+</style>
+</head>
+<body>
+<div class="container"><div class="page"><div class="page-body">
+<div class="form-header">
+<div class="fh-left">
+  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+  <div class="fh-company">
+    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+    <span>Tài liệu kiểm soát</span>
+  </div>
+</div>
+<div class="title">
+  <strong>WI-513 — 5 Axis Milling Guide</strong>
+  <span class="sub-vn"></span>
+</div>
+<div class="meta">
+  <div class="row"><span><b>Mã:</b></span><span>WI-513</span></div>
+  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+  <div class="row"><span><b>Chủ sở hữu:</b></span><span>Production</span></div>
+  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+</div>
+</div>
+<div class="doc-content" id="docContent"><div class="form-sheet">
+
+<h2 class="h2">1. Mục đích</h2><p>Dùng tại cell 5-axis khi chạy part có nhiều mặt, contour phức tạp hoặc cần giảm số lần gá.</p>
+
+<h2 class="h2">2. PPE</h2><ul>
+  <li>Kính, giày bảo hộ, quần áo gọn.</li>
+  <li>Giữ tay ngoài vùng rotary; không vào vùng quay khi brake chưa khóa hoặc machine chưa ở safe state.</li>
+</ul>
+
+<h2 class="h2">3. Dụng cụ</h2><ul>
+  <li>Setup sheet, simulation, probe calibration record</li>
+  <li>Fixture clearance checklist</li>
+  <li>FRM-511 và dụng cụ đo CTQ sau first piece</li>
+</ul>
+
+<h2 class="h2">4. Các bước</h2><h3 class="h3">4.1 Chuẩn bị fixture và rotary</h3><ol>
+  <li>Xác nhận fixture envelope, clamp height, bolt protrusion và clearance cho mọi góc quay.</li>
+  <li>Home trục quay và kiểm zero A/B/C theo chuẩn máy; nếu có quick check bằng sphere/probe thì thực hiện trước job mới hoặc sau nghi ngờ va chạm.</li>
+  <li>Probe stylus, probe calibration và workpiece orientation phải khớp setup sheet.</li>
+</ol>
+
+<h3 class="h3">4.2 Chạy thử và contour</h3><ul>
+  <li>Bắt buộc simulation hoặc dry-run có kiểm soát cho program có motion đồng thời hoặc vùng sát fixture.</li>
+  <li>Kiểm safe pose khi restart giữa chương trình; không nhảy vào giữa block contour khi chưa biết rõ trạng thái trục quay.</li>
+  <li>Theo dõi vibration, chatter và witness mark trên contour dài hoặc tool reach lớn.</li>
+</ul>
+
+<h3 class="h3">4.3 Thermal và kiểm trong quá trình</h3><ul>
+  <li>5-axis nhạy với thermal growth của spindle, rotary và fixture; cần warm-up đủ và tránh thay đổi nhiệt đột ngột trước finishing.</li>
+  <li>Ưu tiên đo CTQ ngay sau toolpath/pose rủi ro nhất thay vì đợi cuối toàn bộ chương trình.</li>
+  <li>Khi có re-clamp hoặc thay orientation strategy, xem như setup thay đổi và kiểm lại đặc tính tương quan.</li>
+</ul>
+
+<h3 class="h3">4.4 Yêu cầu đặc thù bán dẫn</h3><ul>
+  <li>Các chi tiết 5-axis thường chứa nhiều mặt quan hệ chéo; sai số nhỏ ở rotary zero hoặc fixture orientation có thể làm lệch toàn bộ stack-up.</li>
+  <li>Dung sai ±0.005-0.015 mm và Ra 0.4-0.8 μm yêu cầu kiểm chặt tool reach, balance holder, runout và nhiệt spindle.</li>
+  <li>Bề mặt nhạy xước hoặc bề mặt làm kín không được để clamp/contact ngoài vùng cho phép; mọi mark bất thường phải báo ngay.</li>
+</ul>
+
+<h2 class="h2">5. Tiêu chí</h2><div class="table-card"><table class="table"><thead><tr><th>Tiêu chí</th><th>Đạt khi</th></tr></thead><tbody><tr><td>Rotary zero / calibration</td><td>Quick check đạt và không có dấu hiệu drift do va chạm</td></tr><tr><td>Simulation / dry-run</td><td>Clearance đủ cho mọi pose quan trọng</td></tr><tr><td>First piece</td><td>Đặc tính tương quan nhiều mặt và contour critical đạt</td></tr><tr><td>Thermal control</td><td>Máy ổn định nhiệt trước finishing pass</td></tr></tbody></table></div>
+
+<h2 class="h2">6. Xử lý bất thường</h2><ul>
+  <li>Sai quick check rotary hoặc probe bất thường: hold machine, gọi Engineering/Maintenance.</li>
+  <li>Witness mark hoặc contour mismatch: kiểm post, tool vector, holder clearance, fixture movement.</li>
+  <li>Rung mạnh ở pose nhất định: giảm tốc hợp lý, xem lại holder balance, tool reach và trật tự nguyên công.</li>
+</ul>
+
+<h2 class="h2">7. SOP liên quan</h2><ul>
+  <li><a href="../../01-SOPs/05-SOP-500/sop-502-cnc-machining-operations.html">SOP-502</a> Vận hành gia công CNC</li>
+  <li><a href="../../01-SOPs/05-SOP-500/sop-503-tooling-maintenance-pm-and-breakdown-response.html">SOP-503</a> Bảo trì - Tooling, PM &amp; Ứng phó sự cố</li>
+  <li><a href="../../../04-Bieu-Mau/05-FRM-500/frm-511-setup-and-first-piece-record.html">FRM-511</a> Phiếu Setup &amp; First Piece</li>
+</ul>
+
+</div></div>
+
+</div></div></div>
+</body>
+</html>
+
+

@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WI-514 — CNC Turning Guide | HESEM QMS</title>
+<link href="../../../assets/style.css" rel="stylesheet"/>
+<style>
+/* === PAGE BREAK & OVERFLOW FIX (auto-applied) === */
+@media print {
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.vstep{page-break-inside:avoid;break-inside:avoid}
+  h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
+  .form-header,.sig-row,.sign-row{page-break-inside:avoid;break-inside:avoid}
+  tr{page-break-inside:avoid;break-inside:avoid}
+  thead{display:table-header-group}tfoot{display:table-footer-group}
+  p{orphans:3;widows:3}.table-card{overflow:visible!important}
+}
+.page-body{overflow-x:hidden}
+.table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
+table{max-width:100%;table-layout:auto}
+td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
+</style>
+</head>
+<body>
+<div class="container"><div class="page"><div class="page-body">
+<div class="form-header">
+<div class="fh-left">
+  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+  <div class="fh-company">
+    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+    <span>Tài liệu kiểm soát</span>
+  </div>
+</div>
+<div class="title">
+  <strong>WI-514 — CNC Turning Guide</strong>
+  <span class="sub-vn"></span>
+</div>
+<div class="meta">
+  <div class="row"><span><b>Mã:</b></span><span>WI-514</span></div>
+  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+  <div class="row"><span><b>Chủ sở hữu:</b></span><span>Production</span></div>
+  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+</div>
+</div>
+<div class="doc-content" id="docContent"><div class="form-sheet">
+
+<h2 class="h2">1. Mục đích</h2><p>Dùng tại máy tiện CNC và máy tiện có live tooling cho part family tròn xoay.</p>
+
+<h2 class="h2">2. PPE</h2><ul>
+  <li>Kính, giày bảo hộ, không đứng trong vùng bar feeder hoặc sau bar feeder khi nạp liệu.</li>
+  <li>Không đo khi spindle đang quay.</li>
+</ul>
+
+<h2 class="h2">3. Dụng cụ</h2><ul>
+  <li>Jaw/collet đúng loại</li>
+  <li>Indicator hoặc phương tiện kiểm runout</li>
+  <li>Setup sheet, traveler, FRM-511</li>
+</ul>
+
+<h2 class="h2">4. Các bước</h2><h3 class="h3">4.1 Setup chuck / collet</h3><ul>
+  <li>Chọn jaw hoặc collet đúng loại và đúng dải kẹp; kiểm sạch chip trước khi lắp.</li>
+  <li>Kiểm stick-out, grip length, runout phôi và nhu cầu tailstock/steady rest.</li>
+  <li>Bar feeder hoặc remnant setting phải phù hợp chiều dài và số lượng part/bar.</li>
+</ul>
+
+<h3 class="h3">4.2 Tiện và finish</h3><ul>
+  <li>Xác nhận nose radius compensation, insert orientation, spindle mode và coolant direction.</li>
+  <li>Theo dõi chip control, parting behavior, built-up edge và surface finish.</li>
+  <li>Khi dùng live tooling, kiểm C-axis orientation và offset riêng cho tool quay.</li>
+</ul>
+
+<h3 class="h3">4.3 Yêu cầu đặc thù bán dẫn</h3><ul>
+  <li>Chi tiết tròn xoay của ngành bán dẫn thường yêu cầu đồng tâm, concentricity, circular feature finish và burr nhỏ ở mép lỗ/rãnh.</li>
+  <li>Dung sai ±0.005-0.020 mm và Ra 0.4-0.8 μm đòi hỏi kiểm chặt jaw bore, runout, chip breaker và wear của insert finishing.</li>
+  <li>Parting hoặc grooving trên vật liệu mềm/dễ xước phải có phương án hứng part và bảo vệ bề mặt ngay khi rời máy.</li>
+</ul>
+
+<h2 class="h2">5. Tiêu chí</h2><div class="table-card"><table class="table"><thead><tr><th>Tiêu chí</th><th>Đạt khi</th></tr></thead><tbody><tr><td>Kẹp phôi</td><td>Grip length và runout phù hợp; không có dấu hiệu trượt phôi</td></tr><tr><td>Tool/offset</td><td>TNR, orientation và offset khớp chương trình</td></tr><tr><td>Surface finish</td><td>Không có chatter, tear, built-up edge hoặc parting burr quá mức</td></tr><tr><td>Concentricity</td><td>Đặc tính đồng tâm/OD-ID đạt sau first piece</td></tr></tbody></table></div>
+
+<h2 class="h2">6. Xử lý bất thường</h2><ul>
+  <li>Chip quấn dài hoặc parting không ổn định: dừng và chỉnh chip breaker/feed/coolant trước khi tiếp tục.</li>
+  <li>Runout hoặc concentricity xấu: kiểm jaw/collet, bore soft jaw, chuck cleanliness và setup datum.</li>
+  <li>Built-up edge làm xấu bề mặt: thay insert, xem lại cutting speed/coolant và batch size kiểm.</li>
+</ul>
+
+<h2 class="h2">7. SOP liên quan</h2><ul>
+  <li><a href="../../01-SOPs/05-SOP-500/sop-502-cnc-machining-operations.html">SOP-502</a> Vận hành gia công CNC</li>
+  <li><a href="../../01-SOPs/05-SOP-500/sop-503-tooling-maintenance-pm-and-breakdown-response.html">SOP-503</a> Bảo trì - Tooling, PM &amp; Ứng phó sự cố</li>
+  <li><a href="../../../04-Bieu-Mau/05-FRM-500/frm-511-setup-and-first-piece-record.html">FRM-511</a> Phiếu Setup &amp; First Piece</li>
+</ul>
+
+</div></div>
+
+</div></div></div>
+</body>
+</html>
+
+

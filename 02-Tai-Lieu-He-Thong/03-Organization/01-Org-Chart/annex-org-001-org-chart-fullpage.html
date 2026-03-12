@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ANNEX-ORG-001 — Organization Structure & Job Flow | HESEM OS</title>
+<link href="../../../assets/style.css" rel="stylesheet"/>
+
+<style>
+/* --- Org chart layout hardening --- */
+.org-chart-frame{
+ /* Increased 50% for better readability */
+ width:45%;
+ margin:12px auto;
+ border:1px solid var(--ln);
+ border-radius:8px;
+ overflow:auto;
+ padding:16px;
+ background:#fff;
+}
+.org-chart-frame svg{ display:block; width:100%; height:auto; }
+@media (max-width: 1100px){
+ .org-chart-frame{ width: 90%; }
+}
+@media print{
+ .org-chart-frame{ width: 100% !important; padding:0; border:0; }
+}
+
+/* === PAGE BREAK & OVERFLOW FIX (auto-applied) === */
+@media print {
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.jd-mission,.form-sheet,.lane,.legend,.req,.auth-grid,.backup-card,.vstep{page-break-inside:avoid;break-inside:avoid}
+  h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
+  .form-header,.sig-row,.sign-row,.approval-row{page-break-inside:avoid;break-inside:avoid}
+  tr{page-break-inside:avoid;break-inside:avoid}
+  thead{display:table-header-group}tfoot{display:table-footer-group}
+  p{orphans:3;widows:3}.table-card{overflow:visible!important}
+}
+.page-body{overflow-x:hidden}
+.table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
+table{max-width:100%;table-layout:auto}
+td,th{max-width:400px;overflow-wrap:break-word;word-wrap:break-word}
+
+</style>
+
+</head>
+<body>
+<div class="container">
+<div class="page">
+<div class="page-body">
+<div class="form-header">
+<div class="fh-left">
+  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+  <div class="fh-company">
+    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+    <span>Tài liệu kiểm soát</span>
+  </div>
+</div>
+<div class="title">
+  <strong>ANNEX-ORG-001-ORG-CHART-FULLPAGE — Organization Structure & Job Flow</strong>
+  <span class="sub-vn"></span>
+</div>
+<div class="meta">
+  <div class="row"><span><b>Mã:</b></span><span>ANNEX-ORG-001-ORG-CHART-FULLPAGE</span></div>
+  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+  <div class="row"><span><b>Chủ sở hữu:</b></span><span>QA/QMS</span></div>
+  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+</div>
+</div>
+<div class="doc-content" id="docContent"><div class="form-sheet">
+<div class="card">
+<div class="note">Tài liệu kiểm soát. Mọi thay đổi <b>PHẢI</b> theo <a href="../../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-101-document-and-data-control.html">SOP-QMS-001</a> và ghi nhận trong DCR record của trang này.</div>
+<span class="badge">Org</span>
+<h1 class="h1" style="margin-top:12px;">ANNEX-ORG-001 — Cơ cấu tổ chức và luồng Job</h1>
+<div class="sub-vn">Sơ đồ tổ chức (full‑page) + khung luồng Job A/B</div>
+<h2 class="h2" style="margin-top:18px;">1. Mục đích và cách sử dụng</h2>
+<ul style="line-height:1.85; margin:0;">
+<li>Tài liệu này <b>PHẢI</b> là nguồn tham chiếu duy nhất cho: cơ cấu báo cáo, ranh giới trách nhiệm, và các điểm bàn giao liên phòng ban trong luồng Job.</li>
+<li>Khi bổ nhiệm/điều chuyển vai trò, Trưởng bộ phận <b>PHẢI</b> đối chiếu Role Dictionary tại Mục 2.2 và cập nhật Register vai trò tại Mục 4.</li>
+<li>Mọi “transaction” (RFQ/Quote, Job, PO/SO, inventory, ship confirm, time entry) <b>CHỈ</b> thực hiện trong <b>Epicor Kinetic</b>. <b>CẤM</b> tạo file/bảng để ghi nhận thay thế Epicor.</li>
+<li>Mọi hồ sơ/bằng chứng (approval, biên bản, checklist, bản phát hành, báo cáo) <b>PHẢI</b> lưu tại SSOT trên M365 theo đường dẫn quy định ở Mục 4; <b>CHỈ</b> được “link-not-copy”.</li>
+</ul>
+<h2 class="h2" style="margin-top:18px;">2. Nội dung Annex (sơ đồ và từ điển)</h2>
+<h3 class="h3" style="margin-top:10px;">2.1 Sơ đồ cơ cấu tổ chức</h3>
+<figure style="margin:14px 0 10px;">
+<div class="org-chart-frame">
+<div style="width:100%;margin:0 auto;background:#fff">
+<svg viewBox="852 238 1068 1609" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" overflow="hidden" style="width:100%;height:auto;display:block"><g><path d="M1592.5 526.5 1592.5 759.972 1698.83 759.972" stroke="#9BBB59" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1592.5 526.5 1592.5 595.848 1698.83 595.848" stroke="#9BBB59" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1313.5 362.5 1313.5 386.772 1593.2 386.772 1593.2 411.044" stroke="#C0504D" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1313.5 526.5 1313.5 1744.72 1419.83 1744.72" stroke="#9BBB59" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1313.5 526.5 1313.5 1580.59 1419.83 1580.59" stroke="#9BBB59" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1313.5 526.5 1313.5 1416.47 1419.83 1416.47" stroke="#9BBB59" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1313.5 526.5 1313.5 1252.34 1419.83 1252.34" stroke="#9BBB59" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1313.5 526.5 1313.5 1088.22 1419.83 1088.22" stroke="#9BBB59" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1313.5 526.5 1313.5 924.096 1419.83 924.096" stroke="#9BBB59" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1313.5 526.5 1313.5 759.972 1419.83 759.972" stroke="#9BBB59" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1313.5 526.5 1313.5 595.848 1419.83 595.848" stroke="#9BBB59" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1313 362.5 1313 411.044" stroke="#C0504D" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1033.5 526.5 1033.5 1416.47 1139.83 1416.47" stroke="#9BBB59" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1033.5 526.5 1033.5 1252.34 1139.83 1252.34" stroke="#9BBB59" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1033.5 526.5 1033.5 1088.22 1139.83 1088.22" stroke="#9BBB59" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1033.5 526.5 1033.5 924.096 1139.83 924.096" stroke="#9BBB59" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1033.5 526.5 1033.5 759.972 1139.83 759.972" stroke="#9BBB59" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1033.5 526.5 1033.5 595.848 1139.83 595.848" stroke="#9BBB59" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1313.2 362.5 1313.2 386.772 1033.5 386.772 1033.5 411.044" stroke="#C0504D" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1268.8 267.408C1289.1 242.782 1325.36 239.426 1349.77 259.911 1352.47 262.176 1354.96 264.685 1357.2 267.408" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1357.2 341.592C1336.9 366.218 1300.64 369.575 1276.23 349.089 1273.53 346.824 1271.04 344.315 1268.8 341.592" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><text fill="#000000" fill-opacity="1" font-family="Calibri,Calibri_MSFontService,sans-serif" font-style="normal" font-variant="normal" font-weight="400" font-stretch="normal" font-size="32" text-anchor="start" direction="ltr" writing-mode="lr-tb" unicode-bidi="normal" text-decoration="none" transform="matrix(1 0 0 1 1198.84 313)">General Manager</text><path d="M989.069 431.218C1009.66 406.68 1046.24 403.479 1070.78 424.069 1073.37 426.24 1075.76 428.632 1077.93 431.218" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1077.93 505.782C1057.34 530.32 1020.76 533.521 996.218 512.931 993.632 510.76 991.24 508.368 989.069 505.782" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><text fill="#000000" fill-opacity="1" font-family="Calibri,Calibri_MSFontService,sans-serif" font-style="normal" font-variant="normal" font-weight="400" font-stretch="normal" font-size="32" text-anchor="start" direction="ltr" writing-mode="lr-tb" unicode-bidi="normal" text-decoration="none" transform="matrix(1 0 0 1 921.361 477)">CNC MACHINING</text><path d="M1139.07 595.218C1159.66 570.68 1196.24 567.479 1220.78 588.069 1223.37 590.24 1225.76 592.632 1227.93 595.218" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1227.93 669.782C1207.34 694.32 1170.76 697.521 1146.22 676.931 1143.63 674.76 1141.24 672.368 1139.07 669.782" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><text fill="#000000" fill-opacity="1" font-family="Calibri,Calibri_MSFontService,sans-serif" font-style="normal" font-variant="normal" font-weight="400" font-stretch="normal" font-size="32" text-anchor="start" direction="ltr" writing-mode="lr-tb" unicode-bidi="normal" text-decoration="none" transform="matrix(1 0 0 1 1133.07 642)">Planner</text><path d="M1139.23 759.852C1159.92 735.612 1196.52 732.594 1220.97 753.11 1223.42 755.167 1225.7 757.422 1227.77 759.852" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1227.77 834.148C1207.08 858.387 1170.48 861.406 1146.03 840.89 1143.58 838.833 1141.3 836.578 1139.23 834.148" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><text fill="#000000" fill-opacity="1" font-family="Calibri,Calibri_MSFontService,sans-serif" font-style="normal" font-variant="normal" font-weight="400" font-stretch="normal" font-size="32" text-anchor="start" direction="ltr" writing-mode="lr-tb" unicode-bidi="normal" text-decoration="none" transform="matrix(1 0 0 1 1106 806)">Engineering</text><path d="M1139.23 923.852C1159.92 899.612 1196.52 896.594 1220.97 917.11 1223.42 919.167 1225.7 921.422 1227.77 923.852" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1227.77 998.148C1207.08 1022.39 1170.48 1025.41 1146.03 1004.89 1143.58 1002.83 1141.3 1000.58 1139.23 998.148" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><text fill="#000000" fill-opacity="1" font-family="Calibri,Calibri_MSFontService,sans-serif" font-style="normal" font-variant="normal" font-weight="400" font-stretch="normal" font-size="32" text-anchor="start" direction="ltr" writing-mode="lr-tb" unicode-bidi="normal" text-decoration="none" transform="matrix(1 0 0 1 1158.41 970)">Mill</text><path d="M1139.23 1087.85C1159.92 1063.61 1196.52 1060.59 1220.97 1081.11 1223.42 1083.17 1225.7 1085.42 1227.77 1087.85" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1227.77 1162.15C1207.08 1186.39 1170.48 1189.41 1146.03 1168.89 1143.58 1166.83 1141.3 1164.58 1139.23 1162.15" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><text fill="#000000" fill-opacity="1" font-family="Calibri,Calibri_MSFontService,sans-serif" font-style="normal" font-variant="normal" font-weight="400" font-stretch="normal" font-size="32" text-anchor="start" direction="ltr" writing-mode="lr-tb" unicode-bidi="normal" text-decoration="none" transform="matrix(1 0 0 1 1133.23 1134)">Turning</text><path d="M1139.23 1251.85C1159.92 1227.61 1196.52 1224.59 1220.97 1245.11 1223.42 1247.17 1225.7 1249.42 1227.77 1251.85" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1227.77 1326.15C1207.08 1350.39 1170.48 1353.41 1146.03 1332.89 1143.58 1330.83 1141.3 1328.58 1139.23 1326.15" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><text fill="#000000" fill-opacity="1" font-family="Calibri,Calibri_MSFontService,sans-serif" font-style="normal" font-variant="normal" font-weight="400" font-stretch="normal" font-size="32" text-anchor="start" direction="ltr" writing-mode="lr-tb" unicode-bidi="normal" text-decoration="none" transform="matrix(1 0 0 1 1137.26 1298)">Deburr</text><path d="M1139.07 1416.22C1159.66 1391.68 1196.24 1388.48 1220.78 1409.07 1223.37 1411.24 1225.76 1413.63 1227.93 1416.22" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1227.93 1490.78C1207.34 1515.32 1170.76 1518.52 1146.22 1497.93 1143.63 1495.76 1141.24 1493.37 1139.07 1490.78" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><text fill="#000000" fill-opacity="1" font-family="Calibri,Calibri_MSFontService,sans-serif" font-style="normal" font-variant="normal" font-weight="400" font-stretch="normal" font-size="32" text-anchor="start" direction="ltr" writing-mode="lr-tb" unicode-bidi="normal" text-decoration="none" transform="matrix(1 0 0 1 1163.82 1462)">QC</text><path d="M1268.8 431.408C1289.1 406.782 1325.36 403.426 1349.77 423.911 1352.47 426.176 1354.96 428.685 1357.2 431.408" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1357.2 505.592C1336.9 530.218 1300.64 533.575 1276.23 513.089 1273.53 510.824 1271.04 508.315 1268.8 505.592" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><text fill="#000000" fill-opacity="1" font-family="Calibri,Calibri_MSFontService,sans-serif" font-style="normal" font-variant="normal" font-weight="400" font-stretch="normal" font-size="32" text-anchor="start" direction="ltr" writing-mode="lr-tb" unicode-bidi="normal" text-decoration="none" transform="matrix(1 0 0 1 1251.24 477)">SUPPORT </text><path d="M1419.07 595.218C1439.66 570.68 1476.24 567.479 1500.78 588.069 1503.37 590.24 1505.76 592.632 1507.93 595.218" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1507.93 669.782C1487.34 694.32 1450.76 697.521 1426.22 676.931 1423.63 674.76 1421.24 672.368 1419.07 669.782" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><text fill="#000000" fill-opacity="1" font-family="Calibri,Calibri_MSFontService,sans-serif" font-style="normal" font-variant="normal" font-weight="400" font-stretch="normal" font-size="32" text-anchor="start" direction="ltr" writing-mode="lr-tb" unicode-bidi="normal" text-decoration="none" transform="matrix(1 0 0 1 1442.79 642)">QA</text><path d="M1419.23 759.852C1439.92 735.612 1476.52 732.594 1500.97 753.11 1503.42 755.167 1505.7 757.422 1507.77 759.852" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1507.77 834.148C1487.08 858.387 1450.48 861.405 1426.03 840.889 1423.58 838.833 1421.3 836.578 1419.23 834.148" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><text fill="#000000" fill-opacity="1" font-family="Calibri,Calibri_MSFontService,sans-serif" font-style="normal" font-variant="normal" font-weight="400" font-stretch="normal" font-size="32" text-anchor="start" direction="ltr" writing-mode="lr-tb" unicode-bidi="normal" text-decoration="none" transform="matrix(1 0 0 1 1444.17 806)">HR</text><path d="M1419.23 923.852C1439.92 899.612 1476.52 896.594 1500.97 917.11 1503.42 919.167 1505.7 921.422 1507.77 923.852" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1507.77 998.148C1487.08 1022.39 1450.48 1025.41 1426.03 1004.89 1423.58 1002.83 1421.3 1000.58 1419.23 998.148" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><text fill="#000000" fill-opacity="1" font-family="Calibri,Calibri_MSFontService,sans-serif" font-style="normal" font-variant="normal" font-weight="400" font-stretch="normal" font-size="32" text-anchor="start" direction="ltr" writing-mode="lr-tb" unicode-bidi="normal" text-decoration="none" transform="matrix(1 0 0 1 1436.44 952)">IT &amp; </text><text fill="#000000" fill-opacity="1" font-family="Calibri,Calibri_MSFontService,sans-serif" font-style="normal" font-variant="normal" font-weight="400" font-stretch="normal" font-size="32" text-anchor="start" direction="ltr" writing-mode="lr-tb" unicode-bidi="normal" text-decoration="none" transform="matrix(1 0 0 1 1377.41 987)">Epicor admin</text><path d="M1419.23 1087.85C1439.92 1063.61 1476.52 1060.59 1500.97 1081.11 1503.42 1083.17 1505.7 1085.42 1507.77 1087.85" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1507.77 1162.15C1487.08 1186.39 1450.48 1189.41 1426.03 1168.89 1423.58 1166.83 1421.3 1164.58 1419.23 1162.15" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><text fill="#000000" fill-opacity="1" font-family="Calibri,Calibri_MSFontService,sans-serif" font-style="normal" font-variant="normal" font-weight="400" font-stretch="normal" font-size="32" text-anchor="start" direction="ltr" writing-mode="lr-tb" unicode-bidi="normal" text-decoration="none" transform="matrix(1 0 0 1 1421.56 1116)">Sale &amp; </text><text fill="#000000" fill-opacity="1" font-family="Calibri,Calibri_MSFontService,sans-serif" font-style="normal" font-variant="normal" font-weight="400" font-stretch="normal" font-size="32" text-anchor="start" direction="ltr" writing-mode="lr-tb" unicode-bidi="normal" text-decoration="none" transform="matrix(1 0 0 1 1410.15 1151)">Quoting</text><path d="M1419.23 1251.85C1439.92 1227.61 1476.52 1224.59 1500.97 1245.11 1503.42 1247.17 1505.7 1249.42 1507.77 1251.85" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1507.77 1326.15C1487.08 1350.39 1450.48 1353.41 1426.03 1332.89 1423.58 1330.83 1421.3 1328.58 1419.23 1326.15" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><text fill="#000000" fill-opacity="1" font-family="Calibri,Calibri_MSFontService,sans-serif" font-style="normal" font-variant="normal" font-weight="400" font-stretch="normal" font-size="32" text-anchor="start" direction="ltr" writing-mode="lr-tb" unicode-bidi="normal" text-decoration="none" transform="matrix(1 0 0 1 1408.67 1280)">Strategy </text><text fill="#000000" fill-opacity="1" font-family="Calibri,Calibri_MSFontService,sans-serif" font-style="normal" font-variant="normal" font-weight="400" font-stretch="normal" font-size="32" text-anchor="start" direction="ltr" writing-mode="lr-tb" unicode-bidi="normal" text-decoration="none" transform="matrix(1 0 0 1 1391.71 1315)">Purchasing</text><path d="M1419.07 1416.22C1439.66 1391.68 1476.24 1388.48 1500.78 1409.07 1503.37 1411.24 1505.76 1413.63 1507.93 1416.22" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1507.93 1490.78C1487.34 1515.32 1450.76 1518.52 1426.22 1497.93 1423.63 1495.76 1421.24 1493.37 1419.07 1490.78" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><text fill="#000000" fill-opacity="1" font-family="Calibri,Calibri_MSFontService,sans-serif" font-style="normal" font-variant="normal" font-weight="400" font-stretch="normal" font-size="32" text-anchor="start" direction="ltr" writing-mode="lr-tb" unicode-bidi="normal" text-decoration="none" transform="matrix(1 0 0 1 1373.16 1445)">Warehouse &amp; </text><text fill="#000000" fill-opacity="1" font-family="Calibri,Calibri_MSFontService,sans-serif" font-style="normal" font-variant="normal" font-weight="400" font-stretch="normal" font-size="32" text-anchor="start" direction="ltr" writing-mode="lr-tb" unicode-bidi="normal" text-decoration="none" transform="matrix(1 0 0 1 1414.32 1480)">Logistic</text><path d="M1419.07 1580.22C1439.66 1555.68 1476.24 1552.48 1500.78 1573.07 1503.37 1575.24 1505.76 1577.63 1507.93 1580.22" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1507.93 1654.78C1487.34 1679.32 1450.76 1682.52 1426.22 1661.93 1423.63 1659.76 1421.24 1657.37 1419.07 1654.78" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><text fill="#000000" fill-opacity="1" font-family="Calibri,Calibri_MSFontService,sans-serif" font-style="normal" font-variant="normal" font-weight="400" font-stretch="normal" font-size="32" text-anchor="start" direction="ltr" writing-mode="lr-tb" unicode-bidi="normal" text-decoration="none" transform="matrix(1 0 0 1 1376.67 1626)">Maintenance</text><path d="M1419.07 1744.22C1439.66 1719.68 1476.24 1716.48 1500.78 1737.07 1503.37 1739.24 1505.76 1741.63 1507.93 1744.22" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1507.93 1818.78C1487.34 1843.32 1450.76 1846.52 1426.22 1825.93 1423.63 1823.76 1421.24 1821.37 1419.07 1818.78" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><text fill="#000000" fill-opacity="1" font-family="Calibri,Calibri_MSFontService,sans-serif" font-style="normal" font-variant="normal" font-weight="400" font-stretch="normal" font-size="32" text-anchor="start" direction="ltr" writing-mode="lr-tb" unicode-bidi="normal" text-decoration="none" transform="matrix(1 0 0 1 1412.5 1790)">Finance</text><path d="M1548.8 431.408C1569.1 406.782 1605.36 403.426 1629.77 423.911 1632.47 426.176 1634.96 428.685 1637.2 431.408" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1637.2 505.592C1616.9 530.218 1580.64 533.575 1556.23 513.089 1553.53 510.824 1551.04 508.315 1548.8 505.592" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><text fill="#000000" fill-opacity="1" font-family="Calibri,Calibri_MSFontService,sans-serif" font-style="normal" font-variant="normal" font-weight="400" font-stretch="normal" font-size="32" text-anchor="start" direction="ltr" writing-mode="lr-tb" unicode-bidi="normal" text-decoration="none" transform="matrix(1 0 0 1 1515.16 477)">Engineering</text><path d="M1698.8 595.408C1719.1 570.782 1755.36 567.425 1779.77 587.911 1782.47 590.176 1784.96 592.685 1787.2 595.408" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1787.2 669.592C1766.9 694.218 1730.64 697.574 1706.23 677.089 1703.53 674.824 1701.04 672.315 1698.8 669.592" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><text fill="#000000" fill-opacity="1" font-family="Calibri,Calibri_MSFontService,sans-serif" font-style="normal" font-variant="normal" font-weight="400" font-stretch="normal" font-size="32" text-anchor="start" direction="ltr" writing-mode="lr-tb" unicode-bidi="normal" text-decoration="none" transform="matrix(1 0 0 1 1686.37 642)">Leader 1</text><path d="M1698.95 760.04C1719.36 735.713 1755.63 732.54 1779.96 752.952 1782.52 755.104 1784.9 757.475 1787.05 760.04" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><path d="M1787.05 833.96C1766.64 858.287 1730.37 861.46 1706.04 841.048 1703.48 838.896 1701.1 836.524 1698.95 833.96" stroke="#4F81BD" stroke-width="3.4375" stroke-linecap="butt" stroke-linejoin="round" stroke-miterlimit="10" stroke-opacity="1" fill="none" fill-rule="evenodd"/><text fill="#000000" fill-opacity="1" font-family="Calibri,Calibri_MSFontService,sans-serif" font-style="normal" font-variant="normal" font-weight="400" font-stretch="normal" font-size="32" text-anchor="start" direction="ltr" writing-mode="lr-tb" unicode-bidi="normal" text-decoration="none" transform="matrix(1 0 0 1 1686.37 806)">Leader 2</text></g></svg>
+</div>
+
+</div>
+</figure>
+<div class="note">
+ Sơ đồ trên <b>PHẢI</b> được dùng khi: phân quyền hệ thống, phân công owner/approver trong doc-control, thiết lập handoff giữa ENG/OPS/QA/WHS/PUR/HR.
+ <b>CẤM</b> phát hành bản sao rời rạc; khi cần trích dẫn <b>CHỈ</b> trỏ liên kết tới SSOT.
+ <br/><span class="muted">Lưu ý: <b>đồ họa SVG giữ nguyên theo bản gốc</b>. Cơ cấu tổ chức hiện tại (sau các lần gộp chức danh) được cập nhật tại <b>mục 2.1 (SSOT)</b> bên dưới.</span>
+</div>
+
+<h3 class="h3">2.1 Cơ cấu tổ chức cập nhật (SSOT)</h3>
+<p class="muted">Cấu trúc dưới đây là <b>nguồn sự thật duy nhất (Single Source of Truth)</b> cho cơ cấu tổ chức hiện tại sau các lần gộp chức danh trong đoạn chat. Các vị trí/role đã bị gộp được xem là <i>obsolete</i> và không còn sử dụng.</p>
+
+<div class="card">
+ <div class="card-title">Báo cáo trực tiếp (Reporting Lines)</div>
+ <ul style="margin:0 0 0 18px; line-height:1.8;">
+ <li><b>General Manager (EXE-01) (General Manager — EXE-01)</b>
+ <ul style="margin:6px 0 0 18px; line-height:1.8;">
+ <li><b>Phó Giám đốc Sản xuất (Deputy Director — Production — EXE-02)</b>
+ <ul style="margin:6px 0 0 18px; line-height:1.8;">
+ <li>Production Manager (PRO-01)</li>
+ <li>Engineering Manager (ENG-01) — gồm DFM Engineer (ENG-03), Process Engineer (ENG-04) &amp; CAM/CNC Programmer (ENG-02)</li>
+ <li>Production Planner (PLA-02)</li>
+ <li>Warehouse Manager (WHS-01) — gồm Storekeeper (WHS-03, gộp Storekeeper (WHS-03))</li>
+ <li>Maintenance Technician (MNT-02)</li>
+ </ul>
+ </li>
+ <li>QA Manager (QA-01) — độc lập với sản xuất</li>
+ <li>Finance Manager (FIN-01) — Accounting Staff (FIN-02)</li>
+ <li>Purchasing Manager (PUR-02) — Buyer (PUR-01)</li>
+ <li>Estimator (SAL-03) — đầu mối RFQ→PO khi không có General Manager (EXE-01)</li>
+ <li>HR Manager (HR-01)</li>
+ <li>HSE Officer (HSE-01)</li>
+ <li>System Administrator (IT-02)</li>
+ </ul>
+ </li>
+ </ul>
+</div>
+
+<h3 class="h3" style="margin-top:14px;">2.2 Role Dictionary (vai trò chủ chốt)</h3>
+<table class="form-table" style="margin-top:10px;">
+<colgroup><col style="width:16.67%;"/><col style="width:41.67%;"/><col style="width:41.66%;"/></colgroup><tr><th>Vai trò</th><th>Trách nhiệm bắt buộc</th><th>Quyền phê duyệt / điểm dừng</th></tr>
+<tr>
+<td><b>General Manager (EXE-01)</b></td>
+<td>Phê duyệt chính sách, mục tiêu chất lượng, thay đổi cơ cấu tổ chức, và các ngoại lệ lớn trong hợp đồng/Job.</td>
+<td>HP-0: Phê duyệt thay đổi tổ chức; HP-1: Contract review ngoại lệ.</td>
+</tr>
+<tr>
+<td><b>QA/QMS</b></td>
+<td>Quản trị tài liệu kiểm soát; thiết lập retention/labels; giám sát tuân thủ record/SSOT; phát hành NCR/CAPA khi có sai lệch.</td>
+<td>HP-2: Phê duyệt release tài liệu QMS; HP-6: Release chất lượng (COC/Final Release).</td>
+</tr>
+<tr>
+<td><b>Engineering (ENG)</b></td>
+<td>Quản trị bản vẽ/Rev; xác định CTQ; phát hành build pack; kiểm soát thay đổi kỹ thuật theo ECO.</td>
+<td>HP-3: Release bộ hồ sơ kỹ thuật/Job Pack trước khi chạy máy.</td>
+</tr>
+<tr>
+<td><b>Planning/Production Control (PC)</b></td>
+<td>Lập kế hoạch; phát hành Job/operation; khóa lịch; kiểm soát WIP; phối hợp vật tư và năng lực.</td>
+<td>HP-4: Job/operation released trong Epicor.</td>
+</tr>
+<tr>
+<td><b>Production (OPS)</b></td>
+<td>Thực hiện gia công theo routing; ghi nhận tiến độ và time entry trong Epicor; quản lý NCR tại hiện trường.</td>
+<td>HP-5: In-process check đạt; hold khi sai lệch.</td>
+</tr>
+<tr>
+<td><b>Warehouse (WHS)</b></td>
+<td>Nhập/xuất/kiểm kê; quản trị vật tư theo lô/heat nếu áp dụng; ship staging.</td>
+<td>Gate: Không xuất hàng khi thiếu release QA/COC.</td>
+</tr>
+<tr>
+<td><b>Purchasing (PUR)</b></td>
+<td>Phát hành PO; kiểm soát nhà cung cấp; lưu COA/COC/packing list theo SSOT.</td>
+<td>Gate: PO chỉ phát hành khi yêu cầu mua được phê duyệt.</td>
+</tr>
+</table>
+<h3 class="h3" style="margin-top:14px;">2.3 Luồng Job A/B và điểm dừng kiểm soát</h3>
+<ul style="line-height:1.85; margin:0;">
+<li><b>Luồng A (Chuẩn)</b>: áp dụng khi yêu cầu khách hàng nằm trong phạm vi năng lực chuẩn, không có ngoại lệ CTQ đặc biệt và không yêu cầu “deviation/waiver”.</li>
+<li><b>Luồng B (Đặc biệt)</b>: áp dụng khi có ít nhất 01 điều kiện: CTQ mới; yêu cầu chứng chỉ/traceability đặc biệt; khách hàng cung cấp tài sản; yêu cầu thay đổi so với báo giá/PO; hoặc phát sinh NCR/CAPA bắt buộc.</li>
+<li>Khi chuyển A↔B, PC hoặc QA <b>PHẢI</b> ghi nhận Change Request và cập nhật trạng thái trong Epicor (job notes/status) theo quy định của <a href="../../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-106-change-and-configuration-management.html">SOP-QMS-008</a>.</li>
+</ul>
+<table class="form-table" style="margin-top:10px;">
+<colgroup><col style="width:22.83%;"/><col style="width:7.31%;"/><col style="width:33.33%;"/><col style="width:36.53%;"/></colgroup><tr>
+<th>Bước / Hold point</th>
+<th>Owner</th>
+<th>Epicor Kinetic (SoR)</th>
+<th>Evidence/Record (M365 SSOT)</th>
+</tr>
+<tr>
+<td><b>HP-1 Contract Review</b><br/>Chỉ release khi điều khoản rõ</td>
+<td>Sales + ENG + QA</td>
+<td>Quote/Order review notes; Rev/requirements gắn với RFQ/Quote.</td>
+<td>M365: CNC-IMS-HUB/Job-Dossiers/RFQ/&lt;RFQ#&gt;/Contract-Review (minutes, checklist).</td>
+</tr>
+<tr>
+<td><b>HP-3 Job Pack Release</b><br/>Bộ hồ sơ kỹ thuật</td>
+<td>ENG</td>
+<td>Job tạo/đồng bộ routing &amp; rev; đính kèm reference trong job notes.</td>
+<td>M365: CNC-IMS-HUB/Job-Dossiers/&lt;Job#&gt;/&lt;Rev&gt;/01-ENG-Release (drawing, ECO, CTQ list).</td>
+</tr>
+<tr>
+<td><b>HP-4 Job Released</b><br/>Lập kế hoạch</td>
+<td>PC</td>
+<td>Job status = Released; operations scheduled; material requirement linked.</td>
+<td>M365: CNC-IMS-HUB/Job-Dossiers/&lt;Job#&gt;/&lt;Rev&gt;/02-PLAN (dispatch, capacity review).</td>
+</tr>
+<tr>
+<td><b>Gate In-process</b><br/>Kiểm tra công đoạn</td>
+<td>OPS + QC</td>
+<td>Labor/time entry; operation complete; scrap/rework transaction.</td>
+<td>M365: CNC-IMS-HUB/Job-Dossiers/&lt;Job#&gt;/&lt;Rev&gt;/03-PROD (checksheet, photos, NCR link).</td>
+</tr>
+<tr>
+<td><b>HP-6 Final Release</b><br/>Xuất xưởng</td>
+<td>QA</td>
+<td>Ship confirm; inventory issue; packing/shipping transaction.</td>
+<td>M365: CNC-IMS-HUB/Job-Dossiers/&lt;Job#&gt;/&lt;Rev&gt;/04-QA-Release (FAI, final report, COC).</td>
+</tr>
+</table>
+<h2 class="h2" style="margin-top:18px;">3. Owner và quy tắc cập nhật</h2>
+<ul style="line-height:1.85; margin:0;">
+<li>Owner của trang này <b>PHẢI</b> là QA/QMS. ENG và PC <b>PHẢI</b> đồng ký xác nhận nội dung luồng Job.</li>
+<li>Khi thay đổi cơ cấu tổ chức hoặc thay đổi gate/hold point, QA/QMS <b>PHẢI</b> cập nhật: (1) sơ đồ SVG, (2) Role Dictionary, (3) bảng luồng Job, (4) doc-control và DCR record.</li>
+<li>Mọi bản phát hành mới <b>PHẢI</b> được gắn nhãn retention/record theo <a href="../../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-104-data-governance-records-security-and-ip-protection.html">SOP-QMS-013</a>. <b>CẤM</b> xóa bản cũ khi có Legal Hold.</li>
+</ul>
+<h2 class="h2" style="margin-top:18px;">4. Hồ sơ &amp; đăng ký (Records &amp; Registers)</h2>
+<table class="form-table" style="margin-top:10px;">
+<colgroup><col style="width:19.40%;"/><col style="width:13.93%;"/><col style="width:28.86%;"/><col style="width:29.85%;"/><col style="width:7.96%;"/></colgroup><tr>
+<th>Record</th>
+<th>Register/List</th>
+<th>SSOT (M365)</th>
+<th>Retention (event-based)</th>
+<th>Legal hold</th>
+</tr>
+<tr>
+<td>Org chart (SVG/PDF) đã phát hành</td>
+<td>ORG Controlled Docs Register</td>
+<td><span class="mono">M365: CNC-IMS-HUB/QMS-Records/ORG/Governance/Org-Chart</span></td>
+<td>Event: thay đổi cơ cấu tổ chức; giữ 10 năm sau ngày thay đổi</td>
+<td>Theo SOP-QMS-013</td>
+</tr>
+<tr>
+<td>Quyết định bổ nhiệm/điều chuyển vai trò</td>
+<td>ORG Decisions Register</td>
+<td><span class="mono">M365: CNC-IMS-HUB/QMS-Records/ORG/Governance/Decisions</span></td>
+<td>Event: hiệu lực quyết định kết thúc; giữ 10 năm</td>
+<td>Theo SOP-QMS-013</td>
+</tr>
+<tr>
+<td>Change Request luồng Job (A/B)</td>
+<td>DCR record Register</td>
+<td><span class="mono">M365: CNC-IMS-HUB/QMS-Records/ORG/Process-Changes/Job-Flow</span></td>
+<td>Event: change implemented; giữ 5 năm</td>
+<td>Theo SOP-QMS-013</td>
+</tr>
+</table>
+<h2 class="h2" style="margin-top:18px;">5. Tài liệu liên quan</h2>
+<ul style="line-height:1.85; margin:0;">
+<li><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/02-SOP-200/sop-201-order-fulfillment-rfq-to-cash.html">PROC-OPS-001 — Order Fulfillment</a></li>
+<li><a href="../../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-106-change-and-configuration-management.html">SOP-QMS-008 — Change Management</a></li>
+<li><a href="../../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-104-data-governance-records-security-and-ip-protection.html">SOP-QMS-011 — Records Retention &amp; Digital Evidence</a></li>
+<li><a href="../../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-104-data-governance-records-security-and-ip-protection.html">SOP-QMS-013 — Purview Retention Labels &amp; Legal Hold</a></li>
+</ul>
+</div>
+<div class="preface-block"><h2 class="h2">Điều kiện áp dụng và kiểm soát</h2><div class="grid-2">
+<div>
+<p><b>ÁP DỤNG KHI</b></p>
+<ul class="list"><li>Khi tài liệu được viện dẫn trong Job/Process/Forms liên quan.</li><li>Khi phát sinh thay đổi ảnh hưởng chất lượng hoặc yêu cầu khách hàng.</li><li>Khi cần xác định hold/release hoặc yêu cầu bằng chứng bắt buộc.</li></ul>
+</div>
+<div>
+<p><b>Đầu vào / Đầu ra</b></p>
+<ul class="list"><li><b>Input:</b> Epicor Kinetic (transaction)</li><li><b>Input:</b> M365/SharePoint (SSOT hồ sơ)</li><li><b>Output:</b> Record/Log đầy đủ tại SSOT</li><li><b>Output:</b> Trạng thái gate được mở hoặc giữ theo tiêu chí</li></ul>
+</div>
+</div><p class="callout"><b>Hold/Release:</b> Thiếu bằng chứng bắt buộc: áp dụng HOLD theo tiêu chí của tài liệu; không chuyển bước cho đến khi đủ bằng chứng.</p><p class="muted"><b>Cưỡng chế hệ thống:</b> Trạng thái chỉ được chuyển khi đủ trường bắt buộc và có liên kết hồ sơ SSOT.</p></div>
+<div class="note">
+ Nếu cần chi tiết hơn (RACI, KPI gating, hồ sơ minh chứng), xem: <a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/02-SOP-200/sop-201-order-fulfillment-rfq-to-cash.html">Order Fulfillment</a> và các WI/FRM liên quan.
+ </div><div>
+</div></div></div>
+</div></div></div>
+<div class="no-screen print-disclaimer" style="display:none;text-align:center;font-size:9px;color:#999;padding:8px 0;border-top:1px solid #ddd;margin-top:20px">⚠ Bản in không có đóng dấu kiểm soát phiên bản thì tài liệu này không có giá trị. Chỉ sử dụng phiên bản hiện hành trên hệ thống HESEM QMS.</div>
+<script src="../../../assets/app.js"></script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SOP-203 — Customer Property Control | HESEM QMS</title>
+<link href="../../../assets/style.css" rel="stylesheet"/>
+<style>
+/* === PAGE BREAK & OVERFLOW FIX (auto-applied) === */
+@media print {
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.vstep{page-break-inside:avoid;break-inside:avoid}
+  h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
+  .form-header,.sig-row,.sign-row{page-break-inside:avoid;break-inside:avoid}
+  tr{page-break-inside:avoid;break-inside:avoid}
+  thead{display:table-header-group}tfoot{display:table-footer-group}
+  p{orphans:3;widows:3}.table-card{overflow:visible!important}
+}
+.page-body{overflow-x:hidden}
+.table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
+table{max-width:100%;table-layout:auto}
+td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
+</style>
+</head>
+<body>
+<div class="container"><div class="page"><div class="page-body">
+<div class="form-header">
+<div class="fh-left">
+  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+  <div class="fh-company">
+    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+    <span>Tài liệu kiểm soát</span>
+  </div>
+</div>
+<div class="title">
+  <strong>SOP-203 — Customer Property Control</strong>
+  <span class="sub-vn"></span>
+</div>
+<div class="meta">
+  <div class="row"><span><b>Mã:</b></span><span>SOP-203</span></div>
+  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+  <div class="row"><span><b>Chủ sở hữu:</b></span><span>Sales</span></div>
+  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+</div>
+</div>
+<div class="doc-content" id="docContent"><div class="form-sheet">
+
+<div class="iso-map">
+  <div class="iso-title">Chuẩn mực áp dụng</div>
+  <div class="req"><span class="req-tag shall">PHẢI</span><div>Nhận dạng, xác minh, bảo vệ và báo cáo ngay khi tài sản khách hàng bị mất, hư hỏng hoặc không phù hợp sử dụng. <span class="iso-ref">ISO 8.5.3</span></div></div>
+  <div class="req"><span class="req-tag shall">PHẢI</span><div>Tài sản dạng dữ liệu như drawing, spec, model, NC, portal data và file chứng từ phải được kiểm soát truy cập. <span class="iso-ref">ISO 7.5.3</span> <span class="iso-ref">ISO 8.5.3</span></div></div>
+  <div class="req"><span class="req-tag should">NÊN</span><div>Phân nhóm tài sản khách hàng theo vật lý, tooling, material và dữ liệu để chọn biện pháp bảo vệ phù hợp. <span class="iso-ref">ISO 8.5.4</span></div></div>
+  <div class="req"><span class="req-tag may">ĐƯỢC PHÉP</span><div>Dùng ảnh, barcode hoặc seal tamper-evident cho tooling/dữ liệu nhạy cảm khi khách hàng yêu cầu hoặc khi job có rủi ro cao. <span class="iso-ref">ISO 8.5.3</span></div></div>
+</div>
+
+<div class="preface-block">
+  <h2 class="h2">Quy ước triển khai tại HESEM</h2>
+  <div class="grid-2">
+    <div>
+      <div class="card-title">Tài sản vật lý</div>
+      <ul>
+        <li>Gồm material do khách gửi, tooling/fixture/gage, sample master, bao bì đặc thù, tài liệu bản giấy có đóng dấu khách hàng.</li>
+        <li>Nhận xong <b>PHẢI</b> ghi sổ, dán nhãn và xác nhận tình trạng ban đầu.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="card-title">Tài sản dữ liệu</div>
+      <ul>
+        <li>Gồm drawing/spec, model 3D, NC, portal download, file label, yêu cầu IP/NDA.</li>
+        <li>File khách hàng <b>PHẢI</b> lưu nơi kiểm soát theo <a href="../01-SOP-100/sop-104-data-governance-records-security-and-ip-protection.html">SOP-104</a> SOP-104 và chỉ phát hành bản dùng việc qua SSOT.</li>
+      </ul>
+      <div class="callout"><b>Quy tắc:</b> tài sản khách hàng không có log nhận dạng thì không được phát hành vào sản xuất hoặc chuyển cho NCC.</div>
+    </div>
+  </div>
+</div>
+
+<h2 class="h2">1. Mục đích</h2>
+<p>Kiểm soát tài sản khách hàng trong suốt vòng đời nhận – lưu – sử dụng – trả lại – hủy theo chỉ dẫn, tránh mất mát, nhầm lẫn, hư hỏng và rò rỉ dữ liệu.</p>
+
+<h2 class="h2">2. Phạm vi</h2>
+<p>Áp dụng cho mọi tài sản thuộc sở hữu khách hàng hoặc khách hàng giao HESEM quản lý để phục vụ gia công, kiểm tra, đóng gói, thử nghiệm, lưu trữ dữ liệu hoặc phản hồi kỹ thuật.</p>
+
+<h2 class="h2">3. Thuật ngữ</h2>
+<div class="table-card"><table class="table">
+<thead><tr><th>Thuật ngữ</th><th>Diễn giải áp dụng</th></tr></thead>
+<tbody>
+<tr><td><b>Customer Property</b></td><td>Tài sản của khách hàng giao hoặc cho phép HESEM dùng cho job cụ thể.</td></tr>
+<tr><td><b>Inbound Verification</b></td><td>Kiểm tra nhận ban đầu về số lượng, tình trạng, nhãn, revision hoặc file checksum khi áp dụng.</td></tr>
+<tr><td><b>Return / Disposal</b></td><td>Trả lại khách hàng hoặc hủy theo chỉ dẫn bằng văn bản; mọi bản sao dữ liệu phải xử lý theo SOP-104.</td></tr>
+</tbody></table></div>
+
+<h2 class="h2">4. RACI</h2>
+<div class="table-card"><table class="table">
+<thead><tr><th>Vai trò</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead>
+<tbody>
+<tr><td><b>Production Planner</b></td><td>X</td><td></td><td></td><td></td></tr>
+<tr><td><b>QMS Engineer</b> (dữ liệu)</td><td>X</td><td></td><td></td><td></td></tr>
+<tr><td><b>QA Manager</b></td><td></td><td>X</td><td></td><td></td></tr>
+<tr><td><b>Warehouse Clerk</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>IT Admin</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>Customer Service</b></td><td></td><td></td><td>X</td><td></td></tr>
+<tr><td><b>Engineering Lead</b></td><td></td><td></td><td>X</td><td></td></tr>
+</tbody></table></div>
+
+<h2 class="h2">5. Quy trình</h2>
+
+<h3 class="h3">5.1 Nhận và đăng ký tài sản</h3>
+<ul>
+  <li>Tài sản vật lý nhận tại cổng kho <b>PHẢI</b> kiểm số lượng, tình trạng, nhận dạng và ghi vào <a href="../../../04-Bieu-Mau/02-FRM-200/frm-221-customer-property-register.html">FRM-221</a> Sổ tài sản KH.</li>
+  <li>Tài sản dữ liệu nhận qua email/portal/file transfer <b>PHẢI</b> được QMS Engineer hoặc người được chỉ định lưu vào thư mục kiểm soát; ghi revision, ngày nhận và người phát hành.</li>
+  <li>Nếu file/tài sản nhận không đủ nhận dạng hoặc có dấu hiệu sai revision, Customer Service <b>PHẢI</b> yêu cầu khách hàng xác nhận trước khi dùng.</li>
+</ul>
+
+<h3 class="h3">5.2 Nhận dạng và bảo vệ</h3>
+<ul>
+  <li>Mọi tài sản vật lý <b>PHẢI</b> có nhãn tối thiểu: customer, mô tả, part/tool ID, qty, trạng thái, location.</li>
+  <li>Tooling/fixture/gage khách hàng <b>PHẢI</b> lưu riêng, không dùng lẫn với tài sản nội bộ nếu chưa có phê duyệt bằng văn bản.</li>
+  <li>Dữ liệu khách hàng <b>PHẢI</b> theo quyền truy cập tối thiểu; không lưu USB cá nhân, không gửi qua kênh ngoài phê duyệt.</li>
+</ul>
+
+<h3 class="h3">5.3 Phát hành sử dụng trong job</h3>
+<ul>
+  <li>Production Planner <b>PHẢI</b> liên kết tài sản khách hàng với WO/job tương ứng trên traveler hoặc folder index.</li>
+  <li>Engineering và Production chỉ dùng bản dữ liệu đã phát hành theo <a href="../01-SOP-100/sop-101-document-and-data-control.html">SOP-101</a> SOP-101 và <a href="../01-SOP-100/sop-104-data-governance-records-security-and-ip-protection.html">SOP-104</a> SOP-104.</li>
+  <li>Nếu tài sản khách hàng chuyển ra NCC hoặc lab ngoài, Buyer/Planner <b>PHẢI</b> ghi nhận điểm đi/điểm về và người nhận.</li>
+</ul>
+
+<h3 class="h3">5.4 Mất mát, hư hỏng, sai lệch</h3>
+<ul>
+  <li>Khi phát hiện mất, hư hỏng, nhiễm bẩn, sai revision hoặc tài sản không phù hợp sử dụng, người phát hiện <b>PHẢI</b> báo ngay QA Manager và Customer Service.</li>
+  <li>QA Manager <b>PHẢI</b> quyết định hold job liên quan nếu tài sản đó ảnh hưởng fit/form/function, traceability, dữ liệu hoặc ship release.</li>
+  <li>Thông báo cho khách hàng <b>PHẢI</b> nêu rõ tài sản bị ảnh hưởng, tình trạng, tác động và hành động đề xuất.</li>
+</ul>
+
+<h3 class="h3">5.5 Trả lại, lưu giữ và hủy</h3>
+<ul>
+  <li>Tài sản vật lý trả lại <b>PHẢI</b> có biên nhận hoặc chứng từ giao nhận; cập nhật ngày trả và tình trạng trong <a href="../../../04-Bieu-Mau/02-FRM-200/frm-221-customer-property-register.html">FRM-221</a> Sổ tài sản KH.</li>
+  <li>Dữ liệu khách hàng sau khi hết nhu cầu lưu giữ <b>PHẢI</b> xóa/hủy theo yêu cầu hợp đồng và quy tắc retention tại <a href="../01-SOP-100/sop-104-data-governance-records-security-and-ip-protection.html">SOP-104</a> SOP-104.</li>
+  <li>Tài sản khách hàng chưa có chỉ dẫn trả/hủy <b>ĐƯỢC PHÉP</b> giữ tạm ở trạng thái archived nhưng vẫn phải bảo vệ như tài sản đang hoạt động.</li>
+</ul>
+
+<h2 class="h2">6. Biểu mẫu liên quan</h2>
+<ul>
+<li><a href="../../../04-Bieu-Mau/02-FRM-200/frm-221-customer-property-register.html">FRM-221</a> Sổ tài sản KH</li>
+</ul>
+
+<h2 class="h2">7. Tài liệu liên quan</h2>
+<ul>
+<li><a href="../01-SOP-100/sop-101-document-and-data-control.html">SOP-101</a> Kiểm soát tài liệu &amp; dữ liệu</li>
+<li><a href="../01-SOP-100/sop-104-data-governance-records-security-and-ip-protection.html">SOP-104</a> Quản trị dữ liệu, hồ sơ, bảo mật &amp; bảo vệ IP</li>
+<li><a href="sop-201-order-fulfillment-rfq-to-cash.html">SOP-201</a> Thực hiện đơn hàng — RFQ đến Cash</li>
+</ul>
+
+</div></div>
+
+</div></div></div>
+</body>
+</html>
+
+

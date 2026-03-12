@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>WI-516 — Machine Operation Quick Card | HESEM QMS</title>
+<link href="../../../assets/style.css" rel="stylesheet"/>
+<style>
+/* === PAGE BREAK & OVERFLOW FIX (auto-applied) === */
+@media print {
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.vstep{page-break-inside:avoid;break-inside:avoid}
+  h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
+  .form-header,.sig-row,.sign-row{page-break-inside:avoid;break-inside:avoid}
+  tr{page-break-inside:avoid;break-inside:avoid}
+  thead{display:table-header-group}tfoot{display:table-footer-group}
+  p{orphans:3;widows:3}.table-card{overflow:visible!important}
+}
+.page-body{overflow-x:hidden}
+.table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
+table{max-width:100%;table-layout:auto}
+td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
+</style>
+</head>
+<body>
+<div class="container"><div class="page"><div class="page-body">
+<div class="form-header">
+<div class="fh-left">
+  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+  <div class="fh-company">
+    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+    <span>Tài liệu kiểm soát</span>
+  </div>
+</div>
+<div class="title">
+  <strong>WI-516 — Machine Operation Quick Card</strong>
+  <span class="sub-vn"></span>
+</div>
+<div class="meta">
+  <div class="row"><span><b>Mã:</b></span><span>WI-516</span></div>
+  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+  <div class="row"><span><b>Chủ sở hữu:</b></span><span>Production</span></div>
+  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+</div>
+</div>
+<div class="doc-content" id="docContent"><div class="form-sheet">
+
+<div class="callout"><b>Dùng như tờ ép plastic tại máy:</b> nội dung ngắn, đọc trong 1-2 phút trước khi nhận ca hoặc sau khi machine down dài giờ.</div>
+
+<h2 class="h2">1. Mục đích</h2><p>Dùng như quick card treo tại máy để chuẩn hóa start-up, shutdown, emergency response và daily check.</p>
+
+<h2 class="h2">2. PPE</h2><ul>
+  <li>Kính, giày bảo hộ, quần áo gọn, tóc gọn; không trang sức lỏng.</li>
+</ul>
+
+<h2 class="h2">3. Dụng cụ</h2><ul>
+  <li>Quick card tại máy</li>
+  <li>Shift handover log</li>
+  <li>Downtime log khi phát sinh dừng máy</li>
+</ul>
+
+<h2 class="h2">4. Các bước</h2><h3 class="h3">4.1 Khởi động đầu ca</h3><ol>
+  <li>Mở nguồn theo trình tự OEM, kiểm E-stop reset, home axes và warm-up máy.</li>
+  <li>Kiểm dầu bôi trơn, coolant, khí nén, guard/interlock, chip conveyor, leak bất thường và cảnh báo active.</li>
+  <li>Xác nhận job packet tại máy đúng revision trước khi load chương trình.</li>
+</ol>
+
+<h3 class="h3">4.2 Tắt máy / kết thúc ca</h3><ul>
+  <li>Đưa máy về safe position, dừng spindle, tắt coolant, dọn chip theo quy định, nhận dạng job đang mở và ghi handover.</li>
+  <li>Không để part, fixture hoặc tool rời trên vùng nguy cơ va chạm của ca sau.</li>
+  <li>Nếu máy có alarm chưa rõ nguyên nhân, ghi rõ trạng thái và không chuyển thành “ready” chỉ vì đã tắt mở lại.</li>
+</ul>
+
+<h3 class="h3">4.3 Emergency / stop-the-line</h3><ul>
+  <li>Dùng E-stop khi có nguy cơ an toàn ngay lập tức hoặc nguy cơ va chạm không kiểm soát.</li>
+  <li>Sau emergency stop, không resume cho đến khi nguyên nhân và trạng thái máy đã được xác nhận.</li>
+  <li>Crash, kẹt phôi, tool gãy, chuck slip, smoke, leak lớn hoặc guard failure đều thuộc nhóm dừng khẩn.</li>
+</ul>
+
+<h3 class="h3">4.4 Daily check</h3><ul>
+  <li>Kiểm nhanh checklist đầu ca: lubricants, coolant, air, alarm history ngắn, tool setter/probe, chuck/jaw/collet, vệ sinh vùng làm việc.</li>
+  <li>Ghi mọi bất thường cần theo dõi sang shift log hoặc downtime log nếu ảnh hưởng chạy máy.</li>
+</ul>
+
+<h3 class="h3">4.5 Yêu cầu đặc thù bán dẫn</h3><ul>
+  <li>Chi tiết bán dẫn thường nhạy với scratch, burr nhỏ và contamination; vì vậy dọn chip, xử lý part và vệ sinh khu vực máy phải chặt hơn thông thường.</li>
+  <li>Với job dung sai ±0.005-0.025 mm và Ra 0.4-0.8 μm, đầu ca cần dành thời gian warm-up và xác nhận environmental stability thay vì vào cắt ngay.</li>
+  <li>Khi chi tiết đã clean hoặc cần bảo vệ bề mặt, không đặt part trực tiếp trên bề mặt bẩn, không ghi bút lên bề mặt sản phẩm và không trộn khay part đã đạt với part nghi ngờ.</li>
+</ul>
+
+<h2 class="h2">5. Tiêu chí</h2><div class="table-card"><table class="table"><thead><tr><th>Tiêu chí</th><th>Đạt khi</th></tr></thead><tbody><tr><td>Start-up</td><td>Máy vào trạng thái sẵn sàng không alarm mở, home/warm-up đầy đủ</td></tr><tr><td>Shutdown</td><td>Máy ở safe position, handover rõ, khu vực sạch, part/tool không bỏ quên</td></tr><tr><td>Emergency response</td><td>Có record nguyên nhân và machine status trước khi resume</td></tr><tr><td>Daily check</td><td>Bất thường được ghi nhận và có owner</td></tr></tbody></table></div>
+
+<h2 class="h2">6. Xử lý bất thường</h2><ul>
+  <li>Alarm lặp khi start-up: không “clear rồi chạy”; gọi Shift Leader/Maintenance.</li>
+  <li>Daily check phát hiện leak, guard fail, chuck issue hoặc probe/tool setter lỗi: giữ máy ở trạng thái hold.</li>
+  <li>Handover thiếu thông tin hoặc không rõ safe state: ca sau phải verify lại từ đầu.</li>
+</ul>
+
+<h2 class="h2">7. SOP liên quan</h2><ul>
+  <li><a href="../../01-SOPs/05-SOP-500/sop-502-cnc-machining-operations.html">SOP-502</a> Vận hành gia công CNC</li>
+  <li><a href="../../01-SOPs/05-SOP-500/sop-503-tooling-maintenance-pm-and-breakdown-response.html">SOP-503</a> Bảo trì - Tooling, PM &amp; Ứng phó sự cố</li>
+  <li><a href="../../../04-Bieu-Mau/05-FRM-500/frm-504-shift-handover-log.html">FRM-504</a> Nhật ký bàn giao ca</li>
+  <li><a href="../../../04-Bieu-Mau/05-FRM-500/frm-512-downtime-log.html">FRM-512</a> Nhật ký Downtime</li>
+</ul>
+
+</div></div>
+
+</div></div></div>
+</body>
+</html>
+
+
