@@ -1,141 +1,98 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+
 <html lang="vi">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>SOP-702 — Contamination Control and Cleanliness | HESEM QMS</title>
+<title>SOP-702 — Kiểm soát nhiễm bẩn và độ sạch | HESEM QMS</title>
 <link href="../../../assets/style.css" rel="stylesheet"/>
-
 <style>
-/* ═══ PAGE BREAK & OVERFLOW FIX (auto-applied) ═══ */
+.chip{display:inline-block;padding:2px 10px;border-radius:999px;border:1px solid #d7dee7;background:#f8fafc;font-size:11px;margin-right:6px;margin-bottom:6px;font-weight:600;}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:12px;}
+.tight li{margin:4px 0;}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+.toc{border:1px solid var(--ln);border-radius:var(--r);padding:16px;background:var(--bg2);margin:18px 0 24px;}
+.toc-title{font-size:12px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.4px;margin-bottom:10px;}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;}
+.toc-grid a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;background:var(--bg);font-size:12px;color:var(--ink);}
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.metric-card{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);}
+.metric-card .value{font-size:20px;font-weight:700;color:var(--navy);}
+.metric-card .label{font-size:11px;color:var(--ink3);margin-top:4px;text-transform:uppercase;letter-spacing:.3px;}
+.mini-note{font-size:12px;color:var(--ink2);line-height:1.55;}
+.gate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.gate-card{border:1px solid var(--ln);border-left:4px solid var(--blue);border-radius:var(--r);padding:14px;background:var(--bg);}
+.gate-card h3{margin:0 0 6px;font-size:14px;color:var(--navy);}
+.field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;}
+.field{padding:10px 12px;border:1px solid var(--ln);border-radius:var(--r-sm);background:var(--bg);}
+.field b{display:block;font-size:11px;color:var(--ink3);text-transform:uppercase;letter-spacing:.3px;margin-bottom:6px;}
+.field .blank{width:100%;min-height:22px;}
+.check-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;}
+.check-item{padding:8px 10px;border:1px solid var(--ln);border-radius:var(--r-sm);background:var(--bg);font-size:12px;}
+.check-item .chk{margin-right:6px;}
+.legend-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0;}
+.legend-row .chip{margin-bottom:0;}
+.footer-note{margin-top:20px;font-size:11px;color:var(--ink3);}
+.decision-table td:first-child, .decision-table th:first-child{font-weight:700;}
+.kpi-good{color:#166534;font-weight:700;}
+.kpi-watch{color:#92400e;font-weight:700;}
+.kpi-bad{color:#b91c1c;font-weight:700;}
+.control-stack > * + *{margin-top:12px;}
+.subtle{color:var(--ink2);font-size:12px;}
+.boxed-list{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);}
+.lane-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.35px;color:var(--navy);margin-bottom:6px;}
+.flow-note{font-size:11px;color:var(--ink3)}
+.pill{display:inline-block;padding:4px 8px;border-radius:999px;background:var(--blue-l);color:var(--navy);font-size:11px;font-weight:700;margin:0 6px 6px 0;}
+.audit-score{font-size:24px;font-weight:700;color:var(--navy);}
+.matrix-small td,.matrix-small th{font-size:12px;}
+.svg-wrap{overflow:auto;border:1px solid var(--ln);border-radius:var(--r);background:#fff;padding:12px}
+.legend-box{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.legend-box span{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--ln);background:var(--bg);padding:4px 8px;border-radius:999px;font-size:11px}
+.sq{width:12px;height:12px;border-radius:3px;display:inline-block}
+.rule-table td:nth-child(1),.rule-table td:nth-child(2){white-space:nowrap}
+.small{font-size:12px}
 @media print {
- .card, .table-card, .callout, .note, .box, .iso-map,
- .preface-block, .form-sheet, .lane, .legend, .req, .vstep {
- page-break-inside: avoid;
- break-inside: avoid;
- }
- h1, h2, h3, .h1, .h2, .h3 {
- page-break-after: avoid;
- break-after: avoid;
- }
- .form-header { page-break-inside: avoid; break-inside: avoid; }
- .sig-row, .sign-row, .approval-row { page-break-inside: avoid; break-inside: avoid; }
- tr { page-break-inside: avoid; break-inside: avoid; }
- thead { display: table-header-group; }
- tfoot { display: table-footer-group; }
- p { orphans: 3; widows: 3; }
- .table-card { overflow: visible !important; }
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.lane,.legend,.req,.auth-grid,.backup-card,.vstep,.metric-card,.gate-card,.field,.boxed-list,.svg-wrap{page-break-inside:avoid;break-inside:avoid}
+  h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
+  .form-header,.sig-row,.sign-row,.approval-row{page-break-inside:avoid;break-inside:avoid}
+  tr{page-break-inside:avoid;break-inside:avoid}
+  thead{display:table-header-group}tfoot{display:table-footer-group}
+  p{orphans:3;widows:3}.table-card{overflow:visible!important}
 }
-.page-body { overflow-x: hidden; }
-.table-card, .table-block, .table-wrap { overflow-x: auto; max-width: 100%; }
-table { max-width: 100%; table-layout: auto; }
-td, th { max-width: 420px; overflow-wrap: break-word; word-wrap: break-word; }
-</style>
+.page-body{overflow-x:hidden}
+.table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
+table{max-width:100%;table-layout:auto}
+td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
+@media (max-width: 900px){.grid-3{grid-template-columns:1fr;}.field-grid{grid-template-columns:1fr;}}
 
+</style>
 </head>
 <body>
-<div class="container">
-  <div class="page">
-    <div class="page-body">
+<div class="container"><div class="page"><div class="page-body">
 <div class="form-header">
 <div class="fh-left">
-  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
-  <div class="fh-company">
-    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
-    <span>Tài liệu kiểm soát</span>
-  </div>
+<a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+<div class="fh-company">
+<a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+<span>Tài liệu kiểm soát</span>
+</div>
 </div>
 <div class="title">
-  <strong>SOP-702 — Contamination Control and Cleanliness</strong>
-  <span class="sub-vn"></span>
+<strong>SOP-702 — Kiểm soát nhiễm bẩn và độ sạch</strong>
+<span class="sub-vn">Bảo vệ sản phẩm nhạy contamination và duy trì mức sạch yêu cầu tới tận lúc giao hàng</span>
 </div>
 <div class="meta">
-  <div class="row"><span><b>Mã:</b></span><span>SOP-702</span></div>
-  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
-  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
-  <div class="row"><span><b>Chủ sở hữu:</b></span><span>Warehouse</span></div>
-  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+<div class="row"><span><b>Mã:</b></span><span>SOP-702</span></div>
+<div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+<div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+<div class="row"><span><b>Chủ sở hữu:</b></span><span>Cleaning & Packaging Supervisor / Quality Engineer</span></div>
+<div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
 </div>
 </div>
-<div class="doc-content" id="docContent">
-        <div class="form-sheet">
-          <div class="iso-map">
-  <div class="iso-title">ISO / Standard mapping</div>
-  <div class="small muted">Map điều khoản hoặc chuẩn kỹ thuật vào yêu cầu triển khai tại xưởng (Point-of-Use).</div>
-  <div class="req">
-  <span class="req-tag shall">PHẢI</span>
-  <div>Mức sạch của chi tiết PHẢI được phân loại theo yêu cầu khách hàng hoặc ma trận nội bộ <b>CL-A / CL-B / CL-General</b>; mức sạch quyết định môi trường thao tác, vật tư tiếp xúc và kiểu đóng gói. <span class="iso-ref">ISO 14644 / IEST-STD-CC1246E</span></div>
-</div><div class="req">
-  <span class="req-tag shall">PHẢI</span>
-  <div>Bề mặt purity-critical PHẢI được làm sạch, kiểm bề mặt và đóng gói bằng vật tư ít phát hạt, ít outgas; vật liệu polymer tiếp xúc với bề mặt ướt hoặc đường hóa chất NÊN dùng loại OEM-approved hoặc định hướng <b>SEMI F57-compatible</b> khi áp dụng. <span class="iso-ref">SEMI F57</span></div>
-</div><div class="req">
-  <span class="req-tag shall">PHẢI</span>
-  <div>Ultrasonic cleaning, final rinse, drydown và clean pack PHẢI được thực hiện theo luồng đã quy định; part không đạt kiểm sạch phải re-clean hoặc HOLD, không được đóng gói lẫn với part đạt. <span class="iso-ref">ISO 9001 8.5.1 / 8.5.4</span></div>
-</div><div class="req">
-  <span class="req-tag shall">PHẢI</span>
-  <div>He leak test chỉ được thực hiện khi drawing, PO, spec hoặc routing yêu cầu; giới hạn pass/fail lấy theo spec khách hàng hoặc test plan được phê duyệt. <span class="iso-ref">Customer specification</span></div>
-</div><div class="req">
-  <span class="req-tag should">NÊN</span>
-  <div>Môi trường clean zone NÊN được giám sát theo tần suất tăng dần theo cấp sạch, dùng nguyên tắc ISO 14644 cho khu vực không gian và IEST-STD-CC1246E cho mức sạch sản phẩm. <span class="iso-ref">ISO 14644 / IEST-STD-CC1246E</span></div>
-</div>
-</div><div class="preface-block">
-  <h2 class="h2">Điều kiện áp dụng và kiểm soát</h2>
-  <div class="grid-2">
-    <div>
-      <p><b>Phân hạng sạch tại HESEM</b></p>
-      <ul><li><b>CL-A:</b> bề mặt purity-critical, bề mặt tiếp xúc dòng process, interface chân không hoặc linh kiện bán dẫn có rủi ro hạt/vết cao.</li><li><b>CL-B:</b> linh kiện sạch kỹ thuật cao, yêu cầu ít xơ/scratch/stain, nhưng không khắt khe bằng CL-A.</li><li><b>CL-General:</b> part thông thường, kiểm sạch theo chuẩn công nghiệp và yêu cầu ngoại quan cơ bản.</li></ul>
-    </div>
-    <div>
-      <p><b>Đầu vào / Đầu ra</b></p>
-      <ul><li><b>Input:</b> bản vẽ/spec, yêu cầu clean level, route xử lý, danh mục vật tư sạch, tình trạng bề mặt trước cleaning.</li><li><b>Output:</b> part đã clean/pack theo class, phiếu xác nhận sạch, phiếu He leak test khi áp dụng, log môi trường.</li><li><b>Output:</b> quyết định re-clean / HOLD / release rõ ràng theo từng lô.</li></ul>
-    </div>
-  </div>
-  <p class="callout">Không được phép dùng khăn bụi, carton hở, giấy ghi chú, bút mực thông thường hoặc vật tư phát xơ trong khu clean zone của CL-A/CL-B.</p>
-</div><h2 class="h2">1. Mục đích</h2>
-<p>Thiết lập hệ thống kiểm soát nhiễm bẩn và độ sạch cho linh kiện gia công CNC phục vụ khách hàng OEM thiết bị bán dẫn. Quy trình này điều khiển từ môi trường làm việc, cleaning, kiểm bề mặt, He leak test tới clean packaging.</p>
-<h2 class="h2">2. Phạm vi</h2>
-<ul><li>Áp dụng cho công đoạn cleaning, clean pack, khu clean staging, kiểm sạch bề mặt và He leak test tại HESEM.</li><li>Áp dụng cho chi tiết Class CL-A, CL-B và CL-General theo ma trận nội bộ hoặc theo override của khách hàng.</li><li>Không thay thế yêu cầu customer-specific cleanliness hoặc helium leak specification; khi khách yêu cầu chặt hơn thì ưu tiên yêu cầu khách.</li></ul>
-<h2 class="h2">3. Thuật ngữ</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Thuật ngữ</th><th>Diễn giải áp dụng tại HESEM</th></tr></thead>
-<tbody><tr><td><b>Contamination</b></td><td>Bụi, xơ, dầu, dấu tay, vết nước, hạt kim loại, chất hữu cơ hoặc vật lạ có thể làm giảm độ sạch hoặc hiệu năng chi tiết.</td></tr><tr><td><b>Clean zone</b></td><td>Khu thao tác sạch có kiểm soát vật tư, PPE, hành vi và housekeeping ở mức cao hơn khu sản xuất chung.</td></tr><tr><td><b>Fallout</b></td><td>Lượng hạt/lint lắng đọng lên bề mặt trong thời gian mở pack hoặc lưu tại clean zone.</td></tr><tr><td><b>He leak test</b></td><td>Thử kín bằng Helium theo phương pháp sniff/vacuum hoặc phương pháp được khách quy định.</td></tr><tr><td><b>Re-clean</b></td><td>Làm sạch lại sau khi part fail kiểm sạch nhưng chưa bị loại về mặt hình học/chức năng.</td></tr><tr><td><b>Cleanliness verification</b></td><td>Bằng chứng part đạt điều kiện sạch đã định nghĩa: bề mặt, packaging, môi trường và hồ sơ đi kèm.</td></tr></tbody></table></div>
-<h2 class="h2">4. RACI</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Hoạt động</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead>
-<tbody><tr><td>Phân loại clean level, quy định vật tư sạch và tiêu chí release</td><td>Cleaning & Packaging Supervisor</td><td>QA Manager</td><td>Quality Engineer</td><td>QC Inspector / CMM Programmer-Operator; Supply Chain Manager</td></tr><tr><td>Thực hiện ultrasonic cleaning, drydown và clean pack</td><td>Cleaning & Packaging Supervisor; Cleaning/Packaging Technician</td><td>QA Manager</td><td>Quality Engineer</td><td>Production Director</td></tr><tr><td>Kiểm sạch bề mặt, phiếu xác nhận sạch, quyết định re-clean/HOLD</td><td>QC Inspector / CMM Programmer-Operator; Quality Engineer</td><td>QA Manager</td><td>Cleaning & Packaging Supervisor</td><td>Supply Chain Manager</td></tr><tr><td>Thiết lập, xác minh và thực hiện He leak test</td><td>QC Inspector / CMM Programmer-Operator; Quality Engineer</td><td>QA Manager</td><td>Engineering Lead/Manager; Maintenance Technician</td><td>Cleaning & Packaging Supervisor</td></tr><tr><td>Giám sát môi trường clean zone và closure khi lệch chuẩn</td><td>Cleaning & Packaging Supervisor</td><td>QA Manager</td><td>Quality Engineer; EHS Specialist</td><td>Supply Chain Manager</td></tr></tbody></table></div>
-<h2 class="h2">5. Ma trận cấp sạch và kiểm soát vật tư tiếp xúc</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Cấp sạch</th><th>Ứng dụng điển hình</th><th>Môi trường thao tác tối thiểu</th><th>Vật tư tiếp xúc / đóng gói</th></tr></thead>
-<tbody><tr><td><b>CL-A</b></td><td>Bề mặt wetted, interface chân không, part semiconductor purity-critical</td><td>Clean zone chuyên biệt; mở pack trong thời gian ngắn; găng nitrile powder-free đổi thường xuyên</td><td>Túi sạch 2 lớp, cap/plug ít phát hạt; vật liệu polymer tiếp xúc NÊN OEM-approved hoặc định hướng SEMI F57-compatible</td></tr><tr><td><b>CL-B</b></td><td>Part sạch kỹ thuật cao, yêu cầu ít xơ/ít vết</td><td>Khu clean pack kiểm soát tốt; hạn chế vật tư bụi</td><td>Túi sạch 1-2 lớp, lót chống trầy không phát xơ, desiccant khi cần</td></tr><tr><td><b>CL-General</b></td><td>Part thông thường không purity-critical</td><td>Khu đóng gói sạch cơ bản</td><td>Vật tư bao gói theo SOP-701, vẫn cấm dùng vật liệu gây xước hoặc rơi bụi trực tiếp lên bề mặt hoàn thiện</td></tr></tbody></table></div>
-<h3 class="h3">5.1 Quy tắc vật tư tiếp xúc</h3><ul><li>Part đã clean không được đặt trực tiếp lên carton hở, gỗ, xốp rời hoặc vải lau phát xơ.</li><li>Cap, plug, bag hoặc liner chạm trực tiếp bề mặt purity-critical PHẢI thuộc danh mục vật tư sạch đã phê duyệt.</li><li>Mọi thay đổi vật tư clean pack NÊN được Quality Engineer đánh giá tương thích trước khi dùng đại trà.</li></ul><h2 class="h2">6. Luồng ultrasonic cleaning và drydown</h2>
-<h3 class="h3">6.1 Điều kiện trước khi rửa</h3><ul><li>Xác nhận part đã hoàn tất deburr và không còn cạnh sắc có thể cắt túi/găng.</li><li>Kiểm tank ID, hóa chất/medium, nồng độ, nhiệt độ, tình trạng basket và thời gian cycle theo WI-712.</li><li>Tách part theo vật liệu/clean level; không trộn part dầu nặng với part gần hoàn thiện clean pack trong cùng mẻ.</li></ul><h3 class="h3">6.2 Trình tự thao tác</h3><div class="vflow"><div class="vstep"><div class="vnum">1</div><div class="vtext">Tiền làm sạch hoặc blow-off để loại phoi lớn trước khi đưa vào bể.</div></div><div class="vstep"><div class="vnum">2</div><div class="vtext">Xếp part vào basket sao cho không chạm nhau, lỗ blind không úp kín gây giữ bọt hoặc giữ nước.</div></div><div class="vstep"><div class="vnum">3</div><div class="vtext">Chạy ultrasonic theo recipe đã duyệt; không tự ý tăng thời gian/nhiệt để bù cho part bẩn nặng nếu chưa có đánh giá của QE.</div></div><div class="vstep"><div class="vnum">4</div><div class="vtext">Rửa lại bằng nước DI/filtered water hoặc môi chất quy định; kiểm không còn bọt, dầu nổi hoặc film.</div></div><div class="vstep"><div class="vnum">5</div><div class="vtext">Drydown bằng N2 sạch hoặc khí nóng sạch theo WI-712; chuyển sang khu kiểm sạch/đóng gói ngay khi khô.</div></div></div><h3 class="h3">6.3 Điểm chặn</h3><ul><li>Part rơi xuống sàn sau khi clean PHẢI re-clean; nếu nghi xước va đập thì chuyển kiểm ngoại quan trước.</li><li>Mẻ có dấu hiệu dầu loang, cặn bể hoặc basket bẩn phải dừng, xử lý tank và đánh giá ảnh hưởng toàn bộ part trong mẻ.</li></ul>
-<h2 class="h2">7. Kiểm bề mặt và xác nhận sạch</h2>
-<h3 class="h3">7.1 Kiểm sau cleaning</h3><ul><li>Quan sát dưới ánh sáng phù hợp, có thể dùng nền trắng/đen hoặc kính lúp theo mức sạch.</li><li>Không chấp nhận: vết dầu, dấu tay, water mark rõ, hạt kim loại, xơ, bavia còn bám, cặn hóa chất, stain bất thường.</li><li>Nếu khách yêu cầu kiểm bằng wipe test, particle count, ảnh chụp hoặc UV, thực hiện theo spec khách và lưu hồ sơ đính kèm FRM-711.</li></ul><h3 class="h3">7.2 Quyết định</h3><div class="table-card"><table class="table">
-<thead><tr><th>Kết quả</th><th>Xử lý</th></tr></thead>
-<tbody><tr><td>Đạt sạch</td><td>Ghi FRM-711, chuyển clean pack hoặc release sang công đoạn tiếp.</td></tr><tr><td>Không đạt nhưng re-clean được</td><td>Gắn HOLD nội bộ, re-clean theo lô, ghi rõ số vòng re-clean.</td></tr><tr><td>Không đạt do xước, pit, stain cố hữu hoặc nghi sai process</td><td>Mở NCR theo SOP-606; không dùng re-clean để che lỗi bản chất.</td></tr></tbody></table></div>
-<h2 class="h2">8. He leak test</h2>
-<h3 class="h3">8.1 Khi áp dụng</h3><ul><li>Khi drawing/PO/spec hoặc test plan nội bộ yêu cầu.</li><li>Thiết bị, fixture, chuẩn leak và đồng hồ/helium mass spectrometer PHẢI trong tình trạng hợp lệ và được xác minh trước ca.</li></ul><h3 class="h3">8.2 Trình tự</h3><div class="vflow"><div class="vstep"><div class="vnum">1</div><div class="vtext">Xác nhận part number, revision, spec limit, phương pháp sniff hoặc vacuum và đơn vị kết quả.</div></div><div class="vstep"><div class="vnum">2</div><div class="vtext">Lắp fixture đúng hướng, kiểm kín hệ thống test trắng (blank check) trước khi nạp part.</div></div><div class="vstep"><div class="vnum">3</div><div class="vtext">Thực hiện test theo thời gian purge, dwell, spray hoặc cycle đã quy định.</div></div><div class="vstep"><div class="vnum">4</div><div class="vtext">Ghi kết quả lên FRM-712; part fail phải dán HOLD ngay và tách khỏi part pass.</div></div><div class="vstep"><div class="vnum">5</div><div class="vtext">Sau test, bảo vệ cổng/lỗ test, tránh để part sạch bị tái nhiễm trong quá trình chờ đóng gói.</div></div></div><h3 class="h3">8.3 Phán quyết</h3><ul><li>Pass/Fail dựa trên spec limit và điều kiện test đã duyệt. Không lấy trung bình nhiều lần để che kết quả fail đầu tiên nếu spec không cho phép.</li><li>Nếu fixture hoặc hệ thống test bị nghi rò nội bộ, dừng test, xác minh lại chuẩn trước khi tiếp tục.</li></ul>
-<h2 class="h2">9. Giám sát môi trường clean zone</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Hạng mục</th><th>Tần suất tối thiểu</th><th>Kỳ vọng kiểm soát</th></tr></thead>
-<tbody><tr><td>Nhiệt độ / độ ẩm</td><td>Mỗi ca</td><td>Duy trì ổn định cho clean pack và tránh ngưng tụ hơi ẩm.</td></tr><tr><td>Housekeeping bề mặt bàn / kệ / dụng cụ</td><td>Đầu ca + cuối ca</td><td>Không có bụi, xơ, dầu hoặc vật tư phát hạt.</td></tr><tr><td>Fallout / particle monitoring</td><td>Theo WI-713 và tăng tần suất cho CL-A</td><td>Nhận biết xu hướng bẩn để hành động trước khi có escape.</td></tr><tr><td>Tình trạng PPE / găng / tacky mat</td><td>Trong ca</td><td>Thay ngay khi bẩn, rách, bết dầu hoặc mất độ bám.</td></tr></tbody></table></div>
-<h3 class="h3">9.1 Vật cấm trong clean zone</h3><ul><li>Carton hở, giấy không sạch, bút chì gỗ, khăn lau phát xơ, đồ ăn/uống, điện thoại đặt trực tiếp lên bàn clean pack, dao cắt làm phát bụi giấy.</li><li>Part chưa làm sạch đặt chung bàn với part đã clean.</li></ul><h2 class="h2">10. Hold / Re-clean / Release</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Tình trạng</th><th>Người quyết định</th><th>Hành động</th></tr></thead>
-<tbody><tr><td>Môi trường lệch chuẩn nhưng chưa ảnh hưởng part</td><td>Cleaning & Packaging Supervisor</td><td>Dừng mở pack mới, sửa môi trường, đánh giá part đang staging.</td></tr><tr><td>Part fail kiểm sạch có thể làm lại</td><td>QA Manager</td><td>Re-clean có ghi nhận số vòng và người xác minh.</td></tr><tr><td>Part fail He leak hoặc nghi hỏng bề mặt</td><td>QA Manager</td><td>HOLD, đánh giá NCR/MRB theo SOP-606.</td></tr><tr><td>Part đạt toàn bộ tiêu chí</td><td>QA Manager</td><td>Release sang clean pack / final inspection / ship release.</td></tr></tbody></table></div>
-<h2 class="h2">Biểu mẫu liên quan</h2>
-<ul><li>FRM-711 — Phiếu xác nhận sạch</li><li>FRM-712 — Phiếu He Leak Test</li><li>FRM-708 — Nhật ký môi trường</li><li>FRM-709 — Checklist đóng gói sạch</li></ul>
-<h2 class="h2">Tài liệu liên quan</h2>
-<ul><li>SOP-701 — Kho vận — Nhận, Đóng gói, Xử lý & Bảo quản</li><li>SOP-703 — An toàn sản phẩm, Sự phù hợp & Phòng FOD</li><li>SOP-605 — Kiểm tra cuối, CoC & Giải phóng xuất hàng</li><li>WI-711 — Phòng sạch</li><li>WI-712 — Rửa siêu âm</li><li>WI-713 — Giám sát môi trường</li></ul>
-<h2 class="h2">Ký duyệt</h2>
-<div class="sig-row"><div><div class="muted small"><b>Người lập</b></div><div class="sig-box"></div></div><div><div class="muted small"><b>Người rà soát</b></div><div class="sig-box"></div></div><div><div class="muted small"><b>Phê duyệt</b></div><div class="sig-box"></div></div></div><div class="annex-block">
-  <div class="annex-title">Footer</div>
-  <p class="muted">SOP chủ quản: <b>SOP-702</b> · Lưu hồ sơ theo SOP-104.</p>
-</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<div class="doc-content" id="docContent"><div class="form-sheet">
+<div class="iso-map"><div class="iso-title">Chuẩn mực áp dụng / nguyên tắc bắt buộc</div><div class="req"><span class="req-tag shall">PHẢI</span><div>Sản phẩm/đơn hàng yêu cầu sạch phải được phân loại, có route thao tác và packaging phù hợp mức sạch yêu cầu.</div></div><div class="req"><span class="req-tag shall">PHẢI</span><div>Mọi điểm có nguy cơ tái nhiễm bẩn sau làm sạch phải được nhận diện và kiểm soát.</div></div><div class="req"><span class="req-tag should">NÊN</span><div>Kiểm soát sạch nên được thiết kế từ Engineering/Planning chứ không chỉ thêm một công đoạn cuối.</div></div></div><div class="preface-block"><div class="grid-2"><div class="card"><div class="card-title">Bối cảnh</div><p>Đối với semiconductor, vacuum, medical hoặc cụm nhạy contamination, một bề mặt sạch ở máy nhưng bẩn lại trong handling/packaging vẫn là lỗi hệ thống. SOP này khóa toàn bộ chuỗi sạch.</p></div><div class="callout"><div class="card-title">Điểm thực thi</div><p>Cleanliness liên quan đồng thời tới con người, môi trường, vật tư bao gói, thiết bị, luồng di chuyển và rule re-entry của sản phẩm.</p></div></div></div><div class="toc"><div class="toc-title">Mục lục nhanh</div><div class="toc-grid"><a href="#p1">1. Mục đích</a><a href="#p2">2. Phạm vi</a><a href="#p3">3. Thuật ngữ</a><a href="#p4">4. RACI</a><a href="#p5">5. Quy trình</a><a href="#p6">6. Biểu mẫu liên quan</a><a href="#p7">7. Tài liệu liên quan</a></div></div><h2 class="h2" id="p1">1. Mục đích</h2><p>Quy định cách phân loại mức sạch, kiểm soát thao tác, làm sạch, xác minh độ sạch và bao gói sạch cho sản phẩm/đơn hàng yêu cầu contamination control.</p><h2 class="h2" id="p2">2. Phạm vi</h2><p>Áp dụng cho part, sub-assembly hoặc shipment có yêu cầu sạch, clean pack, particle control, vacuum service, cleanroom entry hoặc yêu cầu handling đặc biệt.</p><h2 class="h2" id="p3">3. Thuật ngữ</h2><div class="table-card"><table class="table"><thead><tr><th>Thuật ngữ</th><th>Diễn giải áp dụng</th></tr></thead><tbody><tr><td><b>Clean handling class</b></td><td>Mức độ kiểm soát thao tác/bao gói tương ứng độ nhạy contamination của sản phẩm.</td></tr><tr><td><b>Recontamination</b></td><td>Tái nhiễm bẩn sau khi đã làm sạch đạt mức yêu cầu.</td></tr><tr><td><b>Controlled pack-out</b></td><td>Hoạt động đóng gói trong điều kiện và bằng vật tư đã kiểm soát phù hợp với mức sạch yêu cầu.</td></tr></tbody></table></div><h2 class="h2" id="p4">4. RACI</h2><div class="table-card"><table class="table"><thead><tr><th>Vai trò</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead><tbody><tr><td>Cleaning &amp; Packaging Supervisor</td><td>●</td><td></td><td></td><td></td></tr><tr><td>Quality Engineer</td><td>●</td><td></td><td></td><td></td></tr><tr><td>QA Manager</td><td></td><td>●</td><td></td><td></td></tr><tr><td>QC Inspector Lead</td><td></td><td></td><td>●</td><td></td></tr><tr><td>EHS Specialist</td><td></td><td></td><td>●</td><td></td></tr><tr><td>CNC Workshop Manager</td><td></td><td></td><td>●</td><td></td></tr><tr><td>Production Director</td><td></td><td></td><td></td><td>●</td></tr></tbody></table></div><div class="role-boundary"><b>Role-boundary / authority note:</b> Cleanliness owner nằm ở công đoạn tạo nguy cơ và công đoạn làm sạch/đóng gói; QA xác định tiêu chí và điểm kiểm, Production thực thi discipline hàng ngày. Xem thêm <a href="../../03-Reference/01-ANNEX-System/ref-020-cnc-operating-model-and-role-boundary.html">REF-020</a>, <a href="../../../02-Tai-Lieu-He-Thong/03-Organization/04-RACI-Authority/annex-qms-025-authority-matrix.html">ANNEX-QMS-025</a> và <a href="../../../02-Tai-Lieu-He-Thong/03-Organization/04-RACI-Authority/annex-qms-026-raci-master-matrix.html">ANNEX-QMS-026</a> để đối chiếu giữa tài liệu.</div><h2 class="h2" id="p5">5. Quy trình</h2><h3 class="h3">1. Phân loại và route sạch</h3><ul class="tight"><li>Engineering/QA xác định mức sạch yêu cầu từ RFQ/PO/spec khách hàng và chuyển hóa vào traveler, packaging instructions và routing.</li><li>Xác định rõ part nào cần: cleaning standard, ultrasonic cleaning, controlled environment, cleanroom gowning, clean pack, cleanliness verification hoặc leak-related handling.</li></ul><h3 class="h3">2. Kiểm soát con người, môi trường và vật tư</h3><ul class="tight"><li>Thiết lập yêu cầu về gowning, glove, tray/bag/materials, cleaning agents, rack/container và điểm chạm được phép.</li><li>Không dùng vật tư bao gói/khăn lau/phương tiện handling có nguy cơ sinh hạt, sợi hoặc residue không chấp nhận.</li></ul><h3 class="h3">3. Xác minh độ sạch và pack-out</h3><div class="table-card"><table class="table"><colgroup><col style="width:24%"/><col style="width:76%"/></colgroup><thead><tr><th>Mốc kiểm</th><th>Nội dung</th></tr></thead><tbody><tr><td>Trước cleaning</td><td>Xác nhận tình trạng part, contamination type và khả năng cleaning phù hợp</td></tr><tr><td>Sau cleaning</td><td>Kiểm tra visual/particle/residue theo mức yêu cầu hoặc theo WI tương ứng</td></tr><tr><td>Trước pack-out</td><td>Xác nhận khu vực, vật tư bao gói, label, seal và tuyến bàn giao tránh recontamination</td></tr></tbody></table></div><h3 class="h3">4. Xử lý excursion</h3><ul class="tight"><li>Bất kỳ nghi ngờ tái nhiễm bẩn, breach bag/seal, thao tác sai hoặc lẫn luồng sạch–không sạch phải được hold và đánh giá lại.</li><li>Điều tra excursion phải xác định điểm xâm nhập contamination và hành động ngăn tái diễn ở cả upstream/downstream.</li></ul><h2 class="h2" id="p6">6. Biểu mẫu liên quan</h2><ul class="tight"><li><a href="../../../04-Bieu-Mau/07-FRM-700/frm-709-clean-packaging-checklist.html">FRM-709</a></li><li><a href="../../../04-Bieu-Mau/07-FRM-700/frm-711-cleanliness-verification-form.html">FRM-711</a></li><li><a href="../../../04-Bieu-Mau/07-FRM-700/frm-712-helium-leak-test-record.html">FRM-712</a></li></ul><h2 class="h2" id="p7">7. Tài liệu liên quan</h2><ul class="tight"><li><a href="../../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/07-WI-700/wi-711-cleanroom-entry-and-gowning.html">WI-711</a></li><li><a href="../../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/07-WI-700/wi-712-ultrasonic-cleaning.html">WI-712</a></li><li><a href="../../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/07-WI-700/wi-713-environmental-monitoring.html">WI-713</a></li></ul><div class="footer-note">Bản nâng cấp giữ nguyên mã tài liệu, logic vận hành gốc và tăng chiều sâu kiểm soát cho mô hình gia công CNC toàn cầu, high-mix/medium-volume hoặc job-order.</div>
+</div></div>
+</div></div></div>
+<script src="../../../assets/app.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
 <meta charset="utf-8"/>
@@ -6,10 +6,11 @@
 <title>Production — Department Handbook | HESEM QMS</title>
 <link href="../../../assets/style.css" rel="stylesheet"/>
 <style>
+
 /* PAGE BREAK & OVERFLOW FIX */
 @media print {
  .card, .table-card, .callout, .note, .box, .iso-map,
- .preface-block, .form-sheet, .lane, .legend, .req, .vstep, .auth-grid {
+ .preface-block, .form-sheet, .lane, .legend, .req, .vstep, .auth-grid, .backup-card, .org-row {
  page-break-inside: avoid;
  break-inside: avoid;
  }
@@ -41,74 +42,72 @@ td, th { max-width: 420px; overflow-wrap: break-word; word-wrap: break-word; }
 .doc-link-list li {padding:6px 0 6px 16px; position:relative;}
 .doc-link-list li:before {content:"•"; position:absolute; left:0; color:var(--blue);}
 .inline-tag {display:inline-block;padding:3px 8px;border:1px solid var(--ln);border-radius:999px;font-size:10px;font-weight:700;background:var(--bg2);margin-right:6px;margin-bottom:6px;}
-.svg-wrap {background:var(--bg); border:1px solid var(--ln); border-radius:var(--r); padding:16px; overflow:auto;}
+.svg-wrap,.org-wrap {background:var(--bg); border:1px solid var(--ln); border-radius:var(--r); padding:16px; overflow:auto;}
 .nav-toc a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;margin:6px 0;background:var(--bg);}
 kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--ln);padding:2px 5px;border-radius:4px;background:#fff;}
+.org-tree{display:flex;flex-direction:column;gap:16px;margin:8px 0;}
+.org-level{display:grid;gap:14px;}
+.org-level.cols-1{grid-template-columns:1fr;}
+.org-level.cols-2{grid-template-columns:repeat(2,minmax(0,1fr));}
+.org-level.cols-3{grid-template-columns:repeat(3,minmax(0,1fr));}
+.org-level.cols-4{grid-template-columns:repeat(4,minmax(0,1fr));}
+.org-level.cols-5{grid-template-columns:repeat(5,minmax(0,1fr));}
+.org-card{border:1px solid var(--ln);border-top:4px solid var(--blue);border-radius:var(--r);padding:14px;background:var(--bg);}
+.org-card h3{font-size:14px;color:var(--navy);margin:0 0 4px;}
+.org-card p{margin:4px 0;font-size:12px;}
+.org-row{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);margin:12px 0;}
+.org-row h3{margin:0 0 8px;font-size:13px;color:var(--navy);}
+.badge-soft{display:inline-block;padding:2px 8px;border-radius:999px;background:var(--blue-l);color:var(--navy);font-size:10px;font-weight:700;margin-right:6px;margin-bottom:6px;}
+.kpi-box{border:1px solid var(--ln);border-radius:var(--r);padding:12px;background:var(--bg);margin:8px 0;}
+.kpi-box b{display:block;font-size:11px;color:var(--navy);text-transform:uppercase;letter-spacing:.3px;margin-bottom:4px;}
+.auth-grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:10px 0 16px;}
+.auth-item{padding:12px 14px; border:1px solid var(--ln,#d7deea); border-radius:8px; background:var(--bg2,#f8fafc);}
+.backup-card{padding:14px 16px; border:1px solid var(--ln,#d7deea); border-left:4px solid #0f766e; border-radius:8px; background:var(--bg2,#f8fafc); margin:10px 0 0;}
+.role-boundary{border:1px solid #cfe0ff;border-left:4px solid #2563eb;border-radius:8px;background:#eef6ff;padding:14px 16px;margin:14px 0;}
+.phase-card{border:1px solid var(--ln);border-left:4px solid var(--gold);border-radius:var(--r);padding:14px;background:#fffdf5;margin:12px 0;}
+.phase-card h3{margin:0 0 6px;font-size:14px;color:var(--navy);}
+.phase-card p:last-child,.role-boundary p:last-child,.auth-item p:last-child,.backup-card p:last-child{margin-bottom:0;}
+.small-note{font-size:12px;color:var(--ink2);}
 
 </style>
-
 </head>
 <body>
 <div class="container">
   <div class="page">
     <div class="page-body">
-<div class="form-header">
-<div class="fh-left">
-  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
-  <div class="fh-company">
-    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
-    <span>Tài liệu kiểm soát</span>
-  </div>
-</div>
-<div class="title">
-  <strong>Production — Department Handbook</strong>
-  <span class="sub-vn"></span>
-</div>
-<div class="meta">
-  <div class="row"><span><b>Mã:</b></span><span>DEPT-PRODUCTION-HANDBOOK</span></div>
-  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
-  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
-  <div class="row"><span><b>Chủ sở hữu:</b></span><span>HR</span></div>
-  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
-</div>
-</div>
-<div class="doc-content" id="docContent">
+      <div class="form-header">
+        <div class="fh-left">
+          <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+          <div class="fh-company">
+            <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+            <span>Tài liệu kiểm soát</span>
+          </div>
+        </div>
+        <div class="title">
+          <strong>Production — Department Handbook</strong>
+          <span class="sub-vn">Sổ tay vận hành cấp phòng ban cho mô hình CNC job-order</span>
+        </div>
+        <div class="meta">
+          <div class="row"><span><b>Mã:</b></span><span>PRODUCTION-HANDBOOK</span></div>
+          <div class="row"><span><b>Phiên bản:</b></span><span>V1.0</span></div>
+          <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+          <div class="row"><span><b>Chủ sở hữu:</b></span><span>CNC Workshop Manager / Production Director</span></div>
+          <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+        </div>
+      </div>
+      <div class="doc-content" id="docContent">
         <div class="form-sheet">
-
-<div class="iso-map">
-  <div class="iso-title">Department control intent</div>
-  <div class="req"><span class="req-tag shall">PHẢI</span><div>Phòng ban PHẢI vận hành theo output của JD phòng ban, SOP đang hiệu lực và các gate hold / release có liên quan.</div></div>
-  <div class="req"><span class="req-tag should">NÊN</span><div>Các KPI trong sổ tay này NÊN được dùng thống nhất trong daily management và management review.</div></div>
-</div>
-<div class="preface-block">
-  <div class="grid-2">
-    <div>
-      <p><b>Vai trò thuộc phòng</b></p>
-      <div><span class="inline-tag">Production Director</span><span class="inline-tag">Production Planner</span><span class="inline-tag">CNC Workshop Manager</span><span class="inline-tag">Shift Leader – Ca 1 / Ca 2</span><span class="inline-tag">Setup Technician – Ca 1 / Ca 2</span><span class="inline-tag">CNC Operator – Ca 1 / Ca 2</span><span class="inline-tag">Deburr Team Lead</span><span class="inline-tag">Deburr Technician</span><span class="inline-tag">Cleaning &amp; Packaging Supervisor</span><span class="inline-tag">Cleaning/Packaging Technician</span><span class="inline-tag">Maintenance Technician</span></div>
-    </div>
-    <div>
-      <p><b>Mã tài liệu chính</b></p>
-      <div><span class="inline-tag">SOP-501</span><span class="inline-tag">SOP-502</span><span class="inline-tag">SOP-503</span><span class="inline-tag">SOP-604</span><span class="inline-tag">SOP-606</span><span class="inline-tag">SOP-701</span><span class="inline-tag">SOP-703</span><span class="inline-tag">SOP-804</span><span class="inline-tag">WI-601</span><span class="inline-tag">WI-721</span><span class="inline-tag">WI-801</span><span class="inline-tag">FRM-631</span><span class="inline-tag">FRM-651</span><span class="inline-tag">FRM-703</span><span class="inline-tag">FRM-707</span></div>
-    </div>
-  </div>
-</div>
-<h2 class="h2">1. Mục tiêu phòng ban</h2><p>Vận hành gia công CNC 2 ca theo mô hình job order; bảo đảm đúng yêu cầu kỹ thuật, đúng revision, đúng tiến độ, dữ liệu sản xuất chính xác phục vụ truy vết và giá thành.</p>
-<h2 class="h2">2. Phạm vi</h2><p>Production planning, job release, WIP control, CNC machining, deburr, cleaning/packaging, maintenance owner, dữ liệu Epicor trong phạm vi sản xuất, job close.</p>
-<h2 class="h2">3. Trách nhiệm bắt buộc</h2><ul><li>Chuyển đơn hàng thành kế hoạch tuần/ngày; quản năng lực 2 ca và điểm nghẽn (máy, setup, CMM, deburr, packaging, vật tư, tool).</li><li>Thiết lập, phát hành và kiểm soát job packet; không cho chạy khi thiếu điều kiện bắt buộc.</li><li>Điều phối lịch máy/ca theo cell máy; quản kỷ luật WI/NC đúng revision tại điểm chạy.</li><li>Quản first piece và phản ứng drift: stop–segregate–call QC–verify–resume theo quy định.</li><li>Quản rework theo MRB disposition; bảo đảm kiểm tra sau rework và đóng hồ sơ.</li><li>Quản dữ liệu sản xuất: labor reporting, completion, scrap, downtime, tool change, WIP movement theo job.</li><li>Close job và đối chiếu dữ liệu labor/material/scrap/rework phục vụ job costing.</li></ul>
-<h2 class="h2">4. Quyền hạn</h2><ul><li>Điều phối năng lực máy/ca và ưu tiên sản xuất theo cam kết.</li><li>Dừng sản xuất vì an toàn hoặc rủi ro vận hành thiết bị.</li></ul>
-<h2 class="h2">5. Đầu ra bắt buộc</h2><p>Weekly plan, daily priorities, job packet release record, machine schedule, shift reports, OEE/downtime report, WIP status, job close checklist, OT approvals.</p>
-<h2 class="h2">6. KPI</h2><p>OTD nội bộ, OEE, downtime, scrap/rework, first pass yield, độ chính xác dữ liệu job.</p>
-<h2 class="h2">7. Giao diện phòng ban</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Điểm giao tiếp</th><th>Nhận từ</th><th>Giao cho</th><th>Chứng từ / record đi kèm</th></tr></thead>
-<tbody>
-<tr><td>Thông tin đầu vào / yêu cầu</td><td>Phòng liền trước theo RFQ → Ship</td><td>Phòng ban này</td><td>PO, revision, traveler, WI/NC, checklist, release record</td></tr>
-<tr><td>Escalation bất thường</td><td>Nhân sự hiện trường / owner job</td><td>Trưởng phòng / QA Manager / CEO theo mức độ</td><td>NCR, hold log, incident log, action log</td></tr>
-<tr><td>Đầu ra bắt buộc</td><td>Phòng ban này</td><td>Phòng liền sau hoặc khách hàng nội bộ</td><td>Record đã ký, trạng thái system, nhãn, chứng từ ship, báo cáo KPI</td></tr>
-</tbody></table></div>
-<h2 class="h2">8. SOP / WI / Form liên quan</h2>
-<div class="table-card"><table class="table"><tbody><tr><th>SOP liên quan</th><td>SOP-501<br/>SOP-502<br/>SOP-503<br/>SOP-604<br/>SOP-606<br/>SOP-701<br/>SOP-703<br/>SOP-804</td></tr><tr><th>WI liên quan</th><td>WI-601<br/>WI-721<br/>WI-801</td></tr><tr><th>Biểu mẫu chính</th><td>FRM-631<br/>FRM-651<br/>FRM-703<br/>FRM-707</td></tr></tbody></table></div>
-
+<div class="iso-map"><div class="iso-title">Department control intent</div><div class="req"><span class="req-tag shall">PHẢI</span><div>Phòng ban phải vận hành theo JD mới nhất, REF-020 về role-boundary, authority matrix, SOP/WI và các gate hold/release liên quan.</div></div><div class="req"><span class="req-tag shall">PHẢI</span><div>Mọi trách nhiệm liên phòng ban trong handbook này chỉ có hiệu lực khi đi kèm bằng chứng bàn giao, trạng thái hệ thống hoặc biểu mẫu đã quy định.</div></div><div class="req"><span class="req-tag should">NÊN</span><div>KPI và handoff trong handbook này nên được dùng trực tiếp trong daily management và management review.</div></div></div>
+<div class="preface-block"><div class="grid-2"><div><p><b>Vai trò thuộc phòng</b></p><div><span class="inline-tag">Production Director</span><span class="inline-tag">Production Planner</span><span class="inline-tag">Production Engineer / Industrial Engineer</span><span class="inline-tag">CNC Workshop Manager</span><span class="inline-tag">Shift Leader</span><span class="inline-tag">Setup Technician</span><span class="inline-tag">CNC Operator</span><span class="inline-tag">Maintenance Technician</span><span class="inline-tag">Deburr Team Lead</span><span class="inline-tag">Deburr Technician</span><span class="inline-tag">Cleaning &amp; Packaging Supervisor</span><span class="inline-tag">Cleaning/Packaging Technician</span></div></div><div><p><b>Mã tài liệu chính</b></p><div><span class="inline-tag">SOP-501</span><span class="inline-tag">SOP-502</span><span class="inline-tag">SOP-503</span><span class="inline-tag">SOP-606</span><span class="inline-tag">SOP-701</span><span class="inline-tag">SOP-702</span><span class="inline-tag">SOP-703</span><span class="inline-tag">WI-501</span><span class="inline-tag">WI-502</span><span class="inline-tag">WI-504</span><span class="inline-tag">WI-516</span><span class="inline-tag">WI-721</span><span class="inline-tag">FRM-501</span><span class="inline-tag">FRM-504</span><span class="inline-tag">FRM-511</span><span class="inline-tag">REF-020</span><span class="inline-tag">REF-021</span></div></div></div></div>
+<h2 class="h2">1. Mục tiêu phòng ban</h2><p>Biến lệnh sản xuất thành output đạt chất lượng, đúng hạn và có thể truy xuất, thông qua điều hành năng lực cell, chuẩn hóa setup, phản ứng bất thường nhanh và discipline tại hiện trường.</p>
+<h2 class="h2">2. Phạm vi</h2><p>Production planning interface, dispatch, machining, setup, operator discipline, machine readiness, deburr/finishing, cleaning/packaging, maintenance response, visual management, daily management.</p>
+<h2 class="h2">3. Trách nhiệm bắt buộc</h2><ul><li>Khóa readiness trước khi chạy: người, máy, dao/gá, vật tư, chương trình, WI/setup, phương pháp đo và trạng thái quality gate.</li><li>Phân vai rõ: Planner điều độ; Production Engineer/IE tối ưu data, bottleneck, standard time; Workshop Manager giữ năng lực cell; Shift Leader điều hành ca; Setup Technician chịu tính đúng của setup và first-off; Operator tuân thủ chuẩn đã release.</li><li>Không cho phép thay đổi tự phát đối với offset, tool equivalent, routing, chương trình, mẫu kiểm hoặc tần suất kiểm vượt ngoài rule đã được duyệt.</li><li>Tổ chức daily management nhiều tầng, phản ứng theo tín hiệu bất thường và bàn giao ca có truy xuất.</li><li>Đóng vòng dữ liệu sản xuất: output, downtime, scrap/rework, tool life, machine condition, manpower và evidence pack.</li></ul>
+<h2 class="h2">4. Quyền hạn</h2><ul><li>Dừng máy hoặc hold job khi phát hiện nguy cơ an toàn, sai revision, sai vật tư, sai chương trình, first-off không đạt, hoặc mất kiểm soát quá trình.</li><li>Production Planner được tái sắp lịch trong biên dispatch rule; thay đổi ảnh hưởng cam kết khách hàng hoặc ưu tiên chiến lược phải escalated.</li><li>Setup Technician/Shift Leader được yêu cầu hỗ trợ Engineering/Quality ngay khi job không còn trong vùng kiểm soát chuẩn.</li><li>Production Director quyết định recovery plan, overtime lớn, cross-cell loading và trade-off năng lực.</li></ul>
+<h2 class="h2">5. Đầu ra bắt buộc</h2><p>Dispatch plan, shift report, setup record, production log, downtime log, machine maintenance request/record, deburr/cleaning/packaging handoff, job dossier evidence.</p>
+<h2 class="h2">6. KPI</h2><div class="kpi-box"><b>1. KPI</b><div>OTD và schedule adherence</div></div><div class="kpi-box"><b>2. KPI</b><div>OEE / machine utilization theo cell</div></div><div class="kpi-box"><b>3. KPI</b><div>First-pass yield / rework / scrap</div></div><div class="kpi-box"><b>4. KPI</b><div>Setup lead time và changeover stability</div></div><div class="kpi-box"><b>5. KPI</b><div>Downtime response and backlog</div></div><div class="kpi-box"><b>6. KPI</b><div>WIP age và dispatch discipline</div></div>
+<h2 class="h2">7. Giao diện phòng ban</h2><div class="table-card"><table class="table"><colgroup><col style="width:24%"/><col style="width:18%"/><col style="width:18%"/><col style="width:40%"/></colgroup><thead><tr><th>Điểm giao tiếp</th><th>Nhận từ</th><th>Giao cho</th><th>Chứng từ / record đi kèm</th></tr></thead><tbody><tr><td>Order release</td><td>Planner</td><td>Workshop / Shift Leader</td><td>Dispatch list, traveler, due date, priority code</td></tr><tr><td>Technical support</td><td>Engineering</td><td>Setup / Shift Leader</td><td>NC package, setup sheet, tool/gage requirement</td></tr><tr><td>Quality gate</td><td>Production</td><td>QC / Quality / Metrology</td><td>First-off, in-process record, abnormality evidence</td></tr><tr><td>Shipment readiness</td><td>Production</td><td>Cleaning-Pack / Warehouse / Logistics</td><td>Pack-ready status, special packing note, handoff record</td></tr></tbody></table></div>
+<h2 class="h2">8. Tài liệu liên quan</h2><div class="table-card"><table class="table"><colgroup><col style="width:22%"/><col style="width:78%"/></colgroup><thead><tr><th>Nhóm</th><th>Tài liệu</th></tr></thead><tbody><tr><td>QMS / Org</td><td><a href="../../01-Quality-Manual/qms-man-001-qms-manual.html">QMS-MAN-001</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-020-cnc-operating-model-and-role-boundary.html">REF-020</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-021-phased-document-upgrade-roadmap.html">REF-021</a><br/><a href="../04-RACI-Authority/annex-qms-025-authority-matrix.html">ANNEX-QMS-025</a><br/><a href="../04-RACI-Authority/annex-qms-026-raci-master-matrix.html">ANNEX-QMS-026</a><br/><a href="../04-RACI-Authority/annex-qms-028-deputy-backup-matrix.html">ANNEX-QMS-028</a></td></tr><tr><td>SOP / WI / FRM trọng yếu</td><td><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-501-production-planning-scheduling-and-dispatch-control.html">SOP-501</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-502-cnc-machining-operations.html">SOP-502</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-503-tooling-maintenance-pm-and-breakdown-response.html">SOP-503</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-606-ncr-capa-and-ipqc-reaction.html">SOP-606</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/07-SOP-700/sop-701-receiving-packaging-handling-and-storage.html">SOP-701</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/07-SOP-700/sop-702-contamination-control-and-cleanliness.html">SOP-702</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/07-SOP-700/sop-703-product-safety-conformity-and-fod-prevention.html">SOP-703</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/05-WI-500/wi-501-dispatch-capacity-and-wip-rules.html">WI-501</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/05-WI-500/wi-502-tier-1-2-3-daily-management.html">WI-502</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/05-WI-500/wi-504-job-dossier-and-evidence-pack.html">WI-504</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/05-WI-500/wi-516-machine-operation-quick-card.html">WI-516</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/07-WI-700/wi-721-fod-prevention-at-machine.html">WI-721</a><br/><a href="../../../04-Bieu-Mau/05-FRM-500/frm-501-planning-release-checklist.html">FRM-501</a><br/><a href="../../../04-Bieu-Mau/05-FRM-500/frm-504-shift-handover-log.html">FRM-504</a><br/><a href="../../../04-Bieu-Mau/05-FRM-500/frm-511-setup-and-first-piece-record.html">FRM-511</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-020-cnc-operating-model-and-role-boundary.html">REF-020</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-021-phased-document-upgrade-roadmap.html">REF-021</a></td></tr></tbody></table></div>
+<div class="footer-note">Handbook này dùng để làm rõ phạm vi phòng ban, không thay thế JD cá nhân hay SOP/WI chi tiết. Khi có thay đổi tổ chức hoặc JD mới, handbook phải được rà lại cùng authority / RACI tương ứng.</div>
         </div>
       </div>
     </div>

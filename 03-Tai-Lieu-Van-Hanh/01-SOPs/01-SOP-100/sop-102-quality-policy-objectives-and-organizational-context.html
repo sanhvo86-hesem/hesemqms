@@ -1,210 +1,96 @@
 <!DOCTYPE html>
+
 <html lang="vi">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>SOP-102 — Quality Policy Objectives and Organizational Context | HESEM QMS</title>
+<title>SOP-102 — Chính sách chất lượng, mục tiêu và bối cảnh tổ chức | HESEM QMS</title>
 <link href="../../../assets/style.css" rel="stylesheet"/>
 <style>
-@media print{
-  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.vstep{page-break-inside:avoid;break-inside:avoid}
+.chip{display:inline-block;padding:2px 10px;border-radius:999px;border:1px solid #d7dee7;background:#f8fafc;font-size:11px;margin-right:6px;margin-bottom:6px;font-weight:600;}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:12px;}
+.tight li{margin:4px 0;}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+.toc{border:1px solid var(--ln);border-radius:var(--r);padding:16px;background:var(--bg2);margin:18px 0 24px;}
+.toc-title{font-size:12px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.4px;margin-bottom:10px;}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;}
+.toc-grid a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;background:var(--bg);font-size:12px;color:var(--ink);}
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.metric-card{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);}
+.metric-card .value{font-size:20px;font-weight:700;color:var(--navy);}
+.metric-card .label{font-size:11px;color:var(--ink3);margin-top:4px;text-transform:uppercase;letter-spacing:.3px;}
+.mini-note{font-size:12px;color:var(--ink2);line-height:1.55;}
+.gate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.gate-card{border:1px solid var(--ln);border-left:4px solid var(--blue);border-radius:var(--r);padding:14px;background:var(--bg);}
+.gate-card h3{margin:0 0 6px;font-size:14px;color:var(--navy);}
+.field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;}
+.field{padding:10px 12px;border:1px solid var(--ln);border-radius:var(--r-sm);background:var(--bg);}
+.field b{display:block;font-size:11px;color:var(--ink3);text-transform:uppercase;letter-spacing:.3px;margin-bottom:6px;}
+.field .blank{width:100%;min-height:22px;}
+.check-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;}
+.check-item{padding:8px 10px;border:1px solid var(--ln);border-radius:var(--r-sm);background:var(--bg);font-size:12px;}
+.check-item .chk{margin-right:6px;}
+.legend-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0;}
+.legend-row .chip{margin-bottom:0;}
+.footer-note{margin-top:20px;font-size:11px;color:var(--ink3);}
+.decision-table td:first-child, .decision-table th:first-child{font-weight:700;}
+.kpi-good{color:#166534;font-weight:700;}
+.kpi-watch{color:#92400e;font-weight:700;}
+.kpi-bad{color:#b91c1c;font-weight:700;}
+.control-stack > * + *{margin-top:12px;}
+.subtle{color:var(--ink2);font-size:12px;}
+.boxed-list{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);}
+.lane-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.35px;color:var(--navy);margin-bottom:6px;}
+.flow-note{font-size:11px;color:var(--ink3)}
+.pill{display:inline-block;padding:4px 8px;border-radius:999px;background:var(--blue-l);color:var(--navy);font-size:11px;font-weight:700;margin:0 6px 6px 0;}
+.audit-score{font-size:24px;font-weight:700;color:var(--navy);}
+.matrix-small td,.matrix-small th{font-size:12px;}
+.svg-wrap{overflow:auto;border:1px solid var(--ln);border-radius:var(--r);background:#fff;padding:12px}
+.legend-box{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.legend-box span{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--ln);background:var(--bg);padding:4px 8px;border-radius:999px;font-size:11px}
+.sq{width:12px;height:12px;border-radius:3px;display:inline-block}
+.rule-table td:nth-child(1),.rule-table td:nth-child(2){white-space:nowrap}
+.small{font-size:12px}
+@media print {
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.lane,.legend,.req,.auth-grid,.backup-card,.vstep,.metric-card,.gate-card,.field,.boxed-list,.svg-wrap{page-break-inside:avoid;break-inside:avoid}
   h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
-  .form-header,.sig-row,.sign-row{page-break-inside:avoid;break-inside:avoid}
+  .form-header,.sig-row,.sign-row,.approval-row{page-break-inside:avoid;break-inside:avoid}
   tr{page-break-inside:avoid;break-inside:avoid}
-  thead{display:table-header-group}
-  tfoot{display:table-footer-group}
-  p{orphans:3;widows:3}
-  .table-card{overflow:visible!important}
+  thead{display:table-header-group}tfoot{display:table-footer-group}
+  p{orphans:3;widows:3}.table-card{overflow:visible!important}
 }
 .page-body{overflow-x:hidden}
 .table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
 table{max-width:100%;table-layout:auto}
 td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
-.mini-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
-.mini-card{background:var(--bg);border:1px solid var(--ln);border-radius:var(--r);padding:16px}
-.mini-card h3{margin:0 0 8px;font-size:14px;color:var(--navy)}
+@media (max-width: 900px){.grid-3{grid-template-columns:1fr;}.field-grid{grid-template-columns:1fr;}}
+
 </style>
 </head>
 <body>
 <div class="container"><div class="page"><div class="page-body">
 <div class="form-header">
 <div class="fh-left">
-  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
-  <div class="fh-company">
-    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
-    <span>Tài liệu kiểm soát</span>
-  </div>
+<a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+<div class="fh-company">
+<a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+<span>Tài liệu kiểm soát</span>
+</div>
 </div>
 <div class="title">
-  <strong>SOP-102 — Quality Policy Objectives and Organizational Context</strong>
-  <span class="sub-vn">Thủ tục quản trị bối cảnh, chính sách, mục tiêu và cơ chế xem xét thay đổi hệ thống</span>
+<strong>SOP-102 — Chính sách chất lượng, mục tiêu và bối cảnh tổ chức</strong>
+<span class="sub-vn">Thiết lập cách nhìn bối cảnh, bên quan tâm, mục tiêu và hướng điều hành của hệ thống</span>
 </div>
 <div class="meta">
-  <div class="row"><span><b>Mã:</b></span><span>SOP-102</span></div>
-  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
-  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
-  <div class="row"><span><b>Chủ sở hữu:</b></span><span>QA/QMS</span></div>
-  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+<div class="row"><span><b>Mã:</b></span><span>SOP-102</span></div>
+<div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+<div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+<div class="row"><span><b>Chủ sở hữu:</b></span><span>QA Manager / QMS Engineer</span></div>
+<div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
 </div>
 </div>
 <div class="doc-content" id="docContent"><div class="form-sheet">
-
-<div class="card">
-  <div class="badge"><span class="dot"></span>SOP-102</div>
-  <h1 class="h1" style="margin-top:10px">SOP-102 — Chính sách chất lượng, mục tiêu và bối cảnh tổ chức</h1>
-  <p class="lead">Thủ tục này chuyển chính sách cấp lãnh đạo thành cơ chế điều hành có thể kiểm soát: xác định bối cảnh, quản lý bên quan tâm và CSR, thiết lập scope, đặt mục tiêu chất lượng, và kích hoạt cập nhật hệ thống khi có thay đổi đáng kể.</p>
-</div>
-
-<div class="iso-map">
-  <div class="iso-title">Chuẩn mực áp dụng</div>
-  <div class="req"><span class="req-tag shall">PHẢI</span><div>Xác định bối cảnh tổ chức và các vấn đề nội bộ, ngoại bộ ảnh hưởng đến định hướng chiến lược và khả năng đạt kết quả dự kiến của QMS. <span class="iso-ref">ISO 4.1</span></div></div>
-  <div class="req"><span class="req-tag shall">PHẢI</span><div>Xác định các bên quan tâm, yêu cầu liên quan, phạm vi QMS và các quá trình cần thiết cho hệ thống. <span class="iso-ref">ISO 4.2</span> <span class="iso-ref">ISO 4.3</span> <span class="iso-ref">ISO 4.4</span></div></div>
-  <div class="req"><span class="req-tag shall">PHẢI</span><div>Thiết lập chính sách chất lượng, mục tiêu đo được, kế hoạch đạt mục tiêu và cơ chế theo dõi - xem xét - cải tiến. <span class="iso-ref">ISO 5.2</span> <span class="iso-ref">ISO 6.2</span> <span class="iso-ref">ISO 9.1</span> <span class="iso-ref">ISO 9.3</span></div></div>
-  <div class="req"><span class="req-tag should">NÊN</span><div>Đánh giá tính liên quan của climate, continuity, customer-specific requirements và thay đổi tổ chức khi cập nhật bối cảnh. <span class="iso-ref">ISO 4.1</span> <span class="iso-ref">ISO 6.1</span> <span class="iso-ref">ISO 9001 Amd.1:2024</span></div></div>
-</div>
-
-<div class="preface-block">
-  <h2 class="h2">Cách áp dụng tại HESEM</h2>
-  <div class="mini-grid">
-    <div class="mini-card">
-      <h3>Đầu vào chính</h3>
-      <ul class="list">
-        <li>Chiến lược kinh doanh, nhu cầu khách hàng, CSR, dữ liệu vận hành, audit, NCR/CAPA, nguồn lực và thay đổi tổ chức.</li>
-        <li>Đánh giá bối cảnh tối thiểu hằng năm hoặc khi có thay đổi lớn.</li>
-      </ul>
-    </div>
-    <div class="mini-card">
-      <h3>Đầu ra chính</h3>
-      <ul class="list">
-        <li>Scope QMS được công bố.</li>
-        <li>Mục tiêu cấp công ty và mục tiêu bộ phận có owner, metric, target và nguồn dữ liệu.</li>
-        <li>Hành động cập nhật tài liệu, rủi ro, đào tạo hoặc review khi bối cảnh thay đổi.</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<h2 class="h2">1. Mục đích</h2>
-<p>Thiết lập cách HESEM xác định và cập nhật bối cảnh tổ chức, truyền đạt chính sách chất lượng, thiết lập mục tiêu chất lượng, xác định phạm vi QMS và chuyển hóa thay đổi hệ thống thành hành động kiểm soát có bằng chứng.</p>
-
-<h2 class="h2">2. Phạm vi</h2>
-<p>Áp dụng cho cấp công ty và toàn bộ chủ quá trình tại HESEM. Thủ tục này bao phủ các hoạt động liên quan đến chính sách, mục tiêu, bối cảnh, bên quan tâm, CSR, climate relevance, phạm vi QMS và việc xem xét thay đổi có thể ảnh hưởng tới hệ thống.</p>
-
-<h2 class="h2">3. Thuật ngữ</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Thuật ngữ</th><th>Diễn giải</th></tr></thead>
-<tbody>
-<tr><td><b>Chính sách chất lượng</b></td><td>Cam kết cấp lãnh đạo về định hướng chất lượng, tuân thủ và cải tiến, làm nền cho các mục tiêu và quyết định điều hành.</td></tr>
-<tr><td><b>Mục tiêu chất lượng</b></td><td>Chỉ số đo được có mục tiêu, kỳ đo, nguồn dữ liệu, chủ sở hữu và ngưỡng hành động.</td></tr>
-<tr><td><b>Bối cảnh tổ chức</b></td><td>Tập hợp các yếu tố nội bộ, ngoại bộ ảnh hưởng tới định hướng chiến lược và hiệu lực QMS.</td></tr>
-<tr><td><b>Bên quan tâm</b></td><td>Các cá nhân/nhóm có thể ảnh hưởng hoặc bị ảnh hưởng bởi QMS, bao gồm khách hàng, nhân sự, NCC, cơ quan quản lý và bên liên quan khác.</td></tr>
-<tr><td><b>CSR</b></td><td>Customer-specific requirements; yêu cầu riêng của khách hàng cần được chuyển thành kiểm soát trong tài liệu và vận hành.</td></tr>
-<tr><td><b>Scope QMS</b></td><td>Mô tả hoạt động, sản phẩm, dịch vụ và địa điểm nằm trong hệ thống quản lý chất lượng.</td></tr>
-</tbody></table></div>
-
-<h2 class="h2">4. Trách nhiệm</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Vai trò</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead>
-<tbody>
-<tr><td><b>QMS Engineer</b></td><td>X</td><td></td><td></td><td></td></tr>
-<tr><td><b>QA Manager</b></td><td>X</td><td>X</td><td></td><td></td></tr>
-<tr><td><b>Tổng Giám đốc</b></td><td></td><td></td><td>X</td><td></td></tr>
-<tr><td><b>Các process owner / trưởng bộ phận</b></td><td></td><td></td><td>X</td><td></td></tr>
-<tr><td><b>HR Manager / Training owner</b></td><td></td><td></td><td>X</td><td></td></tr>
-<tr><td><b>IT / ERP / data owners</b></td><td></td><td></td><td>X</td><td></td></tr>
-<tr><td><b>Toàn bộ quản lý liên quan</b></td><td></td><td></td><td></td><td>X</td></tr>
-</tbody></table></div>
-
-<h2 class="h2">5. Quy trình</h2>
-
-<h3 class="h3">5.1 Thiết lập và truyền đạt chính sách chất lượng</h3>
-<ul>
-  <li>Tổng Giám đốc phê duyệt <a href="../../../02-Tai-Lieu-He-Thong/02-Policies-Objectives/pol-qms-001-quality-policy.html">POL-QMS-001</a> và bảo đảm chính sách phù hợp với định hướng chiến lược.</li>
-  <li>QA Manager và QMS Engineer công bố chính sách trên portal, liên kết với <a href="../../../02-Tai-Lieu-He-Thong/01-Quality-Manual/qms-man-001-qms-manual.html">QMS-MAN-001</a> và chuyển chính sách thành yêu cầu điều hành thực tế.</li>
-  <li>HR hoặc training owner phải đưa chính sách vào onboarding, OJT và các chương trình đào tạo khi có thay đổi lớn.</li>
-</ul>
-
-<h3 class="h3">5.2 Xem xét bối cảnh tổ chức</h3>
-<div class="vflow">
-  <div class="vstep"><div class="vnum">1</div><div class="vtext">QMS Engineer thu thập dữ liệu đầu vào: chiến lược, khách hàng, KPI, audit findings, NCR/CAPA, nguồn lực, thay đổi tổ chức, công nghệ, rủi ro chuỗi cung ứng và sự kiện gián đoạn.</div></div>
-  <div class="vstep"><div class="vnum">2</div><div class="vtext">Tổ chức xem xét bối cảnh với các process owner và ghi nhận kết quả trên <a href="../../../04-Bieu-Mau/01-FRM-100/frm-121-context-analysis-swot-pestle.html">FRM-121</a>.</div></div>
-  <div class="vstep"><div class="vnum">3</div><div class="vtext">Mọi vấn đề có tác động đáng kể phải được chuyển thành một trong các hành động sau: cập nhật risk register, cập nhật mục tiêu, cập nhật tài liệu, mở CAPA/kaizen hoặc đưa vào management review.</div></div>
-</div>
-
-<h3 class="h3">5.3 Bên quan tâm, yêu cầu và CSR</h3>
-<ul>
-  <li>Danh sách bên quan tâm phải được duy trì trên <a href="../../../04-Bieu-Mau/01-FRM-100/frm-122-interested-parties-register.html">FRM-122</a>; yêu cầu phải được ghi nhận trên <a href="../../../04-Bieu-Mau/01-FRM-100/frm-123-interested-party-requirements-register.html">FRM-123</a>.</li>
-  <li>CSR và flowdown của khách hàng phải được ghi trên <a href="../../../04-Bieu-Mau/01-FRM-100/frm-125-customer-csr-register.html">FRM-125</a> và được dịch thành điểm kiểm soát trong SOP/WI/FRM liên quan.</li>
-  <li>Khi xuất hiện yêu cầu mới từ khách hàng, luật định hoặc ngành, QMS Engineer phải đánh giá xem có cần cập nhật scope, objective, risk, form, training hoặc workflow hay không.</li>
-</ul>
-
-<h3 class="h3">5.4 Xác định và duy trì phạm vi QMS</h3>
-<ul>
-  <li>Scope QMS phải nêu rõ hoạt động nằm trong hệ thống, các địa điểm áp dụng và điều khoản không áp dụng nếu có.</li>
-  <li>Mô tả scope phải nhất quán giữa manual, SOP này và các tài liệu công bố trên portal.</li>
-  <li>Nếu có exclusion, lý do phải được ghi rõ và không được làm suy giảm khả năng cung cấp sản phẩm/dịch vụ phù hợp.</li>
-</ul>
-
-<h3 class="h3">5.5 Thiết lập và cascade mục tiêu chất lượng</h3>
-<div class="card">
-  <div class="card-title">Quy tắc bắt buộc cho mỗi mục tiêu</div>
-  <ul>
-    <li>Phải có <b>metric</b>, <b>target</b>, <b>frequency</b>, <b>data source</b>, <b>owner</b> và <b>ngưỡng hành động</b>.</li>
-    <li>Phải liên kết với ít nhất một ưu tiên chiến lược, một rủi ro trọng yếu hoặc một yêu cầu khách hàng đáng kể.</li>
-    <li>Khi mục tiêu không đạt hai kỳ liên tiếp hoặc khi có một sự kiện nghiêm trọng, process owner phải mở hành động khắc phục/cải tiến và báo cáo trong review phù hợp.</li>
-  </ul>
-</div>
-<ul>
-  <li>QA Manager tổng hợp mục tiêu cấp công ty; các trưởng bộ phận lập mục tiêu cấp bộ phận và theo dõi kết quả trên nguồn dữ liệu được xác định trước.</li>
-  <li>Mục tiêu cá nhân, nếu được triển khai, phải là dẫn xuất từ mục tiêu bộ phận chứ không tách rời logic hệ thống.</li>
-</ul>
-
-<h3 class="h3">5.6 Trigger xem xét lại bối cảnh và mục tiêu</h3>
-<ul>
-  <li>Xem xét lại tối thiểu mỗi năm một lần và bắt buộc thực hiện sớm hơn khi có: khách hàng mới trọng yếu, thay đổi sản phẩm/công nghệ, thay đổi lớn về tổ chức, sự cố nghiêm trọng, yêu cầu luật định mới, thay đổi CSR, hoặc gián đoạn vận hành đáng kể.</li>
-  <li>Nếu trigger dẫn đến thay đổi tài liệu, việc cập nhật phải đi qua workflow tài liệu kiểm soát và đánh giá tác động liên quan đến RACI, đào tạo, form và risk.</li>
-  <li>Những thay đổi có tính hệ thống phải được liên kết với <a href="sop-106-change-and-configuration-management.html">SOP-106</a>, <a href="sop-103-risk-opportunity-fmea-and-control-plan.html">SOP-103</a> và khi phù hợp, với <a href="../09-SOP-900/sop-902-management-review.html">SOP-902</a>.</li>
-</ul>
-
-<h3 class="h3">5.7 Climate và continuity relevance</h3>
-<ul>
-  <li>HESEM đánh giá tính liên quan của climate change và continuity trên <a href="../../../04-Bieu-Mau/01-FRM-100/frm-124-climate-change-assessment-record.html">FRM-124</a> như một phần của bối cảnh và planning.</li>
-  <li>Đầu vào tối thiểu gồm điện, nước, nhiệt độ/độ ẩm, logistics, nguồn lực thay thế, hạ tầng IT/dữ liệu và các yếu tố có thể làm gián đoạn quá trình giao hàng hoặc phá vỡ điều kiện kiểm soát.</li>
-  <li>Nếu được xác định là relevant, kết quả phải dẫn sang hành động tại <a href="sop-108-operational-contingency-plan.html">SOP-108</a>, risk register hoặc management review.</li>
-</ul>
-
-<h2 class="h2">6. Đầu ra kiểm soát</h2>
-<ul>
-  <li>Policy hiện hành và scope QMS được công bố trên portal.</li>
-  <li>Bản ghi bối cảnh, bên quan tâm, yêu cầu liên quan, CSR và climate relevance được cập nhật.</li>
-  <li>Mục tiêu cấp công ty và mục tiêu bộ phận có owner, nguồn dữ liệu và chu kỳ review rõ ràng.</li>
-  <li>Danh sách hành động phát sinh do thay đổi bối cảnh được theo dõi đến khi đóng hiệu lực.</li>
-</ul>
-
-<h2 class="h2">7. Biểu mẫu liên quan</h2>
-<ul>
-  <li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-121-context-analysis-swot-pestle.html">FRM-121</a> — Bảng phân tích bối cảnh</li>
-  <li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-122-interested-parties-register.html">FRM-122</a> — Sổ bên quan tâm</li>
-  <li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-123-interested-party-requirements-register.html">FRM-123</a> — Sổ yêu cầu bên quan tâm</li>
-  <li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-124-climate-change-assessment-record.html">FRM-124</a> — Biên bản đánh giá climate relevance</li>
-  <li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-125-customer-csr-register.html">FRM-125</a> — Sổ CSR khách hàng</li>
-</ul>
-
-<h2 class="h2">8. Tài liệu liên quan</h2>
-<ul>
-  <li><a href="../../../02-Tai-Lieu-He-Thong/02-Policies-Objectives/pol-qms-001-quality-policy.html">POL-QMS-001 — Quality Policy</a></li>
-  <li><a href="../../../02-Tai-Lieu-He-Thong/02-Policies-Objectives/pol-qms-002-quality-objectives.html">POL-QMS-002 — Quality Objectives</a></li>
-  <li><a href="../../../02-Tai-Lieu-He-Thong/01-Quality-Manual/qms-man-001-qms-manual.html">QMS-MAN-001 — Quality Management System Manual</a></li>
-  <li><a href="sop-101-document-and-data-control.html">SOP-101 — Document and Data Control</a></li>
-  <li><a href="sop-103-risk-opportunity-fmea-and-control-plan.html">SOP-103 — Risk and Opportunity</a></li>
-  <li><a href="sop-105-organizational-knowledge-management.html">SOP-105 — Organizational Knowledge Management</a></li>
-  <li><a href="sop-106-change-and-configuration-management.html">SOP-106 — Change and Configuration Management</a></li>
-  <li><a href="sop-108-operational-contingency-plan.html">SOP-108 — Operational Contingency Plan</a></li>
-  <li><a href="../08-SOP-800/sop-801-competence-training-and-certification.html">SOP-801 — Competence, Training and Certification</a></li>
-  <li><a href="../09-SOP-900/sop-902-management-review.html">SOP-902 — Management Review</a></li>
-  <li><a href="../09-SOP-900/sop-903-continual-improvement-and-kaizen.html">SOP-903 — Continual Improvement and Kaizen</a></li>
-</ul>
-
+<div class="iso-map"><div class="iso-title">Chuẩn mực áp dụng / nguyên tắc bắt buộc</div><div class="req"><span class="req-tag shall">PHẢI</span><div>Bối cảnh tổ chức, các bên quan tâm và yêu cầu trọng yếu phải được xem xét định kỳ và khi có biến động lớn.</div></div><div class="req"><span class="req-tag shall">PHẢI</span><div>Chính sách và mục tiêu chất lượng phải được cascade thành hành động và chỉ số ở cấp thực thi.</div></div><div class="req"><span class="req-tag should">NÊN</span><div>Bổ sung đánh giá tác động khí hậu/chuỗi cung ứng khi xem xét bối cảnh và năng lực đáp ứng.</div></div></div><div class="preface-block"><div class="grid-2"><div class="card"><div class="card-title">Cốt lõi của SOP</div><p>SOP này biến “context” từ khái niệm audit thành đầu vào quyết định cho quotation, planning, sourcing, đầu tư thiết bị đo, năng lực sạch và năng lực logistics.</p></div><div class="callout"><div class="card-title">Điểm thường bị bỏ sót</div><p>Bối cảnh chỉ có giá trị khi kéo được xuống KPI, risk register, supplier strategy và capability development; nếu chỉ dừng ở SWOT/PESTLE thì chưa đủ.</p></div></div></div><div class="toc"><div class="toc-title">Mục lục nhanh</div><div class="toc-grid"><a href="#p1">1. Mục đích</a><a href="#p2">2. Phạm vi</a><a href="#p3">3. Thuật ngữ</a><a href="#p4">4. RACI</a><a href="#p5">5. Quy trình</a><a href="#p6">6. Biểu mẫu liên quan</a><a href="#p7">7. Tài liệu liên quan</a></div></div><h2 class="h2" id="p1">1. Mục đích</h2><p>Quy định cách xác định, cập nhật và sử dụng bối cảnh tổ chức, nhu cầu các bên quan tâm, chính sách chất lượng và mục tiêu chất lượng làm cơ sở điều hành hệ thống và ưu tiên nguồn lực.</p><h2 class="h2" id="p2">2. Phạm vi</h2><p>Áp dụng cho hoạch định cấp công ty, rà soát chiến lược QMS, lập mục tiêu hằng năm/quý và các đợt review khi xuất hiện thay đổi đáng kể về khách hàng, ngành hàng, site, công nghệ hoặc rủi ro bên ngoài.</p><h2 class="h2" id="p3">3. Thuật ngữ</h2><div class="table-card"><table class="table"><thead><tr><th>Thuật ngữ</th><th>Diễn giải áp dụng</th></tr></thead><tbody><tr><td><b>Bối cảnh tổ chức</b></td><td>Tập hợp các yếu tố bên trong và bên ngoài có thể ảnh hưởng tới định hướng, năng lực và kết quả QMS.</td></tr><tr><td><b>Bên quan tâm</b></td><td>Cá nhân/tổ chức có nhu cầu, kỳ vọng hoặc quyền lợi liên quan tới kết quả của QMS.</td></tr><tr><td><b>CSR</b></td><td>Customer-Specific Requirements – yêu cầu riêng của khách hàng ngoài tiêu chuẩn chung.</td></tr><tr><td><b>Mục tiêu chất lượng</b></td><td>Kết quả cần đạt có thể theo dõi bằng dữ liệu và có chủ sở hữu chịu trách nhiệm.</td></tr></tbody></table></div><h2 class="h2" id="p4">4. RACI</h2><div class="table-card"><table class="table"><thead><tr><th>Vai trò</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead><tbody><tr><td>QMS Engineer</td><td>●</td><td></td><td></td><td></td></tr><tr><td>QA Manager</td><td>●</td><td></td><td></td><td></td></tr><tr><td>CEO</td><td></td><td>●</td><td></td><td></td></tr><tr><td>Production Director</td><td></td><td></td><td>●</td><td></td></tr><tr><td>Supply Chain Manager</td><td></td><td></td><td>●</td><td></td></tr><tr><td>Finance Manager</td><td></td><td></td><td>●</td><td></td></tr><tr><td>HR Manager</td><td></td><td></td><td>●</td><td></td></tr><tr><td>Customer Service</td><td></td><td></td><td>●</td><td></td></tr></tbody></table></div><div class="role-boundary"><b>Role-boundary / authority note:</b> CEO chịu trách nhiệm chốt định hướng và mức chấp nhận rủi ro; QMS Engineer/QA Manager tổng hợp dữ liệu chứ không thay thế quyết định quản trị của lãnh đạo. Xem thêm <a href="../../03-Reference/01-ANNEX-System/ref-020-cnc-operating-model-and-role-boundary.html">REF-020</a>, <a href="../../../02-Tai-Lieu-He-Thong/03-Organization/04-RACI-Authority/annex-qms-025-authority-matrix.html">ANNEX-QMS-025</a> và <a href="../../../02-Tai-Lieu-He-Thong/03-Organization/04-RACI-Authority/annex-qms-026-raci-master-matrix.html">ANNEX-QMS-026</a> để đối chiếu giữa tài liệu.</div><h2 class="h2" id="p5">5. Quy trình</h2><h3 class="h3">1. Rà soát bối cảnh và bên quan tâm</h3><ul class="tight"><li>QMS tổ chức review tối thiểu hằng năm và cập nhật đột xuất khi có biến động đáng kể như thị trường ngành mới, khách hàng chiến lược mới, thay đổi site, công nghệ, luật định hoặc chuỗi cung ứng.</li><li>Review phải xem cả yếu tố nội bộ (năng lực máy, đo, nhân sự, tài chính, IT, layout, mức phụ thuộc supplier) và yếu tố bên ngoài (kinh tế, logistics, khí hậu/năng lượng, cạnh tranh, yêu cầu ngành, IP/cyber).</li><li>Các bên quan tâm được phân nhóm tối thiểu: khách hàng, nhân sự, nhà cung cấp, cơ quan pháp lý, chủ sở hữu/ban điều hành và đối tác logistics/hiệu chuẩn.</li></ul><h3 class="h3">2. Chuyển bối cảnh thành yêu cầu và ưu tiên</h3><div class="table-card"><table class="table"><colgroup><col style="width:28%"/><col style="width:72%"/></colgroup><thead><tr><th>Nguồn đầu vào</th><th>Đầu ra quản trị cần tạo</th></tr></thead><tbody><tr><td>SWOT / PESTLE / market scan</td><td>Rủi ro/cơ hội chiến lược, nhu cầu đầu tư hoặc thay đổi năng lực</td></tr><tr><td>Voice of customer / complaint / scorecard</td><td>Mục tiêu chất lượng, action plans, supplier/production priorities</td></tr><tr><td>CSR / ngành hàng / audit findings</td><td>Overlay controls, training, biểu mẫu hoặc hồ sơ bổ sung</td></tr><tr><td>Biến động khí hậu / năng lượng / logistics</td><td>Contingency plan, stock strategy, dual-source, energy-sensitive scheduling</td></tr></tbody></table></div><h3 class="h3">3. Duy trì chính sách và mục tiêu chất lượng</h3><ul class="tight"><li>Chính sách chất lượng phải dễ hiểu, phản ánh hành vi bắt buộc và được gắn vào quyết định thực tế về quality gate, release, CAPA và nguồn lực.</li><li>Mục tiêu chất lượng phải có định nghĩa, công thức, nguồn dữ liệu, chủ sở hữu, tần suất review và ngưỡng phản ứng.</li><li>KPI không chỉ dừng ở công ty; phải cascade xuống bộ phận và, khi cần, xuống cell/team hoặc chương trình khách hàng.</li></ul><h3 class="h3">4. Kích hoạt thay đổi hệ thống</h3><ul class="tight"><li>Khi bối cảnh hoặc yêu cầu bên quan tâm thay đổi làm ảnh hưởng QMS, chủ sở hữu phải kích hoạt SOP-106 để đánh giá ảnh hưởng tới tài liệu, quy trình, năng lực, forms và truyền thông.</li><li>Các điểm thay đổi quan trọng phải được phản ánh tại management review và theo dõi hiệu lực sau triển khai.</li></ul><h2 class="h2" id="p6">6. Biểu mẫu liên quan</h2><ul class="tight"><li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-121-context-analysis-swot-pestle.html">FRM-121</a></li><li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-122-interested-parties-register.html">FRM-122</a></li><li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-123-interested-party-requirements-register.html">FRM-123</a></li><li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-124-climate-change-assessment-record.html">FRM-124</a></li><li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-125-customer-csr-register.html">FRM-125</a></li></ul><h2 class="h2" id="p7">7. Tài liệu liên quan</h2><ul class="tight"><li><a href="../../../02-Tai-Lieu-He-Thong/02-Policies-Objectives/pol-qms-001-quality-policy.html">POL-QMS-001</a></li><li><a href="../../../02-Tai-Lieu-He-Thong/02-Policies-Objectives/pol-qms-002-quality-objectives.html">POL-QMS-002</a></li><li><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-902-management-review.html">SOP-902</a></li></ul><div class="footer-note">Bản nâng cấp giữ nguyên mã tài liệu, logic vận hành gốc và tăng chiều sâu kiểm soát cho mô hình gia công CNC toàn cầu, high-mix/medium-volume hoặc job-order.</div>
 </div></div>
 </div></div></div>
 <script src="../../../assets/app.js"></script>

@@ -1,85 +1,98 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+
 <html lang="vi">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>WI-901 — Performance Dashboard | HESEM QMS</title>
 <link href="../../../assets/style.css" rel="stylesheet"/>
-
 <style>
-/* ═══ PAGE BREAK & OVERFLOW FIX (auto-applied) ═══ */
+.chip{display:inline-block;padding:2px 10px;border-radius:999px;border:1px solid #d7dee7;background:#f8fafc;font-size:11px;margin-right:6px;margin-bottom:6px;font-weight:600;}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:12px;}
+.tight li{margin:4px 0;}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+.toc{border:1px solid var(--ln);border-radius:var(--r);padding:16px;background:var(--bg2);margin:18px 0 24px;}
+.toc-title{font-size:12px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.4px;margin-bottom:10px;}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;}
+.toc-grid a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;background:var(--bg);font-size:12px;color:var(--ink);}
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.metric-card{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);}
+.metric-card .value{font-size:20px;font-weight:700;color:var(--navy);}
+.metric-card .label{font-size:11px;color:var(--ink3);margin-top:4px;text-transform:uppercase;letter-spacing:.3px;}
+.mini-note{font-size:12px;color:var(--ink2);line-height:1.55;}
+.gate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.gate-card{border:1px solid var(--ln);border-left:4px solid var(--blue);border-radius:var(--r);padding:14px;background:var(--bg);}
+.gate-card h3{margin:0 0 6px;font-size:14px;color:var(--navy);}
+.field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;}
+.field{padding:10px 12px;border:1px solid var(--ln);border-radius:var(--r-sm);background:var(--bg);}
+.field b{display:block;font-size:11px;color:var(--ink3);text-transform:uppercase;letter-spacing:.3px;margin-bottom:6px;}
+.field .blank{width:100%;min-height:22px;}
+.check-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;}
+.check-item{padding:8px 10px;border:1px solid var(--ln);border-radius:var(--r-sm);background:var(--bg);font-size:12px;}
+.check-item .chk{margin-right:6px;}
+.legend-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0;}
+.legend-row .chip{margin-bottom:0;}
+.footer-note{margin-top:20px;font-size:11px;color:var(--ink3);}
+.decision-table td:first-child, .decision-table th:first-child{font-weight:700;}
+.kpi-good{color:#166534;font-weight:700;}
+.kpi-watch{color:#92400e;font-weight:700;}
+.kpi-bad{color:#b91c1c;font-weight:700;}
+.control-stack > * + *{margin-top:12px;}
+.subtle{color:var(--ink2);font-size:12px;}
+.boxed-list{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);}
+.lane-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.35px;color:var(--navy);margin-bottom:6px;}
+.flow-note{font-size:11px;color:var(--ink3)}
+.pill{display:inline-block;padding:4px 8px;border-radius:999px;background:var(--blue-l);color:var(--navy);font-size:11px;font-weight:700;margin:0 6px 6px 0;}
+.audit-score{font-size:24px;font-weight:700;color:var(--navy);}
+.matrix-small td,.matrix-small th{font-size:12px;}
+.svg-wrap{overflow:auto;border:1px solid var(--ln);border-radius:var(--r);background:#fff;padding:12px}
+.legend-box{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.legend-box span{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--ln);background:var(--bg);padding:4px 8px;border-radius:999px;font-size:11px}
+.sq{width:12px;height:12px;border-radius:3px;display:inline-block}
+.rule-table td:nth-child(1),.rule-table td:nth-child(2){white-space:nowrap}
+.small{font-size:12px}
 @media print {
- .card, .table-card, .callout, .note, .box, .iso-map,
- .preface-block, .form-sheet, .lane, .legend, .req, .vstep {
- page-break-inside: avoid;
- break-inside: avoid;
- }
- h1, h2, h3, .h1, .h2, .h3 {
- page-break-after: avoid;
- break-after: avoid;
- }
- .form-header { page-break-inside: avoid; break-inside: avoid; }
- .sig-row, .sign-row, .approval-row { page-break-inside: avoid; break-inside: avoid; }
- tr { page-break-inside: avoid; break-inside: avoid; }
- thead { display: table-header-group; }
- tfoot { display: table-footer-group; }
- p { orphans: 3; widows: 3; }
- .table-card { overflow: visible !important; }
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.lane,.legend,.req,.auth-grid,.backup-card,.vstep,.metric-card,.gate-card,.field,.boxed-list,.svg-wrap{page-break-inside:avoid;break-inside:avoid}
+  h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
+  .form-header,.sig-row,.sign-row,.approval-row{page-break-inside:avoid;break-inside:avoid}
+  tr{page-break-inside:avoid;break-inside:avoid}
+  thead{display:table-header-group}tfoot{display:table-footer-group}
+  p{orphans:3;widows:3}.table-card{overflow:visible!important}
 }
-.page-body { overflow-x: hidden; }
-.table-card, .table-block, .table-wrap { overflow-x: auto; max-width: 100%; }
-table { max-width: 100%; table-layout: auto; }
-td, th { max-width: 420px; overflow-wrap: break-word; word-wrap: break-word; }
-</style>
+.page-body{overflow-x:hidden}
+.table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
+table{max-width:100%;table-layout:auto}
+td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
+@media (max-width: 900px){.grid-3{grid-template-columns:1fr;}.field-grid{grid-template-columns:1fr;}}
 
+</style>
 </head>
 <body>
-<div class="container">
-  <div class="page">
-    <div class="page-body">
+<div class="container"><div class="page"><div class="page-body">
 <div class="form-header">
 <div class="fh-left">
-  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
-  <div class="fh-company">
-    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
-    <span>Tài liệu kiểm soát</span>
-  </div>
+<a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+<div class="fh-company">
+<a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+<span>Tài liệu kiểm soát</span>
+</div>
 </div>
 <div class="title">
-  <strong>WI-901 — Performance Dashboard</strong>
-  <span class="sub-vn"></span>
+<strong>WI-901 — Performance Dashboard</strong>
+<span class="sub-vn">Cách đọc và cập nhật dashboard để phục vụ daily management và management review</span>
 </div>
 <div class="meta">
-  <div class="row"><span><b>Mã:</b></span><span>WI-901</span></div>
-  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
-  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
-  <div class="row"><span><b>Chủ sở hữu:</b></span><span>QA/QMS</span></div>
-  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+<div class="row"><span><b>Mã:</b></span><span>WI-901</span></div>
+<div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+<div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+<div class="row"><span><b>Chủ sở hữu:</b></span><span>QMS Engineer / QA Manager</span></div>
+<div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
 </div>
 </div>
-<div class="doc-content" id="docContent">
-        <div class="form-sheet">
-          <h2 class="h2">1. Mục đích</h2>
-<p>Chuẩn hóa dashboard vận hành / chất lượng / cải tiến để từng cấp nhìn cùng một số liệu và escalated đúng nhịp.</p>
-<h2 class="h2">2. PPE</h2>
-<ul><li>Không áp dụng PPE đặc thù; giữ 5S khu vực bảng và vật tư viết/xóa gọn gàng.</li></ul>
-<h2 class="h2">3. Dụng cụ</h2>
-<ul><li>Bảng dashboard vật lý hoặc màn hình hiển thị</li><li>Bút / nam châm / thẻ màu hoặc file trình chiếu được kiểm soát</li><li>Nguồn dữ liệu KPI đã thống nhất định nghĩa</li></ul>
-<h2 class="h2">4. Các bước</h2>
-<div class="vflow"><div class="vstep"><div class="vnum">1</div><div class="vtext">Xác định cấp dashboard: cell, bộ phận hoặc công ty. Mỗi dashboard chỉ giữ KPI thật sự có người hành động.</div></div><div class="vstep"><div class="vnum">2</div><div class="vtext">Ghi rõ định nghĩa từng KPI, nguồn dữ liệu, tần suất cập nhật, người cập nhật và ngưỡng đỏ/vàng/xanh.</div></div><div class="vstep"><div class="vnum">3</div><div class="vtext">Cập nhật số liệu theo nhịp đã chọn; nếu số liệu chưa chốt, phải đánh dấu tạm và thời điểm khóa.</div></div><div class="vstep"><div class="vnum">4</div><div class="vtext">Dùng dashboard trong họp ngắn để quyết định hành động: ai làm, đến khi nào, escalated cho ai.</div></div><div class="vstep"><div class="vnum">5</div><div class="vtext">Xóa KPI không dùng hoặc không có hành động kéo theo; tránh dashboard phình to nhưng không ra quyết định.</div></div></div>
-<h2 class="h2">5. Tiêu chí</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>KPI gợi ý</th><th>Tần suất</th><th>Owner gợi ý</th></tr></thead>
-<tbody><tr><td>OTD / WIP overdue / máy dừng</td><td>Ngày / ca</td><td>Production Director</td></tr><tr><td>Scrap / rework / first piece pass / complaint</td><td>Ngày / tuần</td><td>QA Manager</td></tr><tr><td>Training due / certification expiry</td><td>Tuần / tháng</td><td>HR Manager</td></tr><tr><td>AR overdue / COPQ / margin variance</td><td>Tháng</td><td>Finance Manager</td></tr><tr><td>Near-miss / ánh sáng / action EHS</td><td>Tuần / tháng</td><td>EHS Specialist</td></tr></tbody></table></div>
-<h2 class="h2">6. Xử lý bất thường</h2>
-<ul><li>Nguồn dữ liệu đổi hoặc KPI lệch định nghĩa: sửa chú thích ngay trên bảng và thông báo trong cuộc họp gần nhất.</li><li>Dashboard không được cập nhật đúng nhịp trong 2 kỳ liên tiếp: review lại owner và tính hữu ích của KPI đó.</li></ul>
-<h2 class="h2">7. SOP liên quan</h2>
-<ul><li>SOP-903 — Cải tiến liên tục & Kaizen</li><li>SOP-902 — Xem xét lãnh đạo</li></ul>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<div class="doc-content" id="docContent"><div class="form-sheet">
+<div class="iso-map"><div class="iso-title">Chuẩn mực áp dụng / nguyên tắc bắt buộc</div><div class="req"><span class="req-tag shall">PHẢI</span><div>Dashboard chỉ có giá trị khi định nghĩa KPI, nguồn dữ liệu và quy tắc màu/ngưỡng được thống nhất; không thay đổi công thức để “đẹp số”.</div></div></div><div class="card"><div class="badge"><span class="dot"></span>WI-901</div><div class="role-boundary"><b>Vai trò / quyền hạn khi dùng tài liệu này:</b> Dashboard owner phải gắn với owner KPI trong handbook / KPI cascade. Epicor/IT chỉ cung cấp nền dữ liệu, không tự định nghĩa chỉ số thay process owner. Xem thêm <a href="../../03-Reference/01-ANNEX-System/ref-020-cnc-operating-model-and-role-boundary.html">REF-020</a>, <a href="../../../02-Tai-Lieu-He-Thong/03-Organization/04-RACI-Authority/annex-qms-025-authority-matrix.html">ANNEX-QMS-025</a> và <a href="../../../02-Tai-Lieu-He-Thong/03-Organization/04-RACI-Authority/annex-qms-028-deputy-backup-matrix.html">ANNEX-QMS-028</a> khi cần giải thích sâu.</div><h1 class="h1" style="margin-top:10px">WI-901 — Performance Dashboard</h1><p class="mini-note">Cách đọc và cập nhật dashboard để phục vụ daily management và management review</p></div><h2 class="h2" id="p1">1. Khi nào dùng</h2><ul class="tight"><li>Review hằng ngày/tuần/tháng.</li><li>Chuẩn bị management review.</li><li>Theo dõi hiệu lực CAPA/kaizen.</li></ul><h2 class="h2" id="p2">2. Các bước thực hiện</h2><h3 class="h3">Cập nhật dữ liệu</h3><ul class="tight"><li>Xác định owner, nguồn dữ liệu, cut-off time và công thức cho từng KPI.</li><li>Ghi chú các data caveat hoặc missing data thay vì ước tính tùy ý.</li></ul><h3 class="h3">Đọc dashboard</h3><ul class="tight"><li>Nhìn xu hướng trước khi nhìn snapshot.</li><li>Tập trung vào KPI vượt ngưỡng hoặc đổi màu liên tiếp và truy nguyên xuống nguồn gây lệch.</li></ul><h3 class="h3">Kết nối hành động</h3><ul class="tight"><li>KPI đỏ/cam phải có reaction owner và due date.</li><li>Tách hành động tác nghiệp hằng ngày với action hệ thống cần management review.</li></ul><h2 class="h2" id="p3">3. Điểm tự kiểm trước khi kết thúc</h2><ul class="tight"><li>Nguồn dữ liệu đúng?</li><li>Có trend?</li><li>Có owner cho KPI xấu?</li><li>Có phân biệt snapshot và root cause?</li></ul><h2 class="h2" id="p4">4. Tài liệu liên quan</h2><ul class="tight"><li><a href="../../01-SOPs/09-SOP-900/sop-902-management-review.html">SOP-902</a></li><li><a href="../../01-SOPs/09-SOP-900/sop-903-continual-improvement-and-kaizen.html">SOP-903</a></li></ul>
+</div></div>
+</div></div></div>
+<script src="../../../assets/app.js"></script>
 </body>
 </html>

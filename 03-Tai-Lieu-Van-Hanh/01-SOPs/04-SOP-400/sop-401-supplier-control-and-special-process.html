@@ -1,16 +1,60 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+
 <html lang="vi">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>SOP-401 — Supplier Control and Special Process | HESEM QMS</title>
+<title>SOP-401 — Kiểm soát nhà cung cấp và công đoạn đặc biệt | HESEM QMS</title>
 <link href="../../../assets/style.css" rel="stylesheet"/>
 <style>
-/* === PAGE BREAK & OVERFLOW FIX (auto-applied) === */
+.chip{display:inline-block;padding:2px 10px;border-radius:999px;border:1px solid #d7dee7;background:#f8fafc;font-size:11px;margin-right:6px;margin-bottom:6px;font-weight:600;}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:12px;}
+.tight li{margin:4px 0;}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+.toc{border:1px solid var(--ln);border-radius:var(--r);padding:16px;background:var(--bg2);margin:18px 0 24px;}
+.toc-title{font-size:12px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.4px;margin-bottom:10px;}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;}
+.toc-grid a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;background:var(--bg);font-size:12px;color:var(--ink);}
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.metric-card{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);}
+.metric-card .value{font-size:20px;font-weight:700;color:var(--navy);}
+.metric-card .label{font-size:11px;color:var(--ink3);margin-top:4px;text-transform:uppercase;letter-spacing:.3px;}
+.mini-note{font-size:12px;color:var(--ink2);line-height:1.55;}
+.gate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.gate-card{border:1px solid var(--ln);border-left:4px solid var(--blue);border-radius:var(--r);padding:14px;background:var(--bg);}
+.gate-card h3{margin:0 0 6px;font-size:14px;color:var(--navy);}
+.field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;}
+.field{padding:10px 12px;border:1px solid var(--ln);border-radius:var(--r-sm);background:var(--bg);}
+.field b{display:block;font-size:11px;color:var(--ink3);text-transform:uppercase;letter-spacing:.3px;margin-bottom:6px;}
+.field .blank{width:100%;min-height:22px;}
+.check-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;}
+.check-item{padding:8px 10px;border:1px solid var(--ln);border-radius:var(--r-sm);background:var(--bg);font-size:12px;}
+.check-item .chk{margin-right:6px;}
+.legend-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0;}
+.legend-row .chip{margin-bottom:0;}
+.footer-note{margin-top:20px;font-size:11px;color:var(--ink3);}
+.decision-table td:first-child, .decision-table th:first-child{font-weight:700;}
+.kpi-good{color:#166534;font-weight:700;}
+.kpi-watch{color:#92400e;font-weight:700;}
+.kpi-bad{color:#b91c1c;font-weight:700;}
+.control-stack > * + *{margin-top:12px;}
+.subtle{color:var(--ink2);font-size:12px;}
+.boxed-list{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);}
+.lane-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.35px;color:var(--navy);margin-bottom:6px;}
+.flow-note{font-size:11px;color:var(--ink3)}
+.pill{display:inline-block;padding:4px 8px;border-radius:999px;background:var(--blue-l);color:var(--navy);font-size:11px;font-weight:700;margin:0 6px 6px 0;}
+.audit-score{font-size:24px;font-weight:700;color:var(--navy);}
+.matrix-small td,.matrix-small th{font-size:12px;}
+.svg-wrap{overflow:auto;border:1px solid var(--ln);border-radius:var(--r);background:#fff;padding:12px}
+.legend-box{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.legend-box span{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--ln);background:var(--bg);padding:4px 8px;border-radius:999px;font-size:11px}
+.sq{width:12px;height:12px;border-radius:3px;display:inline-block}
+.rule-table td:nth-child(1),.rule-table td:nth-child(2){white-space:nowrap}
+.small{font-size:12px}
 @media print {
-  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.vstep{page-break-inside:avoid;break-inside:avoid}
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.lane,.legend,.req,.auth-grid,.backup-card,.vstep,.metric-card,.gate-card,.field,.boxed-list,.svg-wrap{page-break-inside:avoid;break-inside:avoid}
   h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
-  .form-header,.sig-row,.sign-row{page-break-inside:avoid;break-inside:avoid}
+  .form-header,.sig-row,.sign-row,.approval-row{page-break-inside:avoid;break-inside:avoid}
   tr{page-break-inside:avoid;break-inside:avoid}
   thead{display:table-header-group}tfoot{display:table-footer-group}
   p{orphans:3;widows:3}.table-card{overflow:visible!important}
@@ -19,165 +63,36 @@
 .table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
 table{max-width:100%;table-layout:auto}
 td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
+@media (max-width: 900px){.grid-3{grid-template-columns:1fr;}.field-grid{grid-template-columns:1fr;}}
+
 </style>
 </head>
 <body>
 <div class="container"><div class="page"><div class="page-body">
 <div class="form-header">
 <div class="fh-left">
-  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
-  <div class="fh-company">
-    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
-    <span>Tài liệu kiểm soát</span>
-  </div>
+<a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+<div class="fh-company">
+<a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+<span>Tài liệu kiểm soát</span>
+</div>
 </div>
 <div class="title">
-  <strong>SOP-401 — Supplier Control and Special Process</strong>
-  <span class="sub-vn"></span>
+<strong>SOP-401 — Kiểm soát nhà cung cấp và công đoạn đặc biệt</strong>
+<span class="sub-vn">Bảo đảm vật tư, dịch vụ ngoài và special process đáp ứng yêu cầu kỹ thuật, chất lượng và chứng từ</span>
 </div>
 <div class="meta">
-  <div class="row"><span><b>Mã:</b></span><span>SOP-401</span></div>
-  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
-  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
-  <div class="row"><span><b>Chủ sở hữu:</b></span><span>Purchasing</span></div>
-  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+<div class="row"><span><b>Mã:</b></span><span>SOP-401</span></div>
+<div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+<div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+<div class="row"><span><b>Chủ sở hữu:</b></span><span>Supply Chain Manager / Quality Engineer</span></div>
+<div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
 </div>
 </div>
 <div class="doc-content" id="docContent"><div class="form-sheet">
-
-<div class="iso-map">
-  <div class="iso-title">Chuẩn mực áp dụng</div>
-  <div class="req"><span class="req-tag shall">PHẢI</span><div>Xác định tiêu chí chọn lựa, đánh giá, phê duyệt, theo dõi hiệu lực và tái đánh giá NCC ảnh hưởng đến chất lượng sản phẩm/dịch vụ. <span class="iso-ref">ISO 8.4.1</span></div></div>
-  <div class="req"><span class="req-tag shall">PHẢI</span><div>Xác định loại và mức kiểm soát theo rủi ro của commodity/process/performance; flowdown rõ yêu cầu mua hàng, chứng chỉ, truy vết và hồ sơ. <span class="iso-ref">ISO 8.4.2</span> <span class="iso-ref">ISO 8.4.3</span> <span class="iso-ref">AS9100D 8.4.1</span></div></div>
-  <div class="req"><span class="req-tag should">NÊN</span><div>Đối với special process và outsource finishing, dùng ASL có phân hạng Approved / Conditional / Blocked và scorecard định kỳ. <span class="iso-ref">AS9100D 8.5.1.2</span></div></div>
-  <div class="req"><span class="req-tag may">ĐƯỢC PHÉP</span><div>Phê duyệt có điều kiện cho NCC mới khi đã đạt điều kiện đầu vào nhưng cần thêm lô chứng minh thực tế. <span class="iso-ref">AS9100D 8.4.1</span></div></div>
-</div>
-
-<div class="preface-block">
-  <h2 class="h2">Quy ước triển khai tại HESEM</h2>
-  <div class="grid-2">
-    <div>
-      <div class="card-title">NCC ảnh hưởng trực tiếp đến sản phẩm</div>
-      <ul>
-        <li>Material supplier, special process house, outsource finishing, lab test, calibration khi ảnh hưởng release, tool supplier critical, packaging supplier đặc thù.</li>
-        <li>Các NCC này <b>PHẢI</b> nằm trong ASL hoặc trạng thái Conditional đã được chấp thuận.</li>
-      </ul>
-    </div>
-    <div>
-      <div class="card-title">Flowdown là chỗ dễ sai nhất</div>
-      <ul>
-        <li>PO gửi NCC <b>PHẢI</b> ghi đúng revision, quantity, due date, cert, special process spec, packaging, label, traceability và yêu cầu báo bất thường.</li>
-        <li>NCC không được tự ý đổi process/sub-tier khi chưa có phê duyệt bằng văn bản nếu flowdown cấm.</li>
-      </ul>
-      <div class="callout"><b>Quy tắc:</b> outsource finishing không có flowdown pack, không có dispatch checklist hoặc không có cert requirement rõ ràng thì không được gửi hàng ra ngoài.</div>
-    </div>
-  </div>
-</div>
-
-<h2 class="h2">1. Mục đích</h2>
-<p>Thiết lập cách lựa chọn, phê duyệt, giám sát và xử lý NCC; kiểm soát special process và outsource finishing để part nhận về vẫn truy vết được và phù hợp yêu cầu.</p>
-
-<h2 class="h2">2. Phạm vi</h2>
-<p>Áp dụng cho nhà cung cấp vật tư, dụng cụ, outsource finishing, special process, dịch vụ kiểm nghiệm, hiệu chuẩn và các external provider khác có ảnh hưởng đến conformity của part hoặc hồ sơ đi kèm.</p>
-
-<h2 class="h2">3. Thuật ngữ</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Thuật ngữ</th><th>Diễn giải áp dụng</th></tr></thead>
-<tbody>
-<tr><td><b>ASL</b> (Approved Supplier List)</td><td>Danh sách NCC được sử dụng với trạng thái Approved / Conditional / Blocked.</td></tr>
-<tr><td><b>Special Process</b></td><td>Công đoạn mà kết quả không xác minh đầy đủ chỉ bằng kiểm cuối; ví dụ heat treat, plating, anodizing, passivation.</td></tr>
-<tr><td><b>Flowdown</b></td><td>Yêu cầu chuyển xuống NCC bằng PO, drawing/spec, phụ lục kỹ thuật hoặc outsource pack.</td></tr>
-<tr><td><b>SCAR</b></td><td>Supplier Corrective Action Request cho major defect, tái diễn hoặc systemic issue từ NCC.</td></tr>
-</tbody></table></div>
-
-<h2 class="h2">4. RACI</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Vai trò</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead>
-<tbody>
-<tr><td><b>Buyer</b> (PO)</td><td>X</td><td></td><td></td><td></td></tr>
-<tr><td><b>Quality Engineer</b> (SCAR / audit)</td><td>X</td><td></td><td></td><td></td></tr>
-<tr><td><b>SC Manager</b></td><td></td><td>X</td><td></td><td></td></tr>
-<tr><td><b>QA Manager</b></td><td></td><td></td><td>X</td><td></td></tr>
-<tr><td><b>Engineering Lead</b></td><td></td><td></td><td>X</td><td></td></tr>
-<tr><td><b>Warehouse Clerk</b></td><td></td><td></td><td>X</td><td></td></tr>
-<tr><td><b>Production Planner</b></td><td></td><td></td><td></td><td>X</td></tr>
-</tbody></table></div>
-
-<h2 class="h2">5. Quy trình</h2>
-
-<h3 class="h3">5.1 Phân loại NCC và ASL</h3>
-<ul>
-  <li>SC Manager <b>PHẢI</b> duy trì ASL theo commodity/process và trạng thái: Approved, Conditional, Blocked.</li>
-  <li>Tiêu chí vào ASL <b>PHẢI</b> xem trên <a href="../../../04-Bieu-Mau/04-FRM-400/frm-402-supplier-evaluation.html">FRM-402</a> Đánh giá NCC và có bằng chứng năng lực phù hợp commodity.</li>
-  <li>NCC special process hoặc material critical <b>NÊN</b> yêu cầu thêm hồ sơ: chứng nhận hệ thống, process spec capability, sample lot history, audit hoặc chứng chỉ khách hàng chấp nhận.</li>
-</ul>
-
-<h3 class="h3">5.2 Phê duyệt NCC mới hoặc phê duyệt có điều kiện</h3>
-<div class="vflow">
-  <div class="vstep"><div class="vnum">1</div><div class="vtext">Buyer thu thập thông tin cơ bản: năng lực, scope, lead time, MOQ, cert, liên hệ kỹ thuật/chất lượng.</div></div>
-  <div class="vstep"><div class="vnum">2</div><div class="vtext">Quality Engineer đánh giá rủi ro theo commodity/process/performance; dùng <a href="../../../04-Bieu-Mau/04-FRM-400/frm-402-supplier-evaluation.html">FRM-402</a> Đánh giá NCC và <a href="../../../04-Bieu-Mau/04-FRM-400/frm-409-supplier-audit-checklist.html">FRM-409</a> Checklist audit NCC khi cần onsite/remote audit.</div></div>
-  <div class="vstep"><div class="vnum">3</div><div class="vtext">SC Manager quyết định Approved hoặc Conditional. Trạng thái Conditional <b>PHẢI</b> nêu rõ điều kiện ra khỏi conditional và số lô cần theo dõi.</div></div>
-</div>
-
-<h3 class="h3">5.3 PO và flowdown</h3>
-<ul>
-  <li>Buyer <b>PHẢI</b> dùng <a href="../../../04-Bieu-Mau/04-FRM-400/frm-408-flowdown-requirements-checklist.html">FRM-408</a> Checklist flowdown trước khi phát hành PO cho vật tư hoặc outsource process.</li>
-  <li>PO/Outsource Pack <b>PHẢI</b> ghi rõ: part/revision, qty, due date, material/process spec, cert/CoC/CoA, lot/heat traceability, packaging, label, đặc tính cấm sửa chữa và yêu cầu báo bất thường.</li>
-  <li>Nếu là outsource finishing/special process, <b>PHẢI</b> phát hành <a href="../../../04-Bieu-Mau/04-FRM-400/frm-403-outsourced-processing-request.html">FRM-403</a> Yêu cầu gia công ngoài kèm <a href="../../../04-Bieu-Mau/04-FRM-400/frm-404-outsourced-dispatch-checklist.html">FRM-404</a> Checklist dispatch outsource.</li>
-</ul>
-
-<h3 class="h3">5.4 Kiểm soát outsource finishing và special process</h3>
-<ul>
-  <li>Part gửi ra ngoài <b>PHẢI</b> có nhận dạng job/lot/qty/revision và trạng thái công đoạn trước khi gửi.</li>
-  <li>Special process house <b>PHẢI</b> trả lại cert hoặc report đủ thông tin để truy lot/reel/batch, spec revision, process date và authorized signature hoặc equivalent authorization.</li>
-  <li>Part nhận về <b>PHẢI</b> vào khu kiểm tra nhận hàng theo <a href="sop-402-material-verification-traceability-and-counterfeit-prevention.html">SOP-402</a> SOP-402 trước khi quay lại dòng sản xuất.</li>
-</ul>
-
-<h3 class="h3">5.5 Theo dõi hiệu suất NCC</h3>
-<ul>
-  <li>Buyer <b>PHẢI</b> duy trì <a href="../../../04-Bieu-Mau/04-FRM-400/frm-401-po-tracker.html">FRM-401</a> Theo dõi PO để kiểm soát confirm, due date và expediting.</li>
-  <li>SC Manager <b>PHẢI</b> cập nhật <a href="../../../04-Bieu-Mau/04-FRM-400/frm-405-supplier-scorecard.html">FRM-405</a> Scorecard NCC định kỳ với tối thiểu: OTD, quality, cert completeness, response time và commercial support.</li>
-  <li>NCC scorecard xuống dưới ngưỡng nội bộ hoặc có major defect <b>PHẢI</b> review trạng thái ASL và kế hoạch thay thế.</li>
-</ul>
-
-<h3 class="h3">5.6 SCAR và tái đánh giá</h3>
-<ul>
-  <li>Khi có lỗi major, lỗi tái diễn, thiếu cert nghiêm trọng hoặc impact customer, Quality Engineer <b>PHẢI</b> mở <a href="../../../04-Bieu-Mau/04-FRM-400/frm-406-supplier-corrective-action-request.html">FRM-406</a> SCAR.</li>
-  <li>SCAR <b>PHẢI</b> nêu containment, root cause, corrective action, due date, person responsible và bằng chứng hiệu lực.</li>
-  <li>Tái đánh giá NCC <b>PHẢI</b> thực hiện khi: SCAR trễ hạn, audit fail, OTD thấp kéo dài, thay đổi site/process/sub-tier hoặc khi customer flowdown yêu cầu.</li>
-</ul>
-
-<h3 class="h3">5.7 Hồ sơ NCC và lưu trữ</h3>
-<ul>
-  <li>Mỗi NCC critical <b>NÊN</b> có <a href="../../../04-Bieu-Mau/04-FRM-400/frm-407-supplier-product-folder-index.html">FRM-407</a> Hồ sơ sản phẩm NCC chứa cert, audit, approval, SCAR, scorecard và history commodity/process.</li>
-  <li>Danh mục hồ sơ <b>PHẢI</b> lưu theo <a href="../01-SOP-100/sop-104-data-governance-records-security-and-ip-protection.html">SOP-104</a> SOP-104 và link tài liệu phát hành theo <a href="../01-SOP-100/sop-101-document-and-data-control.html">SOP-101</a> SOP-101.</li>
-</ul>
-
-<h2 class="h2">6. Biểu mẫu liên quan</h2>
-<ul>
-<li><a href="../../../04-Bieu-Mau/04-FRM-400/frm-401-po-tracker.html">FRM-401</a> Theo dõi PO</li>
-<li><a href="../../../04-Bieu-Mau/04-FRM-400/frm-402-supplier-evaluation.html">FRM-402</a> Đánh giá NCC</li>
-<li><a href="../../../04-Bieu-Mau/04-FRM-400/frm-403-outsourced-processing-request.html">FRM-403</a> Yêu cầu gia công ngoài</li>
-<li><a href="../../../04-Bieu-Mau/04-FRM-400/frm-404-outsourced-dispatch-checklist.html">FRM-404</a> Checklist dispatch outsource</li>
-<li><a href="../../../04-Bieu-Mau/04-FRM-400/frm-405-supplier-scorecard.html">FRM-405</a> Scorecard NCC</li>
-<li><a href="../../../04-Bieu-Mau/04-FRM-400/frm-406-supplier-corrective-action-request.html">FRM-406</a> SCAR</li>
-<li><a href="../../../04-Bieu-Mau/04-FRM-400/frm-407-supplier-product-folder-index.html">FRM-407</a> Hồ sơ sản phẩm NCC</li>
-<li><a href="../../../04-Bieu-Mau/04-FRM-400/frm-408-flowdown-requirements-checklist.html">FRM-408</a> Checklist flowdown</li>
-<li><a href="../../../04-Bieu-Mau/04-FRM-400/frm-409-supplier-audit-checklist.html">FRM-409</a> Checklist audit NCC</li>
-</ul>
-
-<h2 class="h2">7. Tài liệu liên quan</h2>
-<ul>
-<li><a href="../02-SOP-200/sop-201-order-fulfillment-rfq-to-cash.html">SOP-201</a> Thực hiện đơn hàng — RFQ đến Cash</li>
-<li><a href="sop-402-material-verification-traceability-and-counterfeit-prevention.html">SOP-402</a> Xác thực vật liệu, Truy vết &amp; Phòng hàng giả</li>
-<li><a href="../01-SOP-100/sop-101-document-and-data-control.html">SOP-101</a> Kiểm soát tài liệu &amp; dữ liệu</li>
-<li><a href="../01-SOP-100/sop-104-data-governance-records-security-and-ip-protection.html">SOP-104</a> Quản trị dữ liệu, Hồ sơ, Bảo mật &amp; Bảo vệ IP</li>
-</ul>
-
+<div class="iso-map"><div class="iso-title">Chuẩn mực áp dụng / nguyên tắc bắt buộc</div><div class="req"><span class="req-tag shall">PHẢI</span><div>Nhà cung cấp phải được đánh giá và kiểm soát theo mức rủi ro sản phẩm/quá trình họ cung cấp.</div></div><div class="req"><span class="req-tag shall">PHẢI</span><div>PO/flow-down phải truyền đạt đầy đủ yêu cầu kỹ thuật, chất lượng, chứng chỉ, nhận diện và packaging áp dụng.</div></div><div class="req"><span class="req-tag should">NÊN</span><div>Nhà cung cấp công đoạn critical nên được theo dõi bằng scorecard, audit hoặc review định kỳ sâu hơn mức thông thường.</div></div></div><div class="preface-block"><div class="grid-2"><div class="card"><div class="card-title">Cốt lõi</div><p>Supplier control trong doanh nghiệp CNC không chỉ là đánh giá giá/lead time; đó là quản trị năng lực vật liệu, chứng từ và quá trình đặc biệt mà HESEM không thể kiểm lại 100% sau khi nhận về.</p></div><div class="callout"><div class="card-title">Điểm nhấn</div><p>Công đoạn ngoài như nhiệt luyện, coating, passivation, grinding, EDM, clean pack hoặc leak test vẫn nằm trong trách nhiệm QMS của HESEM và phải được kiểm soát như một phần kéo dài của value stream.</p></div></div></div><div class="toc"><div class="toc-title">Mục lục nhanh</div><div class="toc-grid"><a href="#p1">1. Mục đích</a><a href="#p2">2. Phạm vi</a><a href="#p3">3. Thuật ngữ</a><a href="#p4">4. RACI</a><a href="#p5">5. Quy trình</a><a href="#p6">6. Biểu mẫu liên quan</a><a href="#p7">7. Tài liệu liên quan</a></div></div><h2 class="h2" id="p1">1. Mục đích</h2><p>Thiết lập phương pháp lựa chọn, phê duyệt, giao việc, giám sát và phản hồi đối với nhà cung cấp vật tư và dịch vụ ngoài, đặc biệt là các công đoạn ảnh hưởng mạnh tới sự phù hợp của sản phẩm.</p><h2 class="h2" id="p2">2. Phạm vi</h2><p>Áp dụng cho mua nguyên vật liệu, dụng cụ/fixture/consumables critical, special process, dịch vụ đo/hiệu chuẩn ngoài, logistics critical và các nguồn cung phụ trợ có ảnh hưởng tới QMS.</p><h2 class="h2" id="p3">3. Thuật ngữ</h2><div class="table-card"><table class="table"><thead><tr><th>Thuật ngữ</th><th>Diễn giải áp dụng</th></tr></thead><tbody><tr><td><b>Approved supplier</b></td><td>Nguồn cung đã qua đánh giá và được cho phép mua/giao việc trong một phạm vi xác định.</td></tr><tr><td><b>Special process</b></td><td>Quá trình mà tính phù hợp không thể hoặc khó xác nhận đầy đủ bằng kiểm tra sau đó, ví dụ nhiệt luyện, plating, anodizing, passivation, clean pack.</td></tr><tr><td><b>Flow-down package</b></td><td>Bộ thông tin kỹ thuật/chất lượng/chứng từ truyền cho nhà cung cấp để thực hiện đúng yêu cầu.</td></tr><tr><td><b>SCAR</b></td><td>Supplier Corrective Action Request – yêu cầu nhà cung cấp khắc phục nguyên nhân lỗi.</td></tr></tbody></table></div><h2 class="h2" id="p4">4. RACI</h2><div class="table-card"><table class="table"><thead><tr><th>Vai trò</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead><tbody><tr><td>Supply Chain Manager</td><td></td><td>●</td><td></td><td></td></tr><tr><td>Buyer / Purchasing</td><td>●</td><td></td><td></td><td></td></tr><tr><td>Quality Engineer</td><td>●</td><td></td><td></td><td></td></tr><tr><td>QA Manager</td><td></td><td></td><td>●</td><td></td></tr><tr><td>Engineering Lead/Manager</td><td></td><td></td><td>●</td><td></td></tr><tr><td>DFM Engineer</td><td></td><td></td><td>●</td><td></td></tr><tr><td>CEO</td><td></td><td></td><td></td><td>●</td></tr></tbody></table></div><div class="role-boundary"><b>Role-boundary / authority note:</b> Buyer chịu trách nhiệm thương mại và tiến độ; Quality Engineer chịu trách nhiệm flow-down yêu cầu chất lượng và đánh giá đầu ra; Supply Chain Manager quyết định phân bổ nguồn cung/approve vendor. Xem thêm <a href="../../03-Reference/01-ANNEX-System/ref-020-cnc-operating-model-and-role-boundary.html">REF-020</a>, <a href="../../../02-Tai-Lieu-He-Thong/03-Organization/04-RACI-Authority/annex-qms-025-authority-matrix.html">ANNEX-QMS-025</a> và <a href="../../../02-Tai-Lieu-He-Thong/03-Organization/04-RACI-Authority/annex-qms-026-raci-master-matrix.html">ANNEX-QMS-026</a> để đối chiếu giữa tài liệu.</div><h2 class="h2" id="p5">5. Quy trình</h2><h3 class="h3">1. Phân tầng và phê duyệt nguồn cung</h3><ul class="tight"><li>Phân tầng theo mức độ ảnh hưởng của sản phẩm/dịch vụ, mức ảnh hưởng CTQ, lịch sử lỗi, mức phụ thuộc, chứng từ pháp lý/chất lượng yêu cầu và khả năng thay thế nguồn.</li><li>Nhà cung cấp mới hoặc nguồn thay thế phải được đánh giá phù hợp mức rủi ro trước khi giao việc, bao gồm năng lực kỹ thuật, hệ thống, chứng nhận, traceability và lead time.</li></ul><h3 class="h3">2. Mua hàng và flow-down</h3><ul class="tight"><li>PO phải ghi rõ part/revision, vật liệu/quy trình, acceptance criteria, chứng từ yêu cầu, nhãn nhận diện, packaging, lot/heat/serial traceability, deviation policy và yêu cầu clean/FOD nếu có.</li><li>Khi gửi mẫu, master sample hoặc gage cho supplier, phải kiểm soát như tài sản khách hàng/nội bộ và có điều kiện trả lại rõ ràng.</li></ul><h3 class="h3">3. Giám sát thực hiện và nhận lại</h3><div class="table-card"><table class="table"><colgroup><col style="width:22%"/><col style="width:78%"/></colgroup><thead><tr><th>Điểm kiểm</th><th>Ví dụ</th></tr></thead><tbody><tr><td>Trước khi gửi đi</td><td>Part identity, lot segregation, packing protection, dispatch checklist, flow-down completeness</td></tr><tr><td>Khi nhận về</td><td>Certificate accuracy, lot/serial match, visual condition, dimensional critical checks, cleanliness/status label</td></tr><tr><td>Theo dõi định kỳ</td><td>OTD, defect rate, response time, SCAR closure, repeat issue pattern</td></tr></tbody></table></div><h3 class="h3">4. Phản ứng và phát triển nhà cung cấp</h3><ul class="tight"><li>Khi lỗi supplier ảnh hưởng khách hàng hoặc gây risk lặp lại, phải kích hoạt SCAR/escalation và cân nhắc temporary containment như tăng incoming inspection, dual approval hoặc alternate source.</li><li>Supplier development có thể bao gồm làm rõ spec, nâng flow-down, đào tạo yêu cầu chứng từ, audit tại chỗ hoặc thay đổi chiến lược nguồn cung.</li></ul><h2 class="h2" id="p6">6. Biểu mẫu liên quan</h2><ul class="tight"><li><a href="../../../04-Bieu-Mau/04-FRM-400/frm-402-supplier-evaluation.html">FRM-402</a></li><li><a href="../../../04-Bieu-Mau/04-FRM-400/frm-403-outsourced-processing-request.html">FRM-403</a></li><li><a href="../../../04-Bieu-Mau/04-FRM-400/frm-404-outsourced-dispatch-checklist.html">FRM-404</a></li><li><a href="../../../04-Bieu-Mau/04-FRM-400/frm-405-supplier-scorecard.html">FRM-405</a></li><li><a href="../../../04-Bieu-Mau/04-FRM-400/frm-406-supplier-corrective-action-request.html">FRM-406</a></li><li><a href="../../../04-Bieu-Mau/04-FRM-400/frm-408-flowdown-requirements-checklist.html">FRM-408</a></li><li><a href="../../../04-Bieu-Mau/04-FRM-400/frm-411-outsourced-processing-incoming-inspection.html">FRM-411</a></li></ul><h2 class="h2" id="p7">7. Tài liệu liên quan</h2><ul class="tight"><li><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/04-SOP-400/sop-402-material-verification-traceability-and-counterfeit-prevention.html">SOP-402</a></li><li><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/07-SOP-700/sop-701-receiving-packaging-handling-and-storage.html">SOP-701</a></li><li><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-606-ncr-capa-and-ipqc-reaction.html">SOP-606</a></li></ul><div class="footer-note">Bản nâng cấp giữ nguyên mã tài liệu, logic vận hành gốc và tăng chiều sâu kiểm soát cho mô hình gia công CNC toàn cầu, high-mix/medium-volume hoặc job-order.</div>
 </div></div>
-
 </div></div></div>
+<script src="../../../assets/app.js"></script>
 </body>
 </html>
-
-

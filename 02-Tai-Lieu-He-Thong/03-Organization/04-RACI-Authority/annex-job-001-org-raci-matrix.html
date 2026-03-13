@@ -1,341 +1,110 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>ANNEX-JOB-001 — RACI Matrix &amp; SLA (RFQ → Cash) | HESEM OS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ANNEX-JOB-001 — RACI Matrix &amp; SLA (RFQ → Cash) | HESEM QMS</title>
 <link href="../../../assets/style.css" rel="stylesheet"/>
 <style>
-/* === PAGE BREAK & OVERFLOW FIX (auto-applied) === */
+
+/* PAGE BREAK & OVERFLOW FIX */
 @media print {
-  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.jd-mission,.form-sheet,.lane,.legend,.req,.auth-grid,.backup-card,.vstep{page-break-inside:avoid;break-inside:avoid}
-  h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
-  .form-header,.sig-row,.sign-row,.approval-row{page-break-inside:avoid;break-inside:avoid}
-  tr{page-break-inside:avoid;break-inside:avoid}
-  thead{display:table-header-group}tfoot{display:table-footer-group}
-  p{orphans:3;widows:3}.table-card{overflow:visible!important}
+ .card, .table-card, .callout, .note, .box, .iso-map,
+ .preface-block, .form-sheet, .lane, .legend, .req, .vstep, .auth-grid, .backup-card, .org-row {
+ page-break-inside: avoid;
+ break-inside: avoid;
+ }
+ h1, h2, h3, .h1, .h2, .h3 {
+ page-break-after: avoid;
+ break-after: avoid;
+ }
+ .form-header { page-break-inside: avoid; break-inside: avoid; }
+ tr { page-break-inside: avoid; break-inside: avoid; }
+ thead { display: table-header-group; }
+ tfoot { display: table-footer-group; }
+ p { orphans: 3; widows: 3; }
+ .table-card { overflow: visible !important; }
 }
-.page-body{overflow-x:hidden}
-.table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
-table{max-width:100%;table-layout:auto}
-td,th{max-width:400px;overflow-wrap:break-word;word-wrap:break-word}
+.page-body { overflow-x: hidden; }
+.table-card, .table-block, .table-wrap { overflow-x: auto; max-width: 100%; }
+table { max-width: 100%; table-layout: auto; }
+td, th { max-width: 420px; overflow-wrap: break-word; word-wrap: break-word; }
+.role-code {font-family: var(--mono); font-size: 11px; background: var(--bg3); padding: 2px 6px; border-radius: 5px;}
+.raci-cell {text-align:center; font-weight:700; width:34px; min-width:34px; padding:6px 4px !important;}
+.raci-A {background:#fff5f5; color:#c92a2a;}
+.raci-R {background:#e7f5ff; color:#1864ab;}
+.raci-C {background:#fff9db; color:#e67700;}
+.raci-I {background:#ebfbee; color:#2b8a3e;}
+.portal-grid {display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:16px;}
+.portal-card {background:var(--bg); border:1px solid var(--ln); border-radius:var(--r); padding:18px;}
+.portal-card h3 {font-size:14px; color:var(--navy); margin:0 0 8px;}
+.doc-link-list {list-style:none; margin:0; padding:0;}
+.doc-link-list li {padding:6px 0 6px 16px; position:relative;}
+.doc-link-list li:before {content:"•"; position:absolute; left:0; color:var(--blue);}
+.inline-tag {display:inline-block;padding:3px 8px;border:1px solid var(--ln);border-radius:999px;font-size:10px;font-weight:700;background:var(--bg2);margin-right:6px;margin-bottom:6px;}
+.svg-wrap,.org-wrap {background:var(--bg); border:1px solid var(--ln); border-radius:var(--r); padding:16px; overflow:auto;}
+.nav-toc a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;margin:6px 0;background:var(--bg);}
+kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--ln);padding:2px 5px;border-radius:4px;background:#fff;}
+.org-tree{display:flex;flex-direction:column;gap:16px;margin:8px 0;}
+.org-level{display:grid;gap:14px;}
+.org-level.cols-1{grid-template-columns:1fr;}
+.org-level.cols-2{grid-template-columns:repeat(2,minmax(0,1fr));}
+.org-level.cols-3{grid-template-columns:repeat(3,minmax(0,1fr));}
+.org-level.cols-4{grid-template-columns:repeat(4,minmax(0,1fr));}
+.org-level.cols-5{grid-template-columns:repeat(5,minmax(0,1fr));}
+.org-card{border:1px solid var(--ln);border-top:4px solid var(--blue);border-radius:var(--r);padding:14px;background:var(--bg);}
+.org-card h3{font-size:14px;color:var(--navy);margin:0 0 4px;}
+.org-card p{margin:4px 0;font-size:12px;}
+.org-row{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);margin:12px 0;}
+.org-row h3{margin:0 0 8px;font-size:13px;color:var(--navy);}
+.badge-soft{display:inline-block;padding:2px 8px;border-radius:999px;background:var(--blue-l);color:var(--navy);font-size:10px;font-weight:700;margin-right:6px;margin-bottom:6px;}
+.kpi-box{border:1px solid var(--ln);border-radius:var(--r);padding:12px;background:var(--bg);margin:8px 0;}
+.kpi-box b{display:block;font-size:11px;color:var(--navy);text-transform:uppercase;letter-spacing:.3px;margin-bottom:4px;}
+.auth-grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:10px 0 16px;}
+.auth-item{padding:12px 14px; border:1px solid var(--ln,#d7deea); border-radius:8px; background:var(--bg2,#f8fafc);}
+.backup-card{padding:14px 16px; border:1px solid var(--ln,#d7deea); border-left:4px solid #0f766e; border-radius:8px; background:var(--bg2,#f8fafc); margin:10px 0 0;}
+.role-boundary{border:1px solid #cfe0ff;border-left:4px solid #2563eb;border-radius:8px;background:#eef6ff;padding:14px 16px;margin:14px 0;}
+.phase-card{border:1px solid var(--ln);border-left:4px solid var(--gold);border-radius:var(--r);padding:14px;background:#fffdf5;margin:12px 0;}
+.phase-card h3{margin:0 0 6px;font-size:14px;color:var(--navy);}
+.phase-card p:last-child,.role-boundary p:last-child,.auth-item p:last-child,.backup-card p:last-child{margin-bottom:0;}
+.small-note{font-size:12px;color:var(--ink2);}
 
 </style>
 </head>
 <body>
 <div class="container">
-<div class="page">
-<div class="page-body">
-<div class="form-header">
-<div class="fh-left">
-  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
-  <div class="fh-company">
-    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
-    <span>Tài liệu kiểm soát</span>
+  <div class="page">
+    <div class="page-body">
+      <div class="form-header">
+        <div class="fh-left">
+          <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+          <div class="fh-company">
+            <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+            <span>Tài liệu kiểm soát</span>
+          </div>
+        </div>
+        <div class="title">
+          <strong>ANNEX-JOB-001 — RACI Matrix &amp; SLA (RFQ → Cash)</strong>
+          <span class="sub-vn">Tóm tắt owner, SLA và hold point trên chuỗi giá trị</span>
+        </div>
+        <div class="meta">
+          <div class="row"><span><b>Mã:</b></span><span>ANNEX-JOB-001</span></div>
+          <div class="row"><span><b>Phiên bản:</b></span><span>V1.0</span></div>
+          <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+          <div class="row"><span><b>Chủ sở hữu:</b></span><span>CEO / Customer Service / QA Manager</span></div>
+          <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+        </div>
+      </div>
+      <div class="doc-content" id="docContent">
+        <div class="form-sheet">
+<div class="iso-map"><div class="iso-title">Mục đích</div><div class="req"><span class="req-tag shall">PHẢI</span><div>Annex này là bản tóm tắt vận hành nhanh cho chuỗi RFQ → Cash, dùng trong họp liên phòng ban và onboarding để hiểu owner, SLA và điểm nghẽn cần escalated.</div></div></div>
+<h2 class="h2">1. RACI / SLA cấp value-stream</h2><div class="table-card"><table class="table"><colgroup><col style="width:24%"/><col style="width:18%"/><col style="width:12%"/><col style="width:22%"/><col style="width:24%"/></colgroup><thead><tr><th>Bước giá trị</th><th>Owner chính</th><th>SLA mục tiêu</th><th>Hold point điển hình</th><th>Escalation route</th></tr></thead><tbody><tr><td>RFQ logging & completeness check</td><td>Customer Service</td><td>4 giờ làm việc</td><td>Thiếu drawing/spec/revision/CSR</td><td>Customer Service escalates Estimator + DFM</td></tr><tr><td>Technical feasibility review</td><td>DFM Engineer</td><td>1–3 ngày tùy độ khó</td><td>CTQ mơ hồ; method/special process chưa rõ</td><td>DFM escalates Engineering Lead + Quality + SCM</td></tr><tr><td>Cost build & quote release</td><td>Estimator</td><td>1–2 ngày sau khi đủ feasibility</td><td>Assumption chưa khóa; margin / NRE / lead time chưa duyệt</td><td>Estimator escalates CEO / Customer Service</td></tr><tr><td>PO acknowledgment</td><td>Customer Service</td><td>Trong 24 giờ sau order acceptance</td><td>PO mismatch, delivery promise conflict, missing flow-down</td><td>Customer Service escalates CEO / Planner / SCM</td></tr><tr><td>Routing / NC / method release</td><td>Process Engineer / CAM</td><td>Trước planned start theo route risk</td><td>Revision conflict; missing method / CTQ / fixture</td><td>Engineering escalates Workshop + QA</td></tr><tr><td>Material / outsource readiness</td><td>Supply Chain Manager</td><td>Trước job release</td><td>Missing cert / delay vendor / lot traceability gap</td><td>SCM escalates Planner + Customer Service</td></tr><tr><td>Dispatch / schedule confirmation</td><td>Production Planner</td><td>Mỗi ngày / mỗi ca</td><td>Capacity conflict / missing readiness</td><td>Planner escalates Production Director</td></tr><tr><td>First-off approval</td><td>Setup Technician + Quality gate</td><td>Trước chạy serial</td><td>First-off fail / method not ready</td><td>Setup/Shift escalates Engineering + Quality</td></tr><tr><td>Final inspection & shipment release</td><td>QC Lead / QA</td><td>Trước booking cut-off</td><td>Missing evidence / NCR open / metrology concern</td><td>QC/QA escalates Customer Service + Logistics</td></tr><tr><td>Complaint initial response</td><td>Customer Service + Quality Engineer</td><td>Trong 24 giờ</td><td>Customer escape / containment chưa xác định</td><td>QE escalates QA Manager / CEO</td></tr></tbody></table></div>
+<h2 class="h2">2. Cách dùng</h2><ul><li>Dùng annex này cho daily/tier meeting liên phòng ban khi cần nhìn toàn chuỗi thay vì nhìn từng SOP riêng lẻ.</li><li>SLA là mục tiêu vận hành nội bộ; khi có CSR hoặc yêu cầu khách hàng chặt hơn, yêu cầu khách hàng được ưu tiên.</li><li>Nếu một bước lặp lại tình trạng hold nhiều lần, phải mở corrective action hoặc improvement project chứ không chỉ escalate miệng.</li></ul>
+<div class="footer-note">Bản tóm tắt này phải được đọc cùng REF-020, SOP-201, SOP-301, SOP-501, SOP-605 và ANNEX-QMS-025.</div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-<div class="title">
-  <strong>ANNEX-JOB-001-ORG-RACI-MATRIX — RACI Matrix &amp; SLA (RFQ → Cash)</strong>
-  <span class="sub-vn"></span>
-</div>
-<div class="meta">
-  <div class="row"><span><b>Mã:</b></span><span>ANNEX-JOB-001-ORG-RACI-MATRIX</span></div>
-  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
-  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
-  <div class="row"><span><b>Chủ sở hữu:</b></span><span>QA/QMS</span></div>
-  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
-</div>
-</div>
-<div class="doc-content" id="docContent"><div class="form-sheet">
-<div class="card">
-<span class="badge">ANNEX • RACI • SLA</span>
-<h1 class="h1" style="margin-top:12px;">ANNEX-JOB-001 — RACI Matrix &amp; SLA (RFQ → Cash)</h1>
-<div class="sub-vn">Ma trận RACI và chuẩn SLA liên phòng ban cho quy trình RFQ → Cash</div>
-<p class="lead">
- Tài liệu này quy định bắt buộc <b>người thực hiện</b>, <b>người chịu trách nhiệm cuối</b>, <b>đầu vào/đầu ra</b>, <b>điểm dừng (hold point)</b>,
- <b>thời hạn (SLA)</b> và <b>bằng chứng</b> cho từng handoff trong RFQ → Cash tại nhà máy CNC.
- </p>
-</div>
-<div class="preface-block"><h2 class="h2">Điều kiện áp dụng và kiểm soát</h2><div class="grid-2">
-<div>
-<p><b>ÁP DỤNG KHI</b></p>
-<ul class="list"><li>Khi tài liệu được viện dẫn trong Job/Process/Forms liên quan.</li><li>Khi phát sinh thay đổi ảnh hưởng chất lượng hoặc yêu cầu khách hàng.</li><li>Khi cần xác định hold/release hoặc yêu cầu bằng chứng bắt buộc.</li></ul>
-</div>
-<div>
-<p><b>Đầu vào / Đầu ra</b></p>
-<ul class="list"><li><b>Input:</b> Epicor Kinetic (transaction)</li><li><b>Input:</b> M365/SharePoint (SSOT hồ sơ)</li><li><b>Output:</b> Record/Log đầy đủ tại SSOT</li><li><b>Output:</b> Trạng thái gate được mở hoặc giữ theo tiêu chí</li></ul>
-</div>
-</div><p class="callout"><b>Hold/Release:</b> Thiếu bằng chứng bắt buộc: áp dụng HOLD theo tiêu chí của tài liệu; không chuyển bước cho đến khi đủ bằng chứng.</p><p class="muted"><b>Cưỡng chế hệ thống:</b> Trạng thái chỉ được chuyển khi đủ trường bắt buộc và có liên kết hồ sơ SSOT.</p></div>
-<div style="height:16px"></div>
-<div class="card">
-<h2 class="h2" style="margin-top:0;">1) Mục đích &amp; cách sử dụng</h2>
-<ul>
-<li><b>Bắt buộc</b> áp dụng cho mọi đơn hàng gia công CNC theo luồng RFQ → Quote → PO/SO → Job → Sản xuất → Giao hàng → Xuất hóa đơn.</li>
-<li><b>Bắt buộc</b> gán tối thiểu 01 vai trò <b>R</b> và 01 vai trò <b>A</b> cho từng bước trong ma trận; <b>cấm</b> thực hiện khi chưa xác định R/A.</li>
-<li><b>Bắt buộc</b> tuân thủ SLA mục tiêu; khi vi phạm SLA hoặc phát sinh rủi ro CTQ phải kích hoạt escalation theo <a href="../../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/05-WI-500/wi-502-tier-1-2-3-daily-management.html">ANNEX-QMS-009</a>.</li>
-<li><b>Chỉ</b> Epicor Kinetic được dùng làm <b>System of Record</b> cho mọi transaction: tạo/đổi trạng thái Job, PO, receipt, inventory transaction, ship confirm, AR invoice, time entry.</li>
-<li><b>Chỉ</b> M365 (SharePoint/Teams/Power Platform/Purview) được dùng làm <b>SSOT</b> lưu Evidence/Records theo nguyên tắc <b>link-not-copy</b> và retention event-based.</li>
-</ul>
-</div>
-<div style="height:16px"></div>
-<div class="card">
-<h2 class="h2" style="margin-top:0;">2) Nội dung: quy ước RACI</h2>
-<div class="note" style="margin-top:12px;">
-<strong>Quy ước bắt buộc:</strong>
-<ul style="margin:8px 0 0 18px;">
-<li><b>A</b> (Accountable): chịu trách nhiệm cuối, có quyền quyết định chấp nhận/không chấp nhận đầu ra.</li>
-<li><b>R</b> (Responsible): trực tiếp thực hiện và cập nhật trạng thái bước theo hệ thống quy định.</li>
-<li><b>C</b> (Consulted): tham vấn kỹ thuật/chất lượng; phải phản hồi trong SLA của bước.</li>
-<li><b>I</b> (Informed): được thông báo; không thay thế A/R.</li>
-</ul>
-</div>
-<h3 class="h3">2.1 Ma trận RACI theo RFQ → Cash</h3>
-<div class="table-card">
-<table class="table">
-<colgroup><col style="width:50.00%;"/><col style="width:4.55%;"/><col style="width:2.73%;"/><col style="width:7.27%;"/><col style="width:9.09%;"/><col style="width:9.09%;"/><col style="width:6.36%;"/><col style="width:2.73%;"/><col style="width:6.36%;"/><col style="width:1.82%;"/></colgroup><thead>
-<tr>
-<th>Bước / Handoff</th>
-<th style="text-align:center;">Sales</th>
-<th style="text-align:center;">Eng</th>
-<th style="text-align:center;">Planning</th>
-<th style="text-align:center;">Purchasing</th>
-<th style="text-align:center;">Production</th>
-<th style="text-align:center;">Quality</th>
-<th style="text-align:center;">WHS</th>
-<th style="text-align:center;">Finance</th>
-<th style="text-align:center;">IT</th>
-</tr>
-</thead>
-<tbody>
-<tr><td>1. RFQ Intake &amp; kiểm tra dữ liệu đầu vào</td><td style="text-align:center; font-weight:700;">A/R</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">I</td></tr>
-<tr><td>2. DFM/CTQ + costing + lead time</td><td style="text-align:center; font-weight:700;">A</td><td style="text-align:center; font-weight:700;">R</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">I</td></tr>
-<tr><td>3. Phát hành báo giá + thương thảo</td><td style="text-align:center; font-weight:700;">A/R</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">I</td></tr>
-<tr><td>4. Contract review sau PO + tạo SO/Job trong Epicor</td><td style="text-align:center; font-weight:700;">R</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">A/R</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">C</td></tr>
-<tr><td>5. Lập kế hoạch &amp; lịch máy (dispatch baseline)</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">A/R</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">I</td></tr>
-<tr><td>6. Mua hàng/thuê ngoài: PO, theo dõi PO status</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">A/R</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">I</td></tr>
-<tr><td>7. Receiving + IQC + receipt transaction</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">R</td><td style="text-align:center; font-weight:700;">A/R</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">I</td></tr>
-<tr><td>8. Engineering release: CAM/Setup/Traveler ready‑to‑run</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">A/R</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">I</td></tr>
-<tr><td>9. Sản xuất + ghi nhận time entry &amp; job status</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">A/R</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">I</td></tr>
-<tr><td>10. Final Inspection + release/hold disposition</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">A/R</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">I</td></tr>
-<tr><td>11. Đóng gói/nhãn + Pack reconciliation</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">A/R</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">C</td></tr>
-<tr><td>12. Ship confirm + chứng từ giao hàng</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">A/R</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">I</td></tr>
-<tr><td>13. Xuất hóa đơn/AR theo ship confirm</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">I</td><td style="text-align:center; font-weight:700;">C</td><td style="text-align:center; font-weight:700;">A/R</td><td style="text-align:center; font-weight:700;">I</td></tr>
-</tbody>
-</table>
-</div>
-</div>
-<div style="height:16px"></div>
-<div class="card">
-<h2 class="h2" style="margin-top:0;">3) Nội dung: SLA mục tiêu &amp; điểm dừng (hold point)</h2>
-<div class="note" style="margin-top:12px;">
-<strong>Quy tắc bắt buộc:</strong>
-<ul style="margin:8px 0 0 18px;">
-<li>Khi vi phạm SLA hoặc thiếu đầu vào bắt buộc, phải kích hoạt <b>HOLD</b> theo bước tương ứng và ghi nhận action có bằng chứng.</li>
-<li>Trạng thái HOLD/RELEASE của Job, PO, shipment và inventory <b>phải</b> được thực hiện trong <b>Epicor Kinetic</b>; <b>cấm</b> quản lý trạng thái bằng file.</li>
-</ul>
-</div>
-<div class="table-card">
-<table class="table">
-<colgroup><col style="width:17.43%;"/><col style="width:19.72%;"/><col style="width:36.70%;"/><col style="width:26.15%;"/></colgroup><thead>
-<tr>
-<th>Handoff</th>
-<th>Thời hạn (SLA)</th>
-<th>Điểm dừng (Hold) khi vi phạm</th>
-<th>Evidence/Record (tham chiếu bảng Records)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>RFQ acknowledge (Sales)</td>
-<td>≤ 4 giờ làm việc</td>
-<td>Escalate S3 tại Tier 1 nếu quá hạn; không cam kết lead time khi thiếu bản vẽ/spec.</td>
-<td>R-01 (RFQ Intake Register)</td>
-</tr>
-<tr>
-<td>Contract review sau PO</td>
-<td>≤ 2 giờ làm việc</td>
-<td><b>JOB HOLD</b>: cấm tạo Job/WO nếu thiếu revision, CTQ, điều kiện finish hoặc yêu cầu chứng chỉ.</td>
-<td>R-02 (Contract Review Record)</td>
-</tr>
-<tr>
-<td>Lập lịch &amp; phát hành dispatch baseline</td>
-<td>≤ 4 giờ làm việc từ khi Job được tạo</td>
-<td>Escalate S2 nếu thiếu capacity/đường găng; bắt buộc cập nhật due date trong Epicor khi thay đổi cam kết.</td>
-<td>R-03 (Daily Dispatch List) + R-04 (WIP Aging Log)</td>
-</tr>
-<tr>
-<td>PO phát hành cho vật tư/thuê ngoài</td>
-<td>≤ 1 ngày làm việc từ khi xác nhận BOM/Route</td>
-<td><b>JOB HOLD</b> nếu không có PO cho vật tư đường găng; escalation S2.</td>
-<td>R-05 (PO Tracker Evidence)</td>
-</tr>
-<tr>
-<td>IQC sau receiving</td>
-<td>≤ 4 giờ làm việc</td>
-<td><b>RECEIPT HOLD</b> nếu thiếu CO/CQ/heat cert hoặc kết quả kiểm tra không đạt.</td>
-<td>R-06 (Receiving &amp; IQC Record)</td>
-</tr>
-<tr>
-<td>QC hold disposition</td>
-<td>Phản hồi ≤ 4 giờ; disposition ≤ 24 giờ</td>
-<td><b>SHIP HOLD</b> khi CTQ/không phù hợp; chỉ release khi có quyết định disposition và bằng chứng kèm theo.</td>
-<td>R-07 (QC Hold Log) + R-08 (NCR/CAPA)</td>
-</tr>
-<tr>
-<td>Ship packet &amp; pack reconciliation</td>
-<td>≤ 4 giờ trước ship confirm</td>
-<td><b>SHIP HOLD</b> nếu thiếu evidence bắt buộc hoặc đối soát SSCC FAIL/BLOCKED.</td>
-<td>R-09 (Ship Release Pack) + R-10 (SSCC Reconciliation Log)</td>
-</tr>
-<tr>
-<td>Xuất hóa đơn</td>
-<td>≤ 1 ngày làm việc sau ship confirm</td>
-<td>Escalate S3 nếu thiếu chứng từ; không xuất hóa đơn khi ship confirm chưa hoàn tất trong Epicor.</td>
-<td>R-11 (Invoice Request)</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div style="height:16px"></div>
-<div class="card">
-<h2 class="h2" style="margin-top:0;">4) Records &amp; Registers (SSOT trên M365)</h2>
-<p class="mini">Mọi record dưới đây phải lưu tại SSOT, cấm lưu phân tán. Retention và legal hold thực hiện theo <a href="../../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-104-data-governance-records-security-and-ip-protection.html">SOP-QMS-013</a>.</p>
-<div class="table-card">
-<table class="table">
-<colgroup><col style="width:1.49%;"/><col style="width:23.05%;"/><col style="width:27.51%;"/><col style="width:22.30%;"/><col style="width:6.32%;"/><col style="width:19.33%;"/></colgroup><thead>
-<tr>
-<th>Mã</th>
-<th>Record / Register</th>
-<th>SSOT (M365)</th>
-<th>Retention trigger (event-based)</th>
-<th>Owner</th>
-<th>Legal hold</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><b>R-01</b></td>
-<td>RFQ Intake Register (theo biểu mẫu <a href="../../../04-Bieu-Mau/02-FRM-200/frm-201-rfq-register.html">FRM-SAL-001</a>)</td>
-<td>M365: CNC-IMS-HUB/Sales-Execution/Registers/RFQ</td>
-<td>Khi báo giá được phát hành (Quote Released) + 03 năm</td>
-<td>General Manager (EXE-01) (Commercial Owner)</td>
-<td>Áp dụng khi có thông báo legal hold theo SOP-QMS-013</td>
-</tr>
-<tr>
-<td><b>R-02</b></td>
-<td>Contract Review Record (theo <a href="../../../04-Bieu-Mau//02-FRM-200//frm-202-contract-review-checklist.html">FRM-QA-001</a>)</td>
-<td>M365: CNC-IMS-HUB/QMS-Records/Order-Entry/Contract-Review</td>
-<td>Khi Job đóng trong Epicor (Job Closed) + 05 năm</td>
-<td>QA/QMS</td>
-<td>Áp dụng khi có thông báo legal hold theo SOP-QMS-013</td>
-</tr>
-<tr>
-<td><b>R-03</b></td>
-<td>Daily Dispatch List (theo <a href="../../../04-Bieu-Mau//05-FRM-500//frm-502-daily-dispatch-list.html">FRM-OPS-006</a>)</td>
-<td>M365: CNC-IMS-HUB/OPS-Execution/Dispatch/Tier-1</td>
-<td>Khi tháng kết thúc + 02 năm</td>
-<td>Planning Lead</td>
-<td>Áp dụng khi có thông báo legal hold theo SOP-QMS-013</td>
-</tr>
-<tr>
-<td><b>R-04</b></td>
-<td>WIP Aging Log (theo <a href="../../../04-Bieu-Mau//05-FRM-500//frm-503-wip-aging-report.html">FRM-OPS-007</a>)</td>
-<td>M365: CNC-IMS-HUB/OPS-Execution/WIP/WIP-Aging</td>
-<td>Khi Job đóng trong Epicor (Job Closed) + 03 năm</td>
-<td>Planning Lead</td>
-<td>Áp dụng khi có thông báo legal hold theo SOP-QMS-013</td>
-</tr>
-<tr>
-<td><b>R-06</b></td>
-<td>Receiving &amp; IQC Record (theo <a href="../../../04-Bieu-Mau//07-FRM-700//frm-701-receiving-and-iqc-log.html">FRM-WHS-001</a>)</td>
-<td>M365: CNC-IMS-HUB/WHS-Execution/Receiving/IQC</td>
-<td>Khi PO đóng trong Epicor (PO Closed) + 03 năm</td>
-<td>Warehouse Manager</td>
-<td>Áp dụng khi có thông báo legal hold theo SOP-QMS-013</td>
-</tr>
-<tr>
-<td><b>R-07</b></td>
-<td>QC Hold Log (theo <a href="../../../04-Bieu-Mau/04-FRM-400/frm-413-hold-and-disposition-log.html">FRM-QA-006</a>)</td>
-<td>M365: CNC-IMS-HUB/QMS-Records/Quality-Holds/QC-Hold-Register</td>
-<td>Khi disposition được phê duyệt + 05 năm</td>
-<td>QA Manager</td>
-<td>Áp dụng khi có thông báo legal hold theo SOP-QMS-013</td>
-</tr>
-<tr>
-<td><b>R-08</b></td>
-<td>CAPA/8D Record (theo <a href="../../../04-Bieu-Mau//06-FRM-600//frm-652-capa-8d-report.html">FRM-QA-004</a>)</td>
-<td>M365: CNC-IMS-HUB/QMS-Records/CAPA-8D</td>
-<td>Khi CAPA đóng (CAPA Closed) + 05 năm</td>
-<td>QA/QMS</td>
-<td>Áp dụng khi có thông báo legal hold theo SOP-QMS-013</td>
-</tr>
-<tr>
-<td><b>R-09</b></td>
-<td>Ship Release Pack (tập bằng chứng giao hàng) — theo <a href="../../../03-Tai-Lieu-Van-Hanh//02-Work-Instructions//02-WI-200//wi-201-quality-gates-and-ship-release-quick-ref.html">WI-OPS-005</a></td>
-<td>M365: CNC-IMS-HUB/WHS-Shipping/Ship-Packets/{ShipDate}_{Customer}_{PackID}</td>
-<td>Khi ship confirm trong Epicor (Ship Confirmed) + 05 năm</td>
-<td>Warehouse Manager</td>
-<td>Áp dụng khi có thông báo legal hold theo SOP-QMS-013</td>
-</tr>
-<tr>
-<td><b>R-10</b></td>
-<td>SSCC Reconciliation Log — theo <a href="../../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/07-WI-700/wi-702-gs1-sscc-labeling.html">WI-OPS-010</a></td>
-<td>M365: CNC-IMS-HUB/WHS-Shipping/SSCC/Reconciliation-Log</td>
-<td>Khi ship confirm trong Epicor (Ship Confirmed) + 05 năm</td>
-<td>Warehouse Manager</td>
-<td>Áp dụng khi có thông báo legal hold theo SOP-QMS-013</td>
-</tr>
-<tr>
-<td><b>R-11</b></td>
-<td>Invoice Request (theo <a href="../../../04-Bieu-Mau/08-FRM-800/frm-821-invoice-request.html">FRM-FIN-001</a>)</td>
-<td>M365: CNC-IMS-HUB/Finance-AR/Invoice-Requests</td>
-<td>Khi hóa đơn phát hành (Invoice Posted) trong Epicor + 05 năm</td>
-<td>Finance Manager</td>
-<td>Áp dụng khi có thông báo legal hold theo SOP-QMS-013</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div style="height:16px"></div>
-<div class="card">
-<h2 class="h2" style="margin-top:0;">5) Hệ thống (SoR/SSOT) &amp; quy tắc dữ liệu</h2>
-<ul>
-<li><b>Epicor Kinetic (SoR)</b>: Sales Order/Job/PO/Receipt/Inventory/Ship Confirm/AR Invoice/Time Entry. <b>Cấm</b> tạo file để ghi time entry hoặc thay Epicor làm SoR.</li>
-<li><b>M365 (SSOT Evidence/Records)</b>: Registers, action logs, ship packets, CAPA/NCR attachments. <b>Bắt buộc</b> lưu theo thư viện chuẩn; <b>cấm</b> lưu bản sao phân tán.</li>
-<li><b>Dashboard/KPI</b> chỉ được dùng để theo dõi; mọi điều chỉnh trạng thái transaction phải thực hiện trong Epicor.</li>
-</ul>
-</div>
-<div style="height:16px"></div>
-<div class="card">
-<h2 class="h2" style="margin-top:0;">6) Owner &amp; quy tắc cập nhật</h2>
-<ul>
-<li><b>Owner</b>: QA/QMS (kiểm soát tài liệu) + Deputy Director Production (EXE-02) (chủ quy trình RFQ → Cash).</li>
-<li><b>Bắt buộc</b> rà soát tối thiểu hàng quý và khi có thay đổi cơ cấu phòng ban, thay đổi SLA khách hàng, thay đổi hệ thống Epicor/M365.</li>
-<li>Mọi thay đổi ma trận RACI/SLA phải đi qua kiểm soát phiên bản; <b>cấm</b> thay đổi không có phê duyệt.</li>
-</ul>
-</div>
-<div style="height:16px"></div>
-<div class="card">
-<h2 class="h2" style="margin-top:0;">8) Related links</h2>
-<ul>
-<li><a href="../../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/05-WI-500/wi-502-tier-1-2-3-daily-management.html">ANNEX-QMS-009 — Tier Meeting Cadence and Escalation Standard Work</a></li>
-<li><a href="../../../03-Tai-Lieu-Van-Hanh/03-Reference/03-ANNEX-Digital/ref-012-power-bi-deployment.html">ANNEX-QMS-008 — Dashboard KPI Dictionary and Data Model</a></li>
-<li><a href="../../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/05-WI-500/wi-505-gs1-sscc-shipping-data.html">ANNEX-QMS-007 — GS1 SSCC Data Dictionary and Pack Reconciliation</a></li>
-<li><a href="../../../03-Tai-Lieu-Van-Hanh//01-SOPs//01-SOP-100//sop-104-data-governance-records-security-and-ip-protection.html">SOP-QMS-013 — Purview retention, labels and record declaration</a></li>
-</ul>
-</div>
-</div></div>
-</div></div></div>
-<div class="no-screen print-disclaimer" style="display:none;text-align:center;font-size:9px;color:#999;padding:8px 0;border-top:1px solid #ddd;margin-top:20px">⚠ Bản in không có đóng dấu kiểm soát phiên bản thì tài liệu này không có giá trị. Chỉ sử dụng phiên bản hiện hành trên hệ thống HESEM QMS.</div>
-<script src="../../../assets/app.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-

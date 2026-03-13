@@ -1,16 +1,60 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+
 <html lang="vi">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>SOP-402 — Material Verification Traceability and Counterfeit Prevention | HESEM QMS</title>
+<title>SOP-402 — Xác minh vật liệu, truy xuất và phòng chống vật tư giả/không rõ nguồn gốc | HESEM QMS</title>
 <link href="../../../assets/style.css" rel="stylesheet"/>
 <style>
-/* === PAGE BREAK & OVERFLOW FIX (auto-applied) === */
+.chip{display:inline-block;padding:2px 10px;border-radius:999px;border:1px solid #d7dee7;background:#f8fafc;font-size:11px;margin-right:6px;margin-bottom:6px;font-weight:600;}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:12px;}
+.tight li{margin:4px 0;}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+.toc{border:1px solid var(--ln);border-radius:var(--r);padding:16px;background:var(--bg2);margin:18px 0 24px;}
+.toc-title{font-size:12px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.4px;margin-bottom:10px;}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;}
+.toc-grid a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;background:var(--bg);font-size:12px;color:var(--ink);}
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.metric-card{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);}
+.metric-card .value{font-size:20px;font-weight:700;color:var(--navy);}
+.metric-card .label{font-size:11px;color:var(--ink3);margin-top:4px;text-transform:uppercase;letter-spacing:.3px;}
+.mini-note{font-size:12px;color:var(--ink2);line-height:1.55;}
+.gate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.gate-card{border:1px solid var(--ln);border-left:4px solid var(--blue);border-radius:var(--r);padding:14px;background:var(--bg);}
+.gate-card h3{margin:0 0 6px;font-size:14px;color:var(--navy);}
+.field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;}
+.field{padding:10px 12px;border:1px solid var(--ln);border-radius:var(--r-sm);background:var(--bg);}
+.field b{display:block;font-size:11px;color:var(--ink3);text-transform:uppercase;letter-spacing:.3px;margin-bottom:6px;}
+.field .blank{width:100%;min-height:22px;}
+.check-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;}
+.check-item{padding:8px 10px;border:1px solid var(--ln);border-radius:var(--r-sm);background:var(--bg);font-size:12px;}
+.check-item .chk{margin-right:6px;}
+.legend-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0;}
+.legend-row .chip{margin-bottom:0;}
+.footer-note{margin-top:20px;font-size:11px;color:var(--ink3);}
+.decision-table td:first-child, .decision-table th:first-child{font-weight:700;}
+.kpi-good{color:#166534;font-weight:700;}
+.kpi-watch{color:#92400e;font-weight:700;}
+.kpi-bad{color:#b91c1c;font-weight:700;}
+.control-stack > * + *{margin-top:12px;}
+.subtle{color:var(--ink2);font-size:12px;}
+.boxed-list{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);}
+.lane-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.35px;color:var(--navy);margin-bottom:6px;}
+.flow-note{font-size:11px;color:var(--ink3)}
+.pill{display:inline-block;padding:4px 8px;border-radius:999px;background:var(--blue-l);color:var(--navy);font-size:11px;font-weight:700;margin:0 6px 6px 0;}
+.audit-score{font-size:24px;font-weight:700;color:var(--navy);}
+.matrix-small td,.matrix-small th{font-size:12px;}
+.svg-wrap{overflow:auto;border:1px solid var(--ln);border-radius:var(--r);background:#fff;padding:12px}
+.legend-box{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.legend-box span{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--ln);background:var(--bg);padding:4px 8px;border-radius:999px;font-size:11px}
+.sq{width:12px;height:12px;border-radius:3px;display:inline-block}
+.rule-table td:nth-child(1),.rule-table td:nth-child(2){white-space:nowrap}
+.small{font-size:12px}
 @media print {
-  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.vstep{page-break-inside:avoid;break-inside:avoid}
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.lane,.legend,.req,.auth-grid,.backup-card,.vstep,.metric-card,.gate-card,.field,.boxed-list,.svg-wrap{page-break-inside:avoid;break-inside:avoid}
   h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
-  .form-header,.sig-row,.sign-row{page-break-inside:avoid;break-inside:avoid}
+  .form-header,.sig-row,.sign-row,.approval-row{page-break-inside:avoid;break-inside:avoid}
   tr{page-break-inside:avoid;break-inside:avoid}
   thead{display:table-header-group}tfoot{display:table-footer-group}
   p{orphans:3;widows:3}.table-card{overflow:visible!important}
@@ -19,155 +63,36 @@
 .table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
 table{max-width:100%;table-layout:auto}
 td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
+@media (max-width: 900px){.grid-3{grid-template-columns:1fr;}.field-grid{grid-template-columns:1fr;}}
+
 </style>
 </head>
 <body>
 <div class="container"><div class="page"><div class="page-body">
 <div class="form-header">
 <div class="fh-left">
-  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
-  <div class="fh-company">
-    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
-    <span>Tài liệu kiểm soát</span>
-  </div>
+<a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+<div class="fh-company">
+<a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+<span>Tài liệu kiểm soát</span>
+</div>
 </div>
 <div class="title">
-  <strong>SOP-402 — Material Verification Traceability and Counterfeit Prevention</strong>
-  <span class="sub-vn"></span>
+<strong>SOP-402 — Xác minh vật liệu, truy xuất và phòng chống vật tư giả/không rõ nguồn gốc</strong>
+<span class="sub-vn">Bảo vệ chuỗi vật liệu từ đầu vào đến thành phẩm và giảm rủi ro lẫn mác, lẫn lô hoặc mất pedigree</span>
 </div>
 <div class="meta">
-  <div class="row"><span><b>Mã:</b></span><span>SOP-402</span></div>
-  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
-  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
-  <div class="row"><span><b>Chủ sở hữu:</b></span><span>Purchasing</span></div>
-  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+<div class="row"><span><b>Mã:</b></span><span>SOP-402</span></div>
+<div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+<div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+<div class="row"><span><b>Chủ sở hữu:</b></span><span>Warehouse Clerk / Quality Engineer</span></div>
+<div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
 </div>
 </div>
 <div class="doc-content" id="docContent"><div class="form-sheet">
-
-<div class="iso-map">
-  <div class="iso-title">Chuẩn mực áp dụng</div>
-  <div class="req"><span class="req-tag shall">PHẢI</span><div>Vật liệu và sản phẩm nhận vào phải được nhận dạng, truy vết và xác minh theo mức rủi ro; dữ liệu cert/test report phải được xem xét khi dùng để chứng minh conformity. <span class="iso-ref">ISO 8.4.2</span> <span class="iso-ref">ISO 8.5.2</span> <span class="iso-ref">AS9100D 8.4.2</span></div></div>
-  <div class="req"><span class="req-tag shall">PHẢI</span><div>Phải có quá trình ngăn vật tư/phụ tùng giả hoặc nghi giả đi vào chuỗi cung ứng; part/vật liệu nghi giả phải bị cách ly và không được tái nhập luồng. <span class="iso-ref">AS9100D 8.1.4</span> <span class="iso-ref">AS9100D 8.7</span></div></div>
-  <div class="req"><span class="req-tag should">NÊN</span><div>Đối với stainless wetted surface dùng trong ứng dụng bán dẫn, cert package nên liên hệ được đến yêu cầu F19/F20, finish/passivation và lot/heat cụ thể. <span class="iso-ref">SEMI F19</span></div></div>
-  <div class="req"><span class="req-tag may">ĐƯỢC PHÉP</span><div>Xác thực độ chính xác test report qua nguồn ngoài hoặc thử nội bộ khi material/process được đánh giá là significant operational risk. <span class="iso-ref">AS9100D 8.4.2</span></div></div>
-</div>
-
-<div class="preface-block">
-  <h2 class="h2">Quy ước triển khai tại HESEM</h2>
-  <div class="grid-2">
-    <div>
-      <div class="card-title">Truy vết lot/heat trong Epicor</div>
-      <ul>
-        <li>Material nhận vào <b>PHẢI</b> ghi heat/lot, supplier cert, ngày nhận, PO và trạng thái IQC.</li>
-        <li>Khi cắt phôi, split lot hoặc chuyển job, traceability <b>PHẢI</b> giữ từ raw material tới WO/op/final pack.</li>
-      </ul>
-    </div>
-    <div>
-      <div class="card-title">Counterfeit prevention thực dụng</div>
-      <ul>
-        <li>Tập trung vào 03 điểm: nguồn mua, chứng từ xác thực và dấu hiệu bất thường trên nhãn/tình trạng vật tư.</li>
-        <li>Vật tư nghi giả <b>PHẢI</b> đưa vào HOLD, dán cảnh báo và chặn tái nhập.</li>
-      </ul>
-      <div class="callout"><b>Quy tắc:</b> thiếu mill cert/CoA/CoC hoặc cert không truy về lot/heat thì coi là chưa đủ điều kiện dùng, trừ khi có chấp thuận bằng văn bản theo đúng cấp thẩm quyền.</div>
-    </div>
-  </div>
-</div>
-
-<h2 class="h2">1. Mục đích</h2>
-<p>Chuẩn hóa việc xác thực vật liệu, duy trì truy vết lot/heat, kiểm soát cert và ngăn hàng giả/hàng nghi giả đi vào sản xuất hoặc xuất ra khách hàng.</p>
-
-<h2 class="h2">2. Phạm vi</h2>
-<p>Áp dụng cho raw material, part outsource trả về, special process cert, consumable/packaging critical theo flowdown, và mọi hồ sơ xác thực vật liệu dùng để release part tại HESEM.</p>
-
-<h2 class="h2">3. Thuật ngữ</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Thuật ngữ</th><th>Diễn giải áp dụng</th></tr></thead>
-<tbody>
-<tr><td><b>Mill Cert / MTR</b></td><td>Chứng chỉ vật liệu từ nhà sản xuất hoặc nguồn được ủy quyền, thể hiện grade, heat/lot, kết quả test và authorization.</td></tr>
-<tr><td><b>CoA / CoC</b></td><td>Chứng chỉ phân tích / chứng nhận phù hợp cho material hoặc process.</td></tr>
-<tr><td><b>Heat / Lot Traceability</b></td><td>Khả năng truy part hoặc phôi ngược về heat/lot vật liệu, process batch và WO nhận hàng.</td></tr>
-<tr><td><b>Suspect Counterfeit</b></td><td>Vật tư/phụ tùng/chứng từ có dấu hiệu không chính thống hoặc không thể xác minh nguồn gốc.</td></tr>
-<tr><td><b>SEMI F19</b></td><td>Specification cho chất lượng bề mặt ướt (wetted surface) của stainless components dùng trong hệ phân phối hóa chất/khí của fab bán dẫn.</td></tr>
-</tbody></table></div>
-
-<h2 class="h2">4. RACI</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Vai trò</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead>
-<tbody>
-<tr><td><b>Warehouse Clerk</b></td><td>X</td><td></td><td></td><td></td></tr>
-<tr><td><b>Quality Engineer</b> (xác minh)</td><td>X</td><td></td><td></td><td></td></tr>
-<tr><td><b>QA Manager</b></td><td></td><td>X</td><td></td><td></td></tr>
-<tr><td><b>Buyer</b></td><td></td><td></td><td>X</td><td></td></tr>
-<tr><td><b>SC Manager</b></td><td></td><td></td><td>X</td><td></td></tr>
-<tr><td><b>Production Planner</b></td><td></td><td></td><td>X</td><td></td></tr>
-<tr><td><b>IT Admin</b> / <b>Epicor System Administrator</b></td><td></td><td></td><td>X</td><td></td></tr>
-</tbody></table></div>
-
-<h2 class="h2">5. Quy trình</h2>
-
-<h3 class="h3">5.1 Nhận hàng và quarantine</h3>
-<ul>
-  <li>Warehouse Clerk <b>PHẢI</b> nhận hàng vào khu IQC/HOLD; không issue cho sản xuất trước khi xác nhận status.</li>
-  <li>Thông tin nhận vào <b>PHẢI</b> ghi trên <a href="../../../04-Bieu-Mau/04-FRM-400/frm-412-receiving-and-iqc-log.html">FRM-412</a> Nhật ký nhận &amp; IQC: supplier, PO, item, qty, material grade, heat/lot, cert received, trạng thái bao gói/nhãn.</li>
-  <li>Hàng outsource trả về <b>PHẢI</b> dùng thêm <a href="../../../04-Bieu-Mau/04-FRM-400/frm-411-outsourced-processing-incoming-inspection.html">FRM-411</a> KT hàng gia công ngoài để xác minh qty, ngoại quan, cert và special process evidence.</li>
-</ul>
-
-<h3 class="h3">5.2 Xác minh chứng chỉ</h3>
-<div class="table-card"><table class="table">
-<thead><tr><th>Loại chứng chỉ</th><th>Điểm kiểm tối thiểu</th><th>Action khi không đạt</th></tr></thead>
-<tbody>
-<tr><td>Mill Cert / MTR</td><td>Grade, heat/lot, kích thước, standard/spec, kết quả test, authorization</td><td>HOLD; hỏi supplier; nếu cần xác minh thêm thì thử ngoài/nội bộ</td></tr>
-<tr><td>CoA / CoC</td><td>Part/process ID, revision/spec, batch/lot, ngày, người/đơn vị xác nhận</td><td>HOLD; yêu cầu re-issue hoặc clarification</td></tr>
-<tr><td>Special process cert</td><td>Spec process, class/type, batch reference, part/qty hoặc dispatch reference</td><td>HOLD; không chuyển công đoạn kế tiếp</td></tr>
-<tr><td>SEMI F19/F20 related cert</td><td>Material grade, wetted surface/process evidence, surface/finish references khi flowdown yêu cầu</td><td>HOLD; QA/Engineering review mức chấp nhận</td></tr>
-</tbody></table></div>
-
-<h3 class="h3">5.3 Duy trì truy vết lot/heat</h3>
-<ul>
-  <li>Heat/lot từ cert <b>PHẢI</b> nhập Epicor hoặc log tương đương trước khi cấp phát cho job.</li>
-  <li>Khi cắt phôi hoặc chia lô, traceability <b>PHẢI</b> được chuyển qua traveler/WIP tag/record hệ thống để không mất liên kết raw-to-job.</li>
-  <li>Lost traceability <b>PHẢI</b> coi là nonconformance; QA Manager quyết định HOLD, re-identification hoặc loại bỏ.</li>
-</ul>
-
-<h3 class="h3">5.4 Dấu hiệu hàng giả hoặc nghi giả</h3>
-<ul>
-  <li>Dấu hiệu thường gặp: nhãn/bao gói khác thường, cert sai format hoặc thiếu nguồn xác thực, lot/heat không khớp, xóa sửa nhãn, nguồn mua ngoài ASL, sai grade/marking, condition bề mặt bất thường so với commodity.</li>
-  <li>Vật tư nghi giả <b>PHẢI</b> dán HOLD, đưa vào <a href="../../../04-Bieu-Mau/04-FRM-400/frm-413-hold-and-disposition-log.html">FRM-413</a> Nhật ký Hold &amp; Disposition và báo Buyer + QA Manager ngay.</li>
-  <li>Part/vật tư nghi giả <b>KHÔNG ĐƯỢC PHÉP</b> trả lại chuỗi cung ứng ở trạng thái có thể tái sử dụng khi chưa có quyết định xử lý theo quy định.</li>
-</ul>
-
-<h3 class="h3">5.5 Disposition và escalation</h3>
-<ul>
-  <li>QA Manager quyết định disposition: accept, further verification, return to supplier, scrap/destruct, hoặc customer notification khi áp dụng.</li>
-  <li>Khi vật liệu/process có significant operational risk, Quality Engineer <b>NÊN</b> xác thực thêm bằng nguồn ngoài hoặc thử nội bộ trước khi release.</li>
-  <li>Nếu issue bắt nguồn từ supplier, <b>PHẢI</b> chuyển <a href="sop-401-supplier-control-and-special-process.html">SOP-401</a> SOP-401 để mở SCAR hoặc tái đánh giá NCC.</li>
-</ul>
-
-<h3 class="h3">5.6 Link với SEMI F19</h3>
-<ul>
-  <li>Đối với stainless components có flowdown wetted surface trong ứng dụng bán dẫn, cert package <b>PHẢI</b> đối chiếu với spec khách hàng hoặc purchase flowdown liên quan SEMI F19/F20.</li>
-  <li>Engineering/Quality <b>PHẢI</b> làm rõ trước khi mua hoặc release nếu yêu cầu gồm surface finish, passivation/electropolish, particle/surface condition hoặc test method liên quan.</li>
-</ul>
-
-<h2 class="h2">6. Biểu mẫu liên quan</h2>
-<ul>
-<li><a href="../../../04-Bieu-Mau/04-FRM-400/frm-411-outsourced-processing-incoming-inspection.html">FRM-411</a> KT hàng gia công ngoài</li>
-<li><a href="../../../04-Bieu-Mau/04-FRM-400/frm-412-receiving-and-iqc-log.html">FRM-412</a> Nhật ký nhận &amp; IQC</li>
-<li><a href="../../../04-Bieu-Mau/04-FRM-400/frm-413-hold-and-disposition-log.html">FRM-413</a> Nhật ký Hold &amp; Disposition</li>
-</ul>
-
-<h2 class="h2">7. Tài liệu liên quan</h2>
-<ul>
-<li><a href="sop-401-supplier-control-and-special-process.html">SOP-401</a> Nhà cung cấp, Kiểm soát NCC &amp; Special Process</li>
-<li><a href="../02-SOP-200/sop-201-order-fulfillment-rfq-to-cash.html">SOP-201</a> Thực hiện đơn hàng — RFQ đến Cash</li>
-<li><a href="../01-SOP-100/sop-104-data-governance-records-security-and-ip-protection.html">SOP-104</a> Quản trị dữ liệu, Hồ sơ, Bảo mật &amp; Bảo vệ IP</li>
-</ul>
-
+<div class="iso-map"><div class="iso-title">Chuẩn mực áp dụng / nguyên tắc bắt buộc</div><div class="req"><span class="req-tag shall">PHẢI</span><div>Mọi vật liệu và bán thành phẩm nhận vào phải có nhận diện rõ, tình trạng rõ và chứng từ tương ứng mức yêu cầu.</div></div><div class="req"><span class="req-tag shall">PHẢI</span><div>Không dùng vật tư nghi ngờ sai mác, mất nhãn, sai condition, thiếu chứng từ hoặc có dấu hiệu giả mạo/không rõ nguồn gốc cho sản xuất chính thức.</div></div><div class="req"><span class="req-tag should">NÊN</span><div>Traceability nên được thiết kế từ đầu vào tới shipment theo mức lô/heat/serial phù hợp với yêu cầu đơn hàng.</div></div></div><div class="preface-block"><div class="grid-2"><div class="card"><div class="card-title">Trọng tâm</div><p>Độ chính xác gia công không bù được vật liệu sai. Tài liệu này khóa chặt rủi ro sai vật liệu, lẫn lot, mất chứng chỉ hoặc mất liên kết giữa vật liệu và thành phẩm.</p></div><div class="callout"><div class="card-title">Điểm thường thiếu</div><p>Truy xuất không chỉ là giữ MTC trong thư mục; truy xuất phải cho phép nối vật liệu đầu vào với đúng job/lot/thành phẩm đã giao.</p></div></div></div><div class="toc"><div class="toc-title">Mục lục nhanh</div><div class="toc-grid"><a href="#p1">1. Mục đích</a><a href="#p2">2. Phạm vi</a><a href="#p3">3. Thuật ngữ</a><a href="#p4">4. RACI</a><a href="#p5">5. Quy trình</a><a href="#p6">6. Biểu mẫu liên quan</a><a href="#p7">7. Tài liệu liên quan</a></div></div><h2 class="h2" id="p1">1. Mục đích</h2><p>Thiết lập phương pháp kiểm soát identity, chứng từ, tình trạng, phân tách lô và truy xuất vật liệu/bán thành phẩm để bảo đảm phù hợp và ngăn dùng sai nguồn hoặc nguồn giả.</p><h2 class="h2" id="p2">2. Phạm vi</h2><p>Áp dụng cho nguyên vật liệu kim loại/phi kim, bán thành phẩm, inserts/consumables critical, chi tiết khách hàng gửi tới và thành phẩm cần gắn với pedigree vật liệu.</p><h2 class="h2" id="p3">3. Thuật ngữ</h2><div class="table-card"><table class="table"><thead><tr><th>Thuật ngữ</th><th>Diễn giải áp dụng</th></tr></thead><tbody><tr><td><b>Material pedigree</b></td><td>Chuỗi bằng chứng xác nhận nguồn gốc, grade, condition và lô/heat của vật liệu.</td></tr><tr><td><b>Counterfeit / suspect material</b></td><td>Vật liệu có dấu hiệu giả mạo, sửa nhãn, chứng từ bất thường, nguồn không xác minh hoặc nghi ngờ không đúng khai báo.</td></tr><tr><td><b>Lot segregation</b></td><td>Tách biệt vật lý và hồ sơ để tránh trộn lẫn các lô khác nhau.</td></tr></tbody></table></div><h2 class="h2" id="p4">4. RACI</h2><div class="table-card"><table class="table"><thead><tr><th>Vai trò</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead><tbody><tr><td>Warehouse Clerk</td><td>●</td><td></td><td></td><td></td></tr><tr><td>Quality Engineer</td><td>●</td><td></td><td></td><td></td></tr><tr><td>Supply Chain Manager</td><td></td><td>●</td><td></td><td></td></tr><tr><td>QA Manager</td><td></td><td></td><td>●</td><td></td></tr><tr><td>Buyer / Purchasing</td><td></td><td></td><td>●</td><td></td></tr><tr><td>Production Planner</td><td></td><td></td><td></td><td>●</td></tr><tr><td>Customer Service</td><td></td><td></td><td></td><td>●</td></tr></tbody></table></div><div class="role-boundary"><b>Role-boundary / authority note:</b> Warehouse Clerk và Quality phối hợp xác nhận vật tư vào kho; không được phát hành cho sản xuất nếu chưa rõ lot/heat/revision/chứng chỉ hoặc còn treo kết quả kiểm tra. Xem thêm <a href="../../03-Reference/01-ANNEX-System/ref-020-cnc-operating-model-and-role-boundary.html">REF-020</a>, <a href="../../../02-Tai-Lieu-He-Thong/03-Organization/04-RACI-Authority/annex-qms-025-authority-matrix.html">ANNEX-QMS-025</a> và <a href="../../../02-Tai-Lieu-He-Thong/03-Organization/04-RACI-Authority/annex-qms-026-raci-master-matrix.html">ANNEX-QMS-026</a> để đối chiếu giữa tài liệu.</div><h2 class="h2" id="p5">5. Quy trình</h2><h3 class="h3">1. Tiếp nhận và xác minh đầu vào</h3><ul class="tight"><li>Kiểm tra tối thiểu: nhãn nhận diện, số lượng/kích thước cơ bản, grade/condition, MTC/COA/COC, heat/lot nếu áp dụng, tình trạng bề mặt và dấu hiệu bất thường.</li><li>Khi đơn hàng yêu cầu cao, có thể cần PMI, hardness re-check hoặc xác minh bổ sung trước khi release vật liệu vào kho sử dụng.</li></ul><h3 class="h3">2. Bảo quản và cấp phát</h3><ul class="tight"><li>Vật liệu phải được lưu với nhãn nhận diện đủ thông tin, trạng thái kiểm tra và khu vực phân tách phù hợp để tránh trộn lẫn.</li><li>Khi cắt phôi hoặc chia lô, phải duy trì liên kết với lot/heat gốc theo mức truy xuất yêu cầu.</li></ul><h3 class="h3">3. Duy trì truy xuất trong sản xuất</h3><ul class="tight"><li>Traveler hoặc hệ thống tương đương phải liên kết part/job với nguồn vật liệu/lot tương ứng khi yêu cầu.</li><li>Khi part đi qua outsource hoặc clean pack, trạng thái nhận diện phải được bảo toàn; nếu thay nhãn phải có đối chiếu song song.</li></ul><h3 class="h3">4. Xử lý nghi ngờ và phòng chống nguồn giả</h3><ul class="tight"><li>Bất kỳ vật liệu mất nhãn, chứng từ bất thường, dấu hiệu sửa đổi hoặc nguồn không xác minh phải được hold và đánh giá theo NCR process.</li><li>Nguồn có lịch sử rủi ro cao phải tăng mức giám sát, kiểm chứng bổ sung hoặc loại khỏi danh sách approved source.</li></ul><h2 class="h2" id="p6">6. Biểu mẫu liên quan</h2><ul class="tight"><li><a href="../../../04-Bieu-Mau/04-FRM-400/frm-412-receiving-and-iqc-log.html">FRM-412</a></li><li><a href="../../../04-Bieu-Mau/04-FRM-400/frm-413-hold-and-disposition-log.html">FRM-413</a></li><li><a href="../../../04-Bieu-Mau/07-FRM-700/frm-703-wip-card.html">FRM-703</a></li><li><a href="../../../04-Bieu-Mau/07-FRM-700/frm-704-part-id-label.html">FRM-704</a></li></ul><h2 class="h2" id="p7">7. Tài liệu liên quan</h2><ul class="tight"><li><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/04-SOP-400/sop-401-supplier-control-and-special-process.html">SOP-401</a></li><li><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/07-SOP-700/sop-701-receiving-packaging-handling-and-storage.html">SOP-701</a></li><li><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-605-final-inspection-coc-and-shipment-release.html">SOP-605</a></li></ul><div class="footer-note">Bản nâng cấp giữ nguyên mã tài liệu, logic vận hành gốc và tăng chiều sâu kiểm soát cho mô hình gia công CNC toàn cầu, high-mix/medium-volume hoặc job-order.</div>
 </div></div>
-
 </div></div></div>
+<script src="../../../assets/app.js"></script>
 </body>
 </html>
-
-

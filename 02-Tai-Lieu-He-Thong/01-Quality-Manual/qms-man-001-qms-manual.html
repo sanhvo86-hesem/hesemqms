@@ -1,216 +1,98 @@
 <!DOCTYPE html>
+
 <html lang="vi">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>QMS-MAN-001 — Quality Management System Manual | HESEM QMS</title>
+<title>QMS-MAN-001 — Sổ tay Hệ thống Quản lý Chất lượng cho doanh nghiệp gia công CNC toàn cầu | HESEM QMS</title>
 <link href="../../assets/style.css" rel="stylesheet"/>
 <style>
-.chip{display:inline-block;padding:2px 10px;border-radius:999px;border:1px solid #e5e7eb;background:#f9fafb;font-size:12px;margin-right:6px;margin-bottom:6px}
-.mini-card{background:var(--bg);border:1px solid var(--ln);border-radius:var(--r);padding:16px}
-.mini-card h3{margin:0 0 8px;font-size:14px;color:var(--navy)}
-.mini-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
-.series-tag{display:inline-block;padding:3px 8px;border-radius:999px;background:#eff6ff;color:#1d4ed8;font-size:10px;font-weight:700;margin-bottom:8px}
-.status-chip{display:inline-block;padding:3px 8px;border-radius:999px;font-size:10px;font-weight:700}
-.st-draft{background:#fff7ed;color:#c2410c}.st-review{background:#eff6ff;color:#1d4ed8}.st-pending{background:#ecfeff;color:#0f766e}.st-approved{background:#ecfdf5;color:#15803d}.st-obsolete{background:#f3f4f6;color:#4b5563}
-@media print{
- .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.req,.vstep,.mini-card{page-break-inside:avoid;break-inside:avoid}
- h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
- .form-header,.sig-row,.sign-row,.approval-row{page-break-inside:avoid;break-inside:avoid}
- tr{page-break-inside:avoid;break-inside:avoid}
- thead{display:table-header-group}tfoot{display:table-footer-group}
- p{orphans:3;widows:3}.table-card{overflow:visible!important}
+.chip{display:inline-block;padding:2px 10px;border-radius:999px;border:1px solid #d7dee7;background:#f8fafc;font-size:11px;margin-right:6px;margin-bottom:6px;font-weight:600;}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:12px;}
+.tight li{margin:4px 0;}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+.toc{border:1px solid var(--ln);border-radius:var(--r);padding:16px;background:var(--bg2);margin:18px 0 24px;}
+.toc-title{font-size:12px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.4px;margin-bottom:10px;}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;}
+.toc-grid a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;background:var(--bg);font-size:12px;color:var(--ink);}
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.metric-card{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);}
+.metric-card .value{font-size:20px;font-weight:700;color:var(--navy);}
+.metric-card .label{font-size:11px;color:var(--ink3);margin-top:4px;text-transform:uppercase;letter-spacing:.3px;}
+.mini-note{font-size:12px;color:var(--ink2);line-height:1.55;}
+.gate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.gate-card{border:1px solid var(--ln);border-left:4px solid var(--blue);border-radius:var(--r);padding:14px;background:var(--bg);}
+.gate-card h3{margin:0 0 6px;font-size:14px;color:var(--navy);}
+.field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;}
+.field{padding:10px 12px;border:1px solid var(--ln);border-radius:var(--r-sm);background:var(--bg);}
+.field b{display:block;font-size:11px;color:var(--ink3);text-transform:uppercase;letter-spacing:.3px;margin-bottom:6px;}
+.field .blank{width:100%;min-height:22px;}
+.check-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;}
+.check-item{padding:8px 10px;border:1px solid var(--ln);border-radius:var(--r-sm);background:var(--bg);font-size:12px;}
+.check-item .chk{margin-right:6px;}
+.legend-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0;}
+.legend-row .chip{margin-bottom:0;}
+.footer-note{margin-top:20px;font-size:11px;color:var(--ink3);}
+.decision-table td:first-child, .decision-table th:first-child{font-weight:700;}
+.kpi-good{color:#166534;font-weight:700;}
+.kpi-watch{color:#92400e;font-weight:700;}
+.kpi-bad{color:#b91c1c;font-weight:700;}
+.control-stack > * + *{margin-top:12px;}
+.subtle{color:var(--ink2);font-size:12px;}
+.boxed-list{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);}
+.lane-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.35px;color:var(--navy);margin-bottom:6px;}
+.flow-note{font-size:11px;color:var(--ink3)}
+.pill{display:inline-block;padding:4px 8px;border-radius:999px;background:var(--blue-l);color:var(--navy);font-size:11px;font-weight:700;margin:0 6px 6px 0;}
+.audit-score{font-size:24px;font-weight:700;color:var(--navy);}
+.matrix-small td,.matrix-small th{font-size:12px;}
+.svg-wrap{overflow:auto;border:1px solid var(--ln);border-radius:var(--r);background:#fff;padding:12px}
+.legend-box{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.legend-box span{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--ln);background:var(--bg);padding:4px 8px;border-radius:999px;font-size:11px}
+.sq{width:12px;height:12px;border-radius:3px;display:inline-block}
+.rule-table td:nth-child(1),.rule-table td:nth-child(2){white-space:nowrap}
+.small{font-size:12px}
+@media print {
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.lane,.legend,.req,.auth-grid,.backup-card,.vstep,.metric-card,.gate-card,.field,.boxed-list,.svg-wrap{page-break-inside:avoid;break-inside:avoid}
+  h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
+  .form-header,.sig-row,.sign-row,.approval-row{page-break-inside:avoid;break-inside:avoid}
+  tr{page-break-inside:avoid;break-inside:avoid}
+  thead{display:table-header-group}tfoot{display:table-footer-group}
+  p{orphans:3;widows:3}.table-card{overflow:visible!important}
 }
 .page-body{overflow-x:hidden}
 .table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
 table{max-width:100%;table-layout:auto}
 td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
+@media (max-width: 900px){.grid-3{grid-template-columns:1fr;}.field-grid{grid-template-columns:1fr;}}
+
 </style>
 </head>
 <body>
 <div class="container"><div class="page"><div class="page-body">
 <div class="form-header">
 <div class="fh-left">
-  <a class="brand-logo" href="../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
-  <div class="fh-company">
-    <a href="../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
-    <span>Tài liệu kiểm soát</span>
-  </div>
+<a class="brand-logo" href="../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+<div class="fh-company">
+<a href="../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+<span>Tài liệu kiểm soát</span>
+</div>
 </div>
 <div class="title">
-  <strong>QMS-MAN-001 — Quality Management System Manual</strong>
-  <span class="sub-vn">Sổ tay hệ thống quản lý chất lượng trong bối cảnh portal, workflow số hóa và chuỗi quá trình 100-900</span>
+<strong>QMS-MAN-001 — Sổ tay Hệ thống Quản lý Chất lượng cho doanh nghiệp gia công CNC toàn cầu</strong>
+<span class="sub-vn">Khung điều hành QMS theo ISO 9001 cho mô hình gia công CNC chính xác, high-mix và nhiều ngành khách hàng</span>
 </div>
 <div class="meta">
-  <div class="row"><span><b>Mã:</b></span><span>QMS-MAN-001</span></div>
-  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
-  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
-  <div class="row"><span><b>Chủ sở hữu:</b></span><span>QA/QMS</span></div>
-  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+<div class="row"><span><b>Mã:</b></span><span>QMS-MAN-001</span></div>
+<div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+<div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+<div class="row"><span><b>Chủ sở hữu:</b></span><span>QA Manager</span></div>
+<div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
 </div>
 </div>
 <div class="doc-content" id="docContent"><div class="form-sheet">
-
-<div class="card">
-  <div class="badge"><span class="dot"></span>QMS-MAN-001</div>
-  <h1 class="h1" style="margin-top:10px">QMS-MAN-001 — Sổ tay Hệ thống quản lý chất lượng HESEM</h1>
-  <p class="lead">
-    Sổ tay này xác định bối cảnh tổ chức, phạm vi QMS, kiến trúc quá trình, kiến trúc tài liệu và cơ chế quản trị tài liệu trên
-    <b>HESEM QMS Portal</b>. Manual đóng vai trò tài liệu khung: không lặp lại chi tiết thao tác của SOP/WI, mà nêu luật hệ thống để
-    policy, organization, RACI, SOP, WI, annex, forms và training hoạt động đồng bộ.
-  </p>
-  <div>
-    <span class="chip">Portal-centered</span>
-    <span class="chip">Risk-based</span>
-    <span class="chip">Job-order CNC</span>
-    <span class="chip">CSR / traceability driven</span>
-  </div>
-</div>
-
-<div class="iso-map">
-  <div class="iso-title">Chuẩn mực áp dụng</div>
-  <div class="req"><span class="req-tag shall">PHẢI</span><div>Xác định bối cảnh, bên quan tâm, phạm vi và các quá trình cần thiết cho QMS; duy trì thông tin dạng văn bản làm bằng chứng. <span class="iso-ref">ISO 4.1</span> <span class="iso-ref">ISO 4.2</span> <span class="iso-ref">ISO 4.3</span> <span class="iso-ref">ISO 4.4</span></div></div>
-  <div class="req"><span class="req-tag shall">PHẢI</span><div>Thiết lập chính sách, mục tiêu, trách nhiệm, kiểm soát tài liệu và nguồn lực để QMS được vận hành nhất quán trên toàn công ty. <span class="iso-ref">ISO 5</span> <span class="iso-ref">ISO 6.2</span> <span class="iso-ref">ISO 7.5</span></div></div>
-  <div class="req"><span class="req-tag shall">PHẢI</span><div>Quản lý hoạt động tác nghiệp, hồ sơ chứng cứ, audit, management review và cải tiến theo vòng lặp khép kín. <span class="iso-ref">ISO 8</span> <span class="iso-ref">ISO 9</span> <span class="iso-ref">ISO 10</span></div></div>
-</div>
-
-<div class="preface-block">
-  <h2 class="h2">1. Bối cảnh và phạm vi QMS</h2>
-  <div class="mini-grid">
-    <div class="mini-card">
-      <h3>Bối cảnh hiện tại</h3>
-      <ul class="list">
-        <li>HESEM vận hành theo mô hình <b>high-mix, low-volume, job order</b>, nên revision, flowdown và hồ sơ chứng cứ là trọng tâm.</li>
-        <li>Khách hàng đòi hỏi đúng revision, đúng CTQ, đúng truy xuất, đúng hồ sơ release và đúng thời hạn giao hàng.</li>
-        <li>Hệ tài liệu đã chuyển sang bối cảnh <b>portal số hóa</b>: tài liệu được kiểm soát bằng workflow, version history và phân quyền.</li>
-      </ul>
-    </div>
-    <div class="mini-card">
-      <h3>Phạm vi áp dụng</h3>
-      <ul class="list">
-        <li>Áp dụng cho toàn bộ chuỗi từ RFQ/PO đến giao hàng và phản hồi khách hàng.</li>
-        <li>Áp dụng cho các quá trình hỗ trợ: tài liệu, dữ liệu, đào tạo, EHS, audit, management review và cải tiến.</li>
-        <li><b>ISO 8.3</b> không áp dụng cho thiết kế sản phẩm cuối cùng; thay đổi bản vẽ/spec vẫn phải kiểm soát theo <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-106-change-and-configuration-management.html">SOP-106</a>.</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<div class="toc">
-  <div class="toc-title">Mục lục</div>
-  <div class="toc-grid">
-    <a href="#m2">2. Kiến trúc quá trình 100-900</a>
-    <a href="#m3">3. Kiến trúc tài liệu kiểm soát</a>
-    <a href="#m4">4. Kiểm soát số hóa và workflow</a>
-    <a href="#m5">5. Tổ chức và quản trị trách nhiệm</a>
-    <a href="#m6">6. Hoạch định và kiểm soát vận hành</a>
-    <a href="#m7">7. Đo lường, review và cải tiến</a>
-    <a href="#m8">8. Tài liệu liên quan</a>
-  </div>
-</div>
-
-<h2 class="h2" id="m2">2. Kiến trúc quá trình 100-900</h2>
-<div class="mini-grid">
-  <div class="mini-card"><span class="series-tag">100</span><h3>Nền hệ thống</h3><p>Policy, context, documents, data, knowledge, change, communication, contingency.</p></div>
-  <div class="mini-card"><span class="series-tag">200</span><h3>Commercial &amp; customer</h3><p>RFQ, contract review, customer feedback, RMA, customer property.</p></div>
-  <div class="mini-card"><span class="series-tag">300</span><h3>Engineering</h3><p>DFM, planning assumptions, technical readiness, FAI.</p></div>
-  <div class="mini-card"><span class="series-tag">400</span><h3>Supply chain</h3><p>Supplier control, incoming verification, special process, traceability, counterfeit prevention.</p></div>
-  <div class="mini-card"><span class="series-tag">500</span><h3>Production &amp; maintenance</h3><p>Planning, dispatch, CNC execution, tooling, PM, breakdown response.</p></div>
-  <div class="mini-card"><span class="series-tag">600</span><h3>Quality assurance</h3><p>Calibration, MSA, sampling, SPC, final inspection, NCR/CAPA, ship release.</p></div>
-  <div class="mini-card"><span class="series-tag">700</span><h3>Protection &amp; shipping</h3><p>Storage, cleanliness, packaging, labeling, logistics, product safety, FOD.</p></div>
-  <div class="mini-card"><span class="series-tag">800-900</span><h3>Con người và học hệ thống</h3><p>Competence, EHS, human factors, audit, management review, kaizen.</p></div>
-</div>
-<p class="note"><b>Tham chiếu chi tiết:</b> <a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-001-detailed-process-map.html">REF-001</a> mô tả process map; <a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-002-iso-9001-clause-to-sop-matrix.html">REF-002</a> giữ clause-to-SOP mapping.</p>
-
-<h2 class="h2" id="m3">3. Kiến trúc tài liệu kiểm soát</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Nhóm</th><th>Vai trò</th><th>Ví dụ</th><th>Nguyên tắc</th></tr></thead>
-<tbody>
-<tr><td><b>POL</b></td><td>Chính sách và cam kết lãnh đạo</td><td><a href="../02-Policies-Objectives/pol-qms-001-quality-policy.html">POL-QMS-001</a></td><td>Làm nền cho mục tiêu và quyết định điều hành.</td></tr>
-<tr><td><b>MAN</b></td><td>Tài liệu khung hệ thống</td><td>QMS-MAN-001</td><td>Nêu logic hệ thống, không lặp thao tác chi tiết.</td></tr>
-<tr><td><b>ORG / RACI / JD</b></td><td>Tổ chức, phân quyền, trách nhiệm</td><td><a href="../03-Organization/04-RACI-Authority/raci-master-matrix.html">RACI Master Matrix</a></td><td>Mỗi SOP có đúng một Accountable.</td></tr>
-<tr><td><b>SOP</b></td><td>Quy tắc liên phòng ban</td><td><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-101-document-and-data-control.html">SOP-101</a> đến <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-903-continual-improvement-and-kaizen.html">SOP-903</a></td><td>Quy định điều phải làm, điểm kiểm soát và record bắt buộc.</td></tr>
-<tr><td><b>WI</b></td><td>Hướng dẫn tại điểm sử dụng</td><td><a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/02-WI-200/wi-201-quality-gates-and-ship-release-quick-ref.html">WI-201</a>, <a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/05-WI-500/wi-504-job-dossier-and-evidence-pack.html">WI-504</a></td><td>Ngắn gọn, trực quan, phục vụ thao tác thực địa.</td></tr>
-<tr><td><b>ANNEX / REF</b></td><td>Ma trận, bản đồ, hướng dẫn chuyên sâu</td><td><a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/02-ANNEX-Standards/ref-008-semi-and-csr-matrix.html">REF-008</a></td><td>Dùng để đào sâu hoặc tra cứu, không thay thế SOP.</td></tr>
-<tr><td><b>FRM</b></td><td>Biểu mẫu và hồ sơ</td><td><a href="../../04-Bieu-Mau/01-FRM-100/frm-121-context-analysis-swot-pestle.html">FRM-121</a>, <a href="../../04-Bieu-Mau/06-FRM-600/frm-641-final-inspection-report.html">FRM-641</a></td><td>Thiếu record bắt buộc đồng nghĩa quá trình chưa chứng minh được sự phù hợp.</td></tr>
-<tr><td><b>TRN</b></td><td>Tài liệu đào tạo</td><td>Training &amp; Competency library</td><td>Gắn với competence matrix, onboarding và recertification.</td></tr>
-</tbody></table></div>
-<p class="callout"><b>Luật kiến trúc:</b> manual không cố định số lượng tài liệu. Hệ thống có thể thêm hoặc gộp tài liệu, miễn mỗi tài liệu nằm đúng họ, đúng owner, đúng workflow và đúng quan hệ dẫn chiếu.</p>
-
-<h2 class="h2" id="m4">4. Kiểm soát số hóa và workflow</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Trạng thái</th><th>Ý nghĩa</th><th>Quy tắc</th></tr></thead>
-<tbody>
-<tr><td><span class="status-chip st-draft">Draft</span></td><td>Bản đang biên soạn</td><td>Chưa được dùng làm bản vận hành chính thức.</td></tr>
-<tr><td><span class="status-chip st-review">In Review</span></td><td>Bản đang được soát xét</td><td>Reviewer kiểm tra tính đầy đủ, logic liên phòng ban và dẫn chiếu.</td></tr>
-<tr><td><span class="status-chip st-pending">Pending Approval</span></td><td>Bản chờ phê duyệt</td><td>Approver xác nhận tài liệu sẵn sàng ban hành.</td></tr>
-<tr><td><span class="status-chip st-approved">Approved</span></td><td>Bản kiểm soát hiện hành</td><td>Là nguồn chính thức để đào tạo, thực thi và audit.</td></tr>
-<tr><td><span class="status-chip st-obsolete">Obsolete</span></td><td>Bản lịch sử</td><td>Chỉ dùng để truy xuất, không dùng cho vận hành hiện tại.</td></tr>
-</tbody></table></div>
-<ul class="list">
-  <li>HESEM QMS Portal là <b>cửa vào kiểm soát</b> của tài liệu; bản sao ngoài hệ thống mặc định là uncontrolled nếu không có xác nhận phiên bản.</li>
-  <li>Bản phát hành trên portal là nguồn chính thức. Nếu hệ thống hỗ trợ chế độ tiếng Anh để tra cứu, nội dung đó chỉ mang tính hỗ trợ trừ khi có bản song ngữ được phê duyệt riêng.</li>
-  <li>Nguyên tắc vận hành là <b>link-not-copy</b>: tài liệu cấp trên dẫn chiếu xuống SOP/WI/FRM thay vì chép lại chi tiết.</li>
-</ul>
-
-<h2 class="h2" id="m5">5. Tổ chức và quản trị trách nhiệm</h2>
-<div class="mini-grid">
-  <div class="mini-card">
-    <h3>Vai trò cốt lõi</h3>
-    <ul class="list">
-      <li><b>Tổng Giám đốc:</b> chịu trách nhiệm cuối cùng về hiệu lực QMS.</li>
-      <li><b>QA Manager:</b> account owner của nhiều SOP hệ thống; điều phối audit, CAPA và release.</li>
-      <li><b>QMS Engineer:</b> duy trì cấu trúc hệ thống, clause mapping, hồ sơ bối cảnh và follow-up cải tiến.</li>
-      <li><b>Process owners:</b> chịu trách nhiệm kết quả của từng series quá trình.</li>
-    </ul>
-  </div>
-  <div class="mini-card">
-    <h3>Tài liệu quản trị</h3>
-    <ul class="list">
-      <li><a href="../03-Organization/01-Org-Chart/annex-org-001-org-chart-fullpage.html">Org Chart</a> xác định cấu trúc tổ chức.</li>
-      <li><a href="../03-Organization/04-RACI-Authority/raci-master-matrix.html">RACI Master Matrix</a> xác định A/R/C/I ở mức SOP.</li>
-      <li><a href="../03-Organization/04-RACI-Authority/authority-matrix.html">Authority Matrix</a> xác định thẩm quyền ra quyết định.</li>
-    </ul>
-  </div>
-</div>
-
-<h2 class="h2" id="m6">6. Hoạch định và kiểm soát vận hành</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Yếu tố</th><th>Mục tiêu kiểm soát</th><th>Tài liệu / hồ sơ chính</th></tr></thead>
-<tbody>
-<tr><td><b>Bối cảnh</b></td><td>Xác định yếu tố nội bộ/ngoại bộ ảnh hưởng chiến lược và năng lực vận hành.</td><td><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-102-quality-policy-objectives-and-organizational-context.html">SOP-102</a>, <a href="../../04-Bieu-Mau/01-FRM-100/frm-121-context-analysis-swot-pestle.html">FRM-121</a></td></tr>
-<tr><td><b>Bên quan tâm / CSR</b></td><td>Chuyển yêu cầu khách hàng và bên quan tâm thành điểm kiểm soát thực thi.</td><td><a href="../../04-Bieu-Mau/01-FRM-100/frm-122-interested-parties-register.html">FRM-122</a>, <a href="../../04-Bieu-Mau/01-FRM-100/frm-125-customer-csr-register.html">FRM-125</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/02-SOP-200/sop-201-order-fulfillment-rfq-to-cash.html">SOP-201</a></td></tr>
-<tr><td><b>Rủi ro / cơ hội</b></td><td>Ưu tiên hành động phòng ngừa, bảo vệ đầu ra và giảm lỗi lặp.</td><td><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-103-risk-opportunity-fmea-and-control-plan.html">SOP-103</a></td></tr>
-<tr><td><b>Chuỗi vận hành</b></td><td>Đảm bảo handshake rõ từ commercial, engineering, supply chain, production, QA đến shipping.</td><td>Series 200-700, <a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-001-detailed-process-map.html">REF-001</a></td></tr>
-<tr><td><b>Con người / EHS / continuity</b></td><td>Giữ năng lực, an toàn và khả năng phục hồi khi có gián đoạn.</td><td><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/08-SOP-800/sop-801-competence-training-and-certification.html">SOP-801</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/08-SOP-800/sop-802-incident-near-miss-and-ehs.html">SOP-802</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-108-operational-contingency-plan.html">SOP-108</a></td></tr>
-</tbody></table></div>
-
-<h2 class="h2" id="m7">7. Đo lường, review và cải tiến</h2>
-<ul class="list">
-  <li>KPI phải phản ánh tối thiểu chất lượng, giao hàng, hiệu suất, an toàn và sức khỏe hệ thống; nguồn dữ liệu phải xác định rõ và có owner.</li>
-  <li><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-901-internal-audit-and-lpa.html">SOP-901</a> điều khiển audit và LPA; <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-902-management-review.html">SOP-902</a> điều khiển management review.</li>
-  <li><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-606-ncr-capa-and-ipqc-reaction.html">SOP-606</a> và <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-903-continual-improvement-and-kaizen.html">SOP-903</a> là lõi của vòng lặp sửa lỗi, chuẩn hóa và cải tiến.</li>
-  <li>Một thay đổi chỉ được xem là hoàn thành khi đã cập nhật tài liệu liên quan, xác nhận đào tạo, điều chỉnh RACI nếu cần và chứng minh trạng thái mới đang được vận hành thật.</li>
-</ul>
-
-<h2 class="h2" id="m8">8. Tài liệu liên quan</h2>
-<ul class="list">
-  <li><a href="../02-Policies-Objectives/pol-qms-001-quality-policy.html">POL-QMS-001 — Quality Policy</a></li>
-  <li><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-101-document-and-data-control.html">SOP-101 — Document and Data Control</a></li>
-  <li><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-102-quality-policy-objectives-and-organizational-context.html">SOP-102 — Quality Policy Objectives and Organizational Context</a></li>
-  <li><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-106-change-and-configuration-management.html">SOP-106 — Change and Configuration Management</a></li>
-  <li><a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-001-detailed-process-map.html">REF-001 — Detailed Process Map</a></li>
-  <li><a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-002-iso-9001-clause-to-sop-matrix.html">REF-002 — ISO Clause to SOP Matrix</a></li>
-  <li><a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/02-ANNEX-Standards/ref-008-semi-and-csr-matrix.html">REF-008 — SEMI and CSR Matrix</a></li>
-  <li><a href="../../04-Bieu-Mau/01-FRM-100/frm-121-context-analysis-swot-pestle.html">FRM-121</a>, <a href="../../04-Bieu-Mau/01-FRM-100/frm-122-interested-parties-register.html">FRM-122</a>, <a href="../../04-Bieu-Mau/01-FRM-100/frm-123-interested-party-requirements-register.html">FRM-123</a>, <a href="../../04-Bieu-Mau/01-FRM-100/frm-124-climate-change-assessment-record.html">FRM-124</a>, <a href="../../04-Bieu-Mau/01-FRM-100/frm-125-customer-csr-register.html">FRM-125</a></li>
-</ul>
-
-<div class="small muted">Viết lại theo bối cảnh tài liệu hiện hành của HESEM QMS Portal: manual tập trung vào kiến trúc hệ thống, nhóm tài liệu, workflow kiểm soát, tổ chức - RACI và chuỗi quá trình 100-900; loại bỏ các mô tả đếm số tài liệu và giả định lưu trữ đã cũ.</div>
-
-</div></div></div></div></div>
-<div class="no-screen print-disclaimer" style="display:none;text-align:center;font-size:9px;color:#999;padding:8px 0;border-top:1px solid #ddd;margin-top:20px">
-⚠ Bản in không có đóng dấu kiểm soát phiên bản thì tài liệu này không có giá trị. Chỉ sử dụng phiên bản hiện hành trên hệ thống HESEM QMS.
-</div>
+<div class="iso-map"><div class="iso-title">Chuẩn mực áp dụng / nguyên tắc bắt buộc</div><div class="req"><span class="req-tag shall">PHẢI</span><div>Hệ thống quản lý chất lượng được xây dựng trên nền ISO 9001:2015, cập nhật tư duy amendment về biến đổi khí hậu, kiểm soát rủi ro theo quá trình và điều hành bằng dữ liệu đo được.</div></div><div class="req"><span class="req-tag shall">PHẢI</span><div>Các công đoạn thuê ngoài như nhiệt luyện, xử lý bề mặt, mài tinh, làm sạch, kiểm tra ngoài, đóng gói đặc thù hoặc logistics không làm mất trách nhiệm của HESEM; mọi đầu ra thuê ngoài vẫn thuộc phạm vi kiểm soát của QMS.</div></div><div class="req"><span class="req-tag should">NÊN</span><div>Mỗi ngành khách hàng và mỗi chương trình sản phẩm phải được vận hành theo một lớp kiểm soát bổ sung tương ứng với CSR, tiêu chuẩn ngành và mức rủi ro thực tế.</div></div></div><div class="preface-block"><div class="grid-2"><div class="card"><div class="card-title">Định hướng sử dụng tài liệu</div><p>Sổ tay này là tài liệu cấp 1 để điều hướng hệ thống QMS cho doanh nghiệp gia công CNC toàn cầu theo mô hình <b>job-order / high-mix</b>. Tài liệu không thay thế SOP/WI; sổ tay làm rõ nguyên tắc điều hành, mối liên hệ giữa quá trình và logic kiểm soát trọng yếu.</p></div><div class="callout"><div class="card-title">Nguyên tắc nâng cấp</div><p>Giữ nguyên mã tài liệu, khung tài liệu và logic vận hành gốc; chỉ cập nhật lại bối cảnh, mở rộng chiều sâu kiểm soát, chuẩn hoá liên kết với SOP/WI/biểu mẫu và làm rõ cơ chế vận hành thực chiến cho CNC chính xác, nhiều ngành và nhiều site.</p></div></div></div><div class="toc"><div class="toc-title">Mục lục nhanh</div><div class="toc-grid"><a href="#m1">1. Mục đích và định vị</a><a href="#m2">2. Phạm vi và tính áp dụng</a><a href="#m3">3. Bối cảnh, bên quan tâm và định hướng chiến lược</a><a href="#m4">4. Kiến trúc QMS và bản đồ quá trình</a><a href="#m5">5. Mô hình vận hành từ RFQ đến giao hàng</a><a href="#m6">6. Cơ chế kiểm soát trọng yếu</a><a href="#m7">7. Đo lường, truy xuất và bằng chứng phù hợp</a><a href="#m8">8. Quản trị nhà cung cấp và công đoạn ngoài</a><a href="#m9">9. Năng lực, lãnh đạo và cải tiến</a><a href="#m10">10. Ma trận tài liệu cấp dưới</a></div></div><h2 class="h2" id="m1">1. Mục đích và định vị</h2><p>Tài liệu này mô tả cách HESEM thiết kế, triển khai và duy trì QMS để bảo đảm mọi đơn hàng gia công CNC, tích hợp cơ khí chính xác và các dịch vụ bổ trợ liên quan được thực hiện nhất quán, đúng yêu cầu khách hàng, đúng luật định và đúng năng lực quá trình. Sổ tay này đồng thời xác lập ngôn ngữ quản trị chung giữa Sales, Engineering, Supply Chain, Production, Quality, Metrology, Warehouse và Ban lãnh đạo.</p><div class="metric-grid"><div class="metric-card"><div class="value">RFQ → Ship</div><div class="label">Chuỗi giá trị cốt lõi</div></div><div class="metric-card"><div class="value">Global CNC</div><div class="label">Bối cảnh áp dụng</div></div><div class="metric-card"><div class="value">High-mix</div><div class="label">Môi trường sản xuất</div></div><div class="metric-card"><div class="value">Data-driven</div><div class="label">Nguyên tắc điều hành</div></div></div><h2 class="h2" id="m2">2. Phạm vi và tính áp dụng</h2><p><b>Phạm vi QMS</b> bao phủ hoạt động tiếp nhận yêu cầu khách hàng, xem xét hợp đồng, đánh giá tính khả thi, lập kế hoạch công nghệ, mua sắm vật tư và dịch vụ ngoài, lập lịch, gia công CNC, kiểm tra – đo lường, đóng gói, giao hàng, xử lý khiếu nại, CAPA và cải tiến liên tục cho các sản phẩm cơ khí chính xác và cụm chi tiết gia công theo bản vẽ khách hàng.</p><p><b>Tính áp dụng của điều khoản 8.3</b>: HESEM thông thường không thiết kế sản phẩm cuối cho khách hàng; tuy nhiên HESEM có thể thực hiện hoặc kiểm soát các hoạt động phát triển mang tính công nghệ như DFM, thiết kế gá kẹp, thiết kế phương pháp đo, thiết kế chương trình CAM/CNC, thiết kế tuyến công nghệ và xác nhận thay đổi quá trình. Vì vậy, phần thiết kế sản phẩm có thể không áp dụng theo từng chương trình, nhưng <b>quản trị thay đổi kỹ thuật và phát triển quá trình</b> vẫn là yêu cầu bắt buộc của QMS.</p><div class="table-card"><table class="table"><colgroup><col style="width:24%"/><col style="width:76%"/></colgroup><thead><tr><th>Nội dung</th><th>Cách áp dụng</th></tr></thead><tbody><tr><td>Thiết kế sản phẩm cuối</td><td>Thường do khách hàng sở hữu; HESEM chỉ xem xét khả thi, không tự phê duyệt thay đổi thiết kế khách hàng nếu không có uỷ quyền.</td></tr><tr><td>Thiết kế/quy hoạch quá trình</td><td>Bắt buộc áp dụng: routing, đồ gá, dao cụ, CAM/CNC, phương pháp đo, làm sạch, đóng gói, nhận diện và kiểm soát rủi ro.</td></tr><tr><td>Công đoạn thuê ngoài</td><td>Nằm trong phạm vi kiểm soát QMS của HESEM, bao gồm flow-down yêu cầu, đánh giá nguồn lực, xác nhận đầu ra và lưu bằng chứng phù hợp.</td></tr><tr><td>Multi-site / logistics</td><td>Khi có site phụ, kho trung chuyển hoặc đối tác logistics đặc thù, ranh giới trách nhiệm phải được mô tả trong hồ sơ đơn hàng và ma trận bàn giao.</td></tr></tbody></table></div><h2 class="h2" id="m3">3. Bối cảnh, bên quan tâm và định hướng chiến lược</h2><p>QMS được vận hành trong bối cảnh cạnh tranh toàn cầu, chu kỳ giao hàng ngắn, yêu cầu dung sai ngày càng chặt, yêu cầu minh bạch truy xuất lớn hơn và áp lực đồng thời về chất lượng – giá thành – tốc độ. Biến động chuỗi cung ứng, biến động năng lượng, yêu cầu về khí hậu/sustainability, rủi ro an ninh dữ liệu và yêu cầu ngành cụ thể là các yếu tố bối cảnh phải được cập nhật định kỳ.</p><div class="grid-3"><div class="card"><div class="card-title">Bên quan tâm chính</div><ul class="tight"><li>Khách hàng OEM/contract manufacturing và người dùng cuối gián tiếp</li><li>Nhà cung cấp vật tư, special process, logistics, phòng lab/đơn vị hiệu chuẩn</li><li>Nhân sự vận hành, quản lý tuyến đầu, kỹ sư, QA/QC/Metrology</li><li>Cơ quan pháp lý, cơ quan hải quan, cơ quan an toàn lao động, yêu cầu xuất xứ/chứng từ</li></ul></div><div class="card"><div class="card-title">Kỳ vọng trọng yếu</div><ul class="tight"><li>Giao đúng bản vẽ, đúng revision, đúng vật liệu, đúng chứng từ</li><li>Năng lực đáp ứng lead time ngắn nhưng không bỏ qua quality gate</li><li>Khả năng điều tra lỗi nhanh, containment nhanh, traceability đầy đủ</li><li>Bảo vệ IP/bản vẽ/dữ liệu gia công và kiểm soát thay đổi có phê duyệt</li></ul></div><div class="card"><div class="card-title">Định hướng quản trị</div><ul class="tight"><li>Ngăn lỗi từ đầu vào và planning, không dồn trách nhiệm cho final inspection</li><li>Quản trị theo CTQ / special characteristics / evidence-based release</li><li>Gắn năng lực con người – máy – phương pháp đo – nhà cung cấp trong cùng một chuỗi kiểm soát</li><li>Tối ưu bằng chuẩn hóa, dữ liệu thời gian thực, CAPA và kaizen có ưu tiên rủi ro</li></ul></div></div><h2 class="h2" id="m4">4. Kiến trúc QMS và bản đồ quá trình</h2><p>Kiến trúc hệ thống được tổ chức theo 4 lớp: <b>chính sách &amp; sổ tay</b>, <b>SOP</b>, <b>WI / reference</b> và <b>biểu mẫu/hồ sơ</b>. Mỗi lớp có một vai trò rõ ràng: định hướng – chuẩn hoá – hướng dẫn thao tác – tạo bằng chứng.</p><div class="legend-row"><span class="pill">Lớp 1: Manual/Policy</span><span class="pill">Lớp 2: SOP</span><span class="pill">Lớp 3: WI/Reference</span><span class="pill">Lớp 4: Forms/Records</span></div><p class="mini-note">Chi tiết bản đồ quá trình xem tại <a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-001-detailed-process-map.html">REF-001 — Detailed Process Map</a> và ma trận ISO xem tại <a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-002-iso-9001-clause-to-sop-matrix.html">REF-002 — ISO clause to SOP matrix</a>.</p><div class="table-card"><table class="table"><colgroup><col style="width:20%"/><col style="width:34%"/><col style="width:46%"/></colgroup><thead><tr><th>Nhóm quá trình</th><th>Mục tiêu điều hành</th><th>Tài liệu dẫn chính</th></tr></thead><tbody><tr><td>Lãnh đạo &amp; hệ thống</td><td>Đặt định hướng, chính sách, mục tiêu, bối cảnh, rủi ro, thay đổi hệ thống, audit và management review</td><td><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-101-document-and-data-control.html">SOP-101</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-102-quality-policy-objectives-and-organizational-context.html">SOP-102</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-103-risk-opportunity-fmea-and-control-plan.html">SOP-103</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-901-internal-audit-and-lpa.html">SOP-901</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-902-management-review.html">SOP-902</a></td></tr><tr><td>Khách hàng &amp; kỹ thuật</td><td>Review yêu cầu, đánh giá khả thi, costing, kế hoạch gia công, FAI, xử lý phản hồi</td><td><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/02-SOP-200/sop-201-order-fulfillment-rfq-to-cash.html">SOP-201</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/03-SOP-300/sop-301-engineering-dfm-quoting-and-machining-planning.html">SOP-301</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/03-SOP-300/sop-302-first-article-inspection-fai.html">SOP-302</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/02-SOP-200/sop-202-customer-complaint-feedback-rma-and-escape.html">SOP-202</a></td></tr><tr><td>Chuỗi cung ứng &amp; sản xuất</td><td>Bảo đảm vật tư đúng, nhà cung cấp phù hợp, công đoạn ngoài được kiểm soát, kế hoạch và WIP ổn định</td><td><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/04-SOP-400/sop-401-supplier-control-and-special-process.html">SOP-401</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/04-SOP-400/sop-402-material-verification-traceability-and-counterfeit-prevention.html">SOP-402</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-501-production-planning-scheduling-and-dispatch-control.html">SOP-501</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-502-cnc-machining-operations.html">SOP-502</a></td></tr><tr><td>Chất lượng, đo lường &amp; giao hàng</td><td>Bảo đảm measurement chain, release đáng tin cậy, xử lý không phù hợp và phản ứng nhanh khi phát hiện lỗi</td><td><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-601-calibration-and-gage-control.html">SOP-601</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-606-ncr-capa-and-ipqc-reaction.html">SOP-606</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/07-SOP-700/sop-701-receiving-packaging-handling-and-storage.html">SOP-701</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/07-SOP-700/sop-703-product-safety-conformity-and-fod-prevention.html">SOP-703</a></td></tr></tbody></table></div><h2 class="h2" id="m5">5. Mô hình vận hành từ RFQ đến giao hàng</h2><p>Chuỗi vận hành của HESEM được thiết kế theo nguyên tắc “không chuyển công việc sang bước tiếp theo nếu điều kiện sẵn sàng chưa đạt”. Mỗi đơn hàng phải đi qua các cổng quyết định (quality gates) có tiêu chí release rõ ràng, chủ sở hữu rõ ràng và hồ sơ chứng minh rõ ràng.</p><div class="gate-grid"><div class="gate-card"><h3>G1 — RFQ Review</h3><div class="mini-note">Xác nhận bản vẽ/revision, vật liệu, dung sai, bề mặt, chứng từ, yêu cầu đặc thù ngành và khả năng đáp ứng lead time.</div></div><div class="gate-card"><h3>G2 — Contract Acceptance</h3><div class="mini-note">Không phát hành đơn hàng nếu điều kiện thương mại, flow-down, Incoterms, đóng gói, thử nghiệm và trách nhiệm chứng từ chưa rõ.</div></div><div class="gate-card"><h3>G3 — Planning Release</h3><div class="mini-note">Không mở lệnh sản xuất nếu BOM/routing, chương trình CNC, setup sheet, control plan và gage/fixture chưa sẵn sàng.</div></div><div class="gate-card"><h3>G4 — First-off Approval</h3><div class="mini-note">Không sản xuất hàng loạt trước khi first piece/FAI và điều kiện máy – dao – gá – đo được xác nhận.</div></div><div class="gate-card"><h3>G5 — Outsource Dispatch &amp; Return</h3><div class="mini-note">Không gửi hoặc nhận lại công đoạn ngoài khi flow-down, bảo quản, nhận diện, CoC/CoA hoặc yêu cầu kiểm soát đặc biệt chưa đầy đủ.</div></div><div class="gate-card"><h3>G6 — Final Release &amp; Ship</h3><div class="mini-note">Không giao hàng nếu bằng chứng phù hợp, chứng từ lô, label, packaging, phê duyệt deviation và yêu cầu khách hàng chưa đủ.</div></div></div><p class="mini-note">Cổng kiểm soát chi tiết xem tại <a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-004-put-through-matrix.html">REF-004 — Gate &amp; Put-through Matrix</a>.</p><h2 class="h2" id="m6">6. Cơ chế kiểm soát trọng yếu</h2><div class="grid-3"><div class="card"><div class="card-title">1) Yêu cầu khách hàng và tính khả thi</div><ul class="tight"><li>Review bản vẽ, model, revision, note, tolerancing, vật liệu, hardness, coating, cleanliness, packaging, chứng từ, FAI/PPAP/FAIR nếu có.</li><li>Đánh giá năng lực máy, dao cụ, đồ gá, thời lượng chu kỳ, biến dạng, rủi ro kẹp chặt, khả năng đo, rủi ro special process và rủi ro logistics.</li><li>Phân loại CTQ/special characteristics để quyết định mức kiểm soát, tần suất đo, yêu cầu xác nhận quá trình và escalations.</li></ul></div><div class="card"><div class="card-title">2) Revision &amp; configuration control</div><ul class="tight"><li>Quản lý theo bộ hồ sơ đơn hàng: RFQ/PO, bản vẽ, model, routing, CAM/NC, setup sheet, control plan, inspection plan, CoC/FAI, NCR/deviation.</li><li>Mọi thay đổi ảnh hưởng chất lượng, năng lực, thời gian giao hoặc pháp lý phải có đánh giá tác động và phê duyệt trước áp dụng.</li><li>Ngăn sử dụng bản in cũ, NC cũ, tool list cũ hoặc phương pháp đo cũ thông qua cơ chế release một nguồn dữ liệu kiểm soát.</li></ul></div><div class="card"><div class="card-title">3) Đo lường &amp; bằng chứng</div><ul class="tight"><li>Thiết bị đo phải có trạng thái hiệu chuẩn/xác minh rõ ràng, phạm vi đo phù hợp và khả năng truy nguyên.</li><li>Kết quả đo quan trọng phải gắn với part number, revision, lot/serial, machine, operator/program revision, thời điểm đo và phương tiện đo.</li><li>Khi năng lực đo nghi ngờ, quyết định chất lượng phải tạm dừng cho đến khi hệ đo được xác nhận.</li></ul></div></div><div class="grid-3"><div class="card"><div class="card-title">4) Nhà cung cấp &amp; special process</div><ul class="tight"><li>Đánh giá và phân tầng nhà cung cấp theo mức rủi ro công nghệ, mức ảnh hưởng CTQ, lịch sử lỗi và độ quan trọng chứng từ.</li><li>Flow-down đầy đủ cho vật liệu, xử lý bề mặt, nhiệt luyện, passivation, coating, grinding, EDM, leak test, clean packaging hoặc thử nghiệm khác.</li><li>Nhận hàng công đoạn ngoài phải kiểm tra chứng từ, nhãn nhận diện, tình trạng bao gói, biến dạng, lẫn lô và phù hợp mẫu chứng nhận.</li></ul></div><div class="card"><div class="card-title">5) Containment, NCR, CAPA</div><ul class="tight"><li>Bất kỳ dấu hiệu không phù hợp nào phải kích hoạt containment cho lot bị ảnh hưởng, WIP, bán thành phẩm, hàng chờ ship và công đoạn ngoài liên quan.</li><li>Phân tách rõ sửa chữa, rework, concession/deviation, use-as-is và scrap; không dùng chồng thuật ngữ làm mờ quyết định.</li><li>CAPA phải kiểm chứng hiệu lực bằng dữ liệu và phòng ngừa tái diễn thông qua thay đổi quy trình, đào tạo, poka-yoke hoặc thay đổi nhà cung cấp/measurement chain.</li></ul></div><div class="card"><div class="card-title">6) Quản trị theo dữ liệu</div><ul class="tight"><li>Mục tiêu chất lượng được cascade thành KPI cho từng luồng: quotation hit rate, on-time release, first pass yield, NCR rate, supplier PPM, audit closure, OTD, customer complaints.</li><li>Daily management xử lý lệch chuẩn ngắn hạn; management review xử lý xu hướng hệ thống và quyết định nguồn lực trung hạn/dài hạn.</li><li>Chỉ số phải có định nghĩa, chủ sở hữu, nguồn dữ liệu, tần suất cập nhật và hành động phản ứng khi vượt ngưỡng.</li></ul></div></div><h2 class="h2" id="m7">7. Đo lường, truy xuất và bằng chứng phù hợp</h2><p>Trong doanh nghiệp CNC, tính phù hợp của sản phẩm phụ thuộc không chỉ vào năng lực gia công mà còn vào <b>measurement chain</b>. Vì vậy HESEM áp dụng nguyên tắc: <b>không dùng thiết bị đo hoặc phương pháp đo chưa được xác nhận để đưa ra quyết định chấp nhận sản phẩm</b>.</p><div class="table-card"><table class="table"><colgroup><col style="width:24%"/><col style="width:76%"/></colgroup><thead><tr><th>Yếu tố</th><th>Kỳ vọng hệ thống</th></tr></thead><tbody><tr><td>Traceability</td><td>Tối thiểu phải truy ngược từ hàng xuất tới: đơn hàng, part number, revision, vật liệu/heat/lot khi yêu cầu, machine/workcenter, chương trình CNC/setup, kết quả đo và người release.</td></tr><tr><td>Measurement suitability</td><td>Phương pháp đo phải tương xứng với dung sai, hình học, roughness, cleanliness hoặc yêu cầu đặc thù; ưu tiên xác nhận trước khi sản xuất hàng loạt.</td></tr><tr><td>Retention of evidence</td><td>Hồ sơ release gồm báo cáo kiểm tra, CoC/CoA, FAI/FAIR, chứng nhận vật liệu/special process, deviation approval, shipping checklist và hồ sơ đào tạo/năng lực khi được yêu cầu.</td></tr><tr><td>Disposition logic</td><td>Không phù hợp được nhận diện và khóa trạng thái kịp thời; không được chuyển trạng thái sang “đạt” chỉ bằng trao đổi miệng hoặc sửa hồ sơ hồi tố.</td></tr></tbody></table></div><h2 class="h2" id="m8">8. Quản trị nhà cung cấp và công đoạn ngoài</h2><p>HESEM duy trì trách nhiệm cuối cùng đối với chất lượng đầu ra ngay cả khi một phần công đoạn được thực hiện bởi bên ngoài. Điều này bao gồm xác định yêu cầu kỹ thuật cần flow-down, đánh giá năng lực nguồn cung, xác nhận đầu ra sau khi nhận về và duy trì hồ sơ chứng minh.</p><div class="grid-3"><div class="card"><div class="card-title">Nhà cung cấp vật tư</div><ul class="tight"><li>Kiểm soát nhà cung cấp được phê duyệt theo loại vật tư và rủi ro sử dụng.</li><li>Xác nhận COA/MTC, grade, size, condition, heat/lot, chứng chỉ RoHS/REACH hoặc yêu cầu khác khi áp dụng.</li><li>Ngăn vật tư giả, vật tư lẫn mác, vật tư không rõ nguồn gốc hoặc mất nhãn nhận diện.</li></ul></div><div class="card"><div class="card-title">Special process / outsource</div><ul class="tight"><li>Có flow-down checklist riêng cho coating, anodizing, plating, heat treat, passivation, grinding, EDM, leak test, clean packaging hoặc NDT.</li><li>Xác định tiêu chí chấp nhận tại thời điểm gửi đi, nhận về và trước release cho khách hàng.</li><li>Định nghĩa rõ ai giữ mẫu chuẩn, ai giữ chứng từ và ai xác nhận những điều kiện không thể kiểm lại 100% sau công đoạn ngoài.</li></ul></div><div class="card"><div class="card-title">Logistics / export control</div><ul class="tight"><li>Xác định trách nhiệm packing list, invoice, C/O, mã HS, nhãn, điều kiện bảo quản, palletization, shock/moisture control.</li><li>Tách riêng yêu cầu cho hàng sạch, hàng có bề mặt mỹ quan, hàng có nguy cơ FOD và hàng có yêu cầu orientation/handling đặc biệt.</li><li>Theo dõi sự cố vận chuyển như thiếu kiện, móp méo, mất nhãn hoặc breach seal như một loại nonconformity trong QMS.</li></ul></div></div><h2 class="h2" id="m9">9. Năng lực, lãnh đạo và cải tiến</h2><p>Ban lãnh đạo chịu trách nhiệm bảo đảm tính toàn vẹn của QMS, cung cấp nguồn lực và ra quyết định trên cơ sở dữ liệu chứ không chỉ trên sản lượng. Quản lý tuyến đầu chịu trách nhiệm duy trì tiêu chuẩn công việc, readiness trước khi chạy máy, phản ứng khi lệch chuẩn và coaching nhân sự. Engineering, QA/QC và Metrology cùng nhau chịu trách nhiệm ngăn lỗi từ đầu thay vì chỉ phát hiện ở cuối.</p><div class="table-card"><table class="table"><colgroup><col style="width:24%"/><col style="width:76%"/></colgroup><thead><tr><th>Khối vai trò</th><th>Trách nhiệm trọng yếu</th></tr></thead><tbody><tr><td>Top Management</td><td>Thiết lập định hướng, cân đối mục tiêu chất lượng – giao hàng – năng lực; phê duyệt thay đổi lớn, ưu tiên CAPA và đầu tư hạ tầng đo lường/sản xuất.</td></tr><tr><td>Production Management</td><td>Duy trì readiness của máy, người, gá, dao, chương trình; kiểm soát WIP, handover, escalation và phản ứng với phát hiện bất thường.</td></tr><tr><td>Engineering</td><td>Đảm bảo tính khả thi, thiết kế quá trình, chuẩn hóa setup, revision control, NC release, FAI và hỗ trợ xử lý nguyên nhân gốc.</td></tr><tr><td>Quality / Metrology</td><td>Xác nhận hệ đo, thiết lập control plan/inspection plan, giám sát reaction plan, containment, đánh giá xu hướng lỗi và xác minh hiệu lực CAPA.</td></tr><tr><td>Supply Chain / Planning</td><td>Chuyển đúng yêu cầu xuống nguồn cung, theo dõi lead time, duy trì tính sẵn sàng của vật tư và chứng từ trước khi mở lệnh/ship.</td></tr></tbody></table></div><div class="table-card"><table class="table"><colgroup><col style="width:18%"/><col style="width:34%"/><col style="width:48%"/></colgroup><thead><tr><th>Khối vai trò</th><th>Vai trò lõi sau cập nhật JD</th><th>Ranh giới quyết định / điểm nhấn</th></tr></thead><tbody><tr><td>Commercial</td><td>Customer Service, Estimator</td><td>Customer Service giữ customer interface và order log; Estimator giữ cost build và commercial assumption.</td></tr><tr><td>Engineering</td><td>Engineering Lead/Manager, DFM Engineer, Process Engineer, CAM/NC Programmer</td><td>Tách feasibility – process design – NC release để không gom tất cả vào một vai “Engineering”.</td></tr><tr><td>Production</td><td>Production Director, Planner, Production Engineer/IE, Workshop Manager, Shift Leader, Setup Technician, Operator</td><td>Tách điều độ, tối ưu hệ thống, quản lý cell, điều hành ca và thực thi setup/vận hành tại máy.</td></tr><tr><td>Quality</td><td>QA Manager, QMS Engineer, Quality Engineer, QC Lead, QC/CMM, Metrology</td><td>Tách quality planning, gate execution, measurement assurance và authority release cuối.</td></tr><tr><td>Supply Chain</td><td>SCM, Buyer, Warehouse, Tool Crib, Logistics</td><td>Tách sourcing, transaction accuracy, tool control và shipment execution.</td></tr><tr><td>Support</td><td>Finance, HR, EHS, Epicor, IT</td><td>Chuyển từ vai hỗ trợ hành chính sang vai điều kiện nền có owner, KPI và authority rõ.</td></tr></tbody></table></div><div class="role-boundary"><b>Điểm thay đổi quan trọng sau cập nhật JD mới:</b> Hệ thống không còn dùng cách mô tả chung kiểu “Engineering / DFM”, “Quality / QC” hoặc “Production / Cell Leader” như owner mặc định. Mọi bundle tài liệu cấp dưới phải dùng phân vai chi tiết theo <a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-020-cnc-operating-model-and-role-boundary.html">REF-020</a>, <a href="../03-Organization/04-RACI-Authority/annex-qms-025-authority-matrix.html">Authority Matrix</a> và <a href="../03-Organization/04-RACI-Authority/annex-qms-026-raci-master-matrix.html">RACI Master Matrix</a>.</div><p class="mini-note">Bộ <a href="../03-Organization/03-Job-Descriptions">JD mới nhất</a> đã được đồng bộ như một phần chính thức của hệ thống. Logic phân vai, quyền hạn và handoff liên phòng ban được chuẩn hóa tại <a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-020-cnc-operating-model-and-role-boundary.html">REF-020</a> và roadmap triển khai theo phase tại <a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-021-phased-document-upgrade-roadmap.html">REF-021</a>.</p><h2 class="h2" id="m10">10. Ma trận tài liệu cấp dưới</h2><div class="table-card"><table class="table"><colgroup><col style="width:18%"/><col style="width:32%"/><col style="width:50%"/></colgroup><thead><tr><th>Nhóm tài liệu</th><th>Mục đích</th><th>Ví dụ file liên kết</th></tr></thead><tbody><tr><td>Policies</td><td>Thể hiện cam kết và mục tiêu điều hành</td><td><a href="../../02-Tai-Lieu-He-Thong/02-Policies-Objectives/pol-qms-001-quality-policy.html">POL-QMS-001</a>, <a href="../../02-Tai-Lieu-He-Thong/02-Policies-Objectives/pol-qms-002-quality-objectives.html">POL-QMS-002</a></td></tr><tr><td>Core SOPs</td><td>Chuẩn hoá cách vận hành các quá trình liên phòng ban</td><td><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/02-SOP-200/sop-201-order-fulfillment-rfq-to-cash.html">SOP-201</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/03-SOP-300/sop-301-engineering-dfm-quoting-and-machining-planning.html">SOP-301</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-502-cnc-machining-operations.html">SOP-502</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-601-calibration-and-gage-control.html">SOP-601</a>, <a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-902-management-review.html">SOP-902</a></td></tr><tr><td>WIs / References</td><td>Hỗ trợ thao tác nhanh, visual rules, ma trận chuẩn và bản đồ quá trình</td><td><a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-001-detailed-process-map.html">REF-001</a>, <a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/05-WI-500/wi-516-machine-operation-quick-card.html">WI-516</a>, <a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/06-WI-600/wi-601-visual-inspection-and-defect-classification.html">WI-601</a></td></tr><tr><td>Forms / records</td><td>Tạo bằng chứng kiểm soát, quyết định release và dữ liệu phân tích</td><td><a href="../../04-Bieu-Mau/02-FRM-200/frm-202-contract-review-checklist.html">FRM-202</a>, <a href="../../04-Bieu-Mau/03-FRM-300/frm-302-setup-sheet.html">FRM-302</a>, <a href="../../04-Bieu-Mau/06-FRM-600/frm-651-nonconformance-report.html">FRM-651</a>, <a href="../../04-Bieu-Mau/09-FRM-900/frm-911-management-review-minutes.html">FRM-911</a></td></tr><tr><td>Organization &amp; role governance</td><td>Chuẩn hóa cấu trúc tổ chức, quyền hạn, deputy và handoff</td><td><a href="../03-Organization/01-Org-Chart/annex-org-001-org-chart-fullpage.html">ANNEX-ORG-001</a><a href="../03-Organization/04-RACI-Authority/annex-qms-025-authority-matrix.html">ANNEX-QMS-025</a><a href="../03-Organization/04-RACI-Authority/annex-qms-026-raci-master-matrix.html">ANNEX-QMS-026</a><a href="../03-Organization/04-RACI-Authority/annex-qms-028-deputy-backup-matrix.html">ANNEX-QMS-028</a></td></tr><tr><td>Role boundary &amp; roadmap</td><td>Giữ một nguồn chuẩn cho phân vai và lộ trình nâng cấp theo phase</td><td><a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-020-cnc-operating-model-and-role-boundary.html">REF-020</a><a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-021-phased-document-upgrade-roadmap.html">REF-021</a></td></tr><tr><td>Department handbooks &amp; JD</td><td>Làm rõ phạm vi phòng ban, output, KPI và yêu cầu từng vai trò</td><td><a href="../03-Organization/02-Department-Handbooks/dept-engineering-handbook.html">Department Handbooks</a><a href="../03-Organization/03-Job-Descriptions">JD Library</a></td></tr></tbody></table></div><div class="footer-note">Sổ tay này phải được đọc cùng SOP/WI/FRM liên quan. Trong trường hợp sổ tay và SOP khác nhau về mức chi tiết, SOP/WI/biểu mẫu là tài liệu vận hành trực tiếp; sổ tay giữ vai trò điều hướng nguyên tắc và giải thích logic hệ thống.</div>
+</div></div>
+</div></div></div>
 <script src="../../assets/app.js"></script>
 </body>
 </html>

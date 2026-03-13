@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
 <meta charset="utf-8"/>
@@ -6,10 +6,11 @@
 <title>EHS — Department Handbook | HESEM QMS</title>
 <link href="../../../assets/style.css" rel="stylesheet"/>
 <style>
+
 /* PAGE BREAK & OVERFLOW FIX */
 @media print {
  .card, .table-card, .callout, .note, .box, .iso-map,
- .preface-block, .form-sheet, .lane, .legend, .req, .vstep, .auth-grid {
+ .preface-block, .form-sheet, .lane, .legend, .req, .vstep, .auth-grid, .backup-card, .org-row {
  page-break-inside: avoid;
  break-inside: avoid;
  }
@@ -41,74 +42,72 @@ td, th { max-width: 420px; overflow-wrap: break-word; word-wrap: break-word; }
 .doc-link-list li {padding:6px 0 6px 16px; position:relative;}
 .doc-link-list li:before {content:"•"; position:absolute; left:0; color:var(--blue);}
 .inline-tag {display:inline-block;padding:3px 8px;border:1px solid var(--ln);border-radius:999px;font-size:10px;font-weight:700;background:var(--bg2);margin-right:6px;margin-bottom:6px;}
-.svg-wrap {background:var(--bg); border:1px solid var(--ln); border-radius:var(--r); padding:16px; overflow:auto;}
+.svg-wrap,.org-wrap {background:var(--bg); border:1px solid var(--ln); border-radius:var(--r); padding:16px; overflow:auto;}
 .nav-toc a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;margin:6px 0;background:var(--bg);}
 kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--ln);padding:2px 5px;border-radius:4px;background:#fff;}
+.org-tree{display:flex;flex-direction:column;gap:16px;margin:8px 0;}
+.org-level{display:grid;gap:14px;}
+.org-level.cols-1{grid-template-columns:1fr;}
+.org-level.cols-2{grid-template-columns:repeat(2,minmax(0,1fr));}
+.org-level.cols-3{grid-template-columns:repeat(3,minmax(0,1fr));}
+.org-level.cols-4{grid-template-columns:repeat(4,minmax(0,1fr));}
+.org-level.cols-5{grid-template-columns:repeat(5,minmax(0,1fr));}
+.org-card{border:1px solid var(--ln);border-top:4px solid var(--blue);border-radius:var(--r);padding:14px;background:var(--bg);}
+.org-card h3{font-size:14px;color:var(--navy);margin:0 0 4px;}
+.org-card p{margin:4px 0;font-size:12px;}
+.org-row{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);margin:12px 0;}
+.org-row h3{margin:0 0 8px;font-size:13px;color:var(--navy);}
+.badge-soft{display:inline-block;padding:2px 8px;border-radius:999px;background:var(--blue-l);color:var(--navy);font-size:10px;font-weight:700;margin-right:6px;margin-bottom:6px;}
+.kpi-box{border:1px solid var(--ln);border-radius:var(--r);padding:12px;background:var(--bg);margin:8px 0;}
+.kpi-box b{display:block;font-size:11px;color:var(--navy);text-transform:uppercase;letter-spacing:.3px;margin-bottom:4px;}
+.auth-grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:10px 0 16px;}
+.auth-item{padding:12px 14px; border:1px solid var(--ln,#d7deea); border-radius:8px; background:var(--bg2,#f8fafc);}
+.backup-card{padding:14px 16px; border:1px solid var(--ln,#d7deea); border-left:4px solid #0f766e; border-radius:8px; background:var(--bg2,#f8fafc); margin:10px 0 0;}
+.role-boundary{border:1px solid #cfe0ff;border-left:4px solid #2563eb;border-radius:8px;background:#eef6ff;padding:14px 16px;margin:14px 0;}
+.phase-card{border:1px solid var(--ln);border-left:4px solid var(--gold);border-radius:var(--r);padding:14px;background:#fffdf5;margin:12px 0;}
+.phase-card h3{margin:0 0 6px;font-size:14px;color:var(--navy);}
+.phase-card p:last-child,.role-boundary p:last-child,.auth-item p:last-child,.backup-card p:last-child{margin-bottom:0;}
+.small-note{font-size:12px;color:var(--ink2);}
 
 </style>
-
 </head>
 <body>
 <div class="container">
   <div class="page">
     <div class="page-body">
-<div class="form-header">
-<div class="fh-left">
-  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
-  <div class="fh-company">
-    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
-    <span>Tài liệu kiểm soát</span>
-  </div>
-</div>
-<div class="title">
-  <strong>EHS — Department Handbook</strong>
-  <span class="sub-vn"></span>
-</div>
-<div class="meta">
-  <div class="row"><span><b>Mã:</b></span><span>DEPT-EHS-HANDBOOK</span></div>
-  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
-  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
-  <div class="row"><span><b>Chủ sở hữu:</b></span><span>HR</span></div>
-  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
-</div>
-</div>
-<div class="doc-content" id="docContent">
+      <div class="form-header">
+        <div class="fh-left">
+          <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+          <div class="fh-company">
+            <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+            <span>Tài liệu kiểm soát</span>
+          </div>
+        </div>
+        <div class="title">
+          <strong>EHS — Department Handbook</strong>
+          <span class="sub-vn">Sổ tay vận hành cấp phòng ban cho mô hình CNC job-order</span>
+        </div>
+        <div class="meta">
+          <div class="row"><span><b>Mã:</b></span><span>EHS-HANDBOOK</span></div>
+          <div class="row"><span><b>Phiên bản:</b></span><span>V1.0</span></div>
+          <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+          <div class="row"><span><b>Chủ sở hữu:</b></span><span>EHS Specialist</span></div>
+          <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+        </div>
+      </div>
+      <div class="doc-content" id="docContent">
         <div class="form-sheet">
-
-<div class="iso-map">
-  <div class="iso-title">Department control intent</div>
-  <div class="req"><span class="req-tag shall">PHẢI</span><div>Phòng ban PHẢI vận hành theo output của JD phòng ban, SOP đang hiệu lực và các gate hold / release có liên quan.</div></div>
-  <div class="req"><span class="req-tag should">NÊN</span><div>Các KPI trong sổ tay này NÊN được dùng thống nhất trong daily management và management review.</div></div>
-</div>
-<div class="preface-block">
-  <div class="grid-2">
-    <div>
-      <p><b>Vai trò thuộc phòng</b></p>
-      <div><span class="inline-tag">EHS Specialist</span></div>
-    </div>
-    <div>
-      <p><b>Mã tài liệu chính</b></p>
-      <div><span class="inline-tag">SOP-802</span><span class="inline-tag">SOP-108</span><span class="inline-tag">SOP-703</span><span class="inline-tag">SOP-804</span><span class="inline-tag">WI-711</span><span class="inline-tag">WI-713</span><span class="inline-tag">WI-721</span><span class="inline-tag">FRM-708</span><span class="inline-tag">FRM-811</span><span class="inline-tag">FRM-812</span></div>
-    </div>
-  </div>
-</div>
-<h2 class="h2">1. Mục tiêu phòng ban</h2><p>Quản trị an toàn, phòng cháy chữa cháy và môi trường; bảo đảm tuân thủ pháp luật; làm việc với chính quyền về PCCC và môi trường; kiểm soát rủi ro vận hành 2 ca.</p>
-<h2 class="h2">2. Phạm vi</h2><p>PPE, an toàn máy, LOTO, PCCC, môi trường, ứng phó khẩn cấp, đào tạo và kiểm tra hiện trường, hồ sơ pháp lý và làm việc cơ quan chức năng.</p>
-<h2 class="h2">3. Trách nhiệm bắt buộc</h2><p class="muted">Chưa quy định riêng; áp dụng theo JD.docx và SOP liên quan.</p>
-<h2 class="h2">4. Quyền hạn</h2><p class="muted">Chưa quy định riêng; áp dụng theo JD.docx và SOP liên quan.</p>
-<h2 class="h2">5. Đầu ra bắt buộc</h2><p>Hồ sơ PCCC, hồ sơ môi trường, safety training records, LOTO records, incident/near-miss reports, inspection checklists, biên bản làm việc cơ quan chức năng.</p>
-<h2 class="h2">6. KPI</h2><p>Tai nạn/near-miss, tuân thủ đào tạo, kết quả kiểm tra PCCC/môi trường, closure hành động khắc phục.</p>
-<h2 class="h2">7. Giao diện phòng ban</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Điểm giao tiếp</th><th>Nhận từ</th><th>Giao cho</th><th>Chứng từ / record đi kèm</th></tr></thead>
-<tbody>
-<tr><td>Thông tin đầu vào / yêu cầu</td><td>Phòng liền trước theo RFQ → Ship</td><td>Phòng ban này</td><td>PO, revision, traveler, WI/NC, checklist, release record</td></tr>
-<tr><td>Escalation bất thường</td><td>Nhân sự hiện trường / owner job</td><td>Trưởng phòng / QA Manager / CEO theo mức độ</td><td>NCR, hold log, incident log, action log</td></tr>
-<tr><td>Đầu ra bắt buộc</td><td>Phòng ban này</td><td>Phòng liền sau hoặc khách hàng nội bộ</td><td>Record đã ký, trạng thái system, nhãn, chứng từ ship, báo cáo KPI</td></tr>
-</tbody></table></div>
-<h2 class="h2">8. SOP / WI / Form liên quan</h2>
-<div class="table-card"><table class="table"><tbody><tr><th>SOP liên quan</th><td>SOP-802<br/>SOP-108<br/>SOP-703<br/>SOP-804</td></tr><tr><th>WI liên quan</th><td>WI-711<br/>WI-713<br/>WI-721</td></tr><tr><th>Biểu mẫu chính</th><td>FRM-708<br/>FRM-811<br/>FRM-812</td></tr></tbody></table></div>
-
+<div class="iso-map"><div class="iso-title">Department control intent</div><div class="req"><span class="req-tag shall">PHẢI</span><div>Phòng ban phải vận hành theo JD mới nhất, REF-020 về role-boundary, authority matrix, SOP/WI và các gate hold/release liên quan.</div></div><div class="req"><span class="req-tag shall">PHẢI</span><div>Mọi trách nhiệm liên phòng ban trong handbook này chỉ có hiệu lực khi đi kèm bằng chứng bàn giao, trạng thái hệ thống hoặc biểu mẫu đã quy định.</div></div><div class="req"><span class="req-tag should">NÊN</span><div>KPI và handoff trong handbook này nên được dùng trực tiếp trong daily management và management review.</div></div></div>
+<div class="preface-block"><div class="grid-2"><div><p><b>Vai trò thuộc phòng</b></p><div><span class="inline-tag">EHS Specialist</span></div></div><div><p><b>Mã tài liệu chính</b></p><div><span class="inline-tag">SOP-802</span><span class="inline-tag">SOP-108</span><span class="inline-tag">SOP-703</span><span class="inline-tag">WI-711</span><span class="inline-tag">WI-713</span><span class="inline-tag">WI-721</span><span class="inline-tag">REF-020</span><span class="inline-tag">REF-021</span></div></div></div></div>
+<h2 class="h2">1. Mục tiêu phòng ban</h2><p>Bảo đảm rủi ro an toàn – sức khỏe – môi trường được nhận diện và kiểm soát trong thực tế tại máy, khu làm sạch, kho và khu logistics, không để EHS tách rời vận hành hiện trường.</p>
+<h2 class="h2">2. Phạm vi</h2><p>Risk assessment, legal compliance, permit/LOTO, incident/near miss management, emergency preparedness, EHS training, environment controls.</p>
+<h2 class="h2">3. Trách nhiệm bắt buộc</h2><ul><li>Xây dựng/duy trì đánh giá rủi ro, quy tắc PPE, LOTO, chemical handling, emergency response và các chương trình giám sát môi trường làm việc.</li><li>Phối hợp Production, Maintenance, Cleanliness/FOD và QA để lồng EHS vào startup, abnormality response và change review.</li><li>Điều tra incident/near miss cùng owner hiện trường, bảo đảm hành động khắc phục đi vào control point thực tế.</li><li>Theo dõi yêu cầu pháp lý, giấy phép, kiểm định, huấn luyện bắt buộc và hồ sơ tuân thủ liên quan.</li><li>Giám sát khu vực có nguy cơ contamination, hóa chất, chất thải, tiếng ồn, nâng hạ và thiết bị nguy hiểm.</li></ul>
+<h2 class="h2">4. Quyền hạn</h2><ul><li>Dừng công việc hoặc cô lập khu vực khi có nguy cơ mất an toàn nghiêm trọng.</li><li>Từ chối vận hành máy/thiết bị/công việc có rủi ro cao khi chưa hoàn tất điều kiện an toàn bắt buộc.</li><li>Yêu cầu điều tra và xác minh hiệu lực hành động sau incident / near miss.</li><li>Escalate trực tiếp lên CEO khi rủi ro pháp lý hoặc an toàn nghiêm trọng chưa được xử lý.</li></ul>
+<h2 class="h2">5. Đầu ra bắt buộc</h2><p>Risk assessment, legal register, incident / near miss reports, permit/LOTO record, training record, emergency drill, environmental compliance evidence.</p>
+<h2 class="h2">6. KPI</h2><div class="kpi-box"><b>1. KPI</b><div>TRIR / near miss closure</div></div><div class="kpi-box"><b>2. KPI</b><div>Corrective action closure on-time</div></div><div class="kpi-box"><b>3. KPI</b><div>Legal compliance on-time</div></div><div class="kpi-box"><b>4. KPI</b><div>Training completion</div></div><div class="kpi-box"><b>5. KPI</b><div>High-risk observation closure</div></div>
+<h2 class="h2">7. Giao diện phòng ban</h2><div class="table-card"><table class="table"><colgroup><col style="width:24%"/><col style="width:18%"/><col style="width:18%"/><col style="width:40%"/></colgroup><thead><tr><th>Điểm giao tiếp</th><th>Nhận từ</th><th>Giao cho</th><th>Chứng từ / record đi kèm</th></tr></thead><tbody><tr><td>Machine / facility change</td><td>Production / Maintenance / Engineering</td><td>EHS</td><td>Risk review, permit, LOTO, guarding requirement</td></tr><tr><td>Incident / near miss</td><td>Any function</td><td>EHS + owner</td><td>Incident record, containment, corrective actions</td></tr><tr><td>Cleanroom / cleaning / FOD zone</td><td>Production / Quality</td><td>EHS</td><td>Chemical / contamination / ergonomic controls</td></tr><tr><td>Emergency / legal issue</td><td>EHS</td><td>CEO / department heads</td><td>Escalation record, compliance action plan</td></tr></tbody></table></div>
+<h2 class="h2">8. Tài liệu liên quan</h2><div class="table-card"><table class="table"><colgroup><col style="width:22%"/><col style="width:78%"/></colgroup><thead><tr><th>Nhóm</th><th>Tài liệu</th></tr></thead><tbody><tr><td>QMS / Org</td><td><a href="../../01-Quality-Manual/qms-man-001-qms-manual.html">QMS-MAN-001</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-020-cnc-operating-model-and-role-boundary.html">REF-020</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-021-phased-document-upgrade-roadmap.html">REF-021</a><br/><a href="../04-RACI-Authority/annex-qms-025-authority-matrix.html">ANNEX-QMS-025</a><br/><a href="../04-RACI-Authority/annex-qms-026-raci-master-matrix.html">ANNEX-QMS-026</a><br/><a href="../04-RACI-Authority/annex-qms-028-deputy-backup-matrix.html">ANNEX-QMS-028</a></td></tr><tr><td>SOP / WI / FRM trọng yếu</td><td><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/08-SOP-800/sop-802-incident-near-miss-and-ehs.html">SOP-802</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-108-operational-contingency-plan.html">SOP-108</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/07-SOP-700/sop-703-product-safety-conformity-and-fod-prevention.html">SOP-703</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/07-WI-700/wi-711-cleanroom-entry-and-gowning.html">WI-711</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/07-WI-700/wi-713-environmental-monitoring.html">WI-713</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/07-WI-700/wi-721-fod-prevention-at-machine.html">WI-721</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-020-cnc-operating-model-and-role-boundary.html">REF-020</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-021-phased-document-upgrade-roadmap.html">REF-021</a></td></tr></tbody></table></div>
+<div class="footer-note">Handbook này dùng để làm rõ phạm vi phòng ban, không thay thế JD cá nhân hay SOP/WI chi tiết. Khi có thay đổi tổ chức hoặc JD mới, handbook phải được rà lại cùng authority / RACI tương ứng.</div>
         </div>
       </div>
     </div>

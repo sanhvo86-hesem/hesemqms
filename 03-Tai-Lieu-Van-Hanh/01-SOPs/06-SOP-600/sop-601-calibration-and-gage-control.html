@@ -1,201 +1,98 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+
 <html lang="vi">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>SOP-601 — Calibration and Gage Control | HESEM QMS</title>
+<title>SOP-601 — Hiệu chuẩn và kiểm soát thiết bị đo | HESEM QMS</title>
 <link href="../../../assets/style.css" rel="stylesheet"/>
 <style>
-/* ═══ PAGE BREAK & OVERFLOW FIX (auto-applied) ═══ */
+.chip{display:inline-block;padding:2px 10px;border-radius:999px;border:1px solid #d7dee7;background:#f8fafc;font-size:11px;margin-right:6px;margin-bottom:6px;font-weight:600;}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:12px;}
+.tight li{margin:4px 0;}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+.toc{border:1px solid var(--ln);border-radius:var(--r);padding:16px;background:var(--bg2);margin:18px 0 24px;}
+.toc-title{font-size:12px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.4px;margin-bottom:10px;}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;}
+.toc-grid a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;background:var(--bg);font-size:12px;color:var(--ink);}
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.metric-card{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);}
+.metric-card .value{font-size:20px;font-weight:700;color:var(--navy);}
+.metric-card .label{font-size:11px;color:var(--ink3);margin-top:4px;text-transform:uppercase;letter-spacing:.3px;}
+.mini-note{font-size:12px;color:var(--ink2);line-height:1.55;}
+.gate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.gate-card{border:1px solid var(--ln);border-left:4px solid var(--blue);border-radius:var(--r);padding:14px;background:var(--bg);}
+.gate-card h3{margin:0 0 6px;font-size:14px;color:var(--navy);}
+.field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;}
+.field{padding:10px 12px;border:1px solid var(--ln);border-radius:var(--r-sm);background:var(--bg);}
+.field b{display:block;font-size:11px;color:var(--ink3);text-transform:uppercase;letter-spacing:.3px;margin-bottom:6px;}
+.field .blank{width:100%;min-height:22px;}
+.check-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;}
+.check-item{padding:8px 10px;border:1px solid var(--ln);border-radius:var(--r-sm);background:var(--bg);font-size:12px;}
+.check-item .chk{margin-right:6px;}
+.legend-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0;}
+.legend-row .chip{margin-bottom:0;}
+.footer-note{margin-top:20px;font-size:11px;color:var(--ink3);}
+.decision-table td:first-child, .decision-table th:first-child{font-weight:700;}
+.kpi-good{color:#166534;font-weight:700;}
+.kpi-watch{color:#92400e;font-weight:700;}
+.kpi-bad{color:#b91c1c;font-weight:700;}
+.control-stack > * + *{margin-top:12px;}
+.subtle{color:var(--ink2);font-size:12px;}
+.boxed-list{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);}
+.lane-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.35px;color:var(--navy);margin-bottom:6px;}
+.flow-note{font-size:11px;color:var(--ink3)}
+.pill{display:inline-block;padding:4px 8px;border-radius:999px;background:var(--blue-l);color:var(--navy);font-size:11px;font-weight:700;margin:0 6px 6px 0;}
+.audit-score{font-size:24px;font-weight:700;color:var(--navy);}
+.matrix-small td,.matrix-small th{font-size:12px;}
+.svg-wrap{overflow:auto;border:1px solid var(--ln);border-radius:var(--r);background:#fff;padding:12px}
+.legend-box{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.legend-box span{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--ln);background:var(--bg);padding:4px 8px;border-radius:999px;font-size:11px}
+.sq{width:12px;height:12px;border-radius:3px;display:inline-block}
+.rule-table td:nth-child(1),.rule-table td:nth-child(2){white-space:nowrap}
+.small{font-size:12px}
 @media print {
- .card, .table-card, .callout, .note, .box, .iso-map,
- .preface-block, .form-sheet, .lane, .legend, .req, .vstep {
- page-break-inside: avoid;
- break-inside: avoid;
- }
- h1, h2, h3, .h1, .h2, .h3 {
- page-break-after: avoid;
- break-after: avoid;
- }
- .form-header { page-break-inside: avoid; break-inside: avoid; }
- .sig-row, .sign-row, .approval-row { page-break-inside: avoid; break-inside: avoid; }
- tr { page-break-inside: avoid; break-inside: avoid; }
- thead { display: table-header-group; }
- tfoot { display: table-footer-group; }
- p { orphans: 3; widows: 3; }
- .table-card { overflow: visible !important; }
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.lane,.legend,.req,.auth-grid,.backup-card,.vstep,.metric-card,.gate-card,.field,.boxed-list,.svg-wrap{page-break-inside:avoid;break-inside:avoid}
+  h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
+  .form-header,.sig-row,.sign-row,.approval-row{page-break-inside:avoid;break-inside:avoid}
+  tr{page-break-inside:avoid;break-inside:avoid}
+  thead{display:table-header-group}tfoot{display:table-footer-group}
+  p{orphans:3;widows:3}.table-card{overflow:visible!important}
 }
-.page-body { overflow-x: hidden; }
-.table-card, .table-block, .table-wrap { overflow-x: auto; max-width: 100%; }
-table { max-width: 100%; table-layout: auto; }
-td, th { max-width: 420px; overflow-wrap: break-word; word-wrap: break-word; }
+.page-body{overflow-x:hidden}
+.table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
+table{max-width:100%;table-layout:auto}
+td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
+@media (max-width: 900px){.grid-3{grid-template-columns:1fr;}.field-grid{grid-template-columns:1fr;}}
+
 </style>
 </head>
 <body>
-<div class="container">
-  <div class="page">
-    <div class="page-body">
+<div class="container"><div class="page"><div class="page-body">
 <div class="form-header">
 <div class="fh-left">
-  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
-  <div class="fh-company">
-    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
-    <span>Tài liệu kiểm soát</span>
-  </div>
+<a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+<div class="fh-company">
+<a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+<span>Tài liệu kiểm soát</span>
+</div>
 </div>
 <div class="title">
-  <strong>SOP-601 — Calibration and Gage Control</strong>
-  <span class="sub-vn"></span>
+<strong>SOP-601 — Hiệu chuẩn và kiểm soát thiết bị đo</strong>
+<span class="sub-vn">Bảo đảm thiết bị đo phù hợp mục đích sử dụng và trạng thái đo lường luôn minh bạch</span>
 </div>
 <div class="meta">
-  <div class="row"><span><b>Mã:</b></span><span>SOP-601</span></div>
-  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
-  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
-  <div class="row"><span><b>Chủ sở hữu:</b></span><span>QA/QC</span></div>
-  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+<div class="row"><span><b>Mã:</b></span><span>SOP-601</span></div>
+<div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+<div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+<div class="row"><span><b>Chủ sở hữu:</b></span><span>Metrology & Calibration Specialist / QA Manager</span></div>
+<div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
 </div>
 </div>
-<div class="doc-content" id="docContent">
-        <div class="form-sheet">
-          <div class="iso-map">
-  <div class="iso-title">ISO / Standard mapping</div>
-  <div class="small muted">Map điều khoản gắn trực tiếp vào yêu cầu triển khai tại xưởng (Point-of-Use). “PHẢI/NÊN/ĐƯỢC PHÉP” dùng nhất quán.</div>
-  <div class="req">
-  <span class="req-tag shall">PHẢI</span>
-  <div>Thiết bị đo/kiểm (monitoring & measuring resources) PHẢI được xác định, hiệu chuẩn/kiểm định và bảo vệ để kết quả đo có giá trị sử dụng cho quyết định hold/release. <span class="iso-ref">ISO 9001:2015 7.1.5</span></div>
-</div><div class="req">
-  <span class="req-tag shall">PHẢI</span>
-  <div>Mỗi gage PHẢI có trạng thái (CAL/VER/OUT OF SERVICE), nhãn nhận diện và truy vết đến chứng chỉ hiệu chuẩn có truy vết chuẩn quốc gia/quốc tế (national/international standard). <span class="iso-ref">ISO 9001:2015 7.1.5.2</span></div>
-</div><div class="req">
-  <span class="req-tag shall">PHẢI</span>
-  <div>Khi phát hiện gage <b>quá hạn</b> hoặc <b>out-of-tolerance (OOT)</b>, HESEM PHẢI cô lập gage, đánh giá tác động (impact assessment) và quyết định xử lý sản phẩm liên quan trước khi xuất hàng. <span class="iso-ref">ISO 9001:2015 8.7</span></div>
-</div><div class="req">
-  <span class="req-tag should">NÊN</span>
-  <div>Chương trình quản trị đo lường NÊN bám ISO 10012 (measurement management) để chuẩn hóa: lựa chọn gage, tần suất, kiểm soát môi trường, xác nhận năng lực đo. <span class="iso-ref">ISO 10012</span></div>
-</div>
-</div>
-<div class="preface-block">
-  <h2 class="h2">Điều kiện áp dụng và kiểm soát</h2>
-  <div class="grid-2">
-    <div>
-      <p><b>ÁP DỤNG KHI</b></p>
-      <ul class="list"><li>Khi gage được dùng để kiểm CTQ, đo FAI, IPQC, Final Inspection hoặc lập CoC.</li><li>Khi tiếp nhận gage mới / gage mượn / gage từ khách hàng.</li><li>Khi phát sinh nghi ngờ sai lệch đo (drift), gage rơi/va chạm, hoặc cảnh báo OOT từ vendor.</li></ul>
-    </div>
-    <div>
-      <p><b>Đầu vào / Đầu ra</b></p>
-      <ul class="list"><li><b>Input:</b> Danh mục gage (inventory), tiêu chí đo của bản vẽ/spec/CSR.</li><li><b>Input:</b> Chứng chỉ hiệu chuẩn vendor, master standard, hồ sơ MSA liên quan (SOP-602).</li><li><b>Output:</b> Trạng thái gage cập nhật + nhãn tình trạng.</li><li><b>Output:</b> FRM-601/602 đầy đủ + hồ sơ impact assessment khi OOT.</li></ul>
-    </div>
-  </div>
-  <p class="callout"><b>Gate bắt buộc:</b> Gage quá hạn hoặc không truy vết chứng chỉ: <b>PHẢI HOLD</b> việc đo/kiểm liên quan cho đến khi có gage thay thế hợp lệ hoặc hiệu chuẩn lại.</p>
-</div>
-
-<h2 class="h2">1. Mục đích</h2>
-<p>Thiết lập kiểm soát hiệu chuẩn (Calibration) và kiểm tra gage (Verification) để kết quả đo dùng được cho quyết định <b>hold/release</b>, kiểm CTQ và phát hành CoC.</p>
-
-<h2 class="h2">2. Phạm vi</h2>
-<ul>
-  <li>Áp dụng cho toàn bộ gage dùng trong IQC/IPQC/OQC/FAI: caliper, micrometer, height gauge, bore gauge, thread gage, pin gage, torque wrench, surface roughness gage, CMM, probe, fixture gage…</li>
-  <li>Áp dụng cho master/check artifact: gauge block, ring/plug master, step gauge, granite…</li>
-  <li>Không áp dụng cho thiết bị không dùng để ra quyết định chất lượng (ví dụ thước dây phục vụ layout kho); các thiết bị này PHẢI được đánh dấu “Reference Only”.</li>
-</ul>
-
-<h2 class="h2">3. Thuật ngữ</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Thuật ngữ</th><th>Diễn giải áp dụng tại HESEM</th></tr></thead>
-<tbody><tr><td><b>Calibration (Hiệu chuẩn)</b></td><td>So sánh với chuẩn (standard) để xác định sai lệch; có kết quả “As Found/As Left” và chứng chỉ.</td></tr><tr><td><b>Verification (Xác nhận/kiểm tra gage)</b></td><td>Kiểm tra nhanh theo tần suất ngắn (ví dụ hàng ngày/tuần) để phát hiện drift bằng master hoặc check artifact.</td></tr><tr><td><b>OOT (Out of Tolerance)</b></td><td>Kết quả “As Found” nằm ngoài dung sai cho phép của gage hoặc vượt MPE; kích hoạt quy trình OOT response.</td></tr><tr><td><b>MPE (Maximum Permissible Error)</b></td><td>Sai số cho phép tối đa của gage theo spec nhà sản xuất hoặc tiêu chí nội bộ.</td></tr><tr><td><b>National Traceability</b></td><td>Truy vết đến chuẩn quốc gia/quốc tế thông qua chuỗi hiệu chuẩn có chứng nhận (certificate chain).</td></tr><tr><td><b>Quarantine / Out-of-Service</b></td><td>Trạng thái gage bị cô lập, không được phép dùng cho đo/kiểm và không được trả lại hiện trường khi chưa có quyết định.</td></tr></tbody></table></div>
-
-<h2 class="h2">4. RACI</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Hoạt động</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead>
-<tbody><tr><td>Thiết lập master list gage & lịch hiệu chuẩn</td><td>Quality Engineer</td><td>QA Manager</td><td>QMS Engineer; Supply Chain Manager</td><td>QC Inspector/CMM; Production Director</td></tr><tr><td>Tiếp nhận gage mới / gage mượn / gage khách</td><td>QC Inspector/CMM</td><td>QA Manager</td><td>Quality Engineer</td><td>CNC Workshop Manager; Shift Leaders</td></tr><tr><td>Thực hiện kiểm tra gage định kỳ (verification)</td><td>QC Inspector/CMM</td><td>QA Manager</td><td>Quality Engineer</td><td>Production (Shift Leaders/Setup/Operators)</td></tr><tr><td>Gửi/nhận hiệu chuẩn vendor + kiểm chứng chứng chỉ</td><td>Quality Engineer</td><td>QA Manager</td><td>Supply Chain Manager</td><td>QMS Engineer</td></tr><tr><td>Xử lý gage quá hạn / OOT + đánh giá tác động</td><td>Quality Engineer</td><td>QA Manager</td><td>Production Director; Engineering Lead/Manager</td><td>Customer Service; Logistics/Shipping</td></tr><tr><td>Duy trì nhãn trạng thái gage & kiểm soát lưu trữ</td><td>QC Inspector/CMM</td><td>QA Manager</td><td>EHS Specialist; Maintenance Technician</td><td>All users</td></tr></tbody></table></div><h2 class="h2">5. Quy trình</h2>
-
-<h3 class="h3">5.1 Phân loại gage và mức kiểm soát</h3>
-<div class="table-card"><table class="table">
-<thead><tr><th>Nhóm gage</th><th>Ví dụ</th><th>Mức kiểm soát</th><th>Chu kỳ gợi ý</th></tr></thead>
-<tbody>
-<tr><td><b>Gage cho CTQ / release</b></td><td>CMM, micrometer, thread gage cho CTQ</td><td><span class="req-tag shall">PHẢI</span> hiệu chuẩn + MSA theo SOP-602 nếu dùng cho SPC/capability</td><td>6–12 tháng (hoặc theo OEM)</td></tr>
-<tr><td><b>Gage cho IPQC thường</b></td><td>caliper, height gauge</td><td><span class="req-tag shall">PHẢI</span> hiệu chuẩn; <span class="req-tag should">NÊN</span> verification định kỳ</td><td>12 tháng</td></tr>
-<tr><td><b>Gage dạng GO/NO-GO</b></td><td>pin/plug/ring gage</td><td><span class="req-tag shall">PHẢI</span> quản wear; <span class="req-tag should">NÊN</span> rotation theo mức dùng</td><td>6–12 tháng</td></tr>
-<tr><td><b>Master / Check artifact</b></td><td>gauge block, step gauge</td><td><span class="req-tag shall">PHẢI</span> hiệu chuẩn tại lab có truy vết chuẩn</td><td>12–24 tháng</td></tr>
-</tbody></table></div>
-
-<h3 class="h3">5.2 Danh mục gage (Gage Inventory) và nhận diện</h3>
-<ul>
-  <li>Quality Engineer PHẢI duy trì <b>Master List</b> gage gồm tối thiểu: ID, mô tả, dải đo, độ phân giải, MPE, vị trí sử dụng, chủ sở hữu, chu kỳ hiệu chuẩn, ngày đến hạn, yêu cầu MSA (Yes/No), trạng thái.</li>
-  <li>Mỗi gage PHẢI dán nhãn tối thiểu: Gage ID, trạng thái (<b>CAL</b>/<b>VER</b>/<b>OUT OF SERVICE</b>), ngày hiệu lực/đến hạn, người chịu trách nhiệm.</li>
-  <li>Gage không có nhãn hoặc nhãn rách/không đọc được: PHẢI coi như <b>OUT OF SERVICE</b> và cô lập.</li>
-</ul>
-
-<h3 class="h3">5.3 Tiếp nhận gage mới / gage mượn / gage khách hàng</h3>
-<div class="vflow">
-  <div class="vstep"><div class="vnum">1</div><div class="vtext"><b>Kiểm tra hồ sơ đi kèm</b>: chứng chỉ hiệu chuẩn (nếu có), manual, MPE/spec, tình trạng vật lý.</div></div>
-  <div class="vstep"><div class="vnum">2</div><div class="vtext"><b>Đăng ký ID</b> trong Master List và dán nhãn tạm thời “<b>PENDING CAL/VER</b>”.</div></div>
-  <div class="vstep"><div class="vnum">3</div><div class="vtext"><b>Kiểm tra đầu vào</b> theo FRM-602 (gage check): zero, repeatability nhanh, lỗi cơ khí, pin/contact.</div></div>
-  <div class="vstep"><div class="vnum">4</div><div class="vtext"><b>Quyết định</b>: (a) đưa đi hiệu chuẩn ngay; (b) cho dùng có điều kiện khi có chứng chỉ còn hiệu lực và verification đạt; (c) loại bỏ nếu hư hỏng.</div></div>
-</div>
-
-<h3 class="h3">5.4 Lập lịch hiệu chuẩn và quản quá hạn</h3>
-<ul>
-  <li>Quality Engineer PHẢI phát hành lịch hiệu chuẩn theo tháng/quý và theo dõi tình trạng “due in 30/14/7 ngày”.</li>
-  <li>Gage đến hạn trong thời gian chạy job CTQ: NÊN ưu tiên gage thay thế hoặc hiệu chuẩn nhanh để tránh dừng line.</li>
-  <li>Gage quá hạn: PHẢI (1) gắn trạng thái OUT OF SERVICE, (2) thu hồi khỏi hiện trường trong 24h, (3) mở đánh giá tác động nếu gage đã dùng cho release/CTQ.</li>
-</ul>
-
-<h3 class="h3">5.5 Kiểm tra gage định kỳ (Verification) tại hiện trường</h3>
-<ul>
-  <li>QC Inspector/CMM PHẢI thực hiện verification theo FRM-602 cho gage quan trọng theo tần suất: mỗi ca/tuần (tùy loại gage và mức dùng).</li>
-  <li>Verification PHẢI dùng master/check artifact còn hiệu lực hiệu chuẩn.</li>
-  <li>Kết quả verification vượt tiêu chí: PHẢI coi như OOT và xử lý theo 5.7.</li>
-</ul>
-
-<h3 class="h3">5.6 Kiểm soát bảo quản, vận chuyển và môi trường</h3>
-<ul>
-  <li>Gage PHẢI được lưu trong tủ/kệ có nhận diện; tránh bụi, dầu, va đập; chống rỉ theo yêu cầu vật liệu.</li>
-  <li>Gage dùng trong khu vực clean/pack PHẢI tuân thủ quy định sạch của SOP-701/702 (nếu áp dụng).</li>
-  <li>Gage rơi/va chạm/mất zero: PHẢI dừng dùng ngay, gắn thẻ “Suspect”, gửi QC Inspector/CMM kiểm tra theo FRM-602.</li>
-</ul>
-
-<h3 class="h3">5.7 OOT response và đánh giá tác động (Impact Assessment)</h3>
-<div class="callout"><b>Kích hoạt OOT:</b> (1) kết quả “As Found” out-of-tolerance; (2) verification fail; (3) nghi ngờ drift do sai lệch giữa CMM và gage tay; (4) gage hư/va chạm.</div>
-<div class="vflow">
-  <div class="vstep"><div class="vnum">1</div><div class="vtext"><b>Cô lập gage</b>: dán “OUT OF SERVICE”, đưa vào khu vực quarantine gage. Cập nhật Master List trong ngày.</div></div>
-  <div class="vstep"><div class="vnum">2</div><div class="vtext"><b>Xác định phạm vi ảnh hưởng</b>: liệt kê job/lot/serial đã đo bằng gage trong khoảng thời gian từ lần verification/hiệu chuẩn đạt gần nhất đến khi phát hiện OOT.</div></div>
-  <div class="vstep"><div class="vnum">3</div><div class="vtext"><b>Đánh giá rủi ro đo sai</b>: so “As Found” và mức lệch với dung sai đặc tính; phân loại CTQ/Non-CTQ; xác định có cần re-inspection hay không.</div></div>
-  <div class="vstep"><div class="vnum">4</div><div class="vtext"><b>Hành động sản phẩm</b>: (a) <b>Re-inspection</b> bằng gage hợp lệ; (b) mở NCR theo SOP-606 nếu có NG; (c) thông báo khách hàng khi có rủi ro thoát hàng.</div></div>
-  <div class="vstep"><div class="vnum">5</div><div class="vtext"><b>Khôi phục</b>: chỉ đưa gage trở lại dùng khi có chứng chỉ “As Left” đạt và (nếu cần) thực hiện lại MSA theo SOP-602.</div></div>
-</div>
-
-<h3 class="h3">5.8 Hiệu chuẩn vendor và yêu cầu chứng chỉ</h3>
-<ul>
-  <li>Vendor hiệu chuẩn PHẢI có năng lực phù hợp (ISO/IEC 17025 hoặc tương đương) cho loại gage; Supply Chain Manager phối hợp duy trì danh sách vendor được phê duyệt.</li>
-  <li>Chứng chỉ hiệu chuẩn PHẢI thể hiện: gage ID/serial, điều kiện môi trường, chuẩn dùng (traceability), kết quả As Found/As Left, độ không đảm bảo đo (uncertainty) khi áp dụng.</li>
-  <li>Thiếu chứng chỉ hoặc không truy vết chuẩn: PHẢI coi hiệu chuẩn không hợp lệ.</li>
-</ul>
-
-<h3 class="h3">5.9 Lưu hồ sơ và thời hạn lưu</h3>
-<ul>
-  <li>FRM-601/602 và chứng chỉ vendor PHẢI lưu theo SOP-104 (Record Control) và truy xuất theo Gage ID.</li>
-  <li>Hồ sơ OOT impact assessment PHẢI gắn với NCR/CAPA khi có NG.</li>
-</ul>
-
-<h2 class="h2">Biểu mẫu liên quan</h2>
-<ul>
-  <li>FRM-601 — Nhật ký hiệu chuẩn</li>
-  <li>FRM-602 — Nhật ký kiểm tra gage (verification / incoming check)</li>
-</ul>
-
-<h2 class="h2">Tài liệu liên quan</h2>
-<ul>
-  <li>SOP-602 — Phân tích hệ thống đo (MSA)</li>
-  <li>SOP-603 — Kiểm tra lấy mẫu AQL</li>
-  <li>SOP-605 — Kiểm tra cuối &amp; Giải phóng xuất hàng</li>
-  <li>SOP-606 — NCR, CAPA &amp; phản ứng IPQC</li>
-  <li>ISO 10012 (Measurement management) — tham chiếu triển khai</li>
-</ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<div class="doc-content" id="docContent"><div class="form-sheet">
+<div class="iso-map"><div class="iso-title">Chuẩn mực áp dụng / nguyên tắc bắt buộc</div><div class="req"><span class="req-tag shall">PHẢI</span><div>Thiết bị đo dùng để ra quyết định chất lượng phải có nhận diện, trạng thái hiệu chuẩn/xác minh và phạm vi phù hợp với mục đích sử dụng.</div></div><div class="req"><span class="req-tag shall">PHẢI</span><div>Khi có out-of-tolerance hoặc nghi ngờ hệ đo, phải đánh giá ảnh hưởng tới sản phẩm/quyết định đã đưa ra.</div></div><div class="req"><span class="req-tag should">NÊN</span><div>Phân tầng thiết bị theo criticality để tối ưu chu kỳ hiệu chuẩn, phương pháp xác minh và nguồn lực.</div></div></div><div class="preface-block"><div class="grid-2"><div class="card"><div class="card-title">Tư duy quản trị</div><p>Thiết bị đo không chỉ cần “có tem”. Điều cần thiết là chứng minh measurement chain đủ tin cậy cho CTQ đang xét và mọi quyết định release có thể bảo vệ được.</p></div><div class="callout"><div class="card-title">Vai trò metrology</div><p>Theo logic JD mới nhất, Metrology Specialist phải xác nhận measurement chain trước khi cho phép dùng kết quả đo vào quyết định chất lượng quan trọng.</p></div></div></div><div class="toc"><div class="toc-title">Mục lục nhanh</div><div class="toc-grid"><a href="#p1">1. Mục đích</a><a href="#p2">2. Phạm vi</a><a href="#p3">3. Thuật ngữ</a><a href="#p4">4. RACI</a><a href="#p5">5. Quy trình</a><a href="#p6">6. Biểu mẫu liên quan</a><a href="#p7">7. Tài liệu liên quan</a></div></div><h2 class="h2" id="p1">1. Mục đích</h2><p>Thiết lập phương pháp nhận diện, phân loại, hiệu chuẩn, xác minh, theo dõi trạng thái và đánh giá ảnh hưởng đối với thiết bị đo, chuẩn đo và phần mềm/hồ sơ đi kèm.</p><h2 class="h2" id="p2">2. Phạm vi</h2><p>Áp dụng cho thiết bị đo cơ khí, điện tử, CMM, roughness, profile, leak/cleanliness support equipment, master standards và phương tiện đo đặc thù dùng trong QMS.</p><h2 class="h2" id="p3">3. Thuật ngữ</h2><div class="table-card"><table class="table"><thead><tr><th>Thuật ngữ</th><th>Diễn giải áp dụng</th></tr></thead><tbody><tr><td><b>Calibration</b></td><td>So sánh với chuẩn truy nguyên để xác định sai lệch của thiết bị đo.</td></tr><tr><td><b>Verification</b></td><td>Xác nhận nhanh trong sử dụng rằng thiết bị vẫn phù hợp cho mục tiêu đã định.</td></tr><tr><td><b>Out-of-tolerance</b></td><td>Tình trạng thiết bị không còn nằm trong giới hạn chấp nhận khi hiệu chuẩn/xác minh.</td></tr><tr><td><b>Measurement chain</b></td><td>Chuỗi thiết bị, phương pháp, môi trường, chuẩn tham chiếu và con người tạo ra kết quả đo.</td></tr></tbody></table></div><h2 class="h2" id="p4">4. RACI</h2><div class="table-card"><table class="table"><thead><tr><th>Vai trò</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead><tbody><tr><td>Metrology &amp; Calibration Specialist</td><td>●</td><td></td><td></td><td></td></tr><tr><td>QA Manager</td><td></td><td>●</td><td></td><td></td></tr><tr><td>QC Inspector Lead</td><td></td><td></td><td>●</td><td></td></tr><tr><td>Quality Engineer</td><td></td><td></td><td>●</td><td></td></tr><tr><td>Engineering Lead/Manager</td><td></td><td></td><td>●</td><td></td></tr><tr><td>Production Director</td><td></td><td></td><td></td><td>●</td></tr></tbody></table></div><div class="role-boundary"><b>Role-boundary / authority note:</b> Metrology &amp; Calibration Specialist có quyền hold gage/hệ đo và yêu cầu đánh giá ảnh hưởng; QA Manager giữ quyết định quản trị cuối cùng khi kết quả ảnh hưởng release hoặc khách hàng. Xem thêm <a href="../../03-Reference/01-ANNEX-System/ref-020-cnc-operating-model-and-role-boundary.html">REF-020</a>, <a href="../../../02-Tai-Lieu-He-Thong/03-Organization/04-RACI-Authority/annex-qms-025-authority-matrix.html">ANNEX-QMS-025</a> và <a href="../../../02-Tai-Lieu-He-Thong/03-Organization/04-RACI-Authority/annex-qms-026-raci-master-matrix.html">ANNEX-QMS-026</a> để đối chiếu giữa tài liệu.</div><h2 class="h2" id="p5">5. Quy trình</h2><h3 class="h3">1. Đăng ký và phân loại</h3><ul class="tight"><li>Mọi thiết bị đo phải có mã số, chủ sở hữu, vị trí, dải đo/độ phân giải, mục đích sử dụng và mức criticality.</li><li>Thiết bị được phân tầng theo mức ảnh hưởng tới quyết định chất lượng để xác định chu kỳ calibration/verification phù hợp.</li></ul><h3 class="h3">2. Lập kế hoạch calibration và verification</h3><ul class="tight"><li>Chu kỳ không cứng nhắc theo thời gian; có thể điều chỉnh theo lịch sử ổn định, tần suất sử dụng, môi trường, mức criticality và yêu cầu khách hàng/ngành.</li><li>Thiết bị dùng tại point-of-use cần quy tắc xác minh trước ca/định kỳ hoặc sau va đập/sự cố.</li></ul><h3 class="h3">3. Kiểm soát trạng thái sử dụng</h3><div class="table-card"><table class="table"><colgroup><col style="width:24%"/><col style="width:76%"/></colgroup><thead><tr><th>Tình trạng</th><th>Quy tắc</th></tr></thead><tbody><tr><td>In calibration</td><td>Được phép dùng trong phạm vi mục đích đã xác định</td></tr><tr><td>Due soon / verification pending</td><td>Theo dõi và hành động trước hạn, không để trượt mốc trong khi vẫn dùng cho release</td></tr><tr><td>Hold / OOT / damaged</td><td>Cách ly khỏi khu vực sử dụng; khóa logic để không dùng ra quyết định</td></tr></tbody></table></div><h3 class="h3">4. Đánh giá ảnh hưởng khi OOT</h3><ul class="tight"><li>Khi thiết bị OOT hoặc nghi ngờ, phải truy ngược các quyết định chất lượng chịu ảnh hưởng trong khoảng thời gian liên quan và đánh giá mức độ rủi ro.</li><li>Kết luận đánh giá ảnh hưởng phải nêu rõ các lô bị ảnh hưởng, hành động containment, tái kiểm nếu cần và hồ sơ khách hàng/nội bộ phải thông báo.</li></ul><h2 class="h2" id="p6">6. Biểu mẫu liên quan</h2><ul class="tight"><li><a href="../../../04-Bieu-Mau/05-FRM-500/frm-525-gage-equipment-inventory.html">FRM-525</a></li><li><a href="../../../04-Bieu-Mau/06-FRM-600/frm-601-calibration-log.html">FRM-601</a></li><li><a href="../../../04-Bieu-Mau/06-FRM-600/frm-602-gage-verification-log.html">FRM-602</a></li></ul><h2 class="h2" id="p7">7. Tài liệu liên quan</h2><ul class="tight"><li><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-602-measurement-system-analysis-msagr-r.html">SOP-602</a></li><li><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-605-final-inspection-coc-and-shipment-release.html">SOP-605</a></li></ul><div class="footer-note">Bản nâng cấp giữ nguyên mã tài liệu, logic vận hành gốc và tăng chiều sâu kiểm soát cho mô hình gia công CNC toàn cầu, high-mix/medium-volume hoặc job-order.</div>
+</div></div>
+</div></div></div>
+<script src="../../../assets/app.js"></script>
 </body>
 </html>

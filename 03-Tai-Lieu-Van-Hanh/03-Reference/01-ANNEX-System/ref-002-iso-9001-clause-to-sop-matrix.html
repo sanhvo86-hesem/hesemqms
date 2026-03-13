@@ -1,101 +1,99 @@
-﻿<!DOCTYPE html>
-<html lang="vi">
-<head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>REF-002 — ISO 9001 Clause to Sop Matrix | HESEM QMS</title>
-<link href="../../../assets/style.css" rel="stylesheet"/>
+<!DOCTYPE html>
+    <html lang="vi">
+    <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>REF-002 — ISO 9001 Clause to SOP Matrix | HESEM QMS</title>
+    <link href="../../../assets/style.css" rel="stylesheet"/>
+
 <style>
-/* PAGE BREAK & OVERFLOW FIX */
+.chip{display:inline-block;padding:2px 10px;border-radius:999px;border:1px solid #d7dee7;background:#f8fafc;font-size:11px;margin-right:6px;margin-bottom:6px;font-weight:600;}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:12px;}
+.tight li{margin:4px 0;}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+.toc{border:1px solid var(--ln);border-radius:var(--r);padding:16px;background:var(--bg2);margin:18px 0 24px;}
+.toc-title{font-size:12px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.4px;margin-bottom:10px;}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;}
+.toc-grid a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;background:var(--bg);font-size:12px;color:var(--ink);}
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.metric-card{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);}
+.metric-card .value{font-size:20px;font-weight:700;color:var(--navy);}
+.metric-card .label{font-size:11px;color:var(--ink3);margin-top:4px;text-transform:uppercase;letter-spacing:.3px;}
+.mini-note{font-size:12px;color:var(--ink2);line-height:1.55;}
+.gate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.gate-card{border:1px solid var(--ln);border-left:4px solid var(--blue);border-radius:var(--r);padding:14px;background:var(--bg);}
+.gate-card h3{margin:0 0 6px;font-size:14px;color:var(--navy);}
+.field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;}
+.field{padding:10px 12px;border:1px solid var(--ln);border-radius:var(--r-sm);background:var(--bg);}
+.field b{display:block;font-size:11px;color:var(--ink3);text-transform:uppercase;letter-spacing:.3px;margin-bottom:6px;}
+.field .blank{width:100%;min-height:22px;}
+.check-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;}
+.check-item{padding:8px 10px;border:1px solid var(--ln);border-radius:var(--r-sm);background:var(--bg);font-size:12px;}
+.check-item .chk{margin-right:6px;}
+.legend-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0;}
+.legend-row .chip{margin-bottom:0;}
+.footer-note{margin-top:20px;font-size:11px;color:var(--ink3);}
+.decision-table td:first-child, .decision-table th:first-child{font-weight:700;}
+.kpi-good{color:#166534;font-weight:700;}
+.kpi-watch{color:#92400e;font-weight:700;}
+.kpi-bad{color:#b91c1c;font-weight:700;}
+.control-stack > * + *{margin-top:12px;}
+.subtle{color:var(--ink2);font-size:12px;}
+.boxed-list{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);}
+.lane-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.35px;color:var(--navy);margin-bottom:6px;}
+.flow-note{font-size:11px;color:var(--ink3)}
+.pill{display:inline-block;padding:4px 8px;border-radius:999px;background:var(--blue-l);color:var(--navy);font-size:11px;font-weight:700;margin:0 6px 6px 0;}
+.audit-score{font-size:24px;font-weight:700;color:var(--navy);}
+.matrix-small td,.matrix-small th{font-size:12px;}
+.svg-wrap{overflow:auto;border:1px solid var(--ln);border-radius:var(--r);background:#fff;padding:12px}
+.legend-box{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.legend-box span{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--ln);background:var(--bg);padding:4px 8px;border-radius:999px;font-size:11px}
+.sq{width:12px;height:12px;border-radius:3px;display:inline-block}
+.rule-table td:nth-child(1),.rule-table td:nth-child(2){white-space:nowrap}
+.small{font-size:12px}
 @media print {
- .card, .table-card, .callout, .note, .box, .iso-map,
- .preface-block, .form-sheet, .lane, .legend, .req, .vstep, .auth-grid {
- page-break-inside: avoid;
- break-inside: avoid;
- }
- h1, h2, h3, .h1, .h2, .h3 {
- page-break-after: avoid;
- break-after: avoid;
- }
- .form-header { page-break-inside: avoid; break-inside: avoid; }
- tr { page-break-inside: avoid; break-inside: avoid; }
- thead { display: table-header-group; }
- tfoot { display: table-footer-group; }
- p { orphans: 3; widows: 3; }
- .table-card { overflow: visible !important; }
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.lane,.legend,.req,.auth-grid,.backup-card,.vstep,.metric-card,.gate-card,.field,.boxed-list,.svg-wrap{page-break-inside:avoid;break-inside:avoid}
+  h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
+  .form-header,.sig-row,.sign-row,.approval-row{page-break-inside:avoid;break-inside:avoid}
+  tr{page-break-inside:avoid;break-inside:avoid}
+  thead{display:table-header-group}tfoot{display:table-footer-group}
+  p{orphans:3;widows:3}.table-card{overflow:visible!important}
 }
-.page-body { overflow-x: hidden; }
-.table-card, .table-block, .table-wrap { overflow-x: auto; max-width: 100%; }
-table { max-width: 100%; table-layout: auto; }
-td, th { max-width: 420px; overflow-wrap: break-word; word-wrap: break-word; }
-.role-code {font-family: var(--mono); font-size: 11px; background: var(--bg3); padding: 2px 6px; border-radius: 5px;}
-.raci-cell {text-align:center; font-weight:700; width:34px; min-width:34px; padding:6px 4px !important;}
-.raci-A {background:#fff5f5; color:#c92a2a;}
-.raci-R {background:#e7f5ff; color:#1864ab;}
-.raci-C {background:#fff9db; color:#e67700;}
-.raci-I {background:#ebfbee; color:#2b8a3e;}
-.portal-grid {display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:16px;}
-.portal-card {background:var(--bg); border:1px solid var(--ln); border-radius:var(--r); padding:18px;}
-.portal-card h3 {font-size:14px; color:var(--navy); margin:0 0 8px;}
-.doc-link-list {list-style:none; margin:0; padding:0;}
-.doc-link-list li {padding:6px 0 6px 16px; position:relative;}
-.doc-link-list li:before {content:"•"; position:absolute; left:0; color:var(--blue);}
-.inline-tag {display:inline-block;padding:3px 8px;border:1px solid var(--ln);border-radius:999px;font-size:10px;font-weight:700;background:var(--bg2);margin-right:6px;margin-bottom:6px;}
-.svg-wrap {background:var(--bg); border:1px solid var(--ln); border-radius:var(--r); padding:16px; overflow:auto;}
-.nav-toc a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;margin:6px 0;background:var(--bg);}
-kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--ln);padding:2px 5px;border-radius:4px;background:#fff;}
+.page-body{overflow-x:hidden}
+.table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
+table{max-width:100%;table-layout:auto}
+td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
+@media (max-width: 900px){.grid-3{grid-template-columns:1fr;}.field-grid{grid-template-columns:1fr;}}
 
 </style>
 
-</head>
-<body>
-<div class="container">
-  <div class="page landscape">
-    <div class="page-body">
-<div class="form-header">
-<div class="fh-left">
-  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
-  <div class="fh-company">
-    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
-    <span>Tài liệu kiểm soát</span>
-  </div>
-</div>
-<div class="title">
-  <strong>REF-002 — ISO 9001 Clause to Sop Matrix</strong>
-  <span class="sub-vn"></span>
-</div>
-<div class="meta">
-  <div class="row"><span><b>Mã:</b></span><span>REF-002</span></div>
-  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
-  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
-  <div class="row"><span><b>Chủ sở hữu:</b></span><span>QA/QMS</span></div>
-  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
-</div>
-</div>
-<div class="doc-content" id="docContent">
-        <div class="form-sheet">
-
-<div class="iso-map">
-  <div class="iso-title">Quy tắc mapping</div>
-  <div class="req"><span class="req-tag shall">PHẢI</span><div>Mỗi clause ISO 9001 áp dụng phải có ít nhất một tài liệu điều khiển hoặc một quyết định loại trừ được nêu rõ.</div></div>
-  <div class="req"><span class="req-tag shall">PHẢI</span><div>Clause 8.3 được loại trừ ở phần thiết kế sản phẩm do thiết kế thuộc khách hàng; HESEM vẫn giữ hoạt động process planning, manufacturability review và change impact trong SOP-301/SOP-106.</div></div>
-</div>
-<div class="preface-block"><p class="lead">Ma trận này dùng trong audit nội bộ, audit khách hàng và đánh giá readiness khi triển khai QMS điện tử.</p></div>
-<h2 class="h2">1. Ma trận ISO 9001 → QMS</h2>
-<div class="table-card"><table class="table"><thead><tr><th>Clause ISO 9001</th><th>Tài liệu điều khiển chính</th></tr></thead><tbody><tr><td>4.1 Bối cảnh tổ chức</td><td>SOP-102, SOP-105, SOP-108</td></tr><tr><td>4.2 Nhu cầu và mong đợi của bên quan tâm</td><td>SOP-102, SOP-107, SOP-201, SOP-202</td></tr><tr><td>4.3 Phạm vi QMS</td><td>QMS-MAN-001</td></tr><tr><td>4.4 Hệ thống QMS và quá trình</td><td>SOP-101, SOP-107, SOP-901, SOP-902</td></tr><tr><td>5.1 Lãnh đạo &amp; cam kết</td><td>SOP-102, SOP-902</td></tr><tr><td>5.2 Chính sách chất lượng</td><td>POL-QMS-001, SOP-102</td></tr><tr><td>5.3 Vai trò, trách nhiệm, quyền hạn</td><td>ORG-RACI-001, ORG-AUTH-001, SOP-107</td></tr><tr><td>6.1 Rủi ro và cơ hội</td><td>SOP-103, SOP-108, SOP-401, SOP-802</td></tr><tr><td>6.2 Mục tiêu chất lượng &amp; hoạch định</td><td>POL-QMS-002, SOP-102, SOP-903</td></tr><tr><td>6.3 Hoạch định thay đổi</td><td>SOP-106, SOP-108</td></tr><tr><td>7.1 Nguồn lực</td><td>SOP-601, SOP-801, SOP-803</td></tr><tr><td>7.1.5 Nguồn lực theo dõi và đo lường</td><td>SOP-601, SOP-602, SOP-604</td></tr><tr><td>7.2 Năng lực</td><td>SOP-801</td></tr><tr><td>7.3 Nhận thức</td><td>SOP-801, SOP-703, SOP-804</td></tr><tr><td>7.4 Trao đổi thông tin</td><td>SOP-107, SOP-201, SOP-202</td></tr><tr><td>7.5 Thông tin dạng văn bản</td><td>SOP-101, SOP-104</td></tr><tr><td>8.1 Hoạch định &amp; kiểm soát vận hành</td><td>SOP-201, SOP-301, SOP-501, SOP-604</td></tr><tr><td>8.2 Yêu cầu với sản phẩm/dịch vụ</td><td>SOP-201, SOP-301</td></tr><tr><td>8.3 Thiết kế &amp; phát triển</td><td>Excluded - product design by customer; process planning retained in SOP-301</td></tr><tr><td>8.4 Kiểm soát bên ngoài</td><td>SOP-401, SOP-402</td></tr><tr><td>8.5 Sản xuất &amp; cung cấp dịch vụ</td><td>SOP-501, SOP-502, SOP-701, SOP-702, SOP-703</td></tr><tr><td>8.6 Giải phóng sản phẩm/dịch vụ</td><td>SOP-605</td></tr><tr><td>8.7 Kiểm soát đầu ra không phù hợp</td><td>SOP-606, SOP-603</td></tr><tr><td>9.1 Theo dõi, đo lường, phân tích &amp; đánh giá</td><td>SOP-602, SOP-603, SOP-604, SOP-903</td></tr><tr><td>9.2 Đánh giá nội bộ</td><td>SOP-901</td></tr><tr><td>9.3 Xem xét lãnh đạo</td><td>SOP-902</td></tr><tr><td>10.2 Không phù hợp &amp; hành động khắc phục</td><td>SOP-606</td></tr><tr><td>10.3 Cải tiến liên tục</td><td>SOP-903</td></tr></tbody></table></div>
-<h2 class="h2">2. Ghi chú sử dụng</h2>
-<div class="card">
-  <ul>
-    <li>Khi auditor yêu cầu bằng chứng, bắt đầu từ clause ở bảng này, mở SOP chính rồi truy xuống Form/Record theo REF-004.</li>
-    <li>Khi phát sinh tài liệu mới, QMS Engineer PHẢI xem lại REF-002 để tránh trùng và bỏ sót clause.</li>
-    <li>Trường hợp một clause được bao phủ bởi nhiều SOP, auditor NÊN lấy SOP vận hành gần nguồn phát sinh nhất để kiểm chứng thực tế tại xưởng.</li>
-  </ul>
-</div>
-
+    </head>
+    <body>
+    <div class="container"><div class="page"><div class="page-body">
+    <div class="form-header">
+      <div class="fh-left">
+        <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+        <div class="fh-company">
+          <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+          <span>Tài liệu kiểm soát</span>
         </div>
       </div>
+      <div class="title">
+        <strong>REF-002 — ISO 9001 Clause to SOP Matrix</strong>
+        <span class="sub-vn">Ma trận ánh xạ điều khoản ISO 9001 với bộ SOP trọng yếu</span>
+      </div>
+      <div class="meta">
+        <div class="row"><span><b>Mã:</b></span><span>REF-002</span></div>
+        <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+        <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+        <div class="row"><span><b>Chủ sở hữu:</b></span><span>QA Manager</span></div>
+        <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+      </div>
     </div>
-  </div>
-</div>
-</body>
-</html>
+    <div class="doc-content" id="docContent"><div class="form-sheet">
+    <div class="card"><div class="badge"><span class="dot"></span>REF-002</div><h1 class="h1" style="margin-top:10px">REF-002 — ISO 9001 Clause to SOP Matrix</h1><p class="mini-note">Ma trận ánh xạ giữa điều khoản ISO 9001 và bộ SOP trọng yếu của HESEM, dùng cho thiết kế hệ thống, audit trail và quản trị tính áp dụng.</p></div><h2 class="h2" id="r1">1. Ma trận ánh xạ</h2><div class="table-card"><table class="table matrix-small"><colgroup><col style="width:14%"/><col style="width:28%"/><col style="width:58%"/></colgroup><thead><tr><th>Điều khoản ISO 9001</th><th>Ý định điều khoản</th><th>Tài liệu HESEM dẫn chính</th></tr></thead><tbody><tr><td>4.1–4.4</td><td>Bối cảnh, bên quan tâm, phạm vi, các quá trình và tương tác</td><td><a href="../../01-SOPs/01-SOP-100/sop-102-quality-policy-objectives-and-organizational-context.html">SOP-102</a>, <a href="../../../02-Tai-Lieu-He-Thong/01-Quality-Manual/qms-man-001-qms-manual.html">QMS-MAN-001</a>, <a href="../01-ANNEX-System/ref-001-detailed-process-map.html">REF-001</a></td></tr><tr><td>5.1–5.3</td><td>Lãnh đạo, chính sách, vai trò và trách nhiệm</td><td><a href="../../../02-Tai-Lieu-He-Thong/02-Policies-Objectives/pol-qms-001-quality-policy.html">POL-QMS-001</a>, <a href="../../01-SOPs/09-SOP-900/sop-902-management-review.html">SOP-902</a>, <a href="../../../02-Tai-Lieu-He-Thong/03-Organization/04-RACI-Authority/annex-qms-026-raci-master-matrix.html">RACI Master</a></td></tr><tr><td>6.1–6.3</td><td>Rủi ro, cơ hội, mục tiêu, lập kế hoạch thay đổi</td><td><a href="../../01-SOPs/01-SOP-100/sop-103-risk-opportunity-fmea-and-control-plan.html">SOP-103</a>, <a href="../../01-SOPs/01-SOP-100/sop-106-change-and-configuration-management.html">SOP-106</a>, <a href="../../../02-Tai-Lieu-He-Thong/02-Policies-Objectives/pol-qms-002-quality-objectives.html">POL-QMS-002</a></td></tr><tr><td>7.1–7.5</td><td>Nguồn lực, năng lực, nhận thức, truyền thông và thông tin dạng văn bản</td><td><a href="../../01-SOPs/08-SOP-800/sop-801-competence-training-and-certification.html">SOP-801</a>, <a href="../../01-SOPs/01-SOP-100/sop-101-document-and-data-control.html">SOP-101</a>, <a href="../../01-SOPs/01-SOP-100/sop-104-data-governance-records-security-and-ip-protection.html">SOP-104</a></td></tr><tr><td>8.1–8.2</td><td>Lập kế hoạch vận hành, yêu cầu khách hàng, review hợp đồng</td><td><a href="../../01-SOPs/02-SOP-200/sop-201-order-fulfillment-rfq-to-cash.html">SOP-201</a>, <a href="../../01-SOPs/03-SOP-300/sop-301-engineering-dfm-quoting-and-machining-planning.html">SOP-301</a></td></tr><tr><td>8.3</td><td>Thiết kế và phát triển (khi áp dụng)</td><td><a href="../../01-SOPs/03-SOP-300/sop-301-engineering-dfm-quoting-and-machining-planning.html">SOP-301</a>, <a href="../../01-SOPs/01-SOP-100/sop-106-change-and-configuration-management.html">SOP-106</a></td></tr><tr><td>8.4</td><td>Kiểm soát quá trình/sản phẩm cung cấp từ bên ngoài</td><td><a href="../../01-SOPs/04-SOP-400/sop-401-supplier-control-and-special-process.html">SOP-401</a>, <a href="../../01-SOPs/04-SOP-400/sop-402-material-verification-traceability-and-counterfeit-prevention.html">SOP-402</a></td></tr><tr><td>8.5</td><td>Sản xuất và cung cấp dịch vụ</td><td><a href="../../01-SOPs/05-SOP-500/sop-501-production-planning-scheduling-and-dispatch-control.html">SOP-501</a>, <a href="../../01-SOPs/05-SOP-500/sop-502-cnc-machining-operations.html">SOP-502</a>, <a href="../../01-SOPs/07-SOP-700/sop-703-product-safety-conformity-and-fod-prevention.html">SOP-703</a></td></tr><tr><td>8.6–8.7</td><td>Release sản phẩm và kiểm soát không phù hợp</td><td><a href="../../01-SOPs/06-SOP-600/sop-605-final-inspection-coc-and-shipment-release.html">SOP-605</a>, <a href="../../01-SOPs/06-SOP-600/sop-606-ncr-capa-and-ipqc-reaction.html">SOP-606</a></td></tr><tr><td>9.1–9.3</td><td>Đánh giá kết quả hoạt động, audit, management review</td><td><a href="../../01-SOPs/09-SOP-900/sop-901-internal-audit-and-lpa.html">SOP-901</a>, <a href="../../01-SOPs/09-SOP-900/sop-902-management-review.html">SOP-902</a>, <a href="../../02-Work-Instructions/09-WI-900/wi-901-performance-dashboard.html">WI-901</a></td></tr><tr><td>10.1–10.3</td><td>Không phù hợp, hành động khắc phục và cải tiến</td><td><a href="../../01-SOPs/06-SOP-600/sop-606-ncr-capa-and-ipqc-reaction.html">SOP-606</a>, <a href="../../01-SOPs/09-SOP-900/sop-903-continual-improvement-and-kaizen.html">SOP-903</a></td></tr></tbody></table></div><h2 class="h2" id="r2">2. Cách dùng ma trận</h2><ul class="tight"><li>Dùng khi xây mới/điều chỉnh SOP để kiểm tra không bỏ sót điều khoản ISO có liên quan.</li><li>Dùng khi audit để xác định tuyến bằng chứng: manual → SOP → WI/reference → form/record.</li><li>Dùng khi đánh giá tính áp dụng của điều khoản 8.3 hoặc yêu cầu overlay ngành/CSR.</li></ul>
+    </div></div>
+    </div></div></div>
+    <script src="../../../assets/app.js"></script>
+    </body>
+    </html>

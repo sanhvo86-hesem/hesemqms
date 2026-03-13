@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
 <meta charset="utf-8"/>
@@ -6,10 +6,11 @@
 <title>Quality — Department Handbook | HESEM QMS</title>
 <link href="../../../assets/style.css" rel="stylesheet"/>
 <style>
+
 /* PAGE BREAK & OVERFLOW FIX */
 @media print {
  .card, .table-card, .callout, .note, .box, .iso-map,
- .preface-block, .form-sheet, .lane, .legend, .req, .vstep, .auth-grid {
+ .preface-block, .form-sheet, .lane, .legend, .req, .vstep, .auth-grid, .backup-card, .org-row {
  page-break-inside: avoid;
  break-inside: avoid;
  }
@@ -41,74 +42,72 @@ td, th { max-width: 420px; overflow-wrap: break-word; word-wrap: break-word; }
 .doc-link-list li {padding:6px 0 6px 16px; position:relative;}
 .doc-link-list li:before {content:"•"; position:absolute; left:0; color:var(--blue);}
 .inline-tag {display:inline-block;padding:3px 8px;border:1px solid var(--ln);border-radius:999px;font-size:10px;font-weight:700;background:var(--bg2);margin-right:6px;margin-bottom:6px;}
-.svg-wrap {background:var(--bg); border:1px solid var(--ln); border-radius:var(--r); padding:16px; overflow:auto;}
+.svg-wrap,.org-wrap {background:var(--bg); border:1px solid var(--ln); border-radius:var(--r); padding:16px; overflow:auto;}
 .nav-toc a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;margin:6px 0;background:var(--bg);}
 kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--ln);padding:2px 5px;border-radius:4px;background:#fff;}
+.org-tree{display:flex;flex-direction:column;gap:16px;margin:8px 0;}
+.org-level{display:grid;gap:14px;}
+.org-level.cols-1{grid-template-columns:1fr;}
+.org-level.cols-2{grid-template-columns:repeat(2,minmax(0,1fr));}
+.org-level.cols-3{grid-template-columns:repeat(3,minmax(0,1fr));}
+.org-level.cols-4{grid-template-columns:repeat(4,minmax(0,1fr));}
+.org-level.cols-5{grid-template-columns:repeat(5,minmax(0,1fr));}
+.org-card{border:1px solid var(--ln);border-top:4px solid var(--blue);border-radius:var(--r);padding:14px;background:var(--bg);}
+.org-card h3{font-size:14px;color:var(--navy);margin:0 0 4px;}
+.org-card p{margin:4px 0;font-size:12px;}
+.org-row{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);margin:12px 0;}
+.org-row h3{margin:0 0 8px;font-size:13px;color:var(--navy);}
+.badge-soft{display:inline-block;padding:2px 8px;border-radius:999px;background:var(--blue-l);color:var(--navy);font-size:10px;font-weight:700;margin-right:6px;margin-bottom:6px;}
+.kpi-box{border:1px solid var(--ln);border-radius:var(--r);padding:12px;background:var(--bg);margin:8px 0;}
+.kpi-box b{display:block;font-size:11px;color:var(--navy);text-transform:uppercase;letter-spacing:.3px;margin-bottom:4px;}
+.auth-grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:10px 0 16px;}
+.auth-item{padding:12px 14px; border:1px solid var(--ln,#d7deea); border-radius:8px; background:var(--bg2,#f8fafc);}
+.backup-card{padding:14px 16px; border:1px solid var(--ln,#d7deea); border-left:4px solid #0f766e; border-radius:8px; background:var(--bg2,#f8fafc); margin:10px 0 0;}
+.role-boundary{border:1px solid #cfe0ff;border-left:4px solid #2563eb;border-radius:8px;background:#eef6ff;padding:14px 16px;margin:14px 0;}
+.phase-card{border:1px solid var(--ln);border-left:4px solid var(--gold);border-radius:var(--r);padding:14px;background:#fffdf5;margin:12px 0;}
+.phase-card h3{margin:0 0 6px;font-size:14px;color:var(--navy);}
+.phase-card p:last-child,.role-boundary p:last-child,.auth-item p:last-child,.backup-card p:last-child{margin-bottom:0;}
+.small-note{font-size:12px;color:var(--ink2);}
 
 </style>
-
 </head>
 <body>
 <div class="container">
   <div class="page">
     <div class="page-body">
-<div class="form-header">
-<div class="fh-left">
-  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
-  <div class="fh-company">
-    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
-    <span>Tài liệu kiểm soát</span>
-  </div>
-</div>
-<div class="title">
-  <strong>Quality — Department Handbook</strong>
-  <span class="sub-vn"></span>
-</div>
-<div class="meta">
-  <div class="row"><span><b>Mã:</b></span><span>DEPT-QUALITY-HANDBOOK</span></div>
-  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
-  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
-  <div class="row"><span><b>Chủ sở hữu:</b></span><span>HR</span></div>
-  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
-</div>
-</div>
-<div class="doc-content" id="docContent">
+      <div class="form-header">
+        <div class="fh-left">
+          <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+          <div class="fh-company">
+            <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+            <span>Tài liệu kiểm soát</span>
+          </div>
+        </div>
+        <div class="title">
+          <strong>Quality — Department Handbook</strong>
+          <span class="sub-vn">Sổ tay vận hành cấp phòng ban cho mô hình CNC job-order</span>
+        </div>
+        <div class="meta">
+          <div class="row"><span><b>Mã:</b></span><span>QUALITY-HANDBOOK</span></div>
+          <div class="row"><span><b>Phiên bản:</b></span><span>V1.0</span></div>
+          <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+          <div class="row"><span><b>Chủ sở hữu:</b></span><span>QA Manager</span></div>
+          <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+        </div>
+      </div>
+      <div class="doc-content" id="docContent">
         <div class="form-sheet">
-
-<div class="iso-map">
-  <div class="iso-title">Department control intent</div>
-  <div class="req"><span class="req-tag shall">PHẢI</span><div>Phòng ban PHẢI vận hành theo output của JD phòng ban, SOP đang hiệu lực và các gate hold / release có liên quan.</div></div>
-  <div class="req"><span class="req-tag should">NÊN</span><div>Các KPI trong sổ tay này NÊN được dùng thống nhất trong daily management và management review.</div></div>
-</div>
-<div class="preface-block">
-  <div class="grid-2">
-    <div>
-      <p><b>Vai trò thuộc phòng</b></p>
-      <div><span class="inline-tag">QA Manager</span><span class="inline-tag">Quality Engineer</span><span class="inline-tag">QC Inspector / CMM Programmer-Operator</span><span class="inline-tag">QMS Engineer</span><span class="inline-tag">Internal Auditor (Outsource)</span></div>
-    </div>
-    <div>
-      <p><b>Mã tài liệu chính</b></p>
-      <div><span class="inline-tag">SOP-101</span><span class="inline-tag">SOP-102</span><span class="inline-tag">SOP-103</span><span class="inline-tag">SOP-104</span><span class="inline-tag">SOP-106</span><span class="inline-tag">SOP-302</span><span class="inline-tag">SOP-402</span><span class="inline-tag">SOP-601</span><span class="inline-tag">SOP-602</span><span class="inline-tag">SOP-603</span><span class="inline-tag">SOP-604</span><span class="inline-tag">SOP-605</span><span class="inline-tag">SOP-606</span><span class="inline-tag">SOP-703</span><span class="inline-tag">SOP-901</span><span class="inline-tag">SOP-902</span><span class="inline-tag">SOP-903</span><span class="inline-tag">WI-601</span><span class="inline-tag">FRM-601</span><span class="inline-tag">FRM-611</span><span class="inline-tag">FRM-621</span><span class="inline-tag">FRM-631</span><span class="inline-tag">FRM-641</span><span class="inline-tag">FRM-651</span><span class="inline-tag">FRM-901</span><span class="inline-tag">FRM-911</span></div>
-    </div>
-  </div>
-</div>
-<h2 class="h2">1. Mục tiêu phòng ban</h2><p>Quản trị chất lượng độc lập với Production; quyết định hold/release; kiểm soát đo lường/CMM, calibration và QMS; đáp ứng audit và ngăn lỗi thoát ra.</p>
-<h2 class="h2">2. Phạm vi</h2><p>IQC/IPQC/OQC, CMM, calibration/verification, NCR/MRB, CAPA/8D, supplier quality/SCAR, customer complaint, document control, audit nội bộ thuê ngoài.</p>
-<h2 class="h2">3. Trách nhiệm bắt buộc</h2><ul><li>Quyết định hold/unhold và shipment release dựa trên bằng chứng.</li><li>Chủ trì MRB và disposition cuối; kiểm soát điều kiện rework và kiểm tra sau rework.</li><li>Dẫn dắt CAPA/8D và xác nhận hiệu lực.</li><li>Vận hành đo CMM và kiểm soát năng lực đo; quản calibration master list, quá hạn và impact assessment.</li><li>Kiểm soát tài liệu QMS và hồ sơ; điều phối audit nội bộ thuê ngoài và closure.</li></ul>
-<h2 class="h2">4. Quyền hạn</h2><p class="muted">Chưa quy định riêng; áp dụng theo JD.docx và SOP liên quan.</p>
-<h2 class="h2">5. Đầu ra bắt buộc</h2><p>Shipment release record, NCR/MRB/CAPA packages, CMM reports, calibration records, controlled documents, audit closure evidence.</p>
-<h2 class="h2">6. KPI</h2><p>Customer PPM/escape, CAPA on-time/effectiveness, audit NC closure, calibration compliance, doc compliance.</p>
-<h2 class="h2">7. Giao diện phòng ban</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Điểm giao tiếp</th><th>Nhận từ</th><th>Giao cho</th><th>Chứng từ / record đi kèm</th></tr></thead>
-<tbody>
-<tr><td>Thông tin đầu vào / yêu cầu</td><td>Phòng liền trước theo RFQ → Ship</td><td>Phòng ban này</td><td>PO, revision, traveler, WI/NC, checklist, release record</td></tr>
-<tr><td>Escalation bất thường</td><td>Nhân sự hiện trường / owner job</td><td>Trưởng phòng / QA Manager / CEO theo mức độ</td><td>NCR, hold log, incident log, action log</td></tr>
-<tr><td>Đầu ra bắt buộc</td><td>Phòng ban này</td><td>Phòng liền sau hoặc khách hàng nội bộ</td><td>Record đã ký, trạng thái system, nhãn, chứng từ ship, báo cáo KPI</td></tr>
-</tbody></table></div>
-<h2 class="h2">8. SOP / WI / Form liên quan</h2>
-<div class="table-card"><table class="table"><tbody><tr><th>SOP liên quan</th><td>SOP-101<br/>SOP-102<br/>SOP-103<br/>SOP-104<br/>SOP-106<br/>SOP-302<br/>SOP-402<br/>SOP-601<br/>SOP-602<br/>SOP-603<br/>SOP-604<br/>SOP-605<br/>SOP-606<br/>SOP-703<br/>SOP-901<br/>SOP-902<br/>SOP-903</td></tr><tr><th>WI liên quan</th><td>WI-601</td></tr><tr><th>Biểu mẫu chính</th><td>FRM-601<br/>FRM-611<br/>FRM-621<br/>FRM-631<br/>FRM-641<br/>FRM-651<br/>FRM-901<br/>FRM-911</td></tr></tbody></table></div>
-
+<div class="iso-map"><div class="iso-title">Department control intent</div><div class="req"><span class="req-tag shall">PHẢI</span><div>Phòng ban phải vận hành theo JD mới nhất, REF-020 về role-boundary, authority matrix, SOP/WI và các gate hold/release liên quan.</div></div><div class="req"><span class="req-tag shall">PHẢI</span><div>Mọi trách nhiệm liên phòng ban trong handbook này chỉ có hiệu lực khi đi kèm bằng chứng bàn giao, trạng thái hệ thống hoặc biểu mẫu đã quy định.</div></div><div class="req"><span class="req-tag should">NÊN</span><div>KPI và handoff trong handbook này nên được dùng trực tiếp trong daily management và management review.</div></div></div>
+<div class="preface-block"><div class="grid-2"><div><p><b>Vai trò thuộc phòng</b></p><div><span class="inline-tag">QA Manager</span><span class="inline-tag">QMS Engineer</span><span class="inline-tag">Quality Engineer</span><span class="inline-tag">QC Inspector Lead</span><span class="inline-tag">QC Inspector / CMM Programmer-Operator</span><span class="inline-tag">Metrology &amp; Calibration Specialist</span><span class="inline-tag">Internal Auditor (Outsource)</span></div></div><div><p><b>Mã tài liệu chính</b></p><div><span class="inline-tag">SOP-202</span><span class="inline-tag">SOP-302</span><span class="inline-tag">SOP-401</span><span class="inline-tag">SOP-601</span><span class="inline-tag">SOP-602</span><span class="inline-tag">SOP-603</span><span class="inline-tag">SOP-604</span><span class="inline-tag">SOP-605</span><span class="inline-tag">SOP-606</span><span class="inline-tag">SOP-901</span><span class="inline-tag">SOP-902</span><span class="inline-tag">WI-201</span><span class="inline-tag">WI-601</span><span class="inline-tag">FRM-611</span><span class="inline-tag">FRM-641</span><span class="inline-tag">FRM-651</span><span class="inline-tag">FRM-652</span><span class="inline-tag">REF-020</span><span class="inline-tag">REF-021</span></div></div></div></div>
+<h2 class="h2">1. Mục tiêu phòng ban</h2><p>Bảo vệ khách hàng bằng cách thiết kế quality gate đúng, xác nhận measurement system đáng tin cậy, phát hiện và cô lập sai lệch nhanh, đồng thời biến dữ liệu lỗi thành cải tiến hệ thống.</p>
+<h2 class="h2">2. Phạm vi</h2><p>QMS governance, quality planning, FAI, inspection, sampling, metrology/calibration, MSA, SPC support, NCR/CAPA, customer quality support, audit/LPA, release governance.</p>
+<h2 class="h2">3. Trách nhiệm bắt buộc</h2><ul><li>Phân vai rõ: QA Manager giữ authority hệ thống/chất lượng cuối; QMS Engineer điều phối tài liệu/audit/MR; Quality Engineer sở hữu planning, CAPA và process quality; QC Lead tổ chức nguồn lực kiểm; QC Inspector/CMM thực hiện phép đo đã chuẩn hóa; Metrology xác nhận độ tin cậy của hệ đo.</li><li>Thiết lập control plan, inspection criteria, reaction plan và hold/release logic dựa trên CTQ, rủi ro khách hàng, năng lực đo và lịch sử quá trình.</li><li>Không cho phép shipment release khi thiếu bằng chứng đo, gage status không phù hợp, hồ sơ không khớp revision hoặc còn NCR chưa xử lý theo rule.</li><li>Dẫn dắt containment, phân tích nguyên nhân gốc, xác minh hiệu lực và customer communication theo tuyến đã định.</li><li>Dùng audit, LPA, MSA, SPC, complaint, NCR và escape như nguồn dữ liệu cải tiến liên tục.</li></ul>
+<h2 class="h2">4. Quyền hạn</h2><ul><li>Stop-ship, hold lot, segregate material và yêu cầu re-check/re-measure khi có nghi ngờ về tính phù hợp.</li><li>Metrology có quyền hold gage/hệ đo và yêu cầu đánh giá ảnh hưởng; QC Lead có quyền hold kết quả kiểm khi hồ sơ/gage/phương pháp chưa hợp lệ.</li><li>QA Manager quyết định escalation ra khách hàng hoặc lãnh đạo đối với risk cao, customer escape hoặc pattern lặp lại.</li><li>Internal Auditor có quyền báo cáo độc lập theo chương trình audit đã duyệt.</li></ul>
+<h2 class="h2">5. Đầu ra bắt buộc</h2><p>Control plan / inspection strategy, FAI package, inspection results, calibration/MSA records, NCR/CAPA package, release record, audit report, management review input.</p>
+<h2 class="h2">6. KPI</h2><div class="kpi-box"><b>1. KPI</b><div>Customer PPM / complaint / escape</div></div><div class="kpi-box"><b>2. KPI</b><div>FAI acceptance right-first-time</div></div><div class="kpi-box"><b>3. KPI</b><div>NCR/CAPA closure effectiveness</div></div><div class="kpi-box"><b>4. KPI</b><div>Gauge/calibration on-time and OOT impact</div></div><div class="kpi-box"><b>5. KPI</b><div>Audit/LPA closure discipline</div></div><div class="kpi-box"><b>6. KPI</b><div>Final release accuracy</div></div>
+<h2 class="h2">7. Giao diện phòng ban</h2><div class="table-card"><table class="table"><colgroup><col style="width:24%"/><col style="width:18%"/><col style="width:18%"/><col style="width:40%"/></colgroup><thead><tr><th>Điểm giao tiếp</th><th>Nhận từ</th><th>Giao cho</th><th>Chứng từ / record đi kèm</th></tr></thead><tbody><tr><td>Quality planning</td><td>Engineering</td><td>QC / Production / Metrology</td><td>CTQ list, FAI criteria, reaction plan</td></tr><tr><td>Inspection execution</td><td>Production / Warehouse</td><td>QC / CMM</td><td>Traveler, sample plan, hold/release status</td></tr><tr><td>Measurement assurance</td><td>Metrology</td><td>QC / Engineering / Production</td><td>Calibration status, MSA result, method qualification</td></tr><tr><td>Customer quality</td><td>Customer Service</td><td>QA Manager / Quality Engineer</td><td>Complaint log, 8D, concession, deviation record</td></tr></tbody></table></div>
+<h2 class="h2">8. Tài liệu liên quan</h2><div class="table-card"><table class="table"><colgroup><col style="width:22%"/><col style="width:78%"/></colgroup><thead><tr><th>Nhóm</th><th>Tài liệu</th></tr></thead><tbody><tr><td>QMS / Org</td><td><a href="../../01-Quality-Manual/qms-man-001-qms-manual.html">QMS-MAN-001</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-020-cnc-operating-model-and-role-boundary.html">REF-020</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-021-phased-document-upgrade-roadmap.html">REF-021</a><br/><a href="../04-RACI-Authority/annex-qms-025-authority-matrix.html">ANNEX-QMS-025</a><br/><a href="../04-RACI-Authority/annex-qms-026-raci-master-matrix.html">ANNEX-QMS-026</a><br/><a href="../04-RACI-Authority/annex-qms-028-deputy-backup-matrix.html">ANNEX-QMS-028</a></td></tr><tr><td>SOP / WI / FRM trọng yếu</td><td><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/02-SOP-200/sop-202-customer-complaint-feedback-rma-and-escape.html">SOP-202</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/03-SOP-300/sop-302-first-article-inspection-fai.html">SOP-302</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/04-SOP-400/sop-401-supplier-control-and-special-process.html">SOP-401</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-601-calibration-and-gage-control.html">SOP-601</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-602-measurement-system-analysis-msagr-r.html">SOP-602</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-603-aql-sampling-inspection.html">SOP-603</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-604-spc-and-capability-control.html">SOP-604</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-605-final-inspection-coc-and-shipment-release.html">SOP-605</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-606-ncr-capa-and-ipqc-reaction.html">SOP-606</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-901-internal-audit-and-lpa.html">SOP-901</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-902-management-review.html">SOP-902</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/02-WI-200/wi-201-quality-gates-and-ship-release-quick-ref.html">WI-201</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/06-WI-600/wi-601-visual-inspection-and-defect-classification.html">WI-601</a><br/><a href="../../../04-Bieu-Mau/06-FRM-600/frm-611-grr-study-form.html">FRM-611</a><br/><a href="../../../04-Bieu-Mau/06-FRM-600/frm-641-final-inspection-report.html">FRM-641</a><br/><a href="../../../04-Bieu-Mau/06-FRM-600/frm-651-nonconformance-report.html">FRM-651</a><br/><a href="../../../04-Bieu-Mau/06-FRM-600/frm-652-capa-8d-report.html">FRM-652</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-020-cnc-operating-model-and-role-boundary.html">REF-020</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-021-phased-document-upgrade-roadmap.html">REF-021</a></td></tr></tbody></table></div>
+<div class="footer-note">Handbook này dùng để làm rõ phạm vi phòng ban, không thay thế JD cá nhân hay SOP/WI chi tiết. Khi có thay đổi tổ chức hoặc JD mới, handbook phải được rà lại cùng authority / RACI tương ứng.</div>
         </div>
       </div>
     </div>

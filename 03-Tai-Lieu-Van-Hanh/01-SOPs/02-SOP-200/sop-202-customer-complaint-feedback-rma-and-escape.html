@@ -1,16 +1,60 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+
 <html lang="vi">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>SOP-202 — Customer Complaint Feedback RMA and Escape | HESEM QMS</title>
+<title>SOP-202 — Khiếu nại khách hàng, phản hồi, RMA và kiểm soát escape | HESEM QMS</title>
 <link href="../../../assets/style.css" rel="stylesheet"/>
 <style>
-/* === PAGE BREAK & OVERFLOW FIX (auto-applied) === */
+.chip{display:inline-block;padding:2px 10px;border-radius:999px;border:1px solid #d7dee7;background:#f8fafc;font-size:11px;margin-right:6px;margin-bottom:6px;font-weight:600;}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:12px;}
+.tight li{margin:4px 0;}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+.toc{border:1px solid var(--ln);border-radius:var(--r);padding:16px;background:var(--bg2);margin:18px 0 24px;}
+.toc-title{font-size:12px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.4px;margin-bottom:10px;}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;}
+.toc-grid a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;background:var(--bg);font-size:12px;color:var(--ink);}
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.metric-card{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);}
+.metric-card .value{font-size:20px;font-weight:700;color:var(--navy);}
+.metric-card .label{font-size:11px;color:var(--ink3);margin-top:4px;text-transform:uppercase;letter-spacing:.3px;}
+.mini-note{font-size:12px;color:var(--ink2);line-height:1.55;}
+.gate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.gate-card{border:1px solid var(--ln);border-left:4px solid var(--blue);border-radius:var(--r);padding:14px;background:var(--bg);}
+.gate-card h3{margin:0 0 6px;font-size:14px;color:var(--navy);}
+.field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;}
+.field{padding:10px 12px;border:1px solid var(--ln);border-radius:var(--r-sm);background:var(--bg);}
+.field b{display:block;font-size:11px;color:var(--ink3);text-transform:uppercase;letter-spacing:.3px;margin-bottom:6px;}
+.field .blank{width:100%;min-height:22px;}
+.check-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;}
+.check-item{padding:8px 10px;border:1px solid var(--ln);border-radius:var(--r-sm);background:var(--bg);font-size:12px;}
+.check-item .chk{margin-right:6px;}
+.legend-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0;}
+.legend-row .chip{margin-bottom:0;}
+.footer-note{margin-top:20px;font-size:11px;color:var(--ink3);}
+.decision-table td:first-child, .decision-table th:first-child{font-weight:700;}
+.kpi-good{color:#166534;font-weight:700;}
+.kpi-watch{color:#92400e;font-weight:700;}
+.kpi-bad{color:#b91c1c;font-weight:700;}
+.control-stack > * + *{margin-top:12px;}
+.subtle{color:var(--ink2);font-size:12px;}
+.boxed-list{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);}
+.lane-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.35px;color:var(--navy);margin-bottom:6px;}
+.flow-note{font-size:11px;color:var(--ink3)}
+.pill{display:inline-block;padding:4px 8px;border-radius:999px;background:var(--blue-l);color:var(--navy);font-size:11px;font-weight:700;margin:0 6px 6px 0;}
+.audit-score{font-size:24px;font-weight:700;color:var(--navy);}
+.matrix-small td,.matrix-small th{font-size:12px;}
+.svg-wrap{overflow:auto;border:1px solid var(--ln);border-radius:var(--r);background:#fff;padding:12px}
+.legend-box{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.legend-box span{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--ln);background:var(--bg);padding:4px 8px;border-radius:999px;font-size:11px}
+.sq{width:12px;height:12px;border-radius:3px;display:inline-block}
+.rule-table td:nth-child(1),.rule-table td:nth-child(2){white-space:nowrap}
+.small{font-size:12px}
 @media print {
-  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.vstep{page-break-inside:avoid;break-inside:avoid}
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.lane,.legend,.req,.auth-grid,.backup-card,.vstep,.metric-card,.gate-card,.field,.boxed-list,.svg-wrap{page-break-inside:avoid;break-inside:avoid}
   h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
-  .form-header,.sig-row,.sign-row{page-break-inside:avoid;break-inside:avoid}
+  .form-header,.sig-row,.sign-row,.approval-row{page-break-inside:avoid;break-inside:avoid}
   tr{page-break-inside:avoid;break-inside:avoid}
   thead{display:table-header-group}tfoot{display:table-footer-group}
   p{orphans:3;widows:3}.table-card{overflow:visible!important}
@@ -19,168 +63,36 @@
 .table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
 table{max-width:100%;table-layout:auto}
 td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
+@media (max-width: 900px){.grid-3{grid-template-columns:1fr;}.field-grid{grid-template-columns:1fr;}}
+
 </style>
 </head>
 <body>
 <div class="container"><div class="page"><div class="page-body">
 <div class="form-header">
 <div class="fh-left">
-  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
-  <div class="fh-company">
-    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
-    <span>Tài liệu kiểm soát</span>
-  </div>
+<a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+<div class="fh-company">
+<a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+<span>Tài liệu kiểm soát</span>
+</div>
 </div>
 <div class="title">
-  <strong>SOP-202 — Customer Complaint Feedback RMA and Escape</strong>
-  <span class="sub-vn"></span>
+<strong>SOP-202 — Khiếu nại khách hàng, phản hồi, RMA và kiểm soát escape</strong>
+<span class="sub-vn">Phản ứng nhanh, containment đúng và xử lý nguyên nhân gốc cho mọi phản hồi từ khách hàng</span>
 </div>
 <div class="meta">
-  <div class="row"><span><b>Mã:</b></span><span>SOP-202</span></div>
-  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
-  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
-  <div class="row"><span><b>Chủ sở hữu:</b></span><span>Sales</span></div>
-  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+<div class="row"><span><b>Mã:</b></span><span>SOP-202</span></div>
+<div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+<div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+<div class="row"><span><b>Chủ sở hữu:</b></span><span>Customer Service / Quality Engineer</span></div>
+<div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
 </div>
 </div>
 <div class="doc-content" id="docContent"><div class="form-sheet">
-
-<div class="iso-map">
-  <div class="iso-title">Chuẩn mực áp dụng</div>
-  <div class="req"><span class="req-tag shall">PHẢI</span><div>Giao tiếp với khách hàng phải bao gồm tiếp nhận phản hồi, khiếu nại, thay đổi và thông tin liên quan đến sản phẩm/dịch vụ. <span class="iso-ref">ISO 8.2.1</span></div></div>
-  <div class="req"><span class="req-tag shall">PHẢI</span><div>Khi có nonconforming output hoặc escape, tổ chức phải cô lập, đánh giá tác động, phản ứng và giữ bằng chứng xử lý. <span class="iso-ref">ISO 8.7</span> <span class="iso-ref">ISO 10.2</span></div></div>
-  <div class="req"><span class="req-tag should">NÊN</span><div>Phân luồng complaint theo 4 nhóm: escape kỹ thuật, chất lượng nội bộ, thương mại/chứng từ và giao hàng để đóng containment nhanh hơn. <span class="iso-ref">ISO 9.1.2</span></div></div>
-  <div class="req"><span class="req-tag may">ĐƯỢC PHÉP</span><div>Dùng 8D hoặc mẫu CAPA khách hàng nếu khách yêu cầu; nội dung tối thiểu vẫn phải khớp SOP-606. <span class="iso-ref">ISO 10.2</span></div></div>
-</div>
-
-<div class="preface-block">
-  <h2 class="h2">Quy ước triển khai tại HESEM</h2>
-  <div class="grid-2">
-    <div>
-      <div class="card-title">Complaint và Escape không chờ đủ hồ sơ mới containment</div>
-      <ul>
-        <li>Customer Service nhận complaint <b>PHẢI</b> mở log ngay, kể cả khách mới phản ánh qua điện thoại/Teams.</li>
-        <li>Khi nghi có escape, QA <b>PHẢI</b> cô lập ngay thành phẩm, WIP, stock, job liên quan và giữ lịch ship.</li>
-        <li>Containment ban đầu <b>PHẢI</b> hoàn tất trong cùng ngày làm việc hoặc theo SLA khách hàng.</li>
-      </ul>
-    </div>
-    <div>
-      <div class="card-title">RMA và phản hồi khách hàng</div>
-      <ul>
-        <li>RMA chỉ mở khi khách xác nhận part/qty/lot/ship info.</li>
-        <li>Điều tra kỹ thuật <b>PHẢI</b> tách riêng khỏi phản hồi thương mại; không gửi nhận định kỹ thuật khi chưa có bằng chứng.</li>
-        <li>Hành động khắc phục dài hạn <b>PHẢI</b> đi qua SOP-606 nếu complaint lặp, major hoặc ảnh hưởng nhiều lô.</li>
-      </ul>
-      <div class="callout"><b>Quy tắc:</b> complaint đã ghi nhận thì phải có số log, owner, deadline phản hồi và trạng thái mở/đóng. Không dùng email rời rạc thay cho log chính thức.</div>
-    </div>
-  </div>
-</div>
-
-<h2 class="h2">1. Mục đích</h2>
-<p>Thiết lập đường đi từ lúc nhận khiếu nại/feedback đến containment, điều tra, phản hồi khách hàng, xử lý RMA và đóng hồ sơ; ngăn lặp lại lỗi và giữ dữ liệu đủ cho phân tích xu hướng.</p>
-
-<h2 class="h2">2. Phạm vi</h2>
-<p>Áp dụng cho complaint, escape, phản hồi tiêu cực của khách hàng, RMA, sai chứng từ/nhãn, sai giao hàng, và khiếu nại liên quan chất lượng hoặc thương mại đối với sản phẩm HESEM.</p>
-
-<h2 class="h2">3. Thuật ngữ</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Thuật ngữ</th><th>Diễn giải áp dụng</th></tr></thead>
-<tbody>
-<tr><td><b>Complaint</b></td><td>Phản hồi không đạt kỳ vọng từ khách hàng, bao gồm lỗi sản phẩm, chứng từ, giao hàng, nhãn hoặc dịch vụ.</td></tr>
-<tr><td><b>Escape</b></td><td>Lỗi đã vượt qua kiểm soát nội bộ và đến khách hàng hoặc điểm giao hàng.</td></tr>
-<tr><td><b>Containment</b></td><td>Biện pháp chặn lan rộng ngay: hold stock/WIP, dừng ship, 100% screening, tách lot, thông báo các bộ phận liên quan.</td></tr>
-<tr><td><b>RMA</b> (Return Material Authorization)</td><td>Cho phép nhận lại hàng từ khách hàng để đánh giá/điều tra/disposition.</td></tr>
-<tr><td><b>Customer Change</b></td><td>Thay đổi PO, revision, qty, due date, chứng từ hoặc yêu cầu kỹ thuật trong quá trình thực hiện đơn hàng.</td></tr>
-</tbody></table></div>
-
-<h2 class="h2">4. RACI</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Vai trò</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead>
-<tbody>
-<tr><td><b>Customer Service</b></td><td>X</td><td></td><td></td><td></td></tr>
-<tr><td><b>Quality Engineer</b> (điều tra)</td><td>X</td><td></td><td></td><td></td></tr>
-<tr><td><b>QA Manager</b></td><td></td><td>X</td><td></td><td></td></tr>
-<tr><td><b>Production Director</b></td><td></td><td></td><td>X</td><td></td></tr>
-<tr><td><b>Engineering Lead</b></td><td></td><td></td><td>X</td><td></td></tr>
-<tr><td><b>Production Planner</b></td><td></td><td></td><td>X</td><td></td></tr>
-<tr><td><b>Finance Manager</b></td><td></td><td></td><td>X</td><td></td></tr>
-<tr><td><b>CEO / Tổng Giám đốc</b></td><td></td><td></td><td></td><td>X</td></tr>
-</tbody></table></div>
-
-<h2 class="h2">5. Quy trình</h2>
-
-<h3 class="h3">5.1 Tiếp nhận và ghi log complaint</h3>
-<ul>
-  <li>Customer Service <b>PHẢI</b> ghi mọi complaint vào <a href="../../../04-Bieu-Mau/02-FRM-200/frm-211-complaint-log.html">FRM-211</a> Nhật ký complaint với tối thiểu: ngày nhận, customer, PO, PN, revision, ship date, lot/serial, mô tả lỗi, source, người nhận và deadline phản hồi.</li>
-  <li>Complaint nhận ngoài giờ <b>PHẢI</b> chuyển cho QA Manager và Customer Service ca trực/ngày làm việc kế tiếp sớm nhất.</li>
-  <li>Nếu complaint thực chất là customer change, Customer Service <b>PHẢI</b> tách nhánh qua <a href="../../../04-Bieu-Mau/02-FRM-200/frm-212-customer-change-request.html">FRM-212</a> Phiếu thay đổi KH và <a href="sop-201-order-fulfillment-rfq-to-cash.html">SOP-201</a> SOP-201.</li>
-</ul>
-
-<h3 class="h3">5.2 Phân loại sự việc</h3>
-<div class="table-card"><table class="table">
-<thead><tr><th>Nhóm</th><th>Tiêu chí</th><th>Owner điều tra</th></tr></thead>
-<tbody>
-<tr><td><b>Escape kỹ thuật</b></td><td>Sai kích thước, sai feature, sai material/spec, sai finish, sai cleanliness, sai traceability</td><td>Quality Engineer</td></tr>
-<tr><td><b>Chất lượng nội bộ</b></td><td>Lỗi phát hiện trước khi khách nhận nhưng ảnh hưởng cam kết giao hàng/hồ sơ</td><td>Quality Engineer</td></tr>
-<tr><td><b>Thương mại/chứng từ</b></td><td>Sai PO line, sai label, sai invoice reference, thiếu chứng từ</td><td>Customer Service</td></tr>
-<tr><td><b>Giao hàng</b></td><td>Trễ ship, giao thiếu, giao nhầm địa chỉ/carrier</td><td>Customer Service + Logistics</td></tr>
-</tbody></table></div>
-
-<h3 class="h3">5.3 Containment ban đầu</h3>
-<div class="vflow">
-  <div class="vstep"><div class="vnum">1</div><div class="vtext">QA Manager hoặc người được ủy quyền <b>PHẢI</b> quyết định hold thành phẩm, WIP, stock, job open và lịch ship liên quan.</div></div>
-  <div class="vstep"><div class="vnum">2</div><div class="vtext">Production Planner <b>PHẢI</b> truy lot/job tương ứng trong Epicor; xác định lô đã ship, đang đóng gói, đang gia công và đang outsource.</div></div>
-  <div class="vstep"><div class="vnum">3</div><div class="vtext">Customer Service <b>PHẢI</b> gửi phản hồi ban đầu cho khách: đã nhận complaint, đang containment, thời gian phản hồi tiếp theo.</div></div>
-</div>
-<div class="note"><b>Khi nghi escape nhiều lô:</b> QA Manager <b>PHẢI</b> áp dụng 100% screening hoặc stop-ship ngay; song song mở SOP-606 khi có dấu hiệu nguyên nhân hệ thống.</div>
-
-<h3 class="h3">5.4 Điều tra và trigger SOP-606</h3>
-<ul>
-  <li>Quality Engineer <b>PHẢI</b> thu thập evidence: traveler, bản vẽ/spec, CMM/inspection results, material cert, setup/NC revision, packing/shipping documents, ảnh khách hàng và lịch sử thay đổi.</li>
-  <li>Khi complaint liên quan kỹ thuật, Quality Engineer <b>PHẢI</b> phối hợp Engineering và Production xác nhận nguyên nhân theo nhóm: method, machine, measurement, material, manpower, environment.</li>
-  <li>Complaint thuộc một trong các điều kiện sau <b>PHẢI</b> kích hoạt SOP-606: escape ra khách hàng, lỗi lặp cùng mode, major impact, khách yêu cầu 8D/CAPA, hoặc containment kéo dài quá thời gian chấp nhận.</li>
-</ul>
-
-<h3 class="h3">5.5 Phản hồi khách hàng</h3>
-<ul>
-  <li>Phản hồi bước 1 <b>PHẢI</b> nêu: complaint ID, mô tả vấn đề, containment đã làm, part/lot bị ảnh hưởng và mốc phản hồi tiếp theo.</li>
-  <li>Phản hồi bước 2 <b>PHẢI</b> nêu kết quả điều tra tạm thời hoặc chính thức, action đã chốt, RMA/disposition, ngày ship lại hoặc screening plan nếu có.</li>
-  <li>Customer Service <b>KHÔNG ĐƯỢC PHÉP</b> cam kết lỗi thuộc về HESEM hoặc chấp nhận tài chính khi chưa có quyết định của QA Manager và bộ phận liên quan.</li>
-</ul>
-
-<h3 class="h3">5.6 Quản lý RMA</h3>
-<ul>
-  <li>Mọi RMA <b>PHẢI</b> có số theo <a href="../../../04-Bieu-Mau/02-FRM-200/frm-213-rma-tracking-log.html">FRM-213</a> Theo dõi RMA và gắn với complaint ID.</li>
-  <li>Trước khi hàng về, Customer Service <b>PHẢI</b> xác nhận part number, qty, lot/serial, tình trạng hàng, hình thức trả và chứng từ đi kèm.</li>
-  <li>Hàng trả về <b>PHẢI</b> vào khu HOLD, không nhập lại stock usable cho đến khi QA quyết định disposition.</li>
-</ul>
-
-<h3 class="h3">5.7 Đóng complaint</h3>
-<ul>
-  <li>QA Manager chỉ đóng complaint khi có đủ: containment record, kết luận nguyên nhân, action và phản hồi khách hàng hoặc xác nhận không cần thêm action.</li>
-  <li>Customer Service <b>PHẢI</b> cập nhật trạng thái closed/open trên <a href="../../../04-Bieu-Mau/02-FRM-200/frm-211-complaint-log.html">FRM-211</a> Nhật ký complaint và lưu email/portal evidence vào hồ sơ job hoặc complaint folder.</li>
-  <li>Complaint trend <b>NÊN</b> rà soát hàng tháng theo customer, PN family, defect mode, response time và COPQ.</li>
-</ul>
-
-<h2 class="h2">6. Biểu mẫu liên quan</h2>
-<ul>
-<li><a href="../../../04-Bieu-Mau/02-FRM-200/frm-211-complaint-log.html">FRM-211</a> Nhật ký complaint</li>
-<li><a href="../../../04-Bieu-Mau/02-FRM-200/frm-212-customer-change-request.html">FRM-212</a> Phiếu thay đổi KH</li>
-<li><a href="../../../04-Bieu-Mau/02-FRM-200/frm-213-rma-tracking-log.html">FRM-213</a> Theo dõi RMA</li>
-</ul>
-
-<h2 class="h2">7. Tài liệu liên quan</h2>
-<ul>
-<li><a href="sop-201-order-fulfillment-rfq-to-cash.html">SOP-201</a> Thực hiện đơn hàng — RFQ đến Cash</li>
-<li><a href="../01-SOP-100/sop-101-document-and-data-control.html">SOP-101</a> Kiểm soát tài liệu &amp; dữ liệu</li>
-<li><a href="../01-SOP-100/sop-107-communication-management.html">SOP-107</a> Quản lý truyền thông</li>
-<li>SOP-606 CAPA / 8D / Escape Investigation</li>
-</ul>
-
+<div class="iso-map"><div class="iso-title">Chuẩn mực áp dụng / nguyên tắc bắt buộc</div><div class="req"><span class="req-tag shall">PHẢI</span><div>Mọi complaint/feedback có liên quan đến chất lượng, giao nhầm, sai chứng từ hoặc escape phải được ghi nhận và đánh giá mức độ khẩn cấp.</div></div><div class="req"><span class="req-tag shall">PHẢI</span><div>Containment phải bao gồm cả hàng đã giao, WIP, tồn kho, công đoạn ngoài và lô tương tự khi có nguy cơ ảnh hưởng.</div></div><div class="req"><span class="req-tag should">NÊN</span><div>Truyền thông với khách hàng nên sớm, rõ và dựa trên dữ liệu thực; tránh phản hồi cảm tính hoặc cam kết khi chưa xác minh.</div></div></div><div class="preface-block"><div class="grid-2"><div class="card"><div class="card-title">Mục tiêu</div><p>Giảm thời gian phản ứng và tăng độ tin cậy của phản hồi với khách hàng, đồng thời bảo đảm bài học được kéo ngược vào risk register, control plan và training.</p></div><div class="callout"><div class="card-title">Điểm cần nhớ</div><p>Complaint không chỉ là lỗi thành phẩm. Sai label, sai chứng từ, mất traceability, giao thiếu, contamination hoặc sai revision đều có thể là escape.</p></div></div></div><div class="toc"><div class="toc-title">Mục lục nhanh</div><div class="toc-grid"><a href="#p1">1. Mục đích</a><a href="#p2">2. Phạm vi</a><a href="#p3">3. Thuật ngữ</a><a href="#p4">4. RACI</a><a href="#p5">5. Quy trình</a><a href="#p6">6. Biểu mẫu liên quan</a><a href="#p7">7. Tài liệu liên quan</a></div></div><h2 class="h2" id="p1">1. Mục đích</h2><p>Thiết lập quy trình ghi nhận, containment, điều tra, truyền thông, xử lý RMA và đóng khiếu nại/feedback của khách hàng với logic quản trị escape rõ ràng.</p><h2 class="h2" id="p2">2. Phạm vi</h2><p>Áp dụng cho mọi complaint, alert, scorecard escalation, RMA, customer-return, suspect escape hoặc phản hồi tiêu cực có thể ảnh hưởng tới khách hàng.</p><h2 class="h2" id="p3">3. Thuật ngữ</h2><div class="table-card"><table class="table"><thead><tr><th>Thuật ngữ</th><th>Diễn giải áp dụng</th></tr></thead><tbody><tr><td><b>Escape</b></td><td>Lỗi hoặc tình trạng không phù hợp đã vượt qua các kiểm soát nội bộ và đến tay khách hàng hoặc có khả năng đến tay khách hàng.</td></tr><tr><td><b>Containment</b></td><td>Hành động khẩn cấp nhằm cô lập nguy cơ, ngăn lỗi lan rộng hoặc tái giao cho khách hàng.</td></tr><tr><td><b>RMA</b></td><td>Quy trình khách hàng trả lại hàng hoặc yêu cầu xử lý hàng đã giao.</td></tr></tbody></table></div><h2 class="h2" id="p4">4. RACI</h2><div class="table-card"><table class="table"><thead><tr><th>Vai trò</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead><tbody><tr><td>Customer Service</td><td>●</td><td></td><td></td><td></td></tr><tr><td>Quality Engineer</td><td>●</td><td></td><td></td><td></td></tr><tr><td>QA Manager</td><td></td><td>●</td><td></td><td></td></tr><tr><td>QMS Engineer</td><td></td><td></td><td>●</td><td></td></tr><tr><td>Production Director</td><td></td><td></td><td>●</td><td></td></tr><tr><td>Engineering Lead/Manager</td><td></td><td></td><td>●</td><td></td></tr><tr><td>CEO</td><td></td><td></td><td></td><td>●</td></tr></tbody></table></div><div class="role-boundary"><b>Role-boundary / authority note:</b> Customer Service quản lý luồng giao tiếp thương mại; Quality Engineer sở hữu điều tra kỹ thuật ban đầu; QA Manager quyết định mức containment/escalation đối với customer escape. Xem thêm <a href="../../03-Reference/01-ANNEX-System/ref-020-cnc-operating-model-and-role-boundary.html">REF-020</a>, <a href="../../../02-Tai-Lieu-He-Thong/03-Organization/04-RACI-Authority/annex-qms-025-authority-matrix.html">ANNEX-QMS-025</a> và <a href="../../../02-Tai-Lieu-He-Thong/03-Organization/04-RACI-Authority/annex-qms-026-raci-master-matrix.html">ANNEX-QMS-026</a> để đối chiếu giữa tài liệu.</div><h2 class="h2" id="p5">5. Quy trình</h2><h3 class="h3">1. Tiếp nhận và phân loại</h3><ul class="tight"><li>Complaint/feedback được ghi nhận vào complaint log với thông tin tối thiểu: khách hàng, part/job/lot, mô tả vấn đề, số lượng ảnh hưởng, mức độ khẩn, bằng chứng đi kèm và người liên hệ.</li><li>QA phối hợp Sales đánh giá mức độ nghiêm trọng và xác định có phải suspect escape hay không.</li></ul><h3 class="h3">2. Containment và truyền thông ban đầu</h3><ul class="tight"><li>Containment phải xác định phạm vi lô liên quan, tồn kho nội bộ, hàng chờ ship, công đoạn ngoài, đơn hàng tương tự và các shipment gần đây.</li><li>Nếu rủi ro cao, phải kích hoạt stop ship/stop use nội bộ và thông báo khách hàng trong khung thời gian yêu cầu bởi mức độ nghiêm trọng hoặc CSR.</li></ul><h3 class="h3">3. Điều tra, RMA và phản hồi chính thức</h3><ul class="tight"><li>Điều tra phải dựa trên bằng chứng: hồ sơ sản xuất, hồ sơ đo, chứng từ supplier, status gage, revision history, NC/setup, ảnh hiện trường và dữ liệu lô khác.</li><li>Khi có RMA, phải xác định rõ trách nhiệm logistic, tình trạng hàng trả, phương án kiểm tra lại và cách bảo toàn bằng chứng từ khách hàng.</li><li>Phản hồi chính thức phải nêu containment, nguyên nhân xác nhận hoặc trạng thái điều tra, hành động ngắn hạn, hành động dài hạn và thời gian cập nhật tiếp theo.</li></ul><h3 class="h3">4. Đóng và học tập</h3><ul class="tight"><li>Complaint chỉ được đóng khi containment hoàn tất, hành động khắc phục đã triển khai và có bằng chứng hợp lý cho thấy nguy cơ tái diễn đã giảm.</li><li>Bài học phải phản ánh vào SOP-103, SOP-301, SOP-502, SOP-606 hoặc training liên quan tùy nguyên nhân gốc.</li></ul><h2 class="h2" id="p6">6. Biểu mẫu liên quan</h2><ul class="tight"><li><a href="../../../04-Bieu-Mau/02-FRM-200/frm-211-complaint-log.html">FRM-211</a></li><li><a href="../../../04-Bieu-Mau/02-FRM-200/frm-212-customer-change-request.html">FRM-212</a></li><li><a href="../../../04-Bieu-Mau/02-FRM-200/frm-213-rma-tracking-log.html">FRM-213</a></li><li><a href="../../../04-Bieu-Mau/06-FRM-600/frm-651-nonconformance-report.html">FRM-651</a></li><li><a href="../../../04-Bieu-Mau/06-FRM-600/frm-652-capa-8d-report.html">FRM-652</a></li></ul><h2 class="h2" id="p7">7. Tài liệu liên quan</h2><ul class="tight"><li><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-606-ncr-capa-and-ipqc-reaction.html">SOP-606</a></li><li><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-903-continual-improvement-and-kaizen.html">SOP-903</a></li><li><a href="../../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/02-WI-200/wi-201-quality-gates-and-ship-release-quick-ref.html">WI-201</a></li></ul><div class="footer-note">Bản nâng cấp giữ nguyên mã tài liệu, logic vận hành gốc và tăng chiều sâu kiểm soát cho mô hình gia công CNC toàn cầu, high-mix/medium-volume hoặc job-order.</div>
 </div></div>
-
 </div></div></div>
+<script src="../../../assets/app.js"></script>
 </body>
 </html>
-
-

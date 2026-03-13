@@ -1,17 +1,16 @@
-﻿<!DOCTYPE html>
-
+<!DOCTYPE html>
 <html lang="vi">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>TRN-ACA-RMAP-01 — Training Roadmap by Role (30/60/90 Days) | HESEM OS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TRN-ACA-RMAP-01 — Training Roadmap by Role (30/60/90 Days) | HESEM QMS</title>
 <link href="../../assets/style.css" rel="stylesheet"/>
 <style>
-/* ═══ PAGE BREAK & OVERFLOW FIX (auto-applied) ═══ */
+
+/* PAGE BREAK & OVERFLOW FIX */
 @media print {
  .card, .table-card, .callout, .note, .box, .iso-map,
- .preface-block, .jd-mission, .form-sheet, .lane,
- .legend, .req, .auth-grid, .backup-card, .vstep {
+ .preface-block, .form-sheet, .lane, .legend, .req, .vstep, .auth-grid, .backup-card, .org-row {
  page-break-inside: avoid;
  break-inside: avoid;
  }
@@ -19,14 +18,7 @@
  page-break-after: avoid;
  break-after: avoid;
  }
- .form-header {
- page-break-inside: avoid;
- break-inside: avoid;
- }
- .sig-row, .sign-row, .approval-row {
- page-break-inside: avoid;
- break-inside: avoid;
- }
+ .form-header { page-break-inside: avoid; break-inside: avoid; }
  tr { page-break-inside: avoid; break-inside: avoid; }
  thead { display: table-header-group; }
  tfoot { display: table-footer-group; }
@@ -36,257 +28,93 @@
 .page-body { overflow-x: hidden; }
 .table-card, .table-block, .table-wrap { overflow-x: auto; max-width: 100%; }
 table { max-width: 100%; table-layout: auto; }
-td, th { max-width: 400px; overflow-wrap: break-word; word-wrap: break-word; }
+td, th { max-width: 420px; overflow-wrap: break-word; word-wrap: break-word; }
+.role-code {font-family: var(--mono); font-size: 11px; background: var(--bg3); padding: 2px 6px; border-radius: 5px;}
+.raci-cell {text-align:center; font-weight:700; width:34px; min-width:34px; padding:6px 4px !important;}
+.raci-A {background:#fff5f5; color:#c92a2a;}
+.raci-R {background:#e7f5ff; color:#1864ab;}
+.raci-C {background:#fff9db; color:#e67700;}
+.raci-I {background:#ebfbee; color:#2b8a3e;}
+.portal-grid {display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:16px;}
+.portal-card {background:var(--bg); border:1px solid var(--ln); border-radius:var(--r); padding:18px;}
+.portal-card h3 {font-size:14px; color:var(--navy); margin:0 0 8px;}
+.doc-link-list {list-style:none; margin:0; padding:0;}
+.doc-link-list li {padding:6px 0 6px 16px; position:relative;}
+.doc-link-list li:before {content:"•"; position:absolute; left:0; color:var(--blue);}
+.inline-tag {display:inline-block;padding:3px 8px;border:1px solid var(--ln);border-radius:999px;font-size:10px;font-weight:700;background:var(--bg2);margin-right:6px;margin-bottom:6px;}
+.svg-wrap,.org-wrap {background:var(--bg); border:1px solid var(--ln); border-radius:var(--r); padding:16px; overflow:auto;}
+.nav-toc a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;margin:6px 0;background:var(--bg);}
+kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--ln);padding:2px 5px;border-radius:4px;background:#fff;}
+.org-tree{display:flex;flex-direction:column;gap:16px;margin:8px 0;}
+.org-level{display:grid;gap:14px;}
+.org-level.cols-1{grid-template-columns:1fr;}
+.org-level.cols-2{grid-template-columns:repeat(2,minmax(0,1fr));}
+.org-level.cols-3{grid-template-columns:repeat(3,minmax(0,1fr));}
+.org-level.cols-4{grid-template-columns:repeat(4,minmax(0,1fr));}
+.org-level.cols-5{grid-template-columns:repeat(5,minmax(0,1fr));}
+.org-card{border:1px solid var(--ln);border-top:4px solid var(--blue);border-radius:var(--r);padding:14px;background:var(--bg);}
+.org-card h3{font-size:14px;color:var(--navy);margin:0 0 4px;}
+.org-card p{margin:4px 0;font-size:12px;}
+.org-row{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);margin:12px 0;}
+.org-row h3{margin:0 0 8px;font-size:13px;color:var(--navy);}
+.badge-soft{display:inline-block;padding:2px 8px;border-radius:999px;background:var(--blue-l);color:var(--navy);font-size:10px;font-weight:700;margin-right:6px;margin-bottom:6px;}
+.kpi-box{border:1px solid var(--ln);border-radius:var(--r);padding:12px;background:var(--bg);margin:8px 0;}
+.kpi-box b{display:block;font-size:11px;color:var(--navy);text-transform:uppercase;letter-spacing:.3px;margin-bottom:4px;}
+.auth-grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:10px 0 16px;}
+.auth-item{padding:12px 14px; border:1px solid var(--ln,#d7deea); border-radius:8px; background:var(--bg2,#f8fafc);}
+.backup-card{padding:14px 16px; border:1px solid var(--ln,#d7deea); border-left:4px solid #0f766e; border-radius:8px; background:var(--bg2,#f8fafc); margin:10px 0 0;}
+.role-boundary{border:1px solid #cfe0ff;border-left:4px solid #2563eb;border-radius:8px;background:#eef6ff;padding:14px 16px;margin:14px 0;}
+.phase-card{border:1px solid var(--ln);border-left:4px solid var(--gold);border-radius:var(--r);padding:14px;background:#fffdf5;margin:12px 0;}
+.phase-card h3{margin:0 0 6px;font-size:14px;color:var(--navy);}
+.phase-card p:last-child,.role-boundary p:last-child,.auth-item p:last-child,.backup-card p:last-child{margin-bottom:0;}
+.small-note{font-size:12px;color:var(--ink2);}
+
 </style>
 </head>
 <body>
 <div class="container">
-<section class="card" id="ksem-gating">
-<h2>Chuẩn đầu ra K–S–E–M và KPI gating (cách dùng trong lớp)</h2>
-<p>Từ, mỗi mô-đun được chuẩn hóa theo 4 thành phần:</p>
-<ul>
-<li><strong>Knowledge</strong>: học viên hiểu đúng khái niệm, nguyên tắc, tiêu chuẩn.</li>
-<li><strong>Skill</strong>: học viên thực hiện đúng thao tác/quy trình trong điều kiện thực tế.</li>
-<li><strong>Evidence</strong>: có bằng chứng truy vết (checklist ký, ảnh, báo cáo, log).</li>
-<li><strong>Metric</strong>: có chỉ số đo lường theo Level (L1–L4) và có <em>Gate</em> chặn rủi ro.</li>
-</ul>
-<div class="grid-2">
-<div class="note">
-<strong>Cách giảng dạy theo K–S–E–M</strong>
-<ol>
-<li><strong>Giải thích nguyên tắc</strong> (K) bằng ví dụ tại HESEM.</li>
-<li><strong>Trình diễn thao tác chuẩn</strong> (S) và chỉ rõ “key points”.</li>
-<li><strong>Cho học viên làm và ghi nhận</strong> (E) bằng checklist/biểu mẫu thật.</li>
-<li><strong>Đối chiếu KPI/Metric</strong> (M) để quyết định đạt level và hành động cải tiến.</li>
-</ol>
-</div>
-<div class="kpi-gate">
-<strong>Gate – Quy tắc chặn</strong>
-<ul>
-<li>Các lỗi Gate hay gặp thuộc: <strong>An toàn</strong>, <strong>Quality record</strong>, <strong>Customer escape</strong>, <strong>Revision/Traceability</strong>.</li>
-<li>Vi phạm Gate → <strong>không công nhận level</strong> trong kỳ, bắt buộc OJT/CAPA, đánh giá lại sau khi đóng hành động.</li>
-<li>Tham chiếu chi tiết: <a href="../01-Competency-System/01-Framework/competency-metrics.html">Từ điển KPI/Metric theo 19 năng lực</a>.</li>
-</ul>
-</div>
-</div>
-<p class="muted">Yêu cầu: Khi chấm điểm, giảng viên PHẢI tách rõ “điểm kiến thức” (quiz) và “điểm kỹ năng” (quan sát OJT theo rubric). Không dùng quiz để thay thế kỹ năng.</p>
-</section>
-<div class="page">
-<div class="page-body">
-<div class="form-header">
-<div class="fh-left">
-  <a class="brand-logo" href="../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
-  <div class="fh-company">
-    <a href="../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
-    <span>Tài liệu kiểm soát</span>
+  <div class="page">
+    <div class="page-body">
+      <div class="form-header">
+        <div class="fh-left">
+          <a class="brand-logo" href="../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+          <div class="fh-company">
+            <a href="../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+            <span>Tài liệu kiểm soát</span>
+          </div>
+        </div>
+        <div class="title">
+          <strong>TRN-ACA-RMAP-01 — Training Roadmap by Role (30/60/90 Days)</strong>
+          <span class="sub-vn">Roadmap đào tạo theo family vai trò sau cập nhật JD mới nhất</span>
+        </div>
+        <div class="meta">
+          <div class="row"><span><b>Mã:</b></span><span>TRN-ACA-RMAP-01</span></div>
+          <div class="row"><span><b>Phiên bản:</b></span><span>V1.0</span></div>
+          <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+          <div class="row"><span><b>Chủ sở hữu:</b></span><span>HR Manager / Department Heads / QA Manager</span></div>
+          <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+        </div>
+      </div>
+      <div class="doc-content" id="docContent">
+        <div class="form-sheet">
+<div class="iso-map"><div class="iso-title">Nguyên tắc dùng roadmap</div><div class="req"><span class="req-tag shall">PHẢI</span><div>Mỗi roadmap phải bám JD mới nhất, authority matrix, deputy plan và bundle SOP/WI/FRM mà vai trò đó trực tiếp sử dụng.</div></div><div class="req"><span class="req-tag should">NÊN</span><div>Roadmap 30/60/90 ngày nên được cá thể hóa theo machine family, customer segment, product family hoặc mức độ criticality của vị trí.</div></div></div>
+<h2 class="h2">1. Lộ trình đào tạo theo family vai trò (30/60/90 ngày)</h2>
+<div class="phase-card"><h3>Commercial Front-end</h3><p><b>Áp dụng cho:</b> Customer Service; Estimator</p><div class="table-card"><table class="table"><thead><tr><th>30 ngày</th><th>60 ngày</th><th>90 ngày</th></tr></thead><tbody><tr><td>Hiểu RFQ/PO completeness, revision control, contract review, quote assumption, order acknowledgment discipline</td><td>Tự điều phối RFQ → PO flow, mở/đóng change log, escalated đúng khi feasibility hoặc commercial risk chưa khóa</td><td>Dẫn một luồng quote-to-order end-to-end có bằng chứng đầy đủ và zero uncontrolled change</td></tr></tbody></table></div><p><b>Tài liệu chính:</b><br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/02-SOP-200/sop-201-order-fulfillment-rfq-to-cash.html">SOP-201</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/02-SOP-200/sop-202-customer-complaint-feedback-rma-and-escape.html">SOP-202</a><br/><a href="../../04-Bieu-Mau/02-FRM-200/frm-201-rfq-register.html">FRM-201</a><br/><a href="../../04-Bieu-Mau/02-FRM-200/frm-202-contract-review-checklist.html">FRM-202</a><br/><a href="../../04-Bieu-Mau/02-FRM-200/frm-204-job-kickoff-checklist.html">FRM-204</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-020-cnc-operating-model-and-role-boundary.html">REF-020</a></p></div>
+<div class="phase-card"><h3>Engineering Release</h3><p><b>Áp dụng cho:</b> DFM Engineer; Process Engineer; CAM/NC Programmer; Engineering Lead/Manager</p><div class="table-card"><table class="table"><thead><tr><th>30 ngày</th><th>60 ngày</th><th>90 ngày</th></tr></thead><tbody><tr><td>Nắm drawing/spec/CTQ, feasibility method, routing concept, NC/configuration control, quality gate liên quan kỹ thuật</td><td>Phát hành DFM/routing/NC theo rule, xử lý technical abnormality và change request có log</td><td>Dẫn dắt technical release / ECN / FAI support cho family sản phẩm được giao</td></tr></tbody></table></div><p><b>Tài liệu chính:</b><br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/03-SOP-300/sop-301-engineering-dfm-quoting-and-machining-planning.html">SOP-301</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/03-SOP-300/sop-302-first-article-inspection-fai.html">SOP-302</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-106-change-and-configuration-management.html">SOP-106</a><br/><a href="../../04-Bieu-Mau/03-FRM-300/frm-303-dfm-review-checklist.html">FRM-303</a><br/><a href="../../04-Bieu-Mau/03-FRM-300/frm-305-inspection-program-release-checklist.html">FRM-305</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/05-WI-500/wi-516-machine-operation-quick-card.html">WI-516</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-020-cnc-operating-model-and-role-boundary.html">REF-020</a></p></div>
+<div class="phase-card"><h3>Planning &amp; IE</h3><p><b>Áp dụng cho:</b> Production Planner; Production Engineer / IE</p><div class="table-card"><table class="table"><thead><tr><th>30 ngày</th><th>60 ngày</th><th>90 ngày</th></tr></thead><tbody><tr><td>Hiểu readiness logic, dispatch rule, WIP/aging, bottleneck data, standard time, tier management</td><td>Tự điều độ và theo dõi năng lực theo rule đã duyệt; mở action khi readiness hoặc flow mất kiểm soát</td><td>Dẫn một dự án cải tiến hoặc tái cân bằng có số liệu trước-sau rõ ràng</td></tr></tbody></table></div><p><b>Tài liệu chính:</b><br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-501-production-planning-scheduling-and-dispatch-control.html">SOP-501</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-903-continual-improvement-and-kaizen.html">SOP-903</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/05-WI-500/wi-501-dispatch-capacity-and-wip-rules.html">WI-501</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/05-WI-500/wi-502-tier-1-2-3-daily-management.html">WI-502</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/09-WI-900/wi-901-performance-dashboard.html">WI-901</a><br/><a href="../../04-Bieu-Mau/05-FRM-500/frm-501-planning-release-checklist.html">FRM-501</a></p></div>
+<div class="phase-card"><h3>Workshop Leadership</h3><p><b>Áp dụng cho:</b> Production Director; CNC Workshop Manager; Shift Leader</p><div class="table-card"><table class="table"><thead><tr><th>30 ngày</th><th>60 ngày</th><th>90 ngày</th></tr></thead><tbody><tr><td>Nắm startup check, manpower/cell control, abnormality response, handover, product safety/FOD discipline</td><td>Điều hành ca/cell theo visual management và escalated đúng điểm</td><td>Dẫn một tuần vận hành ổn định với OTD/FPY/response đạt target nội bộ</td></tr></tbody></table></div><p><b>Tài liệu chính:</b><br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-502-cnc-machining-operations.html">SOP-502</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-503-tooling-maintenance-pm-and-breakdown-response.html">SOP-503</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/07-SOP-700/sop-703-product-safety-conformity-and-fod-prevention.html">SOP-703</a><br/><a href="../../04-Bieu-Mau/05-FRM-500/frm-504-shift-handover-log.html">FRM-504</a><br/><a href="../../04-Bieu-Mau/05-FRM-500/frm-511-setup-and-first-piece-record.html">FRM-511</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/07-WI-700/wi-721-fod-prevention-at-machine.html">WI-721</a></p></div>
+<div class="phase-card"><h3>Setup &amp; CNC Operation</h3><p><b>Áp dụng cho:</b> Setup Technician; CNC Operator</p><div class="table-card"><table class="table"><thead><tr><th>30 ngày</th><th>60 ngày</th><th>90 ngày</th></tr></thead><tbody><tr><td>Hiểu routing, setup sheet, NC version, tool/fixture verification, first-off rule, reaction plan</td><td>Thực hiện setup/vận hành trong cửa sổ chuẩn, ghi đúng evidence, không bypass control</td><td>Được chứng nhận làm việc độc lập trên machine family / product family đã xác định</td></tr></tbody></table></div><p><b>Tài liệu chính:</b><br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-502-cnc-machining-operations.html">SOP-502</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/05-WI-500/wi-516-machine-operation-quick-card.html">WI-516</a><br/><a href="../../04-Bieu-Mau/05-FRM-500/frm-511-setup-and-first-piece-record.html">FRM-511</a><br/><a href="../../04-Bieu-Mau/05-FRM-500/frm-513-tool-life-log.html">FRM-513</a><br/><a href="../../04-Bieu-Mau/07-FRM-700/frm-703-wip-card.html">FRM-703</a></p></div>
+<div class="phase-card"><h3>Quality System &amp; Process Quality</h3><p><b>Áp dụng cho:</b> QA Manager; QMS Engineer; Quality Engineer</p><div class="table-card"><table class="table"><thead><tr><th>30 ngày</th><th>60 ngày</th><th>90 ngày</th></tr></thead><tbody><tr><td>Nắm QMS architecture, control plan, CAPA, complaint, audit/LPA, release governance</td><td>Tự dẫn dắt NCR/CAPA, audit, complaint response và planning quality cho family được giao</td><td>Chốt và xác minh hiệu lực một chu kỳ cải tiến / audit / CAPA hoàn chỉnh</td></tr></tbody></table></div><p><b>Tài liệu chính:</b><br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-606-ncr-capa-and-ipqc-reaction.html">SOP-606</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-901-internal-audit-and-lpa.html">SOP-901</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-902-management-review.html">SOP-902</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-903-continual-improvement-and-kaizen.html">SOP-903</a><br/><a href="../../04-Bieu-Mau/06-FRM-600/frm-651-nonconformance-report.html">FRM-651</a><br/><a href="../../04-Bieu-Mau/06-FRM-600/frm-652-capa-8d-report.html">FRM-652</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-020-cnc-operating-model-and-role-boundary.html">REF-020</a></p></div>
+<div class="phase-card"><h3>QC / CMM / Metrology</h3><p><b>Áp dụng cho:</b> QC Inspector Lead; QC Inspector/CMM; Metrology Specialist</p><div class="table-card"><table class="table"><thead><tr><th>30 ngày</th><th>60 ngày</th><th>90 ngày</th></tr></thead><tbody><tr><td>Nắm sampling, method/gage qualification, calibration, MSA, final release rule</td><td>Thực hiện/điều phối kiểm, giữ gate đúng, đánh giá sơ bộ measurement risk</td><td>Làm việc độc lập trên method/gage/CMM đã được ủy quyền và đóng vai trò gate owner đúng cấp</td></tr></tbody></table></div><p><b>Tài liệu chính:</b><br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-601-calibration-and-gage-control.html">SOP-601</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-602-measurement-system-analysis-msagr-r.html">SOP-602</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-603-aql-sampling-inspection.html">SOP-603</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-605-final-inspection-coc-and-shipment-release.html">SOP-605</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/02-WI-200/wi-201-quality-gates-and-ship-release-quick-ref.html">WI-201</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/06-WI-600/wi-601-visual-inspection-and-defect-classification.html">WI-601</a><br/><a href="../../04-Bieu-Mau/06-FRM-600/frm-611-grr-study-form.html">FRM-611</a><br/><a href="../../04-Bieu-Mau/06-FRM-600/frm-641-final-inspection-report.html">FRM-641</a></p></div>
+<div class="phase-card"><h3>Supply Chain &amp; Shipment</h3><p><b>Áp dụng cho:</b> Supply Chain Manager; Buyer; Warehouse Clerk; Tool Crib; Logistics</p><div class="table-card"><table class="table"><thead><tr><th>30 ngày</th><th>60 ngày</th><th>90 ngày</th></tr></thead><tbody><tr><td>Nắm supplier flow-down, cert review, lot control, material status, shipping docs, clean-pack/ship-ready rule</td><td>Tự xử lý vòng PO → receiving → issue → dispatch với traceability đầy đủ</td><td>Vận hành ổn định chuỗi nguồn cung / shipment cho family job được giao mà không mất lot/cert/doc control</td></tr></tbody></table></div><p><b>Tài liệu chính:</b><br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/04-SOP-400/sop-401-supplier-control-and-special-process.html">SOP-401</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/04-SOP-400/sop-402-material-verification-traceability-and-counterfeit-prevention.html">SOP-402</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/07-SOP-700/sop-701-receiving-packaging-handling-and-storage.html">SOP-701</a><br/><a href="../../04-Bieu-Mau/04-FRM-400/frm-401-po-tracker.html">FRM-401</a><br/><a href="../../04-Bieu-Mau/04-FRM-400/frm-412-receiving-and-iqc-log.html">FRM-412</a><br/><a href="../../04-Bieu-Mau/07-FRM-700/frm-702-shipping-checklist.html">FRM-702</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-020-cnc-operating-model-and-role-boundary.html">REF-020</a></p></div>
+<div class="phase-card"><h3>People, Safety &amp; Compliance</h3><p><b>Áp dụng cho:</b> HR Manager; EHS Specialist; Finance Manager</p><div class="table-card"><table class="table"><thead><tr><th>30 ngày</th><th>60 ngày</th><th>90 ngày</th></tr></thead><tbody><tr><td>Nắm JD, competency/certification, labor/EHS compliance, costing/cash discipline liên quan vận hành</td><td>Triển khai training/certification / incident response / invoice control theo tuyến trách nhiệm</td><td>Dẫn một chu kỳ review năng lực, EHS hoặc financial control có action closure rõ</td></tr></tbody></table></div><p><b>Tài liệu chính:</b><br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/08-SOP-800/sop-801-competence-training-and-certification.html">SOP-801</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/08-SOP-800/sop-802-incident-near-miss-and-ehs.html">SOP-802</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/08-SOP-800/sop-803-invoicing-job-costing-and-arap.html">SOP-803</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/08-SOP-800/sop-804-human-factors-and-error-proofing.html">SOP-804</a><br/><a href="../../04-Bieu-Mau/08-FRM-800/frm-801-training-plan.html">FRM-801</a><br/><a href="../../04-Bieu-Mau/08-FRM-800/frm-811-incident-report.html">FRM-811</a><br/><a href="../../04-Bieu-Mau/08-FRM-800/frm-821-invoice-request.html">FRM-821</a></p></div>
+<div class="phase-card"><h3>Digital &amp; ERP Governance</h3><p><b>Áp dụng cho:</b> Epicor System Administrator; IT Admin</p><div class="table-card"><table class="table"><thead><tr><th>30 ngày</th><th>60 ngày</th><th>90 ngày</th></tr></thead><tbody><tr><td>Nắm field mapping, access, workflow, backup baseline, issue/change control, data traceability</td><td>Tự xử lý change request/incident theo rule, giữ data integrity và uptime</td><td>Go-live hoặc phục hồi một thay đổi/hệ thống có evidence UAT, backup, rollback, owner sign-off</td></tr></tbody></table></div><p><b>Tài liệu chính:</b><br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-104-data-governance-records-security-and-ip-protection.html">SOP-104</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-106-change-and-configuration-management.html">SOP-106</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/03-ANNEX-Digital/ref-013-epicor-integration.html">REF-013</a><br/><a href="../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-020-cnc-operating-model-and-role-boundary.html">REF-020</a></p></div>
+<h2 class="h2">2. Quy tắc triển khai</h2><ul><li>Day 0–30 tập trung vào an toàn, chất lượng, ngôn ngữ hệ thống và bằng chứng bắt buộc.</li><li>Day 31–60 tập trung vào làm được dưới giám sát có kiểm soát và biết escalated đúng điểm.</li><li>Day 61–90 tập trung vào làm việc độc lập trong phạm vi được ủy quyền, đóng vòng lỗi và bàn giao cho người khác.</li><li>Mọi vị trí giữ gate (setup, QC, metrology, customer commitment, supplier release, financial approval) phải có chứng nhận rõ trước khi làm việc độc lập.</li></ul>
+<div class="footer-note">Roadmap này dùng cùng FRM-801/803/804/805/807/809 và ANNEX-QMS-028 để biến JD thành năng lực vận hành thực sự.</div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
-<div class="title">
-  <strong>ROLE-ROADMAPS — Training Roadmap by Role (30/60/90 Days)</strong>
-  <span class="sub-vn"></span>
-</div>
-<div class="meta">
-  <div class="row"><span><b>Mã:</b></span><span>ROLE-ROADMAPS</span></div>
-  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
-  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
-  <div class="row"><span><b>Chủ sở hữu:</b></span><span>QA/QMS</span></div>
-  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
-</div>
-</div>
-<div class="doc-content" id="docContent">
-<div class="cover">
-<div class="kicker">HESEM CNC Academy</div>
-<h1 class="h1">Lộ trình đào tạo theo vai trò (30/60/90 ngày)</h1>
-<p class="lead">
- Trang này khóa “đường học” theo vai trò để nhân sự <b>vận hành QMS</b> và <b>nâng Level</b> bằng minh chứng.
- Cơ chế kiểm soát: <b>Không có bằng chứng = Không qua Gate</b>.
- </p>
-</div><div class="card">
-<span class="badge">Drill milestones theo vai trò</span>
-<p class="lead" style="margin-top:10px;">Lộ trình 30/60/90 ngày đạt chuẩn khi hoàn tất drill và có MRR trong SSOT.</p>
-<div class="table-card">
-<table class="table">
-<thead><tr><th>Vai trò</th><th>Drill bắt buộc</th><th>Output</th></tr></thead>
-<tbody>
-<tr><td><b>Operator/Setup</b></td><td><a href="../02-Training-Content/03-Practice-Drills/drill-revision-ssot-60s.html"><b>DRL-02</b></a>, <a href="../02-Training-Content/03-Practice-Drills/drill-setup-firstarticle-ir.html"><b>DRL-04</b></a>, <a href="../02-Training-Content/03-Practice-Drills/drill-ncr-capa-response.html"><b>DRL-06</b></a></td><td>Setup/FAI + NCR phản xạ + audit 60s PASS</td></tr>
-<tr><td><b>QC/QA</b></td><td><a href="../02-Training-Content/03-Practice-Drills/drill-revision-ssot-60s.html"><b>DRL-02</b></a>, <a href="../02-Training-Content/03-Practice-Drills/drill-setup-firstarticle-ir.html"><b>DRL-04</b></a>, <a href="../02-Training-Content/03-Practice-Drills/drill-shipping-packet-coc.html"><b>DRL-07</b></a>, <a href="../02-Training-Content/03-Practice-Drills/drill-ncr-capa-response.html"><b>DRL-06</b></a></td><td>IR/FAI + ship packet + CAPA hiệu lực</td></tr>
-<tr><td><b>Engineering/CAM</b></td><td><a href="../02-Training-Content/03-Practice-Drills/drill-revision-ssot-60s.html"><b>DRL-02</b></a>, <a href="../02-Training-Content/03-Practice-Drills/drill-cam-release-changecontrol.html"><b>DRL-05</b></a></td><td>Release pack + change control PASS</td></tr>
-<tr><td><b>Planning/OPS</b></td><td><a href="../02-Training-Content/03-Practice-Drills/drill-joborder-e2e.html"><b>DRL-01</b></a>, <a href="../02-Training-Content/03-Practice-Drills/drill-daily-management-tier.html"><b>DRL-08</b></a></td><td>Gate E2E + daily management action log</td></tr>
-<tr><td><b>Purchasing/Warehouse</b></td><td><a href="../02-Training-Content/03-Practice-Drills/drill-material-cert-specialprocess.html"><b>DRL-03</b></a>, <a href="../02-Training-Content/03-Practice-Drills/drill-shipping-packet-coc.html"><b>DRL-07</b></a></td><td>MTR/Cert traceability + ship packet đủ</td></tr>
-<tr><td><b>Estimator (SAL-03)</b></td><td><a href="../02-Training-Content/03-Practice-Drills/drill-customer-ctq-translation.html"><b>DRL-11</b></a>, <a href="../02-Training-Content/03-Practice-Drills/drill-joborder-e2e.html"><b>DRL-01</b></a></td><td>CTQ translation + contract review sign-off</td></tr>
-<tr><td><b>Team lead</b></td><td><a href="../02-Training-Content/03-Practice-Drills/drill-daily-management-tier.html"><b>DRL-08</b></a>, <a href="../02-Training-Content/03-Practice-Drills/drill-cost-waste-tool-scrap.html"><b>DRL-10</b></a>, <a href="../02-Training-Content/03-Practice-Drills/drill-safety-5s-hazards.html"><b>DRL-09</b></a></td><td>Board + cost action + safety closure</td></tr>
-</tbody>
-</table>
-</div>
-<p class="small muted" style="margin-top:10px;">Lưu bằng chứng theo <a href="evidence-naming-rule.html"><b>TRN-ACA-EVID-01</b></a>.</p>
-</div>
-<div class="card">
-<span class="badge">Cách sử dụng</span>
-<ol style="margin:10px 0 0 0; padding-left:18px; line-height:1.75;">
-<li>Chọn vai trò đúng: Operator / Setup / QC / CAM / Planner / WHS / PUR / QA.</li>
-<li>Học theo thứ tự: <b>Level 1 → Level 2 → Level 3 → Level 4</b>.</li>
-<li>Thực hiện OJT tại hiện trường và nộp <b>MRR</b> theo từng module.</li>
-<li>Chấm theo <b>rubric quan sát</b> và kết thúc bằng <b>performance test</b>.</li>
-<li>Ghi hồ sơ vào <b>SSOT Job Dossier</b> theo cấu trúc quy định (SYS-OPS-01/02).</li>
-</ol>
-</div>
-<div class="card">
-<span class="badge">Gate chứng nhận</span>
-<div class="grid-2">
-<div>
-<h2 class="h2" style="margin-top:10px;">Gate A — QMS User (bắt buộc cho toàn công ty)</h2>
-<ul class="tight">
-<li>C01-L1, C02-L1, C03-L1, C04-L1</li>
-<li>C08-L1 (SSOT/REV/Naming), C10-L1 (RFQ→Cash bản đồ tổng)</li>
-<li>SYS-OPS-01 (Evidence Pack), SYS-OPS-02 (Job Dossier)</li>
-</ul>
-<div class="note">
-<b>PASS/FAIL:</b> PASS khi hoàn tất quiz + scenario + performance test và nộp đủ MRR.
- FAIL khi thiếu hồ sơ hoặc dùng tài liệu sai revision.
- </div>
-</div>
-<div>
-<h2 class="h2" style="margin-top:10px;">Gate B — Role Ready (theo vị trí)</h2>
-<ul class="tight">
-<li>Đạt Level mục tiêu theo vai trò trong bảng bên dưới.</li>
-<li>Trainer ký OJT checklist, QA/QMS xác nhận hồ sơ.</li>
-<li>Áp dụng “Audit Drill 60 giây”: mở đúng hồ sơ trong SSOT.</li>
-</ul>
-<div class="note">
-<b>Trigger tái đánh giá:</b> thay đổi quy trình / thay đổi role / NCR nghiêm trọng / audit finding lặp lại.
- </div>
-</div>
-</div>
-</div>
-<h2 class="h2">Bảng lộ trình theo vai trò</h2>
-<p class="muted">
- Mục tiêu của bảng là tạo “đường chạy” rõ ràng: học gì – làm gì – nộp gì – đạt Level nào.
-</p>
-<div class="card">
-<span class="badge">Sản xuất</span>
-<table class="table">
-<thead>
-<tr>
-<th style="width:220px;">Vai trò</th>
-<th style="width:220px;">30 ngày</th>
-<th style="width:220px;">60 ngày</th>
-<th>90 ngày</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><b>CNC Operator</b><div class="small muted">OJT 1 trang: <a href="../02-Training-Content/02-OJT-Guides/ojt-role-operator.html">TRN-ACA-OJT-OP-01</a></div></td>
-<td>C01-L1 • C02-L1 • C03-L1 • C08-L1 • C10-L1</td>
-<td>C09-L2 • C16-L2 • C17-L1</td>
-<td>C03-L2 • C10-L2 (handoff) • SYS-OPS-03 (WIP control)</td>
-</tr>
-<tr>
-<td><b>Setup / Team Lead</b><div class="small muted">OJT 1 trang: <a href="../02-Training-Content/02-OJT-Guides/ojt-role-setup-teamlead.html">TRN-ACA-OJT-SET-01</a></div></td>
-<td>Gate A + C17-L2</td>
-<td>C09-L3 • C16-L3 • C13-L2</td>
-<td>C10-L2 • SYS-OPS-05 (NCR/CAPA) • LPA tại khu vực</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="card">
-<span class="badge">Chất lượng</span>
-<table class="table">
-<thead>
-<tr>
-<th style="width:220px;">Vai trò</th>
-<th style="width:220px;">30 ngày</th>
-<th style="width:220px;">60 ngày</th>
-<th>90 ngày</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><b>QC Inspector</b><div class="small muted">OJT 1 trang: <a href="../02-Training-Content/02-OJT-Guides/ojt-role-qc-inspector.html">TRN-ACA-OJT-QC-01</a></div></td>
-<td>Gate A + C16-L2</td>
-<td>C16-L3 • C03-L2 • C13-L2</td>
-<td>C10-L2 • SYS-OPS-06 (Final packet) • audit finding zero-repeat</td>
-</tr>
-<tr>
-<td><b>QA Engineer / QMS</b><div class="small muted">OJT 1 trang: <a href="../02-Training-Content/02-OJT-Guides/ojt-role-qa-qms.html">TRN-ACA-OJT-QMS-01</a></div></td>
-<td>Gate A + C13-L3</td>
-<td>C10-L3 • C16-L3 • C15-L3 • C18-L3</td>
-<td>C13-L4 • Management review pack • audit program</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="card">
-<span class="badge">Kỹ thuật &amp; chuỗi cung ứng</span>
-<table class="table">
-<thead>
-<tr>
-<th style="width:220px;">Vai trò</th>
-<th style="width:220px;">30 ngày</th>
-<th style="width:220px;">60 ngày</th>
-<th>90 ngày</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><b>CAM / NC Programmer</b><div class="small muted">OJT 1 trang: <a href="../02-Training-Content/02-OJT-Guides/ojt-role-cam-nc.html">TRN-ACA-OJT-CAM-01</a></div></td>
-<td>Gate A + C17-L3</td>
-<td>C13-L3 • C08-L2 • C10-L2</td>
-<td>C17-L4 (library &amp; release) • cycle time improvement</td>
-</tr>
-<tr>
-<td><b>Production Planner</b><div class="small muted">OJT 1 trang: <a href="../02-Training-Content/02-OJT-Guides/ojt-role-planner-dispatcher.html">TRN-ACA-OJT-PLA-01</a></div></td>
-<td>Gate A + C09-L3</td>
-<td>C09-L4 • C10-L2 • C08-L2</td>
-<td>OTD system cadence • constraint log &amp; countermeasure</td>
-</tr>
-<tr>
-<td><b>Warehouse / Receiving</b><div class="small muted">OJT 1 trang: <a href="../02-Training-Content/02-OJT-Guides/ojt-role-warehouse-receiving.html">TRN-ACA-OJT-WHS-01</a></div></td>
-<td>Gate A + C18-L2</td>
-<td>C15-L2 • C10-L1 • SYS-OPS-07 (traceability)</td>
-<td>Cycle count stability • shortage prevention pack</td>
-</tr>
-<tr>
-<td><b>Purchasing</b><div class="small muted">OJT 1 trang: <a href="../02-Training-Content/02-OJT-Guides/ojt-role-purchasing.html">TRN-ACA-OJT-PUR-01</a></div></td>
-<td>Gate A + C18-L3</td>
-<td>C15-L3 • C13-L2 • supplier DCR record</td>
-<td>AVL governance • supplier audit &amp; SCAR closure</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="card danger">
-<span class="badge">Quy tắc không thương lượng</span>
-<ul class="tight">
-<li>KHI dùng tài liệu sai revision → <b>STOP</b> và tạo NCR theo SYS-OPS-05.</li>
-<li>KHI thiếu chứng từ vật liệu/special process → <b>HOLD</b> và khoá xuất kho.</li>
-<li>KHI phát hiện dữ liệu lệch giữa ERP và Job Dossier → <b>BLOCK</b> và kích hoạt SYS-OPS-01.</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="note">
-<strong>Dreyfus (phát triển kỹ năng)</strong>
-<ul style="margin:8px 0 0 0; padding-left:18px; line-height:1.75;">
-<li>Novice → làm theo hướng dẫn.</li>
-<li>Competent → làm độc lập theo chuẩn.</li>
-<li>Proficient/Expert → tối ưu, dạy lại, thiết kế hệ thống.</li>
-</ul>
-<div class="small muted">HESEM quy về Level L1–L4 trong rubric năng lực.</div>
-</div>
-<div class="note">
-<strong>70–20–10 (tỷ lệ triển khai thực tế)</strong>
-<ul style="margin:8px 0 0 0; padding-left:18px; line-height:1.75;">
-<li><b>70%</b> học qua công việc thật (OJT, dự án, job). </li>
-<li><b>20%</b> coaching/mentor, phản hồi 1–1.</li>
-<li><b>10%</b> lớp học, đọc tài liệu, quiz.</li>
-</ul>
-<div class="small muted">Mục tiêu: học nhanh nhưng không hy sinh an toàn &amp; chất lượng.</div>
-</div>
-</div>
-</div>
-<script src="../../assets/app.js"></script>
-<div class="no-screen print-disclaimer" style="display:none;text-align:center;font-size:9px;color:#999;padding:8px 0;border-top:1px solid #ddd;margin-top:20px">⚠ Bản in không có đóng dấu kiểm soát phiên bản thì tài liệu này không có giá trị. Chỉ sử dụng phiên bản hiện hành trên hệ thống HESEM QMS.</div>
 </body>
 </html>
-

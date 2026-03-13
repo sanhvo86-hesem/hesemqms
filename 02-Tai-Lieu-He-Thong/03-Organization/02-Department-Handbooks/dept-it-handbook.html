@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
 <meta charset="utf-8"/>
@@ -6,10 +6,11 @@
 <title>IT — Department Handbook | HESEM QMS</title>
 <link href="../../../assets/style.css" rel="stylesheet"/>
 <style>
+
 /* PAGE BREAK & OVERFLOW FIX */
 @media print {
  .card, .table-card, .callout, .note, .box, .iso-map,
- .preface-block, .form-sheet, .lane, .legend, .req, .vstep, .auth-grid {
+ .preface-block, .form-sheet, .lane, .legend, .req, .vstep, .auth-grid, .backup-card, .org-row {
  page-break-inside: avoid;
  break-inside: avoid;
  }
@@ -41,74 +42,72 @@ td, th { max-width: 420px; overflow-wrap: break-word; word-wrap: break-word; }
 .doc-link-list li {padding:6px 0 6px 16px; position:relative;}
 .doc-link-list li:before {content:"•"; position:absolute; left:0; color:var(--blue);}
 .inline-tag {display:inline-block;padding:3px 8px;border:1px solid var(--ln);border-radius:999px;font-size:10px;font-weight:700;background:var(--bg2);margin-right:6px;margin-bottom:6px;}
-.svg-wrap {background:var(--bg); border:1px solid var(--ln); border-radius:var(--r); padding:16px; overflow:auto;}
+.svg-wrap,.org-wrap {background:var(--bg); border:1px solid var(--ln); border-radius:var(--r); padding:16px; overflow:auto;}
 .nav-toc a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;margin:6px 0;background:var(--bg);}
 kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--ln);padding:2px 5px;border-radius:4px;background:#fff;}
+.org-tree{display:flex;flex-direction:column;gap:16px;margin:8px 0;}
+.org-level{display:grid;gap:14px;}
+.org-level.cols-1{grid-template-columns:1fr;}
+.org-level.cols-2{grid-template-columns:repeat(2,minmax(0,1fr));}
+.org-level.cols-3{grid-template-columns:repeat(3,minmax(0,1fr));}
+.org-level.cols-4{grid-template-columns:repeat(4,minmax(0,1fr));}
+.org-level.cols-5{grid-template-columns:repeat(5,minmax(0,1fr));}
+.org-card{border:1px solid var(--ln);border-top:4px solid var(--blue);border-radius:var(--r);padding:14px;background:var(--bg);}
+.org-card h3{font-size:14px;color:var(--navy);margin:0 0 4px;}
+.org-card p{margin:4px 0;font-size:12px;}
+.org-row{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);margin:12px 0;}
+.org-row h3{margin:0 0 8px;font-size:13px;color:var(--navy);}
+.badge-soft{display:inline-block;padding:2px 8px;border-radius:999px;background:var(--blue-l);color:var(--navy);font-size:10px;font-weight:700;margin-right:6px;margin-bottom:6px;}
+.kpi-box{border:1px solid var(--ln);border-radius:var(--r);padding:12px;background:var(--bg);margin:8px 0;}
+.kpi-box b{display:block;font-size:11px;color:var(--navy);text-transform:uppercase;letter-spacing:.3px;margin-bottom:4px;}
+.auth-grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:10px 0 16px;}
+.auth-item{padding:12px 14px; border:1px solid var(--ln,#d7deea); border-radius:8px; background:var(--bg2,#f8fafc);}
+.backup-card{padding:14px 16px; border:1px solid var(--ln,#d7deea); border-left:4px solid #0f766e; border-radius:8px; background:var(--bg2,#f8fafc); margin:10px 0 0;}
+.role-boundary{border:1px solid #cfe0ff;border-left:4px solid #2563eb;border-radius:8px;background:#eef6ff;padding:14px 16px;margin:14px 0;}
+.phase-card{border:1px solid var(--ln);border-left:4px solid var(--gold);border-radius:var(--r);padding:14px;background:#fffdf5;margin:12px 0;}
+.phase-card h3{margin:0 0 6px;font-size:14px;color:var(--navy);}
+.phase-card p:last-child,.role-boundary p:last-child,.auth-item p:last-child,.backup-card p:last-child{margin-bottom:0;}
+.small-note{font-size:12px;color:var(--ink2);}
 
 </style>
-
 </head>
 <body>
 <div class="container">
   <div class="page">
     <div class="page-body">
-<div class="form-header">
-<div class="fh-left">
-  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
-  <div class="fh-company">
-    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
-    <span>Tài liệu kiểm soát</span>
-  </div>
-</div>
-<div class="title">
-  <strong>IT — Department Handbook</strong>
-  <span class="sub-vn"></span>
-</div>
-<div class="meta">
-  <div class="row"><span><b>Mã:</b></span><span>DEPT-IT-HANDBOOK</span></div>
-  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
-  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
-  <div class="row"><span><b>Chủ sở hữu:</b></span><span>HR</span></div>
-  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
-</div>
-</div>
-<div class="doc-content" id="docContent">
+      <div class="form-header">
+        <div class="fh-left">
+          <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+          <div class="fh-company">
+            <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+            <span>Tài liệu kiểm soát</span>
+          </div>
+        </div>
+        <div class="title">
+          <strong>IT — Department Handbook</strong>
+          <span class="sub-vn">Sổ tay vận hành cấp phòng ban cho mô hình CNC job-order</span>
+        </div>
+        <div class="meta">
+          <div class="row"><span><b>Mã:</b></span><span>IT-HANDBOOK</span></div>
+          <div class="row"><span><b>Phiên bản:</b></span><span>V1.0</span></div>
+          <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+          <div class="row"><span><b>Chủ sở hữu:</b></span><span>IT Admin</span></div>
+          <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+        </div>
+      </div>
+      <div class="doc-content" id="docContent">
         <div class="form-sheet">
-
-<div class="iso-map">
-  <div class="iso-title">Department control intent</div>
-  <div class="req"><span class="req-tag shall">PHẢI</span><div>Phòng ban PHẢI vận hành theo output của JD phòng ban, SOP đang hiệu lực và các gate hold / release có liên quan.</div></div>
-  <div class="req"><span class="req-tag should">NÊN</span><div>Các KPI trong sổ tay này NÊN được dùng thống nhất trong daily management và management review.</div></div>
-</div>
-<div class="preface-block">
-  <div class="grid-2">
-    <div>
-      <p><b>Vai trò thuộc phòng</b></p>
-      <div><span class="inline-tag">IT Admin</span></div>
-    </div>
-    <div>
-      <p><b>Mã tài liệu chính</b></p>
-      <div><span class="inline-tag">SOP-104</span><span class="inline-tag">SOP-108</span></div>
-    </div>
-  </div>
-</div>
-<h2 class="h2">1. Mục tiêu phòng ban</h2><p>Đảm bảo hạ tầng IT ổn định cho vận hành 2 ca; quản trị tài khoản, thiết bị và sao lưu dữ liệu.</p>
-<h2 class="h2">2. Phạm vi</h2><p class="muted">Chưa quy định riêng; áp dụng theo JD.docx và SOP liên quan.</p>
-<h2 class="h2">3. Trách nhiệm bắt buộc</h2><p class="muted">Chưa quy định riêng; áp dụng theo JD.docx và SOP liên quan.</p>
-<h2 class="h2">4. Quyền hạn</h2><p class="muted">Chưa quy định riêng; áp dụng theo JD.docx và SOP liên quan.</p>
-<h2 class="h2">5. Đầu ra bắt buộc</h2><p>Asset list, access log, backup log, incident log.</p>
-<h2 class="h2">6. KPI</h2><p>Uptime, SLA xử lý sự cố, tuân thủ backup.</p>
-<h2 class="h2">7. Giao diện phòng ban</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Điểm giao tiếp</th><th>Nhận từ</th><th>Giao cho</th><th>Chứng từ / record đi kèm</th></tr></thead>
-<tbody>
-<tr><td>Thông tin đầu vào / yêu cầu</td><td>Phòng liền trước theo RFQ → Ship</td><td>Phòng ban này</td><td>PO, revision, traveler, WI/NC, checklist, release record</td></tr>
-<tr><td>Escalation bất thường</td><td>Nhân sự hiện trường / owner job</td><td>Trưởng phòng / QA Manager / CEO theo mức độ</td><td>NCR, hold log, incident log, action log</td></tr>
-<tr><td>Đầu ra bắt buộc</td><td>Phòng ban này</td><td>Phòng liền sau hoặc khách hàng nội bộ</td><td>Record đã ký, trạng thái system, nhãn, chứng từ ship, báo cáo KPI</td></tr>
-</tbody></table></div>
-<h2 class="h2">8. SOP / WI / Form liên quan</h2>
-<div class="table-card"><table class="table"><tbody><tr><th>SOP liên quan</th><td>SOP-104<br/>SOP-108</td></tr><tr><th>WI liên quan</th><td>—</td></tr><tr><th>Biểu mẫu chính</th><td>—</td></tr></tbody></table></div>
-
+<div class="iso-map"><div class="iso-title">Department control intent</div><div class="req"><span class="req-tag shall">PHẢI</span><div>Phòng ban phải vận hành theo JD mới nhất, REF-020 về role-boundary, authority matrix, SOP/WI và các gate hold/release liên quan.</div></div><div class="req"><span class="req-tag shall">PHẢI</span><div>Mọi trách nhiệm liên phòng ban trong handbook này chỉ có hiệu lực khi đi kèm bằng chứng bàn giao, trạng thái hệ thống hoặc biểu mẫu đã quy định.</div></div><div class="req"><span class="req-tag should">NÊN</span><div>KPI và handoff trong handbook này nên được dùng trực tiếp trong daily management và management review.</div></div></div>
+<div class="preface-block"><div class="grid-2"><div><p><b>Vai trò thuộc phòng</b></p><div><span class="inline-tag">IT Admin</span></div></div><div><p><b>Mã tài liệu chính</b></p><div><span class="inline-tag">SOP-104</span><span class="inline-tag">SOP-108</span><span class="inline-tag">REF-013</span><span class="inline-tag">REF-020</span><span class="inline-tag">REF-021</span></div></div></div></div>
+<h2 class="h2">1. Mục tiêu phòng ban</h2><p>Duy trì hạ tầng CNTT, endpoint, mạng và bảo mật nền để các hệ thống QMS/ERP hoạt động ổn định, truy cập đúng quyền và có khả năng phục hồi khi sự cố.</p>
+<h2 class="h2">2. Phạm vi</h2><p>Network, servers/endpoints, backup baseline, cybersecurity hygiene, helpdesk, device lifecycle, access support, business continuity support.</p>
+<h2 class="h2">3. Trách nhiệm bắt buộc</h2><ul><li>Duy trì hạ tầng, endpoint, user account và kết nối đáp ứng yêu cầu uptime cho Epicor, tài liệu QMS, máy đo/CMM và báo cáo.</li><li>Triển khai baseline bảo mật, backup, patching và hỗ trợ sự cố CNTT theo mức độ ưu tiên vận hành.</li><li>Phối hợp Epicor Admin trong phân quyền, audit log, change control hệ thống và phục hồi dữ liệu.</li><li>Quản lý thiết bị CNTT, license, antivirus, MFA, email/domain và các dịch vụ dùng trong công ty.</li><li>Tham gia contingency plan cho rủi ro mất mạng, mất điện, ransomware, hỏng thiết bị hoặc mất dữ liệu.</li></ul>
+<h2 class="h2">4. Quyền hạn</h2><ul><li>Tạm khóa tài khoản/thiết bị khi phát hiện nguy cơ bảo mật hoặc vi phạm chính sách.</li><li>Yêu cầu bộ phận sử dụng tuân thủ backup, đặt mật khẩu, phân quyền và thay đổi cấu hình qua kênh kiểm soát.</li><li>Ưu tiên xử lý sự cố theo tác động tới quality/shipment/safety/finance đã quy định.</li><li>Từ chối cài đặt phần mềm hoặc kết nối không được kiểm soát.</li></ul>
+<h2 class="h2">5. Đầu ra bắt buộc</h2><p>Access provisioning, incident ticket, backup/restore evidence, asset inventory, security baseline, system uptime log.</p>
+<h2 class="h2">6. KPI</h2><div class="kpi-box"><b>1. KPI</b><div>System uptime</div></div><div class="kpi-box"><b>2. KPI</b><div>Critical incident response time</div></div><div class="kpi-box"><b>3. KPI</b><div>Backup/restore success</div></div><div class="kpi-box"><b>4. KPI</b><div>Access right-first-time</div></div><div class="kpi-box"><b>5. KPI</b><div>Patch/security compliance</div></div>
+<h2 class="h2">7. Giao diện phòng ban</h2><div class="table-card"><table class="table"><colgroup><col style="width:24%"/><col style="width:18%"/><col style="width:18%"/><col style="width:40%"/></colgroup><thead><tr><th>Điểm giao tiếp</th><th>Nhận từ</th><th>Giao cho</th><th>Chứng từ / record đi kèm</th></tr></thead><tbody><tr><td>User/system request</td><td>All departments</td><td>IT</td><td>Ticket, approval, access need</td></tr><tr><td>ERP/QMS application issue</td><td>Epicor Admin / QMS</td><td>IT</td><td>Issue log, infrastructure evidence</td></tr><tr><td>Cybersecurity event</td><td>IT</td><td>CEO / QA / ERP</td><td>Incident response, containment, restore plan</td></tr></tbody></table></div>
+<h2 class="h2">8. Tài liệu liên quan</h2><div class="table-card"><table class="table"><colgroup><col style="width:22%"/><col style="width:78%"/></colgroup><thead><tr><th>Nhóm</th><th>Tài liệu</th></tr></thead><tbody><tr><td>QMS / Org</td><td><a href="../../01-Quality-Manual/qms-man-001-qms-manual.html">QMS-MAN-001</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-020-cnc-operating-model-and-role-boundary.html">REF-020</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-021-phased-document-upgrade-roadmap.html">REF-021</a><br/><a href="../04-RACI-Authority/annex-qms-025-authority-matrix.html">ANNEX-QMS-025</a><br/><a href="../04-RACI-Authority/annex-qms-026-raci-master-matrix.html">ANNEX-QMS-026</a><br/><a href="../04-RACI-Authority/annex-qms-028-deputy-backup-matrix.html">ANNEX-QMS-028</a></td></tr><tr><td>SOP / WI / FRM trọng yếu</td><td><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-104-data-governance-records-security-and-ip-protection.html">SOP-104</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-108-operational-contingency-plan.html">SOP-108</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/03-Reference/03-ANNEX-Digital/ref-013-epicor-integration.html">REF-013</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-020-cnc-operating-model-and-role-boundary.html">REF-020</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-021-phased-document-upgrade-roadmap.html">REF-021</a></td></tr></tbody></table></div>
+<div class="footer-note">Handbook này dùng để làm rõ phạm vi phòng ban, không thay thế JD cá nhân hay SOP/WI chi tiết. Khi có thay đổi tổ chức hoặc JD mới, handbook phải được rà lại cùng authority / RACI tương ứng.</div>
         </div>
       </div>
     </div>

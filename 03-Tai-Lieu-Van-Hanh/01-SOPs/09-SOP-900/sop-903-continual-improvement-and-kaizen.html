@@ -1,119 +1,98 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+
 <html lang="vi">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>SOP-903 — Continual Improvement and Kaizen | HESEM QMS</title>
+<title>SOP-903 — Cải tiến liên tục và Kaizen | HESEM QMS</title>
 <link href="../../../assets/style.css" rel="stylesheet"/>
-
 <style>
-/* ═══ PAGE BREAK & OVERFLOW FIX (auto-applied) ═══ */
+.chip{display:inline-block;padding:2px 10px;border-radius:999px;border:1px solid #d7dee7;background:#f8fafc;font-size:11px;margin-right:6px;margin-bottom:6px;font-weight:600;}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:12px;}
+.tight li{margin:4px 0;}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+.toc{border:1px solid var(--ln);border-radius:var(--r);padding:16px;background:var(--bg2);margin:18px 0 24px;}
+.toc-title{font-size:12px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.4px;margin-bottom:10px;}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;}
+.toc-grid a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;background:var(--bg);font-size:12px;color:var(--ink);}
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.metric-card{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);}
+.metric-card .value{font-size:20px;font-weight:700;color:var(--navy);}
+.metric-card .label{font-size:11px;color:var(--ink3);margin-top:4px;text-transform:uppercase;letter-spacing:.3px;}
+.mini-note{font-size:12px;color:var(--ink2);line-height:1.55;}
+.gate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.gate-card{border:1px solid var(--ln);border-left:4px solid var(--blue);border-radius:var(--r);padding:14px;background:var(--bg);}
+.gate-card h3{margin:0 0 6px;font-size:14px;color:var(--navy);}
+.field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;}
+.field{padding:10px 12px;border:1px solid var(--ln);border-radius:var(--r-sm);background:var(--bg);}
+.field b{display:block;font-size:11px;color:var(--ink3);text-transform:uppercase;letter-spacing:.3px;margin-bottom:6px;}
+.field .blank{width:100%;min-height:22px;}
+.check-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;}
+.check-item{padding:8px 10px;border:1px solid var(--ln);border-radius:var(--r-sm);background:var(--bg);font-size:12px;}
+.check-item .chk{margin-right:6px;}
+.legend-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0;}
+.legend-row .chip{margin-bottom:0;}
+.footer-note{margin-top:20px;font-size:11px;color:var(--ink3);}
+.decision-table td:first-child, .decision-table th:first-child{font-weight:700;}
+.kpi-good{color:#166534;font-weight:700;}
+.kpi-watch{color:#92400e;font-weight:700;}
+.kpi-bad{color:#b91c1c;font-weight:700;}
+.control-stack > * + *{margin-top:12px;}
+.subtle{color:var(--ink2);font-size:12px;}
+.boxed-list{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);}
+.lane-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.35px;color:var(--navy);margin-bottom:6px;}
+.flow-note{font-size:11px;color:var(--ink3)}
+.pill{display:inline-block;padding:4px 8px;border-radius:999px;background:var(--blue-l);color:var(--navy);font-size:11px;font-weight:700;margin:0 6px 6px 0;}
+.audit-score{font-size:24px;font-weight:700;color:var(--navy);}
+.matrix-small td,.matrix-small th{font-size:12px;}
+.svg-wrap{overflow:auto;border:1px solid var(--ln);border-radius:var(--r);background:#fff;padding:12px}
+.legend-box{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.legend-box span{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--ln);background:var(--bg);padding:4px 8px;border-radius:999px;font-size:11px}
+.sq{width:12px;height:12px;border-radius:3px;display:inline-block}
+.rule-table td:nth-child(1),.rule-table td:nth-child(2){white-space:nowrap}
+.small{font-size:12px}
 @media print {
- .card, .table-card, .callout, .note, .box, .iso-map,
- .preface-block, .form-sheet, .lane, .legend, .req, .vstep {
- page-break-inside: avoid;
- break-inside: avoid;
- }
- h1, h2, h3, .h1, .h2, .h3 {
- page-break-after: avoid;
- break-after: avoid;
- }
- .form-header { page-break-inside: avoid; break-inside: avoid; }
- .sig-row, .sign-row, .approval-row { page-break-inside: avoid; break-inside: avoid; }
- tr { page-break-inside: avoid; break-inside: avoid; }
- thead { display: table-header-group; }
- tfoot { display: table-footer-group; }
- p { orphans: 3; widows: 3; }
- .table-card { overflow: visible !important; }
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.lane,.legend,.req,.auth-grid,.backup-card,.vstep,.metric-card,.gate-card,.field,.boxed-list,.svg-wrap{page-break-inside:avoid;break-inside:avoid}
+  h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
+  .form-header,.sig-row,.sign-row,.approval-row{page-break-inside:avoid;break-inside:avoid}
+  tr{page-break-inside:avoid;break-inside:avoid}
+  thead{display:table-header-group}tfoot{display:table-footer-group}
+  p{orphans:3;widows:3}.table-card{overflow:visible!important}
 }
-.page-body { overflow-x: hidden; }
-.table-card, .table-block, .table-wrap { overflow-x: auto; max-width: 100%; }
-table { max-width: 100%; table-layout: auto; }
-td, th { max-width: 420px; overflow-wrap: break-word; word-wrap: break-word; }
-</style>
+.page-body{overflow-x:hidden}
+.table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
+table{max-width:100%;table-layout:auto}
+td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
+@media (max-width: 900px){.grid-3{grid-template-columns:1fr;}.field-grid{grid-template-columns:1fr;}}
 
+</style>
 </head>
 <body>
-<div class="container">
-  <div class="page">
-    <div class="page-body">
+<div class="container"><div class="page"><div class="page-body">
 <div class="form-header">
 <div class="fh-left">
-  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
-  <div class="fh-company">
-    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
-    <span>Tài liệu kiểm soát</span>
-  </div>
+<a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+<div class="fh-company">
+<a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+<span>Tài liệu kiểm soát</span>
+</div>
 </div>
 <div class="title">
-  <strong>SOP-903 — Continual Improvement and Kaizen</strong>
-  <span class="sub-vn"></span>
+<strong>SOP-903 — Cải tiến liên tục và Kaizen</strong>
+<span class="sub-vn">Biến vấn đề và cơ hội thành thay đổi tiêu chuẩn có tác động thực</span>
 </div>
 <div class="meta">
-  <div class="row"><span><b>Mã:</b></span><span>SOP-903</span></div>
-  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
-  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
-  <div class="row"><span><b>Chủ sở hữu:</b></span><span>QA/QMS</span></div>
-  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+<div class="row"><span><b>Mã:</b></span><span>SOP-903</span></div>
+<div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+<div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+<div class="row"><span><b>Chủ sở hữu:</b></span><span>Production Engineer / Industrial Engineer / Quality Engineer</span></div>
+<div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
 </div>
 </div>
-<div class="doc-content" id="docContent">
-        <div class="form-sheet">
-          <div class="iso-map">
-  <div class="iso-title">ISO / Standard mapping</div>
-  <div class="small muted">Map điều khoản hoặc chuẩn kỹ thuật vào yêu cầu triển khai tại xưởng (Point-of-Use).</div>
-  <div class="req">
-  <span class="req-tag shall">PHẢI</span>
-  <div>HESEM PHẢI cải tiến liên tục bằng dữ liệu từ NCR/CAPA, audit, KPI, customer feedback, EHS, cost và ý tưởng hiện trường; cải tiến không chỉ dừng ở sửa lỗi đơn chiếc. <span class="iso-ref">ISO 9001 10.3</span></div>
-</div><div class="req">
-  <span class="req-tag shall">PHẢI</span>
-  <div>Dự án cải tiến PHẢI có vấn đề rõ, owner rõ, mục tiêu đo được và xác nhận hiệu lực sau khi thực hiện. <span class="iso-ref">PDCA / A3</span></div>
-</div><div class="req">
-  <span class="req-tag should">NÊN</span>
-  <div>Kaizen event nên tập trung vào điểm nghẽn có tác động lớn đến chất lượng, OTD, flow, cleanliness, FOD hoặc chi phí chất lượng xấu. <span class="iso-ref">Lean / Kaizen best practice</span></div>
-</div>
-</div><div class="preface-block">
-  <h2 class="h2">Điều kiện áp dụng và kiểm soát</h2>
-  <div class="grid-2">
-    <div>
-      <p><b>Nguồn phát sinh đề tài</b></p>
-      <ul><li>NCR/CAPA, audit finding, customer complaint, MR action, lãng phí tại xưởng, safety/cleanliness issue, overtime bất thường.</li><li>Ý tưởng từ ca sản xuất, quality, warehouse, cleaning/packaging, maintenance, office support.</li></ul>
-    </div>
-    <div>
-      <p><b>Đầu ra / hồ sơ</b></p>
-      <ul><li><b>Output:</b> action PDCA/A3, kaizen event, dashboard kết quả, chuẩn hóa vào SOP/WI/checklist khi chứng minh hiệu lực.</li></ul>
-    </div>
-  </div>
-  <p class="callout">Nguyên tắc: cải tiến phải đi tới chuẩn hóa. Cải tiến không chuẩn hóa sẽ quay lại lỗi cũ.</p>
-</div><h2 class="h2">1. Mục đích</h2>
-<p>Tạo một pipeline cải tiến liên tục cho HESEM dựa trên PDCA, A3 và kaizen event; ưu tiên các vấn đề tác động trực tiếp đến chất lượng, giao hàng, sạch, an toàn và chi phí.</p>
-<h2 class="h2">2. Phạm vi</h2>
-<ul><li>Áp dụng cho mọi process và bộ phận trong phạm vi Workstream B; ưu tiên đề tài có giao điểm giữa nhiều bộ phận.</li></ul>
-<h2 class="h2">3. Thuật ngữ</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Thuật ngữ</th><th>Diễn giải</th></tr></thead>
-<tbody><tr><td><b>PDCA</b></td><td>Plan - Do - Check - Act: chu trình cải tiến cơ bản của HESEM.</td></tr><tr><td><b>A3</b></td><td>Mẫu tư duy và trình bày vấn đề trên một trang: vấn đề, hiện trạng, phân tích, giải pháp, kiểm chứng.</td></tr><tr><td><b>Kaizen event</b></td><td>Sự kiện cải tiến ngắn hạn có đội liên chức năng, thường 1-5 ngày, tập trung vào một chủ đề cụ thể.</td></tr><tr><td><b>Benefit validation</b></td><td>Xác nhận lợi ích sau triển khai bằng dữ liệu trước/sau và phạm vi đo được.</td></tr></tbody></table></div>
-<h2 class="h2">4. RACI</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Hoạt động</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead>
-<tbody><tr><td>Tiếp nhận và sàng lọc đề tài</td><td>QMS Engineer</td><td>QA Manager</td><td>Quality Engineer; Production Director</td><td>CEO / Tổng Giám đốc</td></tr><tr><td>Điều phối A3 / PDCA / Kaizen event</td><td>QMS Engineer</td><td>QA Manager</td><td>Quality Engineer; Engineering Lead/Manager; Supply Chain Manager</td><td>CEO / Tổng Giám đốc</td></tr><tr><td>Xác nhận lợi ích và chuẩn hóa tài liệu</td><td>QMS Engineer</td><td>QA Manager</td><td>Finance Manager; QMS Engineer; Quality Engineer</td><td>CEO / Tổng Giám đốc</td></tr></tbody></table></div>
-<h2 class="h2">5. Luồng cải tiến liên tục</h2>
-<div class="vflow"><div class="vstep"><div class="vnum">1</div><div class="vtext">Ghi nhận đề tài từ NCR, audit, KPI đỏ, idea hiện trường hoặc review quản trị.</div></div><div class="vstep"><div class="vnum">2</div><div class="vtext">Sàng lọc mức ưu tiên theo tác động: quality risk, OTD, COPQ, safety, cleanliness, customer pain, nguồn lực cần thiết.</div></div><div class="vstep"><div class="vnum">3</div><div class="vtext">Chọn cách xử lý: action nhỏ tại bộ phận, A3/PDCA chuẩn hoặc Kaizen event liên chức năng.</div></div><div class="vstep"><div class="vnum">4</div><div class="vtext">Thực hiện thử nghiệm có kiểm soát, đo trước - sau, kiểm tác dụng phụ và cập nhật dashboard.</div></div><div class="vstep"><div class="vnum">5</div><div class="vtext">Nếu hiệu lực bền vững, chuẩn hóa vào SOP/WI/checklist/layout/training; nếu chưa, quay lại Plan.</div></div></div>
-<h2 class="h2">6. Kaizen event</h2>
-<ul><li>Kaizen event dùng khi vấn đề liên bộ phận, cần thay đổi flow/layout/visual control hoặc có lãng phí rõ nhưng chưa giải quyết được bằng action nhỏ.</li><li>Event PHẢI có mục tiêu, sponsor, owner, phạm vi, dữ liệu baseline, danh sách deliverables và review cuối event.</li></ul>
-<h2 class="h2">7. Xác nhận hiệu lực và dashboard</h2>
-<ul><li>Mọi dự án cải tiến nên có chỉ số đơn giản: trước/sau, lead time, defect rate, thời gian setup, OTD, số lỗi lặp, mức tiêu hao, số near-miss…</li><li>WI-901 dùng để chuẩn hóa bảng dashboard và nhịp cập nhật.</li><li>Nếu kết quả không giữ được sau 30-90 ngày, dự án chưa được xem là đóng bền vững.</li></ul>
-<h2 class="h2">Tài liệu liên quan</h2>
-<ul><li>WI-901 — Dashboard</li><li>SOP-606 — NCR, CAPA & Phản ứng IPQC</li><li>SOP-901 — Đánh giá nội bộ & LPA</li><li>SOP-902 — Xem xét lãnh đạo</li></ul>
-<h2 class="h2">Ký duyệt</h2>
-<div class="sig-row"><div><div class="muted small"><b>Người lập</b></div><div class="sig-box"></div></div><div><div class="muted small"><b>Người rà soát</b></div><div class="sig-box"></div></div><div><div class="muted small"><b>Phê duyệt</b></div><div class="sig-box"></div></div></div><div class="annex-block">
-  <div class="annex-title">Footer</div>
-  <p class="muted">SOP chủ quản: <b>SOP-903</b> · Lưu hồ sơ theo SOP-104.</p>
-</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<div class="doc-content" id="docContent"><div class="form-sheet">
+<div class="iso-map"><div class="iso-title">Chuẩn mực áp dụng / nguyên tắc bắt buộc</div><div class="req"><span class="req-tag shall">PHẢI</span><div>Cải tiến phải được ưu tiên theo tác động rủi ro/giá trị, có owner và xác nhận hiệu lực sau triển khai.</div></div><div class="req"><span class="req-tag shall">PHẢI</span><div>Khi một cải tiến thay đổi cách làm chuẩn, tài liệu và đào tạo liên quan phải được cập nhật đồng bộ.</div></div><div class="req"><span class="req-tag should">NÊN</span><div>Khuyến khích cải tiến nhỏ tại hiện trường song song với dự án cải tiến lớn liên phòng ban.</div></div></div><div class="preface-block"><div class="grid-2"><div class="card"><div class="card-title">Triết lý</div><p>Kaizen không chỉ là ý tưởng tăng năng suất; đó còn là cách giảm lỗi, giảm waiting, giảm recheck, tăng readiness và tăng độ dễ quản trị của hệ thống.</p></div><div class="callout"><div class="card-title">Chuẩn hóa</div><p>Một cải tiến chỉ được xem là hoàn thành khi đã trở thành “cách làm mới” có tài liệu, training và bằng chứng kết quả ổn định.</p></div></div></div><div class="toc"><div class="toc-title">Mục lục nhanh</div><div class="toc-grid"><a href="#p1">1. Mục đích</a><a href="#p2">2. Phạm vi</a><a href="#p3">3. Thuật ngữ</a><a href="#p4">4. RACI</a><a href="#p5">5. Quy trình</a><a href="#p6">6. Biểu mẫu liên quan</a><a href="#p7">7. Tài liệu liên quan</a></div></div><h2 class="h2" id="p1">1. Mục đích</h2><p>Thiết lập cách thu nhận, ưu tiên, triển khai, kiểm tra hiệu lực và chuẩn hóa các hoạt động cải tiến liên tục trong toàn tổ chức.</p><h2 class="h2" id="p2">2. Phạm vi</h2><p>Áp dụng cho kaizen tại hiện trường, A3/PDCA, dự án liên phòng ban, action từ management review, audit, complaint, NCR/CAPA và sáng kiến cải tiến chủ động.</p><h2 class="h2" id="p3">3. Thuật ngữ</h2><div class="table-card"><table class="table"><thead><tr><th>Thuật ngữ</th><th>Diễn giải áp dụng</th></tr></thead><tbody><tr><td><b>Kaizen</b></td><td>Cải tiến liên tục ở quy mô nhỏ hoặc vừa với chu kỳ phản hồi nhanh.</td></tr><tr><td><b>A3/PDCA</b></td><td>Phương pháp cấu trúc để xác định vấn đề, thử nghiệm giải pháp và xác nhận hiệu lực.</td></tr><tr><td><b>Standardization</b></td><td>Chuyển kết quả cải tiến thành tiêu chuẩn/ tài liệu/ đào tạo mới.</td></tr></tbody></table></div><h2 class="h2" id="p4">4. RACI</h2><div class="table-card"><table class="table"><thead><tr><th>Vai trò</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead><tbody><tr><td>Production Engineer / Industrial Engineer</td><td>●</td><td></td><td></td><td></td></tr><tr><td>Quality Engineer</td><td>●</td><td></td><td></td><td></td></tr><tr><td>QA Manager</td><td></td><td>●</td><td></td><td></td></tr><tr><td>Production Director</td><td></td><td></td><td>●</td><td></td></tr><tr><td>Engineering Lead/Manager</td><td></td><td></td><td>●</td><td></td></tr><tr><td>Supply Chain Manager</td><td></td><td></td><td>●</td><td></td></tr><tr><td>CEO</td><td></td><td></td><td></td><td>●</td></tr></tbody></table></div><div class="role-boundary"><b>Role-boundary / authority note:</b> Production Engineer/IE và Quality cùng sở hữu việc đóng vòng cải tiến bằng dữ liệu. Kaizen chỉ được đóng khi chứng minh được tác động lên năng suất, ổn định quá trình hoặc chất lượng. Xem thêm <a href="../../03-Reference/01-ANNEX-System/ref-020-cnc-operating-model-and-role-boundary.html">REF-020</a>, <a href="../../../02-Tai-Lieu-He-Thong/03-Organization/04-RACI-Authority/annex-qms-025-authority-matrix.html">ANNEX-QMS-025</a> và <a href="../../../02-Tai-Lieu-He-Thong/03-Organization/04-RACI-Authority/annex-qms-026-raci-master-matrix.html">ANNEX-QMS-026</a> để đối chiếu giữa tài liệu.</div><h2 class="h2" id="p5">5. Quy trình</h2><h3 class="h3">1. Nguồn cơ hội cải tiến</h3><ul class="tight"><li>Complaint, NCR, audit, scrap/rework trend, downtime, WIP aging, supplier issues, handling damage, measurement pain points và ý tưởng từ hiện trường đều là nguồn đầu vào hợp lệ.</li></ul><h3 class="h3">2. Ưu tiên và triển khai</h3><ul class="tight"><li>Ưu tiên theo mức tác động tới khách hàng, quality loss, lead time, safety, năng lực và chi phí thực thi.</li><li>Mỗi cải tiến phải có owner, mục tiêu, phạm vi thử nghiệm và tiêu chí thành công.</li></ul><h3 class="h3">3. Xác minh và chuẩn hóa</h3><ul class="tight"><li>Kiểm tra hiệu lực bằng dữ liệu trước/sau, không chỉ bằng cảm nhận.</li><li>Nếu cải tiến thay đổi cách làm chuẩn, phải cập nhật SOP/WI/forms/training và rút bỏ cách làm cũ.</li></ul><h3 class="h3">4. Chia sẻ và nhân rộng</h3><ul class="tight"><li>Bài học tốt nên được lưu vào lessons learned hoặc knowledge base để áp dụng cho part/job/site tương tự.</li></ul><h2 class="h2" id="p6">6. Biểu mẫu liên quan</h2><ul class="tight"><li><a href="../../../04-Bieu-Mau/06-FRM-600/frm-653-a3-pdca-report.html">FRM-653</a></li><li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-151-lessons-learned-log.html">FRM-151</a></li></ul><h2 class="h2" id="p7">7. Tài liệu liên quan</h2><ul class="tight"><li><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-606-ncr-capa-and-ipqc-reaction.html">SOP-606</a></li><li><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-902-management-review.html">SOP-902</a></li></ul><div class="footer-note">Bản nâng cấp giữ nguyên mã tài liệu, logic vận hành gốc và tăng chiều sâu kiểm soát cho mô hình gia công CNC toàn cầu, high-mix/medium-volume hoặc job-order.</div>
+</div></div>
+</div></div></div>
+<script src="../../../assets/app.js"></script>
 </body>
 </html>

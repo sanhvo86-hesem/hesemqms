@@ -1,16 +1,60 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+
 <html lang="vi">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>SOP-301 — Engineering DFM Quoting and Machining Planning | HESEM QMS</title>
+<title>SOP-301 — Engineering, DFM, báo giá và hoạch định gia công | HESEM QMS</title>
 <link href="../../../assets/style.css" rel="stylesheet"/>
 <style>
-/* === PAGE BREAK & OVERFLOW FIX (auto-applied) === */
+.chip{display:inline-block;padding:2px 10px;border-radius:999px;border:1px solid #d7dee7;background:#f8fafc;font-size:11px;margin-right:6px;margin-bottom:6px;font-weight:600;}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:12px;}
+.tight li{margin:4px 0;}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+.toc{border:1px solid var(--ln);border-radius:var(--r);padding:16px;background:var(--bg2);margin:18px 0 24px;}
+.toc-title{font-size:12px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.4px;margin-bottom:10px;}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;}
+.toc-grid a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;background:var(--bg);font-size:12px;color:var(--ink);}
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.metric-card{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);}
+.metric-card .value{font-size:20px;font-weight:700;color:var(--navy);}
+.metric-card .label{font-size:11px;color:var(--ink3);margin-top:4px;text-transform:uppercase;letter-spacing:.3px;}
+.mini-note{font-size:12px;color:var(--ink2);line-height:1.55;}
+.gate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.gate-card{border:1px solid var(--ln);border-left:4px solid var(--blue);border-radius:var(--r);padding:14px;background:var(--bg);}
+.gate-card h3{margin:0 0 6px;font-size:14px;color:var(--navy);}
+.field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;}
+.field{padding:10px 12px;border:1px solid var(--ln);border-radius:var(--r-sm);background:var(--bg);}
+.field b{display:block;font-size:11px;color:var(--ink3);text-transform:uppercase;letter-spacing:.3px;margin-bottom:6px;}
+.field .blank{width:100%;min-height:22px;}
+.check-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;}
+.check-item{padding:8px 10px;border:1px solid var(--ln);border-radius:var(--r-sm);background:var(--bg);font-size:12px;}
+.check-item .chk{margin-right:6px;}
+.legend-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0;}
+.legend-row .chip{margin-bottom:0;}
+.footer-note{margin-top:20px;font-size:11px;color:var(--ink3);}
+.decision-table td:first-child, .decision-table th:first-child{font-weight:700;}
+.kpi-good{color:#166534;font-weight:700;}
+.kpi-watch{color:#92400e;font-weight:700;}
+.kpi-bad{color:#b91c1c;font-weight:700;}
+.control-stack > * + *{margin-top:12px;}
+.subtle{color:var(--ink2);font-size:12px;}
+.boxed-list{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);}
+.lane-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.35px;color:var(--navy);margin-bottom:6px;}
+.flow-note{font-size:11px;color:var(--ink3)}
+.pill{display:inline-block;padding:4px 8px;border-radius:999px;background:var(--blue-l);color:var(--navy);font-size:11px;font-weight:700;margin:0 6px 6px 0;}
+.audit-score{font-size:24px;font-weight:700;color:var(--navy);}
+.matrix-small td,.matrix-small th{font-size:12px;}
+.svg-wrap{overflow:auto;border:1px solid var(--ln);border-radius:var(--r);background:#fff;padding:12px}
+.legend-box{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.legend-box span{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--ln);background:var(--bg);padding:4px 8px;border-radius:999px;font-size:11px}
+.sq{width:12px;height:12px;border-radius:3px;display:inline-block}
+.rule-table td:nth-child(1),.rule-table td:nth-child(2){white-space:nowrap}
+.small{font-size:12px}
 @media print {
-  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.vstep{page-break-inside:avoid;break-inside:avoid}
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.lane,.legend,.req,.auth-grid,.backup-card,.vstep,.metric-card,.gate-card,.field,.boxed-list,.svg-wrap{page-break-inside:avoid;break-inside:avoid}
   h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
-  .form-header,.sig-row,.sign-row{page-break-inside:avoid;break-inside:avoid}
+  .form-header,.sig-row,.sign-row,.approval-row{page-break-inside:avoid;break-inside:avoid}
   tr{page-break-inside:avoid;break-inside:avoid}
   thead{display:table-header-group}tfoot{display:table-footer-group}
   p{orphans:3;widows:3}.table-card{overflow:visible!important}
@@ -19,166 +63,36 @@
 .table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
 table{max-width:100%;table-layout:auto}
 td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
+@media (max-width: 900px){.grid-3{grid-template-columns:1fr;}.field-grid{grid-template-columns:1fr;}}
+
 </style>
 </head>
 <body>
 <div class="container"><div class="page"><div class="page-body">
 <div class="form-header">
 <div class="fh-left">
-  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
-  <div class="fh-company">
-    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
-    <span>Tài liệu kiểm soát</span>
-  </div>
+<a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+<div class="fh-company">
+<a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+<span>Tài liệu kiểm soát</span>
+</div>
 </div>
 <div class="title">
-  <strong>SOP-301 — Engineering DFM Quoting and Machining Planning</strong>
-  <span class="sub-vn"></span>
+<strong>SOP-301 — Engineering, DFM, báo giá và hoạch định gia công</strong>
+<span class="sub-vn">Biến yêu cầu khách hàng thành kế hoạch công nghệ, báo giá và gói dữ liệu sẵn sàng sản xuất</span>
 </div>
 <div class="meta">
-  <div class="row"><span><b>Mã:</b></span><span>SOP-301</span></div>
-  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
-  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
-  <div class="row"><span><b>Chủ sở hữu:</b></span><span>Engineering</span></div>
-  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+<div class="row"><span><b>Mã:</b></span><span>SOP-301</span></div>
+<div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+<div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+<div class="row"><span><b>Chủ sở hữu:</b></span><span>DFM Engineer / Engineering Lead/Manager</span></div>
+<div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
 </div>
 </div>
 <div class="doc-content" id="docContent"><div class="form-sheet">
-
-<div class="iso-map">
-  <div class="iso-title">Chuẩn mực áp dụng</div>
-  <div class="req"><span class="req-tag shall">PHẢI</span><div>Rà soát yêu cầu kỹ thuật trước khi cam kết cung cấp; xác nhận khả năng đáp ứng và kiểm soát thay đổi đầu vào kỹ thuật. <span class="iso-ref">ISO 8.2.3</span> <span class="iso-ref">ISO 8.1</span></div></div>
-  <div class="req"><span class="req-tag shall">PHẢI</span><div>Thiết lập điều kiện sản xuất có kiểm soát: routing, WI/setup sheet, program, tooling/fixture, phương pháp đo và phản ứng khi drift. <span class="iso-ref">ISO 8.5.1</span></div></div>
-  <div class="req"><span class="req-tag should">NÊN</span><div>Áp dụng DFM review ngay từ RFQ để khóa rủi ro về dung sai, gá đặt, dao cụ, bavia, biến dạng, finish và khả năng đo CMM. <span class="iso-ref">AS9100D 8.1.1</span></div></div>
-  <div class="req"><span class="req-tag may">ĐƯỢC PHÉP</span><div>Dùng routing chuẩn theo family nếu đã được xác nhận tương đương về machine capability, fixture concept và gage method. <span class="iso-ref">ISO 7.1.6</span></div></div>
-</div>
-
-<div class="preface-block">
-  <h2 class="h2">Quy ước triển khai tại HESEM</h2>
-  <div class="grid-2">
-    <div>
-      <div class="card-title">Feasibility phải đi cùng báo giá</div>
-      <ul>
-        <li>Engineering không chỉ “xem bản vẽ”; phải kết luận cách gia công, cách gá, cách đo, rủi ro bề mặt và công đoạn thuê ngoài nếu có.</li>
-        <li>DFM note <b>PHẢI</b> rõ chỗ nào cần làm rõ với khách hàng trước khi quote hoặc trước release.</li>
-      </ul>
-    </div>
-    <div>
-      <div class="card-title">Setup sheet và NC package là điểm dùng thật ở máy</div>
-      <ul>
-        <li>Setup sheet <b>PHẢI</b> có CTQ list, gốc tọa độ, point kiểm, offset limit, dấu hiệu tool wear và phản ứng drift.</li>
-        <li>NC package <b>PHẢI</b> khóa theo revision; bản lỗi thời phải thu hồi theo <a href="../01-SOP-100/sop-106-change-and-configuration-management.html">SOP-106</a> SOP-106.</li>
-      </ul>
-      <div class="callout"><b>Quy tắc:</b> nếu WI/Setup/NC chưa release hoặc chưa chỉ rõ CTQ và điểm đo thì Planning không được phát hành job vào xưởng.</div>
-    </div>
-  </div>
-</div>
-
-<h2 class="h2">1. Mục đích</h2>
-<p>Chuẩn hóa đầu ra kỹ thuật dùng cho báo giá và sản xuất: feasibility, DFM, routing, setup sheet, NC release, tool/fixture standard và kiểm soát chương trình đo.</p>
-
-<h2 class="h2">2. Phạm vi</h2>
-<p>Áp dụng cho part mới, revision change, repeat order cần xem lại kỹ thuật, rework instruction được phê duyệt, và mọi job cần release WI/Setup/NC trong xưởng CNC bán dẫn.</p>
-
-<h2 class="h2">3. Thuật ngữ</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Thuật ngữ</th><th>Diễn giải áp dụng</th></tr></thead>
-<tbody>
-<tr><td><b>Feasibility</b></td><td>Kết luận có làm được hay không, bằng cách nào, với mức rủi ro gì và cần điều kiện gì.</td></tr>
-<tr><td><b>DFM</b> (Design for Manufacturability)</td><td>Rà soát khả năng gia công và đo kiểm từ bản vẽ/model/spec của khách hàng.</td></tr>
-<tr><td><b>Setup Sheet</b></td><td>Phiếu chuẩn bị máy/gá/dao/offset/CTQ cho từng operation hoặc cụm operation.</td></tr>
-<tr><td><b>NC Package</b></td><td>Chương trình NC, mô phỏng, version, post, tool list và chỉ dẫn vận hành liên quan.</td></tr>
-<tr><td><b>Inspection Program Release</b></td><td>Xác nhận chương trình đo/CMM đúng part-rev, đúng datum, đúng output report trước khi dùng.</td></tr>
-</tbody></table></div>
-
-<h2 class="h2">4. RACI</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Vai trò</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead>
-<tbody>
-<tr><td><b>Process Engineer</b> (WI/Setup)</td><td>X</td><td></td><td></td><td></td></tr>
-<tr><td><b>CAM/NC Programmer</b> (NC)</td><td>X</td><td></td><td></td><td></td></tr>
-<tr><td><b>Engineering Lead</b></td><td></td><td>X</td><td></td><td></td></tr>
-<tr><td><b>Estimator</b></td><td></td><td></td><td>X</td><td></td></tr>
-<tr><td><b>Quality Engineer</b></td><td></td><td></td><td>X</td><td></td></tr>
-<tr><td><b>QC Inspector / CMM</b></td><td></td><td></td><td>X</td><td></td></tr>
-<tr><td><b>Production Planner</b></td><td></td><td></td><td></td><td>X</td></tr>
-</tbody></table></div>
-
-<h2 class="h2">5. Quy trình</h2>
-
-<h3 class="h3">5.1 Feasibility đầu vào cho RFQ</h3>
-<ul>
-  <li>Estimator <b>PHẢI</b> gửi gói RFQ cho Engineering gồm drawing/spec/model, qty, revision, due date, CSR và hình thức đóng gói/hồ sơ.</li>
-  <li>Engineering <b>PHẢI</b> dùng <a href="../../../04-Bieu-Mau/03-FRM-300/frm-303-dfm-review-checklist.html">FRM-303</a> Checklist DFM để đánh giá: material, tolerance stack-up, geometry khó gia công, workholding, tool access, burr risk, distortion, finish, clean surface và khả năng đo.</li>
-  <li>Kết luận feasibility <b>PHẢI</b> nêu rõ: route dự kiến, máy phù hợp, công đoạn outsource, gage/CMM need, risk và hành động giảm rủi ro.</li>
-</ul>
-
-<h3 class="h3">5.2 DFM review</h3>
-<div class="table-card"><table class="table">
-<thead><tr><th>Nhóm kiểm</th><th>Điểm cần chốt</th><th>Output</th></tr></thead>
-<tbody>
-<tr><td>Geometry / tolerance</td><td>Feature khó tiếp cận, dung sai siêu chặt, datum chain, GD&T, wall mỏng</td><td>Clarification / risk note / phương án gá</td></tr>
-<tr><td>Material / finish</td><td>Loại vật liệu, condition, heat treatment, passivation, SEMI F19/F20 nếu áp dụng</td><td>Yêu cầu cert / outsource / clean handling</td></tr>
-<tr><td>Measurement</td><td>CTQ, phương pháp đo, CMM vs bench gage, datum setup, report format</td><td>Inspection method / program release need</td></tr>
-<tr><td>Packaging / traceability</td><td>Label, lot/serial, cleanliness, special bag/foam/returnable packaging</td><td>Flowdown vào traveler / setup / control plan</td></tr>
-</tbody></table></div>
-
-<h3 class="h3">5.3 Routing và class part</h3>
-<ul>
-  <li>Process Engineer <b>PHẢI</b> phát hành route theo trình tự công đoạn, có op number, machine family, outsource step, inspection point và hold point khi cần.</li>
-  <li>Linh kiện bán dẫn <b>NÊN</b> được phân loại bằng <a href="../../../04-Bieu-Mau/03-FRM-300/frm-304-semiconductor-part-classification.html">FRM-304</a> Phân loại linh kiện bán dẫn để xác định mức sạch, bề mặt, traceability, packaging và mức kiểm.</li>
-  <li>Route thay đổi ảnh hưởng fit/form/function <b>PHẢI</b> đi qua <a href="../01-SOP-100/sop-106-change-and-configuration-management.html">SOP-106</a> SOP-106 và xem lại yêu cầu FAI tại <a href="sop-302-first-article-inspection-fai.html">SOP-302</a> SOP-302.</li>
-</ul>
-
-<h3 class="h3">5.4 Phát hành Setup Sheet / WI</h3>
-<ul>
-  <li>Process Engineer <b>PHẢI</b> dùng <a href="../../../04-Bieu-Mau/03-FRM-300/frm-302-setup-sheet.html">FRM-302</a> Setup Sheet hoặc WI tương đương để mô tả: máy, fixture, dao, tool equivalent, datum/zero, offset limit, CTQ, sample frequency, dấu hiệu tool wear, reaction plan, surface protection và handling note.</li>
-  <li>Setup sheet <b>PHẢI</b> gắn đúng part-rev-op, ngày phát hành, người phát hành và trạng thái release.</li>
-  <li>Setup thay đổi ngoài giới hạn đã phê duyệt <b>PHẢI</b> dừng chạy và báo Engineering/QA xem xét.</li>
-</ul>
-
-<h3 class="h3">5.5 NC release</h3>
-<div class="vflow">
-  <div class="vstep"><div class="vnum">1</div><div class="vtext">CAM/NC Programmer tạo và mô phỏng chương trình; xác nhận post, machine target, tool list và bản vẽ revision.</div></div>
-  <div class="vstep"><div class="vnum">2</div><div class="vtext">Engineering Lead <b>PHẢI</b> rà soát phiên bản, naming convention, folder lưu và điều kiện thu hồi bản cũ.</div></div>
-  <div class="vstep"><div class="vnum">3</div><div class="vtext">NC package release <b>PHẢI</b> cập nhật trên SSOT; Planning chỉ dùng link phát hành, không dùng file copy rời.</div></div>
-</div>
-
-<h3 class="h3">5.6 Tool/fixture standard</h3>
-<ul>
-  <li>Process Engineer <b>PHẢI</b> xác định tool standard, tool equivalent, insert/chip critical, minimum stock và fixture critical check.</li>
-  <li>Fixture mới hoặc thay đổi kẹp/định vị có thể ảnh hưởng CTQ <b>PHẢI</b> xem lại FAI/Delta FAI theo <a href="sop-302-first-article-inspection-fai.html">SOP-302</a> SOP-302.</li>
-  <li>Khuyến nghị tool/fixture chuẩn <b>NÊN</b> phản ánh vào control plan và setup training cho ca 1/ca 2.</li>
-</ul>
-
-<h3 class="h3">5.7 Release chương trình đo</h3>
-<ul>
-  <li>Chương trình đo/CMM trước khi dùng <b>PHẢI</b> được kiểm qua <a href="../../../04-Bieu-Mau/03-FRM-300/frm-305-inspection-program-release-checklist.html">FRM-305</a> Checklist release chương trình đo.</li>
-  <li>Checklist <b>PHẢI</b> kiểm tối thiểu: part-rev đúng, datum đúng, tolerance đúng, nominal/output đúng, report format đúng và sample run đạt.</li>
-  <li>Nếu chương trình đo thay đổi sau baseline, Quality Engineer hoặc QC phụ trách <b>PHẢI</b> đánh giá tác động đến FAI/control plan/inspection record.</li>
-</ul>
-
-<h2 class="h2">6. Biểu mẫu liên quan</h2>
-<ul>
-<li><a href="../../../04-Bieu-Mau/03-FRM-300/frm-301-costing-sheet.html">FRM-301</a> Bảng tính giá</li>
-<li><a href="../../../04-Bieu-Mau/03-FRM-300/frm-302-setup-sheet.html">FRM-302</a> Setup Sheet</li>
-<li><a href="../../../04-Bieu-Mau/03-FRM-300/frm-303-dfm-review-checklist.html">FRM-303</a> Checklist DFM</li>
-<li><a href="../../../04-Bieu-Mau/03-FRM-300/frm-304-semiconductor-part-classification.html">FRM-304</a> Phân loại linh kiện bán dẫn</li>
-<li><a href="../../../04-Bieu-Mau/03-FRM-300/frm-305-inspection-program-release-checklist.html">FRM-305</a> Checklist release chương trình đo</li>
-</ul>
-
-<h2 class="h2">7. Tài liệu liên quan</h2>
-<ul>
-<li><a href="../02-SOP-200/sop-201-order-fulfillment-rfq-to-cash.html">SOP-201</a> Thực hiện đơn hàng — RFQ đến Cash</li>
-<li><a href="sop-302-first-article-inspection-fai.html">SOP-302</a> Kiểm tra sản phẩm đầu tiên — FAI</li>
-<li><a href="../01-SOP-100/sop-103-risk-opportunity-fmea-and-control-plan.html">SOP-103</a> Rủi ro, Cơ hội, FMEA &amp; Control Plan</li>
-<li><a href="../01-SOP-100/sop-106-change-and-configuration-management.html">SOP-106</a> Quản lý thay đổi &amp; Cấu hình</li>
-</ul>
-
+<div class="iso-map"><div class="iso-title">Chuẩn mực áp dụng / nguyên tắc bắt buộc</div><div class="req"><span class="req-tag shall">PHẢI</span><div>Engineering phải đánh giá tính khả thi kỹ thuật và năng lực đo trước khi phát hành giả định báo giá hoặc gói planning.</div></div><div class="req"><span class="req-tag shall">PHẢI</span><div>Mọi giả định kỹ thuật ảnh hưởng giá, lead time hoặc chất lượng phải được ghi rõ và bảo vệ xuyên suốt từ quote đến WO release.</div></div><div class="req"><span class="req-tag should">NÊN</span><div>Các part rủi ro cao nên được đánh dấu để tăng mức review, prove-out, FAI hoặc kiểm soát supplier từ sớm.</div></div></div><div class="preface-block"><div class="grid-2"><div class="card"><div class="card-title">Tư duy chính</div><p>Engineering là “bộ lọc rủi ro đầu nguồn” của doanh nghiệp CNC. Giá trị không nằm ở việc tạo thêm biểu mẫu mà ở khả năng nhận ra sớm part khó, vùng dung sai nhạy, điểm kẹp khó, chuỗi đo yếu và rủi ro outsource.</p></div><div class="callout"><div class="card-title">Tham chiếu vai trò</div><p>Nội dung trách nhiệm tại SOP này được đồng bộ theo logic JD mới nhất: DFM Engineer nhận diện part rủi ro cao; CNC Programmer có quyền dừng release khi nhận thấy collision risk hoặc logic gia công chưa vững.</p></div></div></div><div class="toc"><div class="toc-title">Mục lục nhanh</div><div class="toc-grid"><a href="#p1">1. Mục đích</a><a href="#p2">2. Phạm vi</a><a href="#p3">3. Thuật ngữ</a><a href="#p4">4. RACI</a><a href="#p5">5. Quy trình</a><a href="#p6">6. Biểu mẫu liên quan</a><a href="#p7">7. Tài liệu liên quan</a></div></div><h2 class="h2" id="p1">1. Mục đích</h2><p>Thiết lập phương pháp đánh giá khả thi, DFM, báo giá và hoạch định gia công để đầu ra Engineering đủ sâu cho sản xuất, đo lường, nhà cung cấp và release chất lượng.</p><h2 class="h2" id="p2">2. Phạm vi</h2><p>Áp dụng cho RFQ, sample build, first production order, thay đổi kỹ thuật, part phức tạp, part dung sai chặt, part yêu cầu bề mặt/cleanliness đặc biệt hoặc part cần FAI.</p><h2 class="h2" id="p3">3. Thuật ngữ</h2><div class="table-card"><table class="table"><thead><tr><th>Thuật ngữ</th><th>Diễn giải áp dụng</th></tr></thead><tbody><tr><td><b>DFM</b></td><td>Design for Manufacturability – review khả năng gia công và rủi ro hiện thực hóa yêu cầu thiết kế bằng năng lực hiện có.</td></tr><tr><td><b>Datum strategy</b></td><td>Chiến lược chuẩn định vị cho gia công và đo lường nhằm bảo đảm tính nhất quán giữa setup và inspection.</td></tr><tr><td><b>Frozen assumptions</b></td><td>Các giả định kỹ thuật đã được dùng để báo giá/nhận đơn và phải được bảo vệ hoặc làm rõ trước khi thay đổi.</td></tr><tr><td><b>High-risk part</b></td><td>Part có dung sai/hình học/vật liệu/bề mặt hoặc chuỗi công đoạn khiến xác suất fail/escape cao hơn mức thông thường.</td></tr></tbody></table></div><h2 class="h2" id="p4">4. RACI</h2><div class="table-card"><table class="table"><thead><tr><th>Vai trò</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead><tbody><tr><td>DFM Engineer</td><td>●</td><td></td><td></td><td></td></tr><tr><td>Estimator</td><td>●</td><td></td><td></td><td></td></tr><tr><td>Engineering Lead/Manager</td><td></td><td>●</td><td></td><td></td></tr><tr><td>Process Engineer</td><td></td><td></td><td>●</td><td></td></tr><tr><td>CAM/NC Programmer</td><td></td><td></td><td>●</td><td></td></tr><tr><td>Quality Engineer</td><td></td><td></td><td>●</td><td></td></tr><tr><td>Metrology &amp; Calibration Specialist</td><td></td><td></td><td>●</td><td></td></tr><tr><td>Production Planner</td><td></td><td></td><td></td><td>●</td></tr><tr><td>Supply Chain Manager</td><td></td><td></td><td>●</td><td></td></tr><tr><td>Customer Service</td><td></td><td></td><td></td><td>●</td></tr></tbody></table></div><div class="role-boundary"><b>Role-boundary / authority note:</b> DFM Engineer sở hữu feasibility theo bản vẽ/điều kiện gia công; Process Engineer chuẩn hóa tuyến công nghệ; CAM/NC Programmer chỉ release chương trình sau khi các giả định đầu vào đã khóa. Xem thêm <a href="../../03-Reference/01-ANNEX-System/ref-020-cnc-operating-model-and-role-boundary.html">REF-020</a>, <a href="../../../02-Tai-Lieu-He-Thong/03-Organization/04-RACI-Authority/annex-qms-025-authority-matrix.html">ANNEX-QMS-025</a> và <a href="../../../02-Tai-Lieu-He-Thong/03-Organization/04-RACI-Authority/annex-qms-026-raci-master-matrix.html">ANNEX-QMS-026</a> để đối chiếu giữa tài liệu.</div><h2 class="h2" id="p5">5. Quy trình</h2><h3 class="h3">1. Review khả thi và DFM</h3><ul class="tight"><li>Phân tích drawing/model/note để nhận diện CTQ, tol stack-up, vùng mỏng dễ biến dạng, bề mặt dễ xước, hướng kẹp khó, yêu cầu burr/break-edge, special process và yêu cầu chứng từ.</li><li>Xác định machine envelope, số lần gá, nguy cơ collision, tool reach, chip evacuation, thermal distortion, burr formation và phương pháp đo tương ứng.</li><li>Đối với part rủi ro cao, Engineering phải gắn cờ yêu cầu review tăng cường hoặc prove-out tăng cường trước khi commit lead time.</li></ul><h3 class="h3">2. Báo giá và giả định kỹ thuật</h3><div class="table-card"><table class="table"><colgroup><col style="width:24%"/><col style="width:76%"/></colgroup><thead><tr><th>Nhóm giả định</th><th>Ví dụ phải chốt rõ</th></tr></thead><tbody><tr><td>Vật liệu / nguồn cung</td><td>Grade, condition, lead time, MOQ, alternate source có được chấp nhận không</td></tr><tr><td>Công nghệ</td><td>Số lần gá, machine family, outsource steps, inspection intensity, clean pack requirement</td></tr><tr><td>Năng lực đo</td><td>Dùng CMM, profile, roughness, custom gage hay measurement by functional method</td></tr><tr><td>Khối lượng / cadence</td><td>One-off, prototype, ramp-up, repeat order, consignment hoặc buffer strategy</td></tr></tbody></table></div><h3 class="h3">3. Phát hành gói planning</h3><ul class="tight"><li>Đầu ra tối thiểu gồm routing, BOM/tooling needs, setup sheet, chương trình CAM/CNC đã release, inspection plan/control points, đặc tính đặc biệt và lưu ý bảo quản/packaging nếu có.</li><li>CNC Programmer phải xác minh revision và tự kiểm trước khi release; khi không chắc về logic cắt, strategy hoặc collision, phải escalation thay vì “release tạm”.</li><li>Metrology/QA tham gia review khi tolerance/chuẩn đo nhạy, khi cleanliness đặc biệt hoặc khi acceptance phụ thuộc nhiều vào phương pháp đo.</li></ul><h3 class="h3">4. Hỗ trợ launch và chuẩn hóa bài học</h3><ul class="tight"><li>Engineering hỗ trợ prove-out/first-off, cập nhật setup/NC/control plan khi xuất hiện điều kiện thực tế khác giả định ban đầu.</li><li>Bài học từ FAI, NCR, complaint, wear/tool life, cleanability hoặc outsource variation phải được phản hồi vào template planning cho lần sau.</li></ul><h2 class="h2" id="p6">6. Biểu mẫu liên quan</h2><ul class="tight"><li><a href="../../../04-Bieu-Mau/03-FRM-300/frm-301-costing-sheet.html">FRM-301</a></li><li><a href="../../../04-Bieu-Mau/03-FRM-300/frm-302-setup-sheet.html">FRM-302</a></li><li><a href="../../../04-Bieu-Mau/03-FRM-300/frm-303-dfm-review-checklist.html">FRM-303</a></li><li><a href="../../../04-Bieu-Mau/03-FRM-300/frm-305-inspection-program-release-checklist.html">FRM-305</a></li></ul><h2 class="h2" id="p7">7. Tài liệu liên quan</h2><ul class="tight"><li><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/02-SOP-200/sop-201-order-fulfillment-rfq-to-cash.html">SOP-201</a></li><li><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/03-SOP-300/sop-302-first-article-inspection-fai.html">SOP-302</a></li><li><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/05-SOP-500/sop-502-cnc-machining-operations.html">SOP-502</a></li><li><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-602-measurement-system-analysis-msagr-r.html">SOP-602</a></li></ul><div class="footer-note">Bản nâng cấp giữ nguyên mã tài liệu, logic vận hành gốc và tăng chiều sâu kiểm soát cho mô hình gia công CNC toàn cầu, high-mix/medium-volume hoặc job-order.</div>
 </div></div>
-
 </div></div></div>
+<script src="../../../assets/app.js"></script>
 </body>
 </html>
-
-

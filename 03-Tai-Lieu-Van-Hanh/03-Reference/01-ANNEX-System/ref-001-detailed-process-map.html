@@ -1,105 +1,240 @@
-﻿<!DOCTYPE html>
-<html lang="vi">
-<head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>REF-001 — Detailed Process Map | HESEM QMS</title>
-<link href="../../../assets/style.css" rel="stylesheet"/>
+<!DOCTYPE html>
+    <html lang="vi">
+    <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>REF-001 — Detailed Process Map | HESEM QMS</title>
+    <link href="../../../assets/style.css" rel="stylesheet"/>
+
 <style>
-/* PAGE BREAK & OVERFLOW FIX */
+.chip{display:inline-block;padding:2px 10px;border-radius:999px;border:1px solid #d7dee7;background:#f8fafc;font-size:11px;margin-right:6px;margin-bottom:6px;font-weight:600;}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:12px;}
+.tight li{margin:4px 0;}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+.toc{border:1px solid var(--ln);border-radius:var(--r);padding:16px;background:var(--bg2);margin:18px 0 24px;}
+.toc-title{font-size:12px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.4px;margin-bottom:10px;}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;}
+.toc-grid a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;background:var(--bg);font-size:12px;color:var(--ink);}
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.metric-card{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);}
+.metric-card .value{font-size:20px;font-weight:700;color:var(--navy);}
+.metric-card .label{font-size:11px;color:var(--ink3);margin-top:4px;text-transform:uppercase;letter-spacing:.3px;}
+.mini-note{font-size:12px;color:var(--ink2);line-height:1.55;}
+.gate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.gate-card{border:1px solid var(--ln);border-left:4px solid var(--blue);border-radius:var(--r);padding:14px;background:var(--bg);}
+.gate-card h3{margin:0 0 6px;font-size:14px;color:var(--navy);}
+.field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;}
+.field{padding:10px 12px;border:1px solid var(--ln);border-radius:var(--r-sm);background:var(--bg);}
+.field b{display:block;font-size:11px;color:var(--ink3);text-transform:uppercase;letter-spacing:.3px;margin-bottom:6px;}
+.field .blank{width:100%;min-height:22px;}
+.check-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;}
+.check-item{padding:8px 10px;border:1px solid var(--ln);border-radius:var(--r-sm);background:var(--bg);font-size:12px;}
+.check-item .chk{margin-right:6px;}
+.legend-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0;}
+.legend-row .chip{margin-bottom:0;}
+.footer-note{margin-top:20px;font-size:11px;color:var(--ink3);}
+.decision-table td:first-child, .decision-table th:first-child{font-weight:700;}
+.kpi-good{color:#166534;font-weight:700;}
+.kpi-watch{color:#92400e;font-weight:700;}
+.kpi-bad{color:#b91c1c;font-weight:700;}
+.control-stack > * + *{margin-top:12px;}
+.subtle{color:var(--ink2);font-size:12px;}
+.boxed-list{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);}
+.lane-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.35px;color:var(--navy);margin-bottom:6px;}
+.flow-note{font-size:11px;color:var(--ink3)}
+.pill{display:inline-block;padding:4px 8px;border-radius:999px;background:var(--blue-l);color:var(--navy);font-size:11px;font-weight:700;margin:0 6px 6px 0;}
+.audit-score{font-size:24px;font-weight:700;color:var(--navy);}
+.matrix-small td,.matrix-small th{font-size:12px;}
+.svg-wrap{overflow:auto;border:1px solid var(--ln);border-radius:var(--r);background:#fff;padding:12px}
+.legend-box{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.legend-box span{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--ln);background:var(--bg);padding:4px 8px;border-radius:999px;font-size:11px}
+.sq{width:12px;height:12px;border-radius:3px;display:inline-block}
+.rule-table td:nth-child(1),.rule-table td:nth-child(2){white-space:nowrap}
+.small{font-size:12px}
 @media print {
- .card, .table-card, .callout, .note, .box, .iso-map,
- .preface-block, .form-sheet, .lane, .legend, .req, .vstep, .auth-grid {
- page-break-inside: avoid;
- break-inside: avoid;
- }
- h1, h2, h3, .h1, .h2, .h3 {
- page-break-after: avoid;
- break-after: avoid;
- }
- .form-header { page-break-inside: avoid; break-inside: avoid; }
- tr { page-break-inside: avoid; break-inside: avoid; }
- thead { display: table-header-group; }
- tfoot { display: table-footer-group; }
- p { orphans: 3; widows: 3; }
- .table-card { overflow: visible !important; }
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.lane,.legend,.req,.auth-grid,.backup-card,.vstep,.metric-card,.gate-card,.field,.boxed-list,.svg-wrap{page-break-inside:avoid;break-inside:avoid}
+  h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
+  .form-header,.sig-row,.sign-row,.approval-row{page-break-inside:avoid;break-inside:avoid}
+  tr{page-break-inside:avoid;break-inside:avoid}
+  thead{display:table-header-group}tfoot{display:table-footer-group}
+  p{orphans:3;widows:3}.table-card{overflow:visible!important}
 }
-.page-body { overflow-x: hidden; }
-.table-card, .table-block, .table-wrap { overflow-x: auto; max-width: 100%; }
-table { max-width: 100%; table-layout: auto; }
-td, th { max-width: 420px; overflow-wrap: break-word; word-wrap: break-word; }
-.role-code {font-family: var(--mono); font-size: 11px; background: var(--bg3); padding: 2px 6px; border-radius: 5px;}
-.raci-cell {text-align:center; font-weight:700; width:34px; min-width:34px; padding:6px 4px !important;}
-.raci-A {background:#fff5f5; color:#c92a2a;}
-.raci-R {background:#e7f5ff; color:#1864ab;}
-.raci-C {background:#fff9db; color:#e67700;}
-.raci-I {background:#ebfbee; color:#2b8a3e;}
-.portal-grid {display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:16px;}
-.portal-card {background:var(--bg); border:1px solid var(--ln); border-radius:var(--r); padding:18px;}
-.portal-card h3 {font-size:14px; color:var(--navy); margin:0 0 8px;}
-.doc-link-list {list-style:none; margin:0; padding:0;}
-.doc-link-list li {padding:6px 0 6px 16px; position:relative;}
-.doc-link-list li:before {content:"•"; position:absolute; left:0; color:var(--blue);}
-.inline-tag {display:inline-block;padding:3px 8px;border:1px solid var(--ln);border-radius:999px;font-size:10px;font-weight:700;background:var(--bg2);margin-right:6px;margin-bottom:6px;}
-.svg-wrap {background:var(--bg); border:1px solid var(--ln); border-radius:var(--r); padding:16px; overflow:auto;}
-.nav-toc a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;margin:6px 0;background:var(--bg);}
-kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--ln);padding:2px 5px;border-radius:4px;background:#fff;}
+.page-body{overflow-x:hidden}
+.table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
+table{max-width:100%;table-layout:auto}
+td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
+@media (max-width: 900px){.grid-3{grid-template-columns:1fr;}.field-grid{grid-template-columns:1fr;}}
 
 </style>
 
-</head>
-<body>
-<div class="container">
-  <div class="page landscape">
-    <div class="page-body">
-<div class="form-header">
-<div class="fh-left">
-  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
-  <div class="fh-company">
-    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
-    <span>Tài liệu kiểm soát</span>
-  </div>
-</div>
-<div class="title">
-  <strong>REF-001 — Detailed Process Map</strong>
-  <span class="sub-vn"></span>
-</div>
-<div class="meta">
-  <div class="row"><span><b>Mã:</b></span><span>REF-001</span></div>
-  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
-  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
-  <div class="row"><span><b>Chủ sở hữu:</b></span><span>QA/QMS</span></div>
-  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
-</div>
-</div>
-<div class="doc-content" id="docContent">
-        <div class="form-sheet">
-
-<div class="iso-map">
-  <div class="iso-title">Mục đích sử dụng</div>
-  <div class="req"><span class="req-tag shall">PHẢI</span><div>Dùng sơ đồ này như bản đồ luồng chính của HESEM từ RFQ đến giao hàng. Khi SOP có thay đổi làm đổi luồng chính, QMS Engineer PHẢI cập nhật REF-001 đồng thời với tài liệu nguồn.</div></div>
-  <div class="req"><span class="req-tag should">NÊN</span><div>In khổ A3 để treo tại khu vực phòng họp MR, phòng Engineering và khu vực lập kế hoạch sản xuất.</div></div>
-</div>
-<div class="preface-block">
-  <div class="grid-2">
-    <div>
-      <p><b>Phạm vi</b></p>
-      <p>Áp dụng cho toàn bộ chuỗi giá trị Job Order, High-Mix Low-Volume của HESEM Engineering, từ nhận RFQ, đánh giá kỹ thuật, mua hàng, sản xuất CNC, kiểm soát chất lượng, làm sạch, đóng gói đến xuất hàng.</p>
-    </div>
-    <div class="callout"><b>Cách đọc</b><div>Mỗi lane thể hiện 1 nhóm chức năng. Khối màu bên phải thể hiện 9 series kiểm soát. Đường đi thực tế của hồ sơ PHẢI truy được từ SOP → Form → Record.</div></div>
-  </div>
-</div>
-<h2 class="h2">1. Sơ đồ quy trình RFQ → Ship</h2>
-<div class="card"><svg viewBox="0 0 1280 620" width="100%" xmlns="http://www.w3.org/2000/svg"><defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#174ea6"/></marker></defs><rect x="0" y="0" width="1280" height="620" rx="18" fill="#f8fafc" stroke="#d0d7de"/><text x="28" y="34" font-size="20" font-weight="700" fill="#0f172a">HESEM QMS — Quy trình chi tiết RFQ → Ship (9 Series)</text><text x="28" y="56" font-size="12" fill="#475569">Series 100 thiết lập khung QMS; Series 200-700 điều hành dòng đơn hàng; Series 800 hỗ trợ; Series 900 đo lường và cải tiến.</text><rect x="22" y="52" width="1236" height="74" rx="12" fill="#ffffff" stroke="#d8dee4"/><rect x="34" y="62" width="176" height="54" rx="10" fill="#173f77"/><text x="122" y="86" font-size="14" font-weight="700" text-anchor="middle" fill="white">Customer / Sales</text><rect x="230" y="66" width="148" height="42" rx="10" fill="#e8f0fe" stroke="#91a4c3"/><text x="304.0" y="83" font-size="12" text-anchor="middle" fill="#0f172a">RFQ</text><line x1="378" y1="87" x2="396" y2="87" stroke="#174ea6" stroke-width="2.2" marker-end="url(#arrow)"/><rect x="402" y="66" width="148" height="42" rx="10" fill="#eef7ff" stroke="#91a4c3"/><text x="476.0" y="83" font-size="12" text-anchor="middle" fill="#0f172a">Contract review</text><line x1="550" y1="87" x2="568" y2="87" stroke="#174ea6" stroke-width="2.2" marker-end="url(#arrow)"/><rect x="574" y="66" width="148" height="42" rx="10" fill="#effcf6" stroke="#91a4c3"/><text x="648.0" y="83" font-size="12" text-anchor="middle" fill="#0f172a">PO release</text><rect x="22" y="134" width="1236" height="74" rx="12" fill="#f1f5f9" stroke="#d8dee4"/><rect x="34" y="144" width="176" height="54" rx="10" fill="#173f77"/><text x="122" y="168" font-size="14" font-weight="700" text-anchor="middle" fill="white">Engineering</text><rect x="230" y="148" width="148" height="42" rx="10" fill="#e8f0fe" stroke="#91a4c3"/><text x="304.0" y="165" font-size="12" text-anchor="middle" fill="#0f172a">DFM / routing</text><line x1="378" y1="169" x2="396" y2="169" stroke="#174ea6" stroke-width="2.2" marker-end="url(#arrow)"/><rect x="402" y="148" width="148" height="42" rx="10" fill="#eef7ff" stroke="#91a4c3"/><text x="476.0" y="165" font-size="12" text-anchor="middle" fill="#0f172a">FAI / NPI</text><line x1="550" y1="169" x2="568" y2="169" stroke="#174ea6" stroke-width="2.2" marker-end="url(#arrow)"/><rect x="574" y="148" width="148" height="42" rx="10" fill="#effcf6" stroke="#91a4c3"/><text x="648.0" y="165" font-size="12" text-anchor="middle" fill="#0f172a">Program release</text><rect x="22" y="216" width="1236" height="74" rx="12" fill="#ffffff" stroke="#d8dee4"/><rect x="34" y="226" width="176" height="54" rx="10" fill="#173f77"/><text x="122" y="250" font-size="14" font-weight="700" text-anchor="middle" fill="white">Supply Chain</text><rect x="230" y="230" width="148" height="42" rx="10" fill="#e8f0fe" stroke="#91a4c3"/><text x="304.0" y="241" font-size="12" text-anchor="middle" fill="#0f172a">Supplier</text><text x="304.0" y="254" font-size="12" text-anchor="middle" fill="#0f172a">approval</text><line x1="378" y1="251" x2="396" y2="251" stroke="#174ea6" stroke-width="2.2" marker-end="url(#arrow)"/><rect x="402" y="230" width="148" height="42" rx="10" fill="#eef7ff" stroke="#91a4c3"/><text x="476.0" y="247" font-size="12" text-anchor="middle" fill="#0f172a">Receiving / IQC</text><line x1="550" y1="251" x2="568" y2="251" stroke="#174ea6" stroke-width="2.2" marker-end="url(#arrow)"/><rect x="574" y="230" width="148" height="42" rx="10" fill="#effcf6" stroke="#91a4c3"/><text x="648.0" y="241" font-size="12" text-anchor="middle" fill="#0f172a">Issue material /</text><text x="648.0" y="254" font-size="12" text-anchor="middle" fill="#0f172a">tools</text><rect x="22" y="298" width="1236" height="74" rx="12" fill="#f1f5f9" stroke="#d8dee4"/><rect x="34" y="308" width="176" height="54" rx="10" fill="#173f77"/><text x="122" y="332" font-size="14" font-weight="700" text-anchor="middle" fill="white">Production</text><rect x="230" y="312" width="148" height="42" rx="10" fill="#e8f0fe" stroke="#91a4c3"/><text x="304.0" y="329" font-size="12" text-anchor="middle" fill="#0f172a">Plan &amp; dispatch</text><line x1="378" y1="333" x2="396" y2="333" stroke="#174ea6" stroke-width="2.2" marker-end="url(#arrow)"/><rect x="402" y="312" width="148" height="42" rx="10" fill="#eef7ff" stroke="#91a4c3"/><text x="476.0" y="323" font-size="12" text-anchor="middle" fill="#0f172a">Setup / CNC /</text><text x="476.0" y="336" font-size="12" text-anchor="middle" fill="#0f172a">deburr</text><line x1="550" y1="333" x2="568" y2="333" stroke="#174ea6" stroke-width="2.2" marker-end="url(#arrow)"/><rect x="574" y="312" width="148" height="42" rx="10" fill="#effcf6" stroke="#91a4c3"/><text x="648.0" y="329" font-size="12" text-anchor="middle" fill="#0f172a">Clean / pack</text><rect x="22" y="380" width="1236" height="74" rx="12" fill="#ffffff" stroke="#d8dee4"/><rect x="34" y="390" width="176" height="54" rx="10" fill="#173f77"/><text x="122" y="414" font-size="14" font-weight="700" text-anchor="middle" fill="white">Quality</text><rect x="230" y="394" width="148" height="42" rx="10" fill="#e8f0fe" stroke="#91a4c3"/><text x="304.0" y="405" font-size="12" text-anchor="middle" fill="#0f172a">Calibration /</text><text x="304.0" y="418" font-size="12" text-anchor="middle" fill="#0f172a">MSA</text><line x1="378" y1="415" x2="396" y2="415" stroke="#174ea6" stroke-width="2.2" marker-end="url(#arrow)"/><rect x="402" y="394" width="148" height="42" rx="10" fill="#eef7ff" stroke="#91a4c3"/><text x="476.0" y="411" font-size="12" text-anchor="middle" fill="#0f172a">AQL / SPC / NCR</text><line x1="550" y1="415" x2="568" y2="415" stroke="#174ea6" stroke-width="2.2" marker-end="url(#arrow)"/><rect x="574" y="394" width="148" height="42" rx="10" fill="#effcf6" stroke="#91a4c3"/><text x="648.0" y="405" font-size="12" text-anchor="middle" fill="#0f172a">Final release /</text><text x="648.0" y="418" font-size="12" text-anchor="middle" fill="#0f172a">CoC</text><rect x="22" y="462" width="1236" height="74" rx="12" fill="#f1f5f9" stroke="#d8dee4"/><rect x="34" y="472" width="176" height="54" rx="10" fill="#173f77"/><text x="122" y="496" font-size="14" font-weight="700" text-anchor="middle" fill="white">Logistics</text><rect x="230" y="476" width="148" height="42" rx="10" fill="#e8f0fe" stroke="#91a4c3"/><text x="304.0" y="493" font-size="12" text-anchor="middle" fill="#0f172a">Label / pack</text><line x1="378" y1="497" x2="396" y2="497" stroke="#174ea6" stroke-width="2.2" marker-end="url(#arrow)"/><rect x="402" y="476" width="148" height="42" rx="10" fill="#eef7ff" stroke="#91a4c3"/><text x="476.0" y="493" font-size="12" text-anchor="middle" fill="#0f172a">Ship release</text><line x1="550" y1="497" x2="568" y2="497" stroke="#174ea6" stroke-width="2.2" marker-end="url(#arrow)"/><rect x="574" y="476" width="148" height="42" rx="10" fill="#effcf6" stroke="#91a4c3"/><text x="648.0" y="493" font-size="12" text-anchor="middle" fill="#0f172a">Dispatch / POD</text><rect x="900" y="94" width="54" height="54" rx="10" fill="#fde68a" stroke="#94a3b8"/><text x="927" y="112" font-size="11" font-weight="700" text-anchor="middle" fill="#111827">Series 100</text><text x="927" y="125" font-size="9.5" text-anchor="middle" fill="#334155">Framework</text><rect x="960" y="176" width="54" height="54" rx="10" fill="#dbeafe" stroke="#94a3b8"/><text x="987" y="194" font-size="11" font-weight="700" text-anchor="middle" fill="#111827">Series 200</text><text x="987" y="207" font-size="9.5" text-anchor="middle" fill="#334155">Customer</text><rect x="1016" y="176" width="54" height="54" rx="10" fill="#d1fae5" stroke="#94a3b8"/><text x="1043" y="194" font-size="11" font-weight="700" text-anchor="middle" fill="#111827">Series 300</text><text x="1043" y="207" font-size="9.5" text-anchor="middle" fill="#334155">Engineering</text><rect x="1078" y="258" width="54" height="54" rx="10" fill="#fee2e2" stroke="#94a3b8"/><text x="1105" y="276" font-size="11" font-weight="700" text-anchor="middle" fill="#111827">Series 400</text><text x="1105" y="289" font-size="9.5" text-anchor="middle" fill="#334155">Supply Chain</text><rect x="1140" y="340" width="54" height="54" rx="10" fill="#ede9fe" stroke="#94a3b8"/><text x="1167" y="358" font-size="11" font-weight="700" text-anchor="middle" fill="#111827">Series 500</text><text x="1167" y="371" font-size="9.5" text-anchor="middle" fill="#334155">Production</text><rect x="960" y="422" width="54" height="54" rx="10" fill="#ffe4e6" stroke="#94a3b8"/><text x="987" y="440" font-size="11" font-weight="700" text-anchor="middle" fill="#111827">Series 600</text><text x="987" y="453" font-size="9.5" text-anchor="middle" fill="#334155">Quality Assurance</text><rect x="1078" y="504" width="54" height="54" rx="10" fill="#ecfccb" stroke="#94a3b8"/><text x="1105" y="522" font-size="11" font-weight="700" text-anchor="middle" fill="#111827">Series 700</text><text x="1105" y="535" font-size="9.5" text-anchor="middle" fill="#334155">Logistics &amp; Purity</text><rect x="1140" y="94" width="54" height="54" rx="10" fill="#fce7f3" stroke="#94a3b8"/><text x="1167" y="112" font-size="11" font-weight="700" text-anchor="middle" fill="#111827">Series 800</text><text x="1167" y="125" font-size="9.5" text-anchor="middle" fill="#334155">Support</text><rect x="1202" y="176" width="54" height="54" rx="10" fill="#f3f4f6" stroke="#94a3b8"/><text x="1229" y="194" font-size="11" font-weight="700" text-anchor="middle" fill="#111827">Series 900</text><text x="1229" y="207" font-size="9.5" text-anchor="middle" fill="#334155">Performance</text></svg></div>
-<h2 class="h2">2. Điểm kiểm soát bắt buộc</h2>
-<div class="table-card"><table class="table"><thead><tr><th>Giai đoạn</th><th>Điểm kiểm soát</th><th>Tài liệu điều khiển</th></tr></thead><tbody><tr><td>RFQ / Contract review</td><td>Xác nhận yêu cầu kỹ thuật, vật liệu, đặc tính đặc biệt, thời hạn giao</td><td>SOP-201, SOP-301</td></tr><tr><td>Engineering &amp; planning</td><td>Chốt routing, bản vẽ, CAM/NC, kế hoạch FAI khi áp dụng</td><td>SOP-301, SOP-302, SOP-501</td></tr><tr><td>Receiving &amp; material</td><td>IQC, cert review, traceability, FIFO, lưu kho</td><td>SOP-401, SOP-402, SOP-701</td></tr><tr><td>Machining &amp; in-process</td><td>Thiết lập máy, first-off, SPC/OOC, IPQC reaction</td><td>SOP-502, SOP-604, SOP-606</td></tr><tr><td>Final inspection &amp; release</td><td>Kiểm cuối, CoC, conditional release theo thẩm quyền</td><td>SOP-605, SOP-703</td></tr><tr><td>Cleanliness &amp; shipment</td><td>Làm sạch, đóng gói sạch, nhãn, checklist xuất, dispatch</td><td>SOP-702, SOP-701</td></tr></tbody></table></div>
-<h2 class="h2">3. Tương tác 9 series</h2>
-<div class="table-card"><table class="table"><thead><tr><th>Series</th><th>Tên nhóm</th><th>Vai trò trong luồng</th></tr></thead><tbody><tr><td>100</td><td>QMS Framework</td><td>Khung hệ thống, tài liệu, risk, change, communication, contingency</td></tr><tr><td>200</td><td>Customer &amp; Commercial</td><td>RFQ, contract review, customer communication, complaint interface</td></tr><tr><td>300</td><td>Engineering &amp; NPI</td><td>Feasibility, process planning, FAI, change impact</td></tr><tr><td>400</td><td>Supply Chain</td><td>Supplier control, material verification, traceability</td></tr><tr><td>500</td><td>Production CNC</td><td>Planning, machining, maintenance, execution at machine</td></tr><tr><td>600</td><td>Quality Assurance</td><td>Calibration, MSA, AQL, SPC, final inspection, NCR/CAPA</td></tr><tr><td>700</td><td>Logistics &amp; Purity</td><td>Receiving, clean packaging, contamination control, FOD, shipment readiness</td></tr><tr><td>800</td><td>Support</td><td>Training, EHS, finance, human factors, error proofing</td></tr><tr><td>900</td><td>Performance</td><td>Audit, management review, continual improvement, kaizen</td></tr></tbody></table></div>
-
+    </head>
+    <body>
+    <div class="container"><div class="page"><div class="page-body">
+    <div class="form-header">
+      <div class="fh-left">
+        <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+        <div class="fh-company">
+          <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+          <span>Tài liệu kiểm soát</span>
         </div>
       </div>
+      <div class="title">
+        <strong>REF-001 — Detailed Process Map</strong>
+        <span class="sub-vn">Bản đồ quá trình chi tiết cho doanh nghiệp gia công CNC toàn cầu</span>
+      </div>
+      <div class="meta">
+        <div class="row"><span><b>Mã:</b></span><span>REF-001</span></div>
+        <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+        <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+        <div class="row"><span><b>Chủ sở hữu:</b></span><span>QA Manager</span></div>
+        <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+      </div>
     </div>
-  </div>
+    <div class="doc-content" id="docContent"><div class="form-sheet">
+    <div class="card"><div class="badge"><span class="dot"></span>REF-001</div><h1 class="h1" style="margin-top:10px">REF-001 — Detailed Process Map</h1><p class="mini-note">Bản đồ quá trình chi tiết cho luồng gia công CNC toàn cầu từ RFQ đến shipment, dùng để đồng bộ cách hiểu liên phòng ban.</p></div><h2 class="h2" id="r1">1. Bản đồ quá trình end-to-end</h2>
+<div class="svg-wrap">
+<svg viewBox="0 0 1280 820" width="100%" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .lane{fill:#f8f9fa;stroke:#dee2e6;stroke-width:1}
+      .laneTitle{font:700 15px Arial;fill:#0c2d48}
+      .box{fill:#ffffff;stroke:#1565c0;stroke-width:2;rx:10;ry:10}
+      .box2{fill:#fff8e1;stroke:#f9a825;stroke-width:2;rx:10;ry:10}
+      .box3{fill:#e8f5e9;stroke:#2f9e44;stroke-width:2;rx:10;ry:10}
+      .txt{font:12px Arial;fill:#212529}
+      .title{font:700 13px Arial;fill:#0c2d48}
+      .arr{stroke:#495057;stroke-width:2;fill:none;marker-end:url(#m)}
+    </style>
+    <marker id="m" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 z" fill="#495057"/>
+    </marker>
+  </defs>
+  <rect x="20" y="20" width="1240" height="110" class="lane"/>
+  <rect x="20" y="150" width="1240" height="130" class="lane"/>
+  <rect x="20" y="300" width="1240" height="160" class="lane"/>
+  <rect x="20" y="480" width="1240" height="140" class="lane"/>
+  <rect x="20" y="640" width="1240" height="150" class="lane"/>
+  <text x="40" y="45" class="laneTitle">1. Customer & Commercial</text>
+  <text x="40" y="175" class="laneTitle">2. Engineering & Planning</text>
+  <text x="40" y="325" class="laneTitle">3. Supply Chain & Production Readiness</text>
+  <text x="40" y="505" class="laneTitle">4. Machining, Inspection & Special Process</text>
+  <text x="40" y="665" class="laneTitle">5. Final Release, Shipment & Feedback</text>
+
+  <rect x="80" y="60" width="150" height="45" class="box"/>
+  <text x="95" y="82" class="title">RFQ / Inquiry</text>
+  <text x="95" y="98" class="txt">drawing, model, qty, lead time</text>
+
+  <rect x="280" y="60" width="170" height="45" class="box2"/>
+  <text x="295" y="82" class="title">Contract Review</text>
+  <text x="295" y="98" class="txt">technical + commercial + risk</text>
+
+  <rect x="500" y="60" width="170" height="45" class="box"/>
+  <text x="515" y="82" class="title">Quote / Offer</text>
+  <text x="515" y="98" class="txt">pricing, assumptions, gates</text>
+
+  <rect x="720" y="60" width="170" height="45" class="box2"/>
+  <text x="735" y="82" class="title">PO Acceptance</text>
+  <text x="735" y="98" class="txt">flow-down + order creation</text>
+
+  <rect x="940" y="60" width="200" height="45" class="box"/>
+  <text x="955" y="82" class="title">Kickoff & Handover</text>
+  <text x="955" y="98" class="txt">sales → engineering/planning</text>
+
+  <rect x="80" y="205" width="180" height="45" class="box"/>
+  <text x="95" y="227" class="title">DFM & Feasibility</text>
+  <text x="95" y="243" class="txt">CTQ, machine, gage, outsource</text>
+
+  <rect x="310" y="205" width="180" height="45" class="box"/>
+  <text x="325" y="227" class="title">Routing & Cost Plan</text>
+  <text x="325" y="243" class="txt">cycle, setup, risk, control plan</text>
+
+  <rect x="540" y="205" width="180" height="45" class="box2"/>
+  <text x="555" y="227" class="title">CAM / NC Release</text>
+  <text x="555" y="243" class="txt">program, tools, fixture, rev control</text>
+
+  <rect x="770" y="205" width="180" height="45" class="box2"/>
+  <text x="785" y="227" class="title">Setup Sheet & Inspection Plan</text>
+  <text x="785" y="243" class="txt">datum, sequence, checkpoints</text>
+
+  <rect x="1000" y="205" width="180" height="45" class="box3"/>
+  <text x="1015" y="227" class="title">Planning Release Gate</text>
+  <text x="1015" y="243" class="txt">readiness before WO release</text>
+
+  <rect x="80" y="360" width="180" height="45" class="box"/>
+  <text x="95" y="382" class="title">Material / Outside PO</text>
+  <text x="95" y="398" class="txt">raw material, special process</text>
+
+  <rect x="310" y="360" width="180" height="45" class="box"/>
+  <text x="325" y="382" class="title">Receiving & Verification</text>
+  <text x="325" y="398" class="txt">MTC, lot, identity, condition</text>
+
+  <rect x="540" y="360" width="180" height="45" class="box2"/>
+  <text x="555" y="382" class="title">Dispatch Scheduling</text>
+  <text x="555" y="398" class="txt">capacity, WIP, priority, traveler</text>
+
+  <rect x="770" y="360" width="180" height="45" class="box2"/>
+  <text x="785" y="382" class="title">Machine / Tool / Gage Ready</text>
+  <text x="785" y="398" class="txt">PM, setup kit, calibration status</text>
+
+  <rect x="1000" y="360" width="180" height="45" class="box3"/>
+  <text x="1015" y="382" class="title">Start Authorization</text>
+  <text x="1015" y="398" class="txt">operator + leader + QA gate</text>
+
+  <rect x="80" y="540" width="180" height="45" class="box"/>
+  <text x="95" y="562" class="title">Setup & First Piece</text>
+  <text x="95" y="578" class="txt">offset, tool, datum, prove-out</text>
+
+  <rect x="310" y="540" width="180" height="45" class="box3"/>
+  <text x="325" y="562" class="title">FAI / First-off Approval</text>
+  <text x="325" y="578" class="txt">stop if fail or unsure</text>
+
+  <rect x="540" y="540" width="180" height="45" class="box"/>
+  <text x="555" y="562" class="title">In-process Machining</text>
+  <text x="555" y="578" class="txt">self-check + IPQC + reaction</text>
+
+  <rect x="770" y="540" width="180" height="45" class="box2"/>
+  <text x="785" y="562" class="title">Outsource / Special Process</text>
+  <text x="785" y="578" class="txt">flow-down, receive-back verify</text>
+
+  <rect x="1000" y="540" width="180" height="45" class="box"/>
+  <text x="1015" y="562" class="title">Final Inspection</text>
+  <text x="1015" y="578" class="txt">report, CoC, release evidence</text>
+
+  <rect x="80" y="705" width="180" height="45" class="box2"/>
+  <text x="95" y="727" class="title">Packaging & Labeling</text>
+  <text x="95" y="743" class="txt">clean / standard / export pack</text>
+
+  <rect x="310" y="705" width="180" height="45" class="box3"/>
+  <text x="325" y="727" class="title">Shipment Release</text>
+  <text x="325" y="743" class="txt">docs complete, hold cleared</text>
+
+  <rect x="540" y="705" width="180" height="45" class="box"/>
+  <text x="555" y="727" class="title">Dispatch / Customs / OTD</text>
+  <text x="555" y="743" class="txt">carrier, export docs, POD</text>
+
+  <rect x="770" y="705" width="180" height="45" class="box2"/>
+  <text x="785" y="727" class="title">Feedback / Complaint / RMA</text>
+  <text x="785" y="743" class="txt">containment, 8D, lessons learned</text>
+
+  <rect x="1000" y="705" width="180" height="45" class="box3"/>
+  <text x="1015" y="727" class="title">Management Review / Kaizen</text>
+  <text x="1015" y="743" class="txt">trend, priorities, next actions</text>
+
+  <!-- arrows -->
+  <path d="M230 82 H280" class="arr"/><path d="M450 82 H500" class="arr"/><path d="M670 82 H720" class="arr"/><path d="M890 82 H940" class="arr"/>
+  <path d="M1140 105 V160 H170 V205" class="arr"/>
+  <path d="M260 227 H310" class="arr"/><path d="M490 227 H540" class="arr"/><path d="M720 227 H770" class="arr"/><path d="M950 227 H1000" class="arr"/>
+  <path d="M1090 250 V315 H170 V360" class="arr"/>
+  <path d="M260 382 H310" class="arr"/><path d="M490 382 H540" class="arr"/><path d="M720 382 H770" class="arr"/><path d="M950 382 H1000" class="arr"/>
+  <path d="M1090 405 V495 H170 V540" class="arr"/>
+  <path d="M260 562 H310" class="arr"/><path d="M490 562 H540" class="arr"/><path d="M720 562 H770" class="arr"/><path d="M950 562 H1000" class="arr"/>
+  <path d="M1090 585 V660 H170 V705" class="arr"/>
+  <path d="M260 727 H310" class="arr"/><path d="M490 727 H540" class="arr"/><path d="M720 727 H770" class="arr"/><path d="M950 727 H1000" class="arr"/>
+</svg>
 </div>
-</body>
-</html>
+<div class="legend-box"><span><i class="sq" style="background:#ffffff;border:2px solid #1565c0"></i>Hoạt động chuẩn</span><span><i class="sq" style="background:#fff8e1;border:2px solid #f9a825"></i>Gate / kiểm soát quyết định</span><span><i class="sq" style="background:#e8f5e9;border:2px solid #2f9e44"></i>Điểm phê duyệt / release</span></div><h2 class="h2" id="r2">2. Nguyên tắc đọc bản đồ</h2><ul class="tight"><li>Mọi mũi tên thể hiện luồng giá trị mặc định; luồng thực tế có thể lặp lại khi phát hiện rủi ro, thay đổi revision hoặc không đạt gate.</li><li>Gate không phải là “thêm giấy tờ”; gate là điểm quyết định cho phép hay không cho phép chuyển bước tiếp theo.</li><li>Mỗi gate phải có chủ sở hữu, tiêu chí đầu vào, tiêu chí đầu ra, hồ sơ bằng chứng và reaction khi fail.</li><li>Nhà cung cấp và special process được xem như một phần kéo dài của value stream, không phải vùng ngoài QMS.</li></ul><h2 class="h2" id="r3">3. Điểm kiểm soát tối quan trọng</h2><div class="table-card"><table class="table"><colgroup><col style="width:18%"/><col style="width:42%"/><col style="width:40%"/></colgroup><thead><tr><th>Gate</th><th>Tiêu chí tối thiểu</th><th>Hồ sơ gợi ý</th></tr></thead><tbody><tr><td>Contract Review</td><td>Bản vẽ/revision, vật liệu, dung sai, surface, test/cert, packaging, Incoterms và năng lực đáp ứng đã rõ</td><td>FRM-202, RFQ register, quote assumptions</td></tr><tr><td>Planning Release</td><td>Routing, NC/setup, gage/fixture, control plan, supplier flow-down và capacity được xác nhận</td><td>FRM-204, FRM-302, planning release checklist</td></tr><tr><td>First-off / FAI</td><td>First piece hoặc FAI đạt; sai lệch có phê duyệt nếu cần; operator hiểu reaction plan</td><td>FRM-511, FAI report, inspection logs</td></tr><tr><td>Final Release</td><td>Lot/serial traceability, inspection evidence, CoC/CoA, deviation closure, packing and labeling hoàn chỉnh</td><td>FRM-641, FRM-702, shipping dossier</td></tr></tbody></table></div><h2 class="h2" id="r4">4. Liên kết tài liệu</h2><ul class="tight"><li><a href="../01-ANNEX-System/ref-002-iso-9001-clause-to-sop-matrix.html">REF-002 — ISO clause to SOP matrix</a></li><li><a href="../01-ANNEX-System/ref-004-put-through-matrix.html">REF-004 — Gate & put-through matrix</a></li><li><a href="../../01-SOPs/02-SOP-200/sop-201-order-fulfillment-rfq-to-cash.html">SOP-201 — RFQ to cash</a></li><li><a href="../../01-SOPs/03-SOP-300/sop-301-engineering-dfm-quoting-and-machining-planning.html">SOP-301 — Engineering/DFM/planning</a></li><li><a href="../../01-SOPs/05-SOP-500/sop-502-cnc-machining-operations.html">SOP-502 — CNC machining operations</a></li></ul>
+    </div></div>
+    </div></div></div>
+    <script src="../../../assets/app.js"></script>
+    </body>
+    </html>

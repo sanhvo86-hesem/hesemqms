@@ -1,15 +1,16 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Sales And Customer Service — Department Handbook | HESEM QMS</title>
+<title>Sales &amp; Customer Service — Department Handbook | HESEM QMS</title>
 <link href="../../../assets/style.css" rel="stylesheet"/>
 <style>
+
 /* PAGE BREAK & OVERFLOW FIX */
 @media print {
  .card, .table-card, .callout, .note, .box, .iso-map,
- .preface-block, .form-sheet, .lane, .legend, .req, .vstep, .auth-grid {
+ .preface-block, .form-sheet, .lane, .legend, .req, .vstep, .auth-grid, .backup-card, .org-row {
  page-break-inside: avoid;
  break-inside: avoid;
  }
@@ -41,74 +42,72 @@ td, th { max-width: 420px; overflow-wrap: break-word; word-wrap: break-word; }
 .doc-link-list li {padding:6px 0 6px 16px; position:relative;}
 .doc-link-list li:before {content:"•"; position:absolute; left:0; color:var(--blue);}
 .inline-tag {display:inline-block;padding:3px 8px;border:1px solid var(--ln);border-radius:999px;font-size:10px;font-weight:700;background:var(--bg2);margin-right:6px;margin-bottom:6px;}
-.svg-wrap {background:var(--bg); border:1px solid var(--ln); border-radius:var(--r); padding:16px; overflow:auto;}
+.svg-wrap,.org-wrap {background:var(--bg); border:1px solid var(--ln); border-radius:var(--r); padding:16px; overflow:auto;}
 .nav-toc a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;margin:6px 0;background:var(--bg);}
 kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--ln);padding:2px 5px;border-radius:4px;background:#fff;}
+.org-tree{display:flex;flex-direction:column;gap:16px;margin:8px 0;}
+.org-level{display:grid;gap:14px;}
+.org-level.cols-1{grid-template-columns:1fr;}
+.org-level.cols-2{grid-template-columns:repeat(2,minmax(0,1fr));}
+.org-level.cols-3{grid-template-columns:repeat(3,minmax(0,1fr));}
+.org-level.cols-4{grid-template-columns:repeat(4,minmax(0,1fr));}
+.org-level.cols-5{grid-template-columns:repeat(5,minmax(0,1fr));}
+.org-card{border:1px solid var(--ln);border-top:4px solid var(--blue);border-radius:var(--r);padding:14px;background:var(--bg);}
+.org-card h3{font-size:14px;color:var(--navy);margin:0 0 4px;}
+.org-card p{margin:4px 0;font-size:12px;}
+.org-row{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);margin:12px 0;}
+.org-row h3{margin:0 0 8px;font-size:13px;color:var(--navy);}
+.badge-soft{display:inline-block;padding:2px 8px;border-radius:999px;background:var(--blue-l);color:var(--navy);font-size:10px;font-weight:700;margin-right:6px;margin-bottom:6px;}
+.kpi-box{border:1px solid var(--ln);border-radius:var(--r);padding:12px;background:var(--bg);margin:8px 0;}
+.kpi-box b{display:block;font-size:11px;color:var(--navy);text-transform:uppercase;letter-spacing:.3px;margin-bottom:4px;}
+.auth-grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:10px 0 16px;}
+.auth-item{padding:12px 14px; border:1px solid var(--ln,#d7deea); border-radius:8px; background:var(--bg2,#f8fafc);}
+.backup-card{padding:14px 16px; border:1px solid var(--ln,#d7deea); border-left:4px solid #0f766e; border-radius:8px; background:var(--bg2,#f8fafc); margin:10px 0 0;}
+.role-boundary{border:1px solid #cfe0ff;border-left:4px solid #2563eb;border-radius:8px;background:#eef6ff;padding:14px 16px;margin:14px 0;}
+.phase-card{border:1px solid var(--ln);border-left:4px solid var(--gold);border-radius:var(--r);padding:14px;background:#fffdf5;margin:12px 0;}
+.phase-card h3{margin:0 0 6px;font-size:14px;color:var(--navy);}
+.phase-card p:last-child,.role-boundary p:last-child,.auth-item p:last-child,.backup-card p:last-child{margin-bottom:0;}
+.small-note{font-size:12px;color:var(--ink2);}
 
 </style>
-
 </head>
 <body>
 <div class="container">
   <div class="page">
     <div class="page-body">
-<div class="form-header">
-<div class="fh-left">
-  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
-  <div class="fh-company">
-    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
-    <span>Tài liệu kiểm soát</span>
-  </div>
-</div>
-<div class="title">
-  <strong>Sales And Customer Service — Department Handbook</strong>
-  <span class="sub-vn"></span>
-</div>
-<div class="meta">
-  <div class="row"><span><b>Mã:</b></span><span>DEPT-SALES-AND-CUSTOMER-SERVICE-HANDBOOK</span></div>
-  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
-  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
-  <div class="row"><span><b>Chủ sở hữu:</b></span><span>HR</span></div>
-  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
-</div>
-</div>
-<div class="doc-content" id="docContent">
+      <div class="form-header">
+        <div class="fh-left">
+          <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+          <div class="fh-company">
+            <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+            <span>Tài liệu kiểm soát</span>
+          </div>
+        </div>
+        <div class="title">
+          <strong>Sales &amp; Customer Service — Department Handbook</strong>
+          <span class="sub-vn">Sổ tay vận hành cấp phòng ban cho mô hình CNC job-order</span>
+        </div>
+        <div class="meta">
+          <div class="row"><span><b>Mã:</b></span><span>SALES-&amp;-CUSTOMER-SERVICE-HANDBOOK</span></div>
+          <div class="row"><span><b>Phiên bản:</b></span><span>V1.0</span></div>
+          <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+          <div class="row"><span><b>Chủ sở hữu:</b></span><span>CEO</span></div>
+          <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+        </div>
+      </div>
+      <div class="doc-content" id="docContent">
         <div class="form-sheet">
-
-<div class="iso-map">
-  <div class="iso-title">Department control intent</div>
-  <div class="req"><span class="req-tag shall">PHẢI</span><div>Phòng ban PHẢI vận hành theo output của JD phòng ban, SOP đang hiệu lực và các gate hold / release có liên quan.</div></div>
-  <div class="req"><span class="req-tag should">NÊN</span><div>Các KPI trong sổ tay này NÊN được dùng thống nhất trong daily management và management review.</div></div>
-</div>
-<div class="preface-block">
-  <div class="grid-2">
-    <div>
-      <p><b>Vai trò thuộc phòng</b></p>
-      <div><span class="inline-tag">Estimator</span><span class="inline-tag">Customer Service</span></div>
-    </div>
-    <div>
-      <p><b>Mã tài liệu chính</b></p>
-      <div><span class="inline-tag">SOP-201</span><span class="inline-tag">SOP-202</span><span class="inline-tag">SOP-203</span><span class="inline-tag">SOP-107</span><span class="inline-tag">WI-601</span><span class="inline-tag">FRM-641</span><span class="inline-tag">FRM-642</span><span class="inline-tag">FRM-651</span><span class="inline-tag">FRM-654</span></div>
-    </div>
-  </div>
-</div>
-<h2 class="h2">1. Mục tiêu phòng ban</h2><p>Quản trị đầu vào thương mại và dịch vụ khách hàng; bảo đảm báo giá đúng năng lực, đơn hàng đúng revision/CSR, thông tin xuyên suốt và chứng từ khách hàng chính xác.</p>
-<h2 class="h2">2. Phạm vi</h2><p>RFQ, báo giá, contract review, order acknowledgement, quản trị thay đổi PO, quản trị yêu cầu chứng từ/nhãn, điều phối thông tin tiến độ, điều phối phản hồi complaint theo tuyến thương mại.</p>
-<h2 class="h2">3. Trách nhiệm bắt buộc</h2><ul><li>Thiết lập hồ sơ yêu cầu khách hàng theo PN–Revision–PO line: bản vẽ, spec, yêu cầu đo/CMM, yêu cầu hồ sơ, yêu cầu đóng gói/nhãn, yêu cầu truy vết lot/serial.</li><li>Quản trị RFQ/Quotation theo job order: khóa giả định, điều kiện loại trừ, lead time, MOQ khi áp dụng.</li><li>Thực hiện contract review thương mại trước khi xác nhận đơn: kiểm khớp báo giá–PO–CSR–revision.</li><li>Phát hành order acknowledgement; quản change request của khách và phát hành thông báo thay đổi nội bộ.</li><li>Là đầu mối giao tiếp khách hàng hằng ngày: tiến độ, lịch ship, chứng từ, portal update (nếu có).</li><li>Điều phối chứng từ giao hàng: yêu cầu COC/COA, packing list, label, PO reference, ship instruction; kiểm đồng nhất dữ liệu trước ship.</li><li>Tiếp nhận complaint tuyến thương mại; thu thập dữ liệu PO/ship/lot/job, chuyển Quality xử lý kỹ thuật và theo dõi deadline phản hồi.</li></ul>
-<h2 class="h2">4. Quyền hạn</h2><ul><li>Từ chối xác nhận PO/đổi revision nếu thiếu dữ liệu hoặc không có xác nhận văn bản.</li><li>Khóa revision và CSR trong hồ sơ đơn hàng; chỉ mở khi có thay đổi được phê duyệt.</li></ul>
-<h2 class="h2">5. Đầu ra bắt buộc</h2><p>RFQ log, quotation package, contract review checklist, order acknowledgement, order change log, customer communication log, shipping doc request package, complaint log (tuyến thương mại).</p>
-<h2 class="h2">6. KPI</h2><p>Độ chính xác báo giá, lỗi sai revision/PO line, lỗi chứng từ, thời gian phản hồi RFQ/PO, OTD theo khách.</p>
-<h2 class="h2">7. Giao diện phòng ban</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Điểm giao tiếp</th><th>Nhận từ</th><th>Giao cho</th><th>Chứng từ / record đi kèm</th></tr></thead>
-<tbody>
-<tr><td>Thông tin đầu vào / yêu cầu</td><td>Phòng liền trước theo RFQ → Ship</td><td>Phòng ban này</td><td>PO, revision, traveler, WI/NC, checklist, release record</td></tr>
-<tr><td>Escalation bất thường</td><td>Nhân sự hiện trường / owner job</td><td>Trưởng phòng / QA Manager / CEO theo mức độ</td><td>NCR, hold log, incident log, action log</td></tr>
-<tr><td>Đầu ra bắt buộc</td><td>Phòng ban này</td><td>Phòng liền sau hoặc khách hàng nội bộ</td><td>Record đã ký, trạng thái system, nhãn, chứng từ ship, báo cáo KPI</td></tr>
-</tbody></table></div>
-<h2 class="h2">8. SOP / WI / Form liên quan</h2>
-<div class="table-card"><table class="table"><tbody><tr><th>SOP liên quan</th><td>SOP-201<br/>SOP-202<br/>SOP-203<br/>SOP-107</td></tr><tr><th>WI liên quan</th><td>WI-601</td></tr><tr><th>Biểu mẫu chính</th><td>FRM-641<br/>FRM-642<br/>FRM-651<br/>FRM-654</td></tr></tbody></table></div>
-
+<div class="iso-map"><div class="iso-title">Department control intent</div><div class="req"><span class="req-tag shall">PHẢI</span><div>Phòng ban phải vận hành theo JD mới nhất, REF-020 về role-boundary, authority matrix, SOP/WI và các gate hold/release liên quan.</div></div><div class="req"><span class="req-tag shall">PHẢI</span><div>Mọi trách nhiệm liên phòng ban trong handbook này chỉ có hiệu lực khi đi kèm bằng chứng bàn giao, trạng thái hệ thống hoặc biểu mẫu đã quy định.</div></div><div class="req"><span class="req-tag should">NÊN</span><div>KPI và handoff trong handbook này nên được dùng trực tiếp trong daily management và management review.</div></div></div>
+<div class="preface-block"><div class="grid-2"><div><p><b>Vai trò thuộc phòng</b></p><div><span class="inline-tag">Customer Service</span><span class="inline-tag">Estimator</span></div></div><div><p><b>Mã tài liệu chính</b></p><div><span class="inline-tag">SOP-201</span><span class="inline-tag">SOP-202</span><span class="inline-tag">SOP-203</span><span class="inline-tag">SOP-605</span><span class="inline-tag">FRM-201</span><span class="inline-tag">FRM-202</span><span class="inline-tag">FRM-204</span><span class="inline-tag">REF-020</span><span class="inline-tag">REF-021</span></div></div></div></div>
+<h2 class="h2">1. Mục tiêu phòng ban</h2><p>Khóa yêu cầu khách hàng thành cam kết thương mại – kỹ thuật có thể thực hiện được, kiểm soát mọi thay đổi PO/RFQ và giữ một kênh giao tiếp đối ngoại thống nhất từ RFQ đến sau giao hàng.</p>
+<h2 class="h2">2. Phạm vi</h2><p>RFQ intake, contract review coordination, quotation release, order acknowledgment, customer change control, delivery communication, complaint/RMA commercial interface.</p>
+<h2 class="h2">3. Trách nhiệm bắt buộc</h2><ul><li>Bảo đảm mọi RFQ/PO được ghi nhận đủ revision, drawing/spec, Incoterms, yêu cầu chứng từ và mốc giao hàng trước khi đi sâu vào feasibility.</li><li>Tách rõ vai Estimator và Customer Service: Estimator chịu cost build/commercial assumption; Customer Service chịu order log, acknowledgment, change log và giao tiếp chính thức với khách hàng.</li><li>Không chốt cam kết lead time, chứng từ đặc biệt hoặc điều khoản ngoài chuẩn nếu chưa có xác nhận từ Engineering / Supply Chain / Quality theo mức rủi ro.</li><li>Duy trì single source of truth cho trạng thái khách hàng: RFQ, quote, PO, change request, delivery promise, complaint log.</li><li>Bảo đảm mọi escalation ra ngoài về chất lượng, trễ hàng hoặc sai khác hợp đồng đều có căn cứ nội bộ và người phê duyệt phù hợp.</li></ul>
+<h2 class="h2">4. Quyền hạn</h2><ul><li>Yêu cầu bổ sung/làm rõ dữ liệu RFQ/PO trước khi vào báo giá hoặc xác nhận đơn hàng.</li><li>Tạm dừng phát hành quotation/acknowledgment khi technical feasibility, sourcing readiness, quality risk hoặc điều khoản thương mại chưa rõ.</li><li>Đề xuất ưu tiên khách hàng, split shipment hoặc recovery plan; quyết định cuối cùng theo tuyến phê duyệt đã quy định.</li><li>Từ chối giao tiếp không chính thức làm thay đổi yêu cầu khách hàng nếu chưa được ghi nhận qua change log.</li></ul>
+<h2 class="h2">5. Đầu ra bắt buộc</h2><p>RFQ log, quote package, contract review record, order acknowledgment, customer change log, delivery commitment, complaint interface log.</p>
+<h2 class="h2">6. KPI</h2><div class="kpi-box"><b>1. KPI</b><div>Quote turnaround time theo phân khúc độ khó</div></div><div class="kpi-box"><b>2. KPI</b><div>Contract review right-first-time</div></div><div class="kpi-box"><b>3. KPI</b><div>OTD communication accuracy / promise accuracy</div></div><div class="kpi-box"><b>4. KPI</b><div>Complaint response lead time</div></div><div class="kpi-box"><b>5. KPI</b><div>Tỷ lệ thay đổi đơn hàng được khóa đúng revision</div></div>
+<h2 class="h2">7. Giao diện phòng ban</h2><div class="table-card"><table class="table"><colgroup><col style="width:24%"/><col style="width:18%"/><col style="width:18%"/><col style="width:40%"/></colgroup><thead><tr><th>Điểm giao tiếp</th><th>Nhận từ</th><th>Giao cho</th><th>Chứng từ / record đi kèm</th></tr></thead><tbody><tr><td>RFQ & PO intake</td><td>Khách hàng</td><td>Estimator / Engineering / Supply Chain / Quality</td><td>RFQ pack, PO, spec, drawing, revision history</td></tr><tr><td>Quote release</td><td>Estimator</td><td>Khách hàng / Customer Service</td><td>Quote, assumption log, validity, NRE/tooling note</td></tr><tr><td>Order conversion</td><td>Customer Service</td><td>Planner / Supply Chain / Finance</td><td>Acknowledgment, due date, shipping term, customer-specific requirement</td></tr><tr><td>Complaint / RMA</td><td>Khách hàng</td><td>Quality / Production / CEO theo mức độ</td><td>Complaint log, evidence request, containment status</td></tr></tbody></table></div>
+<h2 class="h2">8. Tài liệu liên quan</h2><div class="table-card"><table class="table"><colgroup><col style="width:22%"/><col style="width:78%"/></colgroup><thead><tr><th>Nhóm</th><th>Tài liệu</th></tr></thead><tbody><tr><td>QMS / Org</td><td><a href="../../01-Quality-Manual/qms-man-001-qms-manual.html">QMS-MAN-001</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-020-cnc-operating-model-and-role-boundary.html">REF-020</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-021-phased-document-upgrade-roadmap.html">REF-021</a><br/><a href="../04-RACI-Authority/annex-qms-025-authority-matrix.html">ANNEX-QMS-025</a><br/><a href="../04-RACI-Authority/annex-qms-026-raci-master-matrix.html">ANNEX-QMS-026</a><br/><a href="../04-RACI-Authority/annex-qms-028-deputy-backup-matrix.html">ANNEX-QMS-028</a></td></tr><tr><td>SOP / WI / FRM trọng yếu</td><td><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/02-SOP-200/sop-201-order-fulfillment-rfq-to-cash.html">SOP-201</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/02-SOP-200/sop-202-customer-complaint-feedback-rma-and-escape.html">SOP-202</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/02-SOP-200/sop-203-customer-property-control.html">SOP-203</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-605-final-inspection-coc-and-shipment-release.html">SOP-605</a><br/><a href="../../../04-Bieu-Mau/02-FRM-200/frm-201-rfq-register.html">FRM-201</a><br/><a href="../../../04-Bieu-Mau/02-FRM-200/frm-202-contract-review-checklist.html">FRM-202</a><br/><a href="../../../04-Bieu-Mau/02-FRM-200/frm-204-job-kickoff-checklist.html">FRM-204</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-020-cnc-operating-model-and-role-boundary.html">REF-020</a><br/><a href="../../../03-Tai-Lieu-Van-Hanh/03-Reference/01-ANNEX-System/ref-021-phased-document-upgrade-roadmap.html">REF-021</a></td></tr></tbody></table></div>
+<div class="footer-note">Handbook này dùng để làm rõ phạm vi phòng ban, không thay thế JD cá nhân hay SOP/WI chi tiết. Khi có thay đổi tổ chức hoặc JD mới, handbook phải được rà lại cùng authority / RACI tương ứng.</div>
         </div>
       </div>
     </div>

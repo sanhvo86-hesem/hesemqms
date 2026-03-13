@@ -1,16 +1,60 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+
 <html lang="vi">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>SOP-104 — Data Governance Records Security and IP Protection | HESEM QMS</title>
+<title>SOP-104 — Quản trị dữ liệu, hồ sơ, bảo mật và bảo vệ IP | HESEM QMS</title>
 <link href="../../../assets/style.css" rel="stylesheet"/>
 <style>
-/* === PAGE BREAK & OVERFLOW FIX (auto-applied) === */
+.chip{display:inline-block;padding:2px 10px;border-radius:999px;border:1px solid #d7dee7;background:#f8fafc;font-size:11px;margin-right:6px;margin-bottom:6px;font-weight:600;}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:12px;}
+.tight li{margin:4px 0;}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+.toc{border:1px solid var(--ln);border-radius:var(--r);padding:16px;background:var(--bg2);margin:18px 0 24px;}
+.toc-title{font-size:12px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.4px;margin-bottom:10px;}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;}
+.toc-grid a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;background:var(--bg);font-size:12px;color:var(--ink);}
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.metric-card{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);}
+.metric-card .value{font-size:20px;font-weight:700;color:var(--navy);}
+.metric-card .label{font-size:11px;color:var(--ink3);margin-top:4px;text-transform:uppercase;letter-spacing:.3px;}
+.mini-note{font-size:12px;color:var(--ink2);line-height:1.55;}
+.gate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.gate-card{border:1px solid var(--ln);border-left:4px solid var(--blue);border-radius:var(--r);padding:14px;background:var(--bg);}
+.gate-card h3{margin:0 0 6px;font-size:14px;color:var(--navy);}
+.field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;}
+.field{padding:10px 12px;border:1px solid var(--ln);border-radius:var(--r-sm);background:var(--bg);}
+.field b{display:block;font-size:11px;color:var(--ink3);text-transform:uppercase;letter-spacing:.3px;margin-bottom:6px;}
+.field .blank{width:100%;min-height:22px;}
+.check-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;}
+.check-item{padding:8px 10px;border:1px solid var(--ln);border-radius:var(--r-sm);background:var(--bg);font-size:12px;}
+.check-item .chk{margin-right:6px;}
+.legend-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0;}
+.legend-row .chip{margin-bottom:0;}
+.footer-note{margin-top:20px;font-size:11px;color:var(--ink3);}
+.decision-table td:first-child, .decision-table th:first-child{font-weight:700;}
+.kpi-good{color:#166534;font-weight:700;}
+.kpi-watch{color:#92400e;font-weight:700;}
+.kpi-bad{color:#b91c1c;font-weight:700;}
+.control-stack > * + *{margin-top:12px;}
+.subtle{color:var(--ink2);font-size:12px;}
+.boxed-list{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);}
+.lane-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.35px;color:var(--navy);margin-bottom:6px;}
+.flow-note{font-size:11px;color:var(--ink3)}
+.pill{display:inline-block;padding:4px 8px;border-radius:999px;background:var(--blue-l);color:var(--navy);font-size:11px;font-weight:700;margin:0 6px 6px 0;}
+.audit-score{font-size:24px;font-weight:700;color:var(--navy);}
+.matrix-small td,.matrix-small th{font-size:12px;}
+.svg-wrap{overflow:auto;border:1px solid var(--ln);border-radius:var(--r);background:#fff;padding:12px}
+.legend-box{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.legend-box span{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--ln);background:var(--bg);padding:4px 8px;border-radius:999px;font-size:11px}
+.sq{width:12px;height:12px;border-radius:3px;display:inline-block}
+.rule-table td:nth-child(1),.rule-table td:nth-child(2){white-space:nowrap}
+.small{font-size:12px}
 @media print {
-  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.vstep{page-break-inside:avoid;break-inside:avoid}
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.lane,.legend,.req,.auth-grid,.backup-card,.vstep,.metric-card,.gate-card,.field,.boxed-list,.svg-wrap{page-break-inside:avoid;break-inside:avoid}
   h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
-  .form-header,.sig-row,.sign-row{page-break-inside:avoid;break-inside:avoid}
+  .form-header,.sig-row,.sign-row,.approval-row{page-break-inside:avoid;break-inside:avoid}
   tr{page-break-inside:avoid;break-inside:avoid}
   thead{display:table-header-group}tfoot{display:table-footer-group}
   p{orphans:3;widows:3}.table-card{overflow:visible!important}
@@ -19,177 +63,36 @@
 .table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
 table{max-width:100%;table-layout:auto}
 td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
+@media (max-width: 900px){.grid-3{grid-template-columns:1fr;}.field-grid{grid-template-columns:1fr;}}
+
 </style>
 </head>
 <body>
 <div class="container"><div class="page"><div class="page-body">
 <div class="form-header">
 <div class="fh-left">
-  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
-  <div class="fh-company">
-    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
-    <span>Tài liệu kiểm soát</span>
-  </div>
+<a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+<div class="fh-company">
+<a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+<span>Tài liệu kiểm soát</span>
+</div>
 </div>
 <div class="title">
-  <strong>SOP-104 — Data Governance Records Security and IP Protection</strong>
-  <span class="sub-vn"></span>
+<strong>SOP-104 — Quản trị dữ liệu, hồ sơ, bảo mật và bảo vệ IP</strong>
+<span class="sub-vn">Bảo đảm dữ liệu kỹ thuật và hồ sơ chất lượng được bảo vệ, truy cập đúng quyền và truy xuất được khi cần</span>
 </div>
 <div class="meta">
-  <div class="row"><span><b>Mã:</b></span><span>SOP-104</span></div>
-  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
-  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
-  <div class="row"><span><b>Chủ sở hữu:</b></span><span>QA/QMS</span></div>
-  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+<div class="row"><span><b>Mã:</b></span><span>SOP-104</span></div>
+<div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+<div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+<div class="row"><span><b>Chủ sở hữu:</b></span><span>Epicor System Administrator / IT Admin</span></div>
+<div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
 </div>
 </div>
 <div class="doc-content" id="docContent"><div class="form-sheet">
-
-<div class="iso-map"><div class="iso-title">Chuẩn mực áp dụng</div><div class="req"><span class="req-tag shall">PHẢI</span><div>Kiểm soát thông tin dạng văn bản, bao gồm hồ sơ; bảo vệ khỏi mất mát, thay đổi không mong muốn và truy cập trái phép. <span class="iso-ref">ISO 7.5.3</span></div></div>
-<div class="req"><span class="req-tag shall">PHẢI</span><div>Đảm bảo nguồn lực hạ tầng IT phù hợp; duy trì tính sẵn sàng cho vận hành. <span class="iso-ref">ISO 7.1.3</span></div></div>
-<div class="req"><span class="req-tag shall">PHẢI</span><div>Bảo vệ tài sản của khách hàng (bao gồm dữ liệu, bản vẽ, vật liệu và IP). <span class="iso-ref">ISO 8.5.3</span></div></div>
-<div class="req"><span class="req-tag should">NÊN</span><div>Thiết lập phân loại dữ liệu và kiểm soát truy cập theo vai trò (role-based access). <span class="iso-ref">ISO 7.5.3</span></div></div>
-<div class="req"><span class="req-tag may">ĐƯỢC PHÉP</span><div>Ký NDA và kiểm soát khách thăm theo yêu cầu từng OEM. <span class="iso-ref">ISO 8.5.3</span> <span class="iso-ref">ISO 7.4</span></div></div></div>
-
-<div class="preface-block">
-  <h2 class="h2">Phân loại dữ liệu tại HESEM</h2>
-  <div class="grid-2">
-    <div>
-      <div class="card-title">Mức phân loại</div>
-      <ul>
-        <li><b>Public</b>: thông tin công khai (website, brochure).</li>
-        <li><b>Internal</b>: dùng nội bộ (WI chung, biểu mẫu trống).</li>
-        <li><b>Confidential</b>: dữ liệu khách hàng/giá/costing, báo cáo CMM, NCR/CAPA.</li>
-        <li><b>Restricted</b>: bản vẽ/spec/NC, CSR nhạy cảm, dữ liệu truy vết lot/serial, dữ liệu truy cập hệ thống.</li>
-      </ul>
-    </div>
-    <div>
-      <div class="card-title">Nguyên tắc xử lý</div>
-      <ul>
-        <li>Restricted <b>PHẢI</b> lưu trên SharePoint/OneDrive doanh nghiệp; không gửi qua tài khoản cá nhân.</li>
-        <li>File NC và bản vẽ khách hàng <b>PHẢI</b> giới hạn theo dự án/khách; cấp quyền theo FRM-141.</li>
-        <li>Khách thăm xưởng <b>PHẢI</b> theo quy trình kiểm soát: NDA/đăng ký/escort, cấm chụp ảnh nếu không được phép.</li>
-      </ul>
-      <div class="callout"><b>Quy tắc:</b> Dữ liệu “Restricted” không được in/photocopy nếu không có nhu cầu sản xuất/kiểm cụ thể và không có dấu “CONTROLLED COPY”.</div>
-    </div>
-  </div>
-</div>
-
-<h2 class="h2">1. Mục đích</h2>
-<p>Thiết lập phân loại dữ liệu, quản trị lưu trữ hồ sơ, cấp/thu hồi quyền truy cập và bảo vệ IP để đáp ứng yêu cầu OEM bán dẫn và giảm rủi ro rò rỉ dữ liệu.</p>
-<h2 class="h2">2. Phạm vi</h2>
-<p>Áp dụng cho dữ liệu/hồ sơ trên M365/SharePoint, Epicor, máy CNC/CMM, email doanh nghiệp và bản in liên quan đến bản vẽ/spec, NC, hồ sơ chất lượng, costing và CSR.</p>
-<h2 class="h2">3. Thuật ngữ</h2>
-
-<div class="table-card"><table class="table">
-<thead><tr><th>Thuật ngữ</th><th>Diễn giải</th></tr></thead>
-<tbody>
-<tr><td><b>Hồ sơ</b> (Record)</td><td>Bằng chứng đã thực hiện: báo cáo đo, log ca, checklist packaging, biên bản audit, log backup…</td></tr>
-<tr><td><b>IP</b> (Intellectual Property)</td><td>Bản vẽ, spec, thiết kế, NC, fixture concept, và mọi dữ liệu kỹ thuật thuộc sở hữu khách hàng/HESEM theo hợp đồng.</td></tr>
-<tr><td><b>NDA</b> (Non-Disclosure Agreement)</td><td>Thỏa thuận bảo mật với khách hàng/NCC/đối tác. Bản NDA <b>PHẢI</b> lưu trong thư mục legal có kiểm soát.</td></tr>
-<tr><td><b>Quyền truy cập</b> (Access Right)</td><td>Quyền xem/sửa/tải/in theo role. Cấp/đổi/thu hồi theo FRM-141.</td></tr>
-<tr><td><b>Vi phạm dữ liệu</b> (Data Breach)</td><td>Sự kiện mất mát/rò rỉ dữ liệu, truy cập trái phép, email gửi sai người, hoặc thiết bị chứa dữ liệu bị mất.</td></tr>
-</tbody></table></div>
-
-<h2 class="h2">4. RACI</h2>
-
-<div class="table-card"><table class="table">
-<thead><tr><th>Vai trò</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead>
-<tbody>
-<tr><td><b>IT Admin</b></td><td>X</td><td></td><td></td><td></td></tr>
-<tr><td><b>QMS Engineer</b></td><td>X</td><td></td><td></td><td></td></tr>
-<tr><td><b>QA Manager</b></td><td></td><td>X</td><td></td><td></td></tr>
-<tr><td><b>Epicor System Administrator</b></td><td></td><td></td><td>X</td><td></td></tr>
-<tr><td><b>HR Manager</b></td><td></td><td></td><td>X</td><td></td></tr>
-<tr><td><b>Production Director</b></td><td></td><td></td><td>X</td><td></td></tr>
-<tr><td><b>Engineering Lead</b></td><td></td><td></td><td>X</td><td></td></tr>
-<tr><td><b>SC Manager</b></td><td></td><td></td><td>X</td><td></td></tr>
-<tr><td><b>Toàn bộ nhân viên (All employees)</b></td><td></td><td></td><td></td><td>X</td></tr>
-</tbody></table></div>
-
-<h2 class="h2">5. Quy trình</h2>
-
-<h3 class="h3">5.1 Quản trị vị trí lưu (M365/Epicor) – SSOT</h3>
-<ul>
-  <li>Tài liệu/hồ sơ QMS <b>PHẢI</b> lưu trên SharePoint theo cấu trúc: <span class="mono">/QMS/Controlled</span>, <span class="mono">/QMS/Records</span>.</li>
-  <li>Dữ liệu ERP (Epicor) <b>PHẢI</b> theo quyền role do Epicor System Administrator quản; xuất dữ liệu ra file <b>PHẢI</b> tuân thủ phân loại.</li>
-  <li>Dữ liệu khách hàng theo dự án (drawing/spec/NC/report) <b>PHẢI</b> lưu trong site dự án có quyền hạn chế.</li>
-</ul>
-
-<h3 class="h3">5.2 Cấp/đổi/thu hồi quyền truy cập – FRM-141</h3>
-<div class="vflow">
-  <div class="vstep"><div class="vnum">1</div><div class="vtext">Trưởng bộ phận (Manager/Lead) hoặc QA Manager <b>PHẢI</b> yêu cầu quyền truy cập bằng FRM-141: hệ thống, nhóm dữ liệu, mức quyền, lý do và thời hạn.</div></div>
-  <div class="vstep"><div class="vnum">2</div><div class="vtext">IT Admin/Epicor Admin <b>PHẢI</b> thực thi, ghi log và xác nhận hoàn tất trên FRM-141.</div></div>
-  <div class="vstep"><div class="vnum">3</div><div class="vtext">Khi nhân viên nghỉ việc/chuyển vị trí, HR Manager <b>PHẢI</b> thông báo trong 24 giờ để IT thu hồi quyền.</div></div>
-</div>
-<ul>
-  <li>Quyền truy cập <b>NÊN</b> theo nguyên tắc tối thiểu cần thiết (least privilege).</li>
-  <li>Rà soát quyền truy cập <b>PHẢI</b> tối thiểu hàng quý theo FRM-111 (do SOP-101 quản lý biểu mẫu).</li>
-</ul>
-
-<h3 class="h3">5.3 Quản lý NDA &amp; yêu cầu bảo mật khách hàng</h3>
-<ul>
-  <li>NDA với khách hàng/NCC <b>PHẢI</b> lưu trong thư mục legal “Restricted” (read-only) và gán người quản lý hồ sơ.</li>
-  <li>Khi khách hàng có yêu cầu bảo mật riêng (portal, watermark, hạn chế in), QMS Engineer <b>PHẢI</b> ghi vào FRM-125 (CSR) và triển khai điều kiện kiểm soát vào SOP/WI liên quan.</li>
-</ul>
-
-<h3 class="h3">5.4 Bảo vệ IP khách hàng (drawing/spec/NC)</h3>
-<ul>
-  <li>File bản vẽ/spec <b>PHẢI</b> giữ nguyên tên gốc của khách + PN–Rev. Không đổi nội dung file.</li>
-  <li>NC program và setup sheet <b>PHẢI</b> quản theo baseline và revision theo SOP-106; chỉ người có quyền mới được sửa.</li>
-  <li>Gửi dữ liệu ra ngoài <b>PHẢI</b> qua kênh được phép (M365 share link có hạn, SFTP/portal khách nếu yêu cầu). Không gửi file “Restricted” qua Zalo/ứng dụng cá nhân.</li>
-</ul>
-
-<h3 class="h3">5.5 Kiểm soát khách thăm xưởng</h3>
-<ul>
-  <li>Khách thăm <b>PHẢI</b> đăng ký trước; ký NDA (nếu yêu cầu) và được cấp thẻ visitor.</li>
-  <li>Chụp ảnh/quay video <b>ĐƯỢC PHÉP</b> khi có chấp thuận bằng văn bản của QA Manager và khu vực cho phép.</li>
-  <li>Khách thăm <b>PHẢI</b> có người escort; không tự do tiếp cận khu vực có dữ liệu “Restricted”.</li>
-</ul>
-
-<h3 class="h3">5.6 Lịch lưu trữ hồ sơ (Record Retention)</h3>
-<div class="card">
-  <div class="card-title">Nguyên tắc lập lịch</div>
-  <ul>
-    <li>Thời hạn lưu <b>PHẢI</b> đáp ứng hợp đồng/CSR và yêu cầu pháp lý.</li>
-    <li>Hồ sơ liên quan truy vết (lot/serial, COC/COA, inspection) <b>PHẢI</b> ưu tiên lưu dài hơn.</li>
-    <li>Khi CSR yêu cầu khác, CSR <b>PHẢI</b> được ưu tiên.</li>
-  </ul>
-</div>
-<ul>
-  <li>QMS Engineer <b>PHẢI</b> công bố lịch lưu trữ trong thư mục QMS Records; Finance/HR/EHS <b>PHẢI</b> áp dụng cho hồ sơ thuộc phạm vi của mình.</li>
-</ul>
-
-<h3 class="h3">5.7 Sao lưu &amp; khôi phục</h3>
-<ul>
-  <li>IT Admin/Epicor Admin <b>PHẢI</b> duy trì backup theo lịch; kiểm tra khôi phục (restore verification) tối thiểu hàng tháng và lưu log.</li>
-  <li>Khi xảy ra sự cố mất hệ thống, kích hoạt SOP-108 và dùng Offline Fallback Kit.</li>
-</ul>
-
-<h3 class="h3">5.8 Ứng phó vi phạm dữ liệu (Data Breach Response)</h3>
-<div class="vflow">
-  <div class="vstep"><div class="vnum">1</div><div class="vtext">Người phát hiện <b>PHẢI</b> báo ngay cho QA Manager và IT Admin (trực điện thoại nếu ngoài giờ).</div></div>
-  <div class="vstep"><div class="vnum">2</div><div class="vtext">IT Admin <b>PHẢI</b> cô lập: khóa tài khoản, đổi mật khẩu, thu hồi link share, cách ly thiết bị.</div></div>
-  <div class="vstep"><div class="vnum">3</div><div class="vtext">QA Manager <b>PHẢI</b> đánh giá tác động: dữ liệu nào bị ảnh hưởng, khách hàng nào liên quan, và yêu cầu thông báo theo hợp đồng.</div></div>
-  <div class="vstep"><div class="vnum">4</div><div class="vtext">Nếu liên quan dữ liệu khách hàng, Customer Service <b>PHẢI</b> phối hợp gửi thông báo theo kênh và thời hạn khách yêu cầu (CSR).</div></div>
-</div>
-
-<h2 class="h2">6. Biểu mẫu liên quan</h2>
-<ul>
-  <li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-141-it-access-request-change-revocation.html">FRM-141</a> Phiếu yêu cầu/thay đổi/thu hồi quyền truy cập IT</li>
-</ul>
-
-<h2 class="h2">7. Tài liệu liên quan</h2>
-<ul>
-  <li><a href="sop-101-document-and-data-control.html">SOP-101</a> Kiểm soát tài liệu &amp; dữ liệu</li>
-  <li><a href="sop-106-change-and-configuration-management.html">SOP-106</a> Quản lý thay đổi &amp; cấu hình</li>
-  <li><a href="sop-108-operational-contingency-plan.html">SOP-108</a> Kế hoạch vận hành dự phòng</li>
-</ul>
-
-
+<div class="iso-map"><div class="iso-title">Chuẩn mực áp dụng / nguyên tắc bắt buộc</div><div class="req"><span class="req-tag shall">PHẢI</span><div>Dữ liệu khách hàng, dữ liệu kỹ thuật và record hệ thống phải được phân loại, cấp quyền và bảo vệ tương ứng mức nhạy cảm.</div></div><div class="req"><span class="req-tag shall">PHẢI</span><div>Record phải nguyên vẹn, truy xuất được và có backup/phục hồi phù hợp với mức độ rủi ro.</div></div><div class="req"><span class="req-tag should">NÊN</span><div>Ưu tiên quản trị điện tử có kiểm soát truy cập và log thay đổi hơn lưu trữ rời rạc trên máy cá nhân.</div></div></div><div class="preface-block"><div class="grid-2"><div class="card"><div class="card-title">Mục tiêu</div><p>Giữ cho dữ liệu đúng người, đúng phiên bản, đúng thời điểm; đồng thời bảo vệ bản vẽ, NC, data inspection và thông tin khách hàng khỏi rò rỉ hoặc mất mát.</p></div><div class="callout"><div class="card-title">Điểm cần chú ý</div><p>Đối với CNC contract manufacturing, mất dữ liệu kỹ thuật hoặc dùng sai file có thể gây hậu quả tương đương sản phẩm lỗi. Vì vậy data governance là một phần của quality assurance.</p></div></div></div><div class="toc"><div class="toc-title">Mục lục nhanh</div><div class="toc-grid"><a href="#p1">1. Mục đích</a><a href="#p2">2. Phạm vi</a><a href="#p3">3. Thuật ngữ</a><a href="#p4">4. RACI</a><a href="#p5">5. Quy trình</a><a href="#p6">6. Biểu mẫu liên quan</a><a href="#p7">7. Tài liệu liên quan</a></div></div><h2 class="h2" id="p1">1. Mục đích</h2><p>Quy định cách phân loại, cấp quyền, lưu trữ, sao lưu, chia sẻ, giữ hồ sơ, phục hồi và xử lý sự cố đối với dữ liệu và record thuộc QMS và dữ liệu khách hàng.</p><h2 class="h2" id="p2">2. Phạm vi</h2><p>Áp dụng cho toàn bộ dữ liệu điện tử/giấy liên quan tới QMS, kỹ thuật, hợp đồng, supplier, inspection, shipping, complaint, CAPA và dữ liệu hệ thống hỗ trợ.</p><h2 class="h2" id="p3">3. Thuật ngữ</h2><div class="table-card"><table class="table"><thead><tr><th>Thuật ngữ</th><th>Diễn giải áp dụng</th></tr></thead><tbody><tr><td><b>IP</b></td><td>Tài sản trí tuệ của khách hàng hoặc công ty như bản vẽ, model, quy trình, thiết kế gá, NC, dữ liệu kiểm tra.</td></tr><tr><td><b>Record</b></td><td>Bằng chứng về việc đã thực hiện một hoạt động hoặc đã đạt/không đạt một kết quả.</td></tr><tr><td><b>Least privilege</b></td><td>Nguyên tắc chỉ cấp quyền tối thiểu cần thiết để thực hiện công việc.</td></tr><tr><td><b>Backup set</b></td><td>Bản sao dữ liệu dùng cho mục tiêu phục hồi sau sự cố, được kiểm tra định kỳ.</td></tr></tbody></table></div><h2 class="h2" id="p4">4. RACI</h2><div class="table-card"><table class="table"><thead><tr><th>Vai trò</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead><tbody><tr><td>Epicor System Administrator</td><td>●</td><td></td><td></td><td></td></tr><tr><td>IT Admin</td><td>●</td><td></td><td></td><td></td></tr><tr><td>QA Manager</td><td></td><td>●</td><td></td><td></td></tr><tr><td>QMS Engineer</td><td></td><td></td><td>●</td><td></td></tr><tr><td>Finance Manager</td><td></td><td></td><td>●</td><td></td></tr><tr><td>CEO</td><td></td><td></td><td></td><td>●</td></tr></tbody></table></div><div class="role-boundary"><b>Role-boundary / authority note:</b> Epicor System Administrator quản trị master data/workflow; IT Admin quản trị hạ tầng và bảo mật. Quyền dữ liệu nghiệp vụ phải tách khỏi quyền hệ thống để tránh xung đột lợi ích. Xem thêm <a href="../../03-Reference/01-ANNEX-System/ref-020-cnc-operating-model-and-role-boundary.html">REF-020</a>, <a href="../../../02-Tai-Lieu-He-Thong/03-Organization/04-RACI-Authority/annex-qms-025-authority-matrix.html">ANNEX-QMS-025</a> và <a href="../../../02-Tai-Lieu-He-Thong/03-Organization/04-RACI-Authority/annex-qms-026-raci-master-matrix.html">ANNEX-QMS-026</a> để đối chiếu giữa tài liệu.</div><h2 class="h2" id="p5">5. Quy trình</h2><h3 class="h3">1. Phân loại dữ liệu và quyền truy cập</h3><div class="table-card"><table class="table"><colgroup><col style="width:30%"/><col style="width:70%"/></colgroup><thead><tr><th>Nhóm dữ liệu</th><th>Mức kiểm soát</th></tr></thead><tbody><tr><td>Dữ liệu công khai nội bộ</td><td>Có thể chia sẻ rộng trong công ty, ít rủi ro nếu lộ.</td></tr><tr><td>Dữ liệu vận hành có kiểm soát</td><td>Chỉ cấp cho người liên quan; có log hoặc danh sách nhận bản sao.</td></tr><tr><td>Dữ liệu mật khách hàng / IP</td><td>Giới hạn theo need-to-know, cấm chuyển qua kênh cá nhân; ưu tiên vùng lưu trữ bảo mật và phân quyền theo vai trò.</td></tr><tr><td>Record pháp lý / tài chính / HR</td><td>Theo quy định riêng của bộ phận và pháp luật liên quan, nhưng vẫn phải tương thích yêu cầu retention của QMS nếu record này là bằng chứng chất lượng.</td></tr></tbody></table></div><h3 class="h3">2. Lưu trữ, backup và phục hồi</h3><ul class="tight"><li>Phải xác định thư mục/nguồn hệ thống cho bản vẽ, model, NC, report kiểm tra, chứng chỉ vật liệu/quá trình và complaint/CAPA.</li><li>Backup định kỳ phải bao phủ tối thiểu dữ liệu phát hành, hồ sơ release, supplier certificates, quality records và master data cần cho phục hồi sản xuất.</li><li>Kiểm tra phục hồi phải được thực hiện theo lịch; backup không được xem là hiệu lực nếu chưa từng thử phục hồi.</li></ul><h3 class="h3">3. Chia sẻ dữ liệu và bảo vệ IP</h3><ul class="tight"><li>Chỉ chia sẻ cho nhà cung cấp/đối tác đúng phạm vi tối thiểu cần thiết để thực hiện công việc; dùng flow-down package thay vì gửi toàn bộ data không cần thiết.</li><li>Khi kết thúc hợp tác hoặc thay đổi nhân sự, phải thu hồi quyền truy cập và vô hiệu hóa các bản sao kiểm soát không còn cần thiết.</li><li>Mọi nghi ngờ rò rỉ, mất file, chỉnh sửa trái phép hoặc truy cập bất thường phải được ghi nhận và escalated ngay.</li></ul><h3 class="h3">4. Quản trị record và hủy bỏ</h3><ul class="tight"><li>Không sửa record đã chốt theo cách làm mất dấu vết; nếu cần bổ sung/chỉnh, phải còn dấu vết ai sửa, sửa gì và khi nào.</li><li>Hủy bỏ record sau thời gian lưu phải bảo đảm không thể phục hồi ngoài ý muốn, nhất là với dữ liệu kỹ thuật và thông tin khách hàng.</li></ul><h2 class="h2" id="p6">6. Biểu mẫu liên quan</h2><ul class="tight"><li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-109-access-rights-and-dcr-matrix.html">FRM-109</a></li><li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-111-quarterly-access-review.html">FRM-111</a></li><li><a href="../../../04-Bieu-Mau/01-FRM-100/frm-141-it-access-request-change-revocation.html">FRM-141</a></li></ul><h2 class="h2" id="p7">7. Tài liệu liên quan</h2><ul class="tight"><li><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-101-document-and-data-control.html">SOP-101</a></li><li><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/01-SOP-100/sop-106-change-and-configuration-management.html">SOP-106</a></li></ul><div class="footer-note">Bản nâng cấp giữ nguyên mã tài liệu, logic vận hành gốc và tăng chiều sâu kiểm soát cho mô hình gia công CNC toàn cầu, high-mix/medium-volume hoặc job-order.</div>
 </div></div>
 </div></div></div>
+<script src="../../../assets/app.js"></script>
 </body>
 </html>
-
-

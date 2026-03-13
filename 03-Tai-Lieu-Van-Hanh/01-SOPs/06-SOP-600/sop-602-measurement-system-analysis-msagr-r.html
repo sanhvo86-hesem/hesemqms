@@ -1,276 +1,98 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+
 <html lang="vi">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>SOP-602 — Measurement System Analysis (MSA) / Gage R&R | HESEM QMS</title>
+<title>SOP-602 — Phân tích hệ thống đo (MSA / GR&amp;R) | HESEM QMS</title>
 <link href="../../../assets/style.css" rel="stylesheet"/>
 <style>
-/* ═══ PAGE BREAK & OVERFLOW FIX (auto-applied) ═══ */
+.chip{display:inline-block;padding:2px 10px;border-radius:999px;border:1px solid #d7dee7;background:#f8fafc;font-size:11px;margin-right:6px;margin-bottom:6px;font-weight:600;}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:12px;}
+.tight li{margin:4px 0;}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+.toc{border:1px solid var(--ln);border-radius:var(--r);padding:16px;background:var(--bg2);margin:18px 0 24px;}
+.toc-title{font-size:12px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.4px;margin-bottom:10px;}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;}
+.toc-grid a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;background:var(--bg);font-size:12px;color:var(--ink);}
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.metric-card{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);}
+.metric-card .value{font-size:20px;font-weight:700;color:var(--navy);}
+.metric-card .label{font-size:11px;color:var(--ink3);margin-top:4px;text-transform:uppercase;letter-spacing:.3px;}
+.mini-note{font-size:12px;color:var(--ink2);line-height:1.55;}
+.gate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.gate-card{border:1px solid var(--ln);border-left:4px solid var(--blue);border-radius:var(--r);padding:14px;background:var(--bg);}
+.gate-card h3{margin:0 0 6px;font-size:14px;color:var(--navy);}
+.field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;}
+.field{padding:10px 12px;border:1px solid var(--ln);border-radius:var(--r-sm);background:var(--bg);}
+.field b{display:block;font-size:11px;color:var(--ink3);text-transform:uppercase;letter-spacing:.3px;margin-bottom:6px;}
+.field .blank{width:100%;min-height:22px;}
+.check-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;}
+.check-item{padding:8px 10px;border:1px solid var(--ln);border-radius:var(--r-sm);background:var(--bg);font-size:12px;}
+.check-item .chk{margin-right:6px;}
+.legend-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0;}
+.legend-row .chip{margin-bottom:0;}
+.footer-note{margin-top:20px;font-size:11px;color:var(--ink3);}
+.decision-table td:first-child, .decision-table th:first-child{font-weight:700;}
+.kpi-good{color:#166534;font-weight:700;}
+.kpi-watch{color:#92400e;font-weight:700;}
+.kpi-bad{color:#b91c1c;font-weight:700;}
+.control-stack > * + *{margin-top:12px;}
+.subtle{color:var(--ink2);font-size:12px;}
+.boxed-list{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);}
+.lane-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.35px;color:var(--navy);margin-bottom:6px;}
+.flow-note{font-size:11px;color:var(--ink3)}
+.pill{display:inline-block;padding:4px 8px;border-radius:999px;background:var(--blue-l);color:var(--navy);font-size:11px;font-weight:700;margin:0 6px 6px 0;}
+.audit-score{font-size:24px;font-weight:700;color:var(--navy);}
+.matrix-small td,.matrix-small th{font-size:12px;}
+.svg-wrap{overflow:auto;border:1px solid var(--ln);border-radius:var(--r);background:#fff;padding:12px}
+.legend-box{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.legend-box span{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--ln);background:var(--bg);padding:4px 8px;border-radius:999px;font-size:11px}
+.sq{width:12px;height:12px;border-radius:3px;display:inline-block}
+.rule-table td:nth-child(1),.rule-table td:nth-child(2){white-space:nowrap}
+.small{font-size:12px}
 @media print {
- .card, .table-card, .callout, .note, .box, .iso-map,
- .preface-block, .form-sheet, .lane, .legend, .req, .vstep {
- page-break-inside: avoid;
- break-inside: avoid;
- }
- h1, h2, h3, .h1, .h2, .h3 {
- page-break-after: avoid;
- break-after: avoid;
- }
- .form-header { page-break-inside: avoid; break-inside: avoid; }
- .sig-row, .sign-row, .approval-row { page-break-inside: avoid; break-inside: avoid; }
- tr { page-break-inside: avoid; break-inside: avoid; }
- thead { display: table-header-group; }
- tfoot { display: table-footer-group; }
- p { orphans: 3; widows: 3; }
- .table-card { overflow: visible !important; }
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.lane,.legend,.req,.auth-grid,.backup-card,.vstep,.metric-card,.gate-card,.field,.boxed-list,.svg-wrap{page-break-inside:avoid;break-inside:avoid}
+  h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
+  .form-header,.sig-row,.sign-row,.approval-row{page-break-inside:avoid;break-inside:avoid}
+  tr{page-break-inside:avoid;break-inside:avoid}
+  thead{display:table-header-group}tfoot{display:table-footer-group}
+  p{orphans:3;widows:3}.table-card{overflow:visible!important}
 }
-.page-body { overflow-x: hidden; }
-.table-card, .table-block, .table-wrap { overflow-x: auto; max-width: 100%; }
-table { max-width: 100%; table-layout: auto; }
-td, th { max-width: 420px; overflow-wrap: break-word; word-wrap: break-word; }
+.page-body{overflow-x:hidden}
+.table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
+table{max-width:100%;table-layout:auto}
+td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
+@media (max-width: 900px){.grid-3{grid-template-columns:1fr;}.field-grid{grid-template-columns:1fr;}}
+
 </style>
 </head>
 <body>
-<div class="container">
-  <div class="page">
-    <div class="page-body">
+<div class="container"><div class="page"><div class="page-body">
 <div class="form-header">
 <div class="fh-left">
-  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
-  <div class="fh-company">
-    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
-    <span>Tài liệu kiểm soát</span>
-  </div>
+<a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+<div class="fh-company">
+<a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+<span>Tài liệu kiểm soát</span>
+</div>
 </div>
 <div class="title">
-  <strong>SOP-602 — Measurement System Analysis (MSA) / Gage R&R</strong>
-  <span class="sub-vn"></span>
+<strong>SOP-602 — Phân tích hệ thống đo (MSA / GR&amp;R)</strong>
+<span class="sub-vn">Đánh giá sự phù hợp của hệ thống đo trước khi dùng cho CTQ và quyết định process capability hoặc release</span>
 </div>
 <div class="meta">
-  <div class="row"><span><b>Mã:</b></span><span>SOP-602</span></div>
-  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
-  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
-  <div class="row"><span><b>Chủ sở hữu:</b></span><span>QA/QC</span></div>
-  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+<div class="row"><span><b>Mã:</b></span><span>SOP-602</span></div>
+<div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+<div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+<div class="row"><span><b>Chủ sở hữu:</b></span><span>Metrology & Calibration Specialist / Quality Engineer</span></div>
+<div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
 </div>
 </div>
-<div class="doc-content" id="docContent">
-        <div class="form-sheet">
-          <div class="iso-map">
-  <div class="iso-title">ISO / Standard mapping</div>
-  <div class="small muted">Map điều khoản gắn trực tiếp vào yêu cầu triển khai tại xưởng (Point-of-Use). “PHẢI/NÊN/ĐƯỢC PHÉP” dùng nhất quán.</div>
-  <div class="req">
-  <span class="req-tag shall">PHẢI</span>
-  <div>Gage dùng để ra quyết định chất lượng PHẢI có hiệu chuẩn còn hiệu lực theo SOP-601 trước khi thực hiện MSA/GR&amp;R. <span class="iso-ref">ISO 9001:2015 7.1.5</span></div>
-</div><div class="req">
-  <span class="req-tag shall">PHẢI</span>
-  <div>Khi dữ liệu đo được dùng cho SPC/Cpk hoặc quyết định acceptance/rejection, hệ thống đo PHẢI được đánh giá năng lực (MSA) và đạt tiêu chí phán quyết thống nhất. <span class="iso-ref">AIAG MSA-4</span></div>
-</div><div class="req">
-  <span class="req-tag shall">PHẢI</span>
-  <div>Kết quả MSA PHẢI được lưu và truy xuất theo gage ID + đặc tính + sản phẩm/feature family; không dùng kết quả MSA “mượn” khác dải đo/khác phương pháp. <span class="iso-ref">ISO 9001:2015 7.5</span></div>
-</div><div class="req">
-  <span class="req-tag should">NÊN</span>
-  <div>CMM và probe NÊN được qualification theo artifact chuẩn và lịch định kỳ; sau crash/maintenance PHẢI chạy lại qualification trước khi đo CTQ. <span class="iso-ref">AS9100D 7.1.5</span></div>
-</div>
-</div>
-<div class="preface-block">
-  <h2 class="h2">Điều kiện áp dụng và kiểm soát</h2>
-  <div class="grid-2">
-    <div>
-      <p><b>ÁP DỤNG KHI</b></p>
-      <ul class="list"><li>Trước khi dùng gage cho SPC (SOP-604) hoặc lấy mẫu AQL theo SOP-603 trên CTQ.</li><li>Khi phát hành gage mới, thay probe, thay fixture đo, thay phương pháp đo hoặc thay môi trường đo.</li><li>Khi có tranh chấp kết quả đo giữa các gage/giữa HESEM và khách hàng.</li></ul>
-    </div>
-    <div>
-      <p><b>Đầu vào / Đầu ra</b></p>
-      <ul class="list"><li><b>Input:</b> Bản vẽ/spec/CSR xác định CTQ; gage đã hiệu chuẩn hợp lệ (SOP-601).</li><li><b>Input:</b> Master/standard có truy vết; danh sách appraiser đủ đào tạo.</li><li><b>Output:</b> Phán quyết Accept/Conditional/Reject theo SSOT.</li><li><b>Output:</b> Kế hoạch hành động khi Conditional/Reject (repair/replace/training/method).</li></ul>
-    </div>
-  </div>
-  <p class="callout"><b>Điều kiện tiên quyết:</b> Gage PHẢI có hiệu chuẩn còn hiệu lực theo SOP-601. Thiếu hiệu chuẩn: <b>không được phép</b> thực hiện MSA và không được phép dùng gage cho CTQ.</p>
-</div>
-
-<h2 class="h2">1. Mục đích</h2>
-<p>Đánh giá năng lực hệ thống đo (Measurement System Analysis — <b>MSA</b>) để quyết định gage có dùng được cho CTQ, SPC/capability và final acceptance hay không.</p>
-
-<h2 class="h2">2. Phạm vi</h2>
-<ul>
-  <li>Gage biến số (Variable): caliper, micrometer, bore gauge, height gauge, CMM, surface roughness gage…</li>
-  <li>Gage thuộc tính (Attribute): ngoại quan pass/fail, phân loại lỗi, GO/NO-GO…</li>
-  <li>Áp dụng cho study: Variable GR&amp;R (ANOVA/Xbar-R), Bias, Linearity, Stability, Attribute MSA (Kappa), CMM/probe qualification.</li>
-</ul>
-
-<h2 class="h2">3. Thuật ngữ</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Thuật ngữ</th><th>Diễn giải áp dụng tại HESEM</th></tr></thead>
-<tbody><tr><td><b>%GR&amp;R</b></td><td>Tỷ lệ biến thiên do hệ thống đo (repeatability + reproducibility) so với tổng biến thiên. Báo cáo theo %Study Variation hoặc %Tolerance theo thỏa thuận.</td></tr><tr><td><b>ndc (Number of Distinct Categories)</b></td><td>Số nhóm phân biệt. SSOT: <b>ndc ≥ 5</b>.</td></tr><tr><td><b>Repeatability (EV)</b></td><td>Biến thiên do thiết bị (equipment variation) khi cùng người đo lặp lại.</td></tr><tr><td><b>Reproducibility (AV)</b></td><td>Biến thiên do người đo/phương pháp (appraiser variation).</td></tr><tr><td><b>Part Variation (PV)</b></td><td>Biến thiên giữa các chi tiết trong mẫu nghiên cứu.</td></tr><tr><td><b>Bias</b></td><td>Sai lệch trung bình so với giá trị tham chiếu (reference value).</td></tr><tr><td><b>Linearity</b></td><td>Sự thay đổi bias theo dải đo; đánh giá bằng hồi quy tuyến tính (linear regression).</td></tr><tr><td><b>Stability</b></td><td>Độ ổn định theo thời gian; đánh giá bằng control chart trên mẫu chuẩn.</td></tr><tr><td><b>Attribute MSA / Kappa</b></td><td>Đánh giá hệ thống đo định tính (pass/fail, class) bằng chỉ số Kappa và %agreement.</td></tr><tr><td><b>CMM Qualification</b></td><td>Xác nhận CMM/probe theo artifact chuẩn (sphere/step gauge) với tiêu chí sai lệch cho phép.</td></tr></tbody></table></div>
-
-<h2 class="h2">4. RACI</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Hoạt động</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead>
-<tbody><tr><td>Chọn đặc tính/feature & thiết kế study (ANOVA/Xbar-R/Bias/Linearity/Stability/Attribute)</td><td>Quality Engineer</td><td>QA Manager</td><td>Engineering Lead/Manager</td><td>QC Inspector/CMM; Production Director</td></tr><tr><td>Chuẩn bị mẫu, randomization, training appraiser</td><td>Quality Engineer</td><td>QA Manager</td><td>CNC Workshop Manager; Shift Leaders</td><td>QMS Engineer</td></tr><tr><td>Thực hiện đo & ghi dữ liệu (CMM/hand gage)</td><td>QC Inspector/CMM</td><td>QA Manager</td><td>Quality Engineer</td><td>Production Director</td></tr><tr><td>Tính toán & phán quyết SSOT; phát hành báo cáo</td><td>Quality Engineer</td><td>QA Manager</td><td>QMS Engineer</td><td>Customer Service (khi cần gửi KH)</td></tr><tr><td>Hành động khi Conditional/Reject (đào tạo/đổi gage/phương pháp)</td><td>Quality Engineer</td><td>QA Manager</td><td>Production Director; Engineering Lead/Manager</td><td>All users</td></tr></tbody></table></div><h2 class="h2">5. SSOT tiêu chí phán quyết</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Chỉ tiêu</th><th>Accept</th><th>Conditional</th><th>Reject</th></tr></thead>
-<tbody>
-<tr><td><b>%GR&amp;R</b></td><td>≤ 10%</td><td>&gt;10% đến 30% (kèm hành động kiểm soát)</td><td>&gt; 30%</td></tr>
-<tr><td><b>ndc</b></td><td>≥ 5</td><td>4 (chỉ dùng cho non-CTQ và có tăng mẫu/điều kiện)</td><td>≤ 3</td></tr>
-</tbody></table></div>
-<p class="note"><b>Quy tắc dùng dữ liệu SPC/capability:</b> Chỉ dùng cho SOP-604 khi kết quả GR&amp;R <b>Accept</b> (≤10%) và gage còn hiệu lực hiệu chuẩn.</p>
-
-<h2 class="h2">6. Quy trình</h2>
-
-<h3 class="h3">6.1 Chuẩn bị chung cho mọi study</h3>
-<ul>
-  <li><span class="req-tag shall">PHẢI</span> xác nhận gage còn hiệu lực hiệu chuẩn (SOP-601) và không có cảnh báo OOT/suspect.</li>
-  <li><span class="req-tag shall">PHẢI</span> xác định đặc tính đo (feature), đơn vị, dải đo và dung sai (USL/LSL) từ bản vẽ/spec.</li>
-  <li><span class="req-tag should">NÊN</span> chọn mẫu trải đều dải dung sai (low–mid–high) để PV đại diện.</li>
-  <li><span class="req-tag shall">PHẢI</span> chuẩn hóa phương pháp đo: lực kẹp, vị trí đo, điểm chuẩn, cách đặt chi tiết, điều kiện nhiệt độ.</li>
-  <li><span class="req-tag shall">PHẢI</span> random hóa thứ tự đo để tránh “nhớ kết quả” và ảnh hưởng trình tự.</li>
-  <li><span class="req-tag should">NÊN</span> đáp ứng quy tắc độ phân giải: <b>Resolution ≤ 10% dung sai</b> (nguyên tắc 10:1) hoặc theo OEM.</li>
-</ul>
-
-<h3 class="h3">6.2 Variable GR&amp;R — ANOVA (3 người × 10 chi tiết × 3 lần)</h3>
-<div class="card">
-  <div class="card-title">Thiết kế study (bắt buộc)</div>
-  <ul>
-    <li><b>Appraisers:</b> 3 người (ví dụ: QC Inspector/CMM + 2 người đo độc lập)</li>
-    <li><b>Parts:</b> 10 chi tiết đại diện (cùng PN/feature family), chọn trải dải dung sai</li>
-    <li><b>Trials:</b> 3 lần đo/chi tiết/người</li>
-    <li><b>Tổng số phép đo:</b> 3 × 10 × 3 = 90 điểm dữ liệu</li>
-  </ul>
-</div>
-
-<h4 class="h3">6.2.1 Chuẩn bị</h4>
-<ul>
-  <li>Đánh số chi tiết <b>P01…P10</b> và che/khóa thông tin kích thước để người đo không bị “gợi ý”.</li>
-  <li>Chuẩn bị bảng ghi FRM-611: cột theo Appraiser (A/B/C) và Trial (1/2/3).</li>
-  <li>Chạy “practice” 3–5 mẫu để thống nhất cách đặt/đọc số (không dùng dữ liệu practice).</li>
-</ul>
-
-<h4 class="h3">6.2.2 Thực hiện đo</h4>
-<div class="vflow">
-  <div class="vstep"><div class="vnum">1</div><div class="vtext">Quality Engineer phát “bộ chi tiết” theo thứ tự random cho Appraiser A. Appraiser A đo 10 chi tiết (Trial 1) và ghi kết quả.</div></div>
-  <div class="vstep"><div class="vnum">2</div><div class="vtext">Lặp lại cho Appraiser B và C (Trial 1). Mỗi appraiser PHẢI đo độc lập, không trao đổi kết quả.</div></div>
-  <div class="vstep"><div class="vnum">3</div><div class="vtext">Thực hiện Trial 2 và Trial 3: đổi thứ tự chi tiết mỗi lần (random lại). Không cho phép đo liên tiếp cùng một chi tiết.</div></div>
-  <div class="vstep"><div class="vnum">4</div><div class="vtext">Kiểm tra dữ liệu: không được để trống; ghi chú bất thường (rụng burr, bẩn, kẹt, đo lại do lỗi thao tác…)</div></div>
-</div>
-
-<h4 class="h3">6.2.3 Tính toán (ANOVA)</h4>
-<ul>
-  <li>ĐƯỢC PHÉP dùng phần mềm (Minitab/Excel template) nhưng PHẢI lưu file tính kèm FRM-611.</li>
-  <li>Thành phần phương sai cần tách: <b>Repeatability (EV)</b>, <b>Reproducibility (AV)</b>, <b>Part-to-Part (PV)</b>.</li>
-  <li><b>%GR&amp;R</b> tính theo %Study Variation: <span class="mono">%GRR = GRR / TV × 100</span>, trong đó TV là tổng biến thiên.</li>
-  <li><b>ndc</b> tính theo: <span class="mono">ndc = 1.41 × (PV / GRR)</span> (làm tròn xuống số nguyên).</li>
-</ul>
-
-<h4 class="h3">6.2.4 Phán quyết</h4>
-<div class="table-card"><table class="table">
-<thead><tr><th>Trạng thái</th><th>Điều kiện</th><th>Hành động bắt buộc</th></tr></thead>
-<tbody>
-<tr><td><b>Accept</b></td><td>%GR&amp;R ≤ 10% và ndc ≥ 5</td><td>Cho phép dùng cho CTQ, SPC/capability (SOP-604) và final acceptance</td></tr>
-<tr><td><b>Conditional</b></td><td>10–30% hoặc ndc = 4</td><td>Chỉ dùng cho non-CTQ hoặc dùng có điều kiện: tăng tần suất kiểm, dùng fixture đo, đào tạo lại; lập hành động trên FRM-611/612</td></tr>
-<tr><td><b>Reject</b></td><td>&gt;30% hoặc ndc ≤ 3</td><td>Không dùng cho acceptance/SPC. PHẢI cải tiến: đổi gage, sửa gage, thay phương pháp, loại bỏ appraiser bias; sau đó chạy lại GR&amp;R</td></tr>
-</tbody></table></div>
-
-<h3 class="h3">6.3 Variable GR&amp;R — Xbar-R (khi nào dùng thay ANOVA)</h3>
-<ul>
-  <li><span class="req-tag should">NÊN</span> dùng ANOVA như chuẩn mặc định.</li>
-  <li><span class="req-tag may">ĐƯỢC PHÉP</span> dùng phương pháp <b>Xbar-R</b> khi:
-    <ul>
-      <li>Không có phần mềm ANOVA tại hiện trường và cần phán quyết nhanh.</li>
-      <li>Thiết kế đo vẫn đủ 3 appraisers × 10 parts × 2 hoặc 3 trials, dữ liệu cân bằng.</li>
-      <li>Không có tương tác mạnh appraiser×part (khi nghi ngờ, PHẢI quay về ANOVA).</li>
-    </ul>
-  </li>
-  <li>Nếu kết quả Xbar-R nằm sát ngưỡng (8–12%): NÊN chạy lại bằng ANOVA để chốt.</li>
-</ul>
-
-<h3 class="h3">6.4 Bias Study (25 phép đo trên master)</h3>
-<div class="card">
-  <div class="card-title">Mục tiêu</div>
-  <p>Đo sai lệch trung bình so với giá trị tham chiếu (reference). Áp dụng khi cần chứng minh độ đúng (accuracy) hoặc khi có tranh chấp với khách hàng.</p>
-</div>
-<ul>
-  <li>Chuẩn bị 1 master/standard có chứng chỉ, giá trị tham chiếu <b>R</b>.</li>
-  <li>Thực hiện 25 phép đo liên tiếp (hoặc phân bổ 5×5 theo ca) trong điều kiện bình thường. Ghi FRM-612.</li>
-  <li>Tính <b>Bias = X̄ − R</b>; tính độ lệch chuẩn s.</li>
-  <li><span class="req-tag should">NÊN</span> kiểm tra thống kê bằng t-test: <span class="mono">t = Bias / (s/√n)</span> với n=25.</li>
-  <li>Tiêu chí nội bộ: |Bias| NÊN ≤ 10% dung sai đặc tính hoặc ≤ 25% MPE của gage (chọn nghiêm ngặt hơn). Nếu vượt: xử lý như Conditional/Reject tùy mức.</li>
-</ul>
-
-<h3 class="h3">6.5 Linearity Study (5 mẫu trải dải đo, hồi quy tuyến tính)</h3>
-<ul>
-  <li>Chọn 5 điểm chuẩn (master/chi tiết chuẩn) trải dải đo: khoảng 10%–30%–50%–70%–90% dải làm việc.</li>
-  <li>Mỗi điểm thực hiện tối thiểu 5 phép đo (khuyến nghị 10). Ghi FRM-612.</li>
-  <li>Tính bias tại từng điểm và thực hiện hồi quy: <span class="mono">Bias = a + b×Reference</span>.</li>
-  <li>Phán quyết:
-    <ul>
-      <li><b>Accept:</b> hệ số dốc b không có ý nghĩa (p-value ≥ 0.05) <i>và</i> bias dự đoán nằm trong tiêu chí.</li>
-      <li><b>Conditional:</b> có xu hướng tuyến tính nhẹ nhưng vẫn kiểm soát được bằng giới hạn sử dụng dải đo (ví dụ chỉ dùng 30–80%).</li>
-      <li><b>Reject:</b> b có ý nghĩa hoặc bias tăng mạnh theo dải → không dùng cho dải đó.</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 class="h3">6.6 Stability Study (biểu đồ theo thời gian)</h3>
-<ul>
-  <li>Chọn 1 master/chi tiết chuẩn; đo 1 lần theo chu kỳ ổn định (mỗi ca hoặc mỗi ngày) tối thiểu 20 điểm dữ liệu. Ghi FRM-612.</li>
-  <li>Dùng biểu đồ <b>I-MR</b> theo SOP-604 để quan sát drift; kiểm tra Rule 1–8 (Western Electric) nếu áp dụng.</li>
-  <li>Điểm out-of-control hoặc xu hướng drift: PHẢI điều tra nguyên nhân (nhiệt độ, lực đo, mòn gage) và xử lý trước khi dùng dữ liệu acceptance.</li>
-</ul>
-
-<h3 class="h3">6.7 Attribute MSA — Kappa</h3>
-<div class="card">
-  <div class="card-title">Khi nào dùng</div>
-  <ul>
-    <li>Đánh giá pass/fail ngoại quan (WI-601), phân loại defect, hoặc GO/NO-GO không có giá trị biến số.</li>
-    <li>Khi cần chứng minh “sự nhất quán” giữa các inspector/ca.</li>
-  </ul>
-</div>
-<ul>
-  <li>Chuẩn bị tối thiểu 50 mẫu (hoặc ảnh chuẩn) gồm cả OK và NG; có “reference” (master decision) do QA Manager/QE xác lập.</li>
-  <li>Thiết kế: 3 appraisers × 50 mẫu × 2 vòng (test-retest). Random thứ tự mỗi vòng. Ghi FRM-613.</li>
-  <li>Tính: %agreement (within appraiser, between appraisers, vs reference) và <b>Kappa</b> (Cohen/Fleiss tùy thiết kế).</li>
-</ul>
-<div class="table-card"><table class="table">
-<thead><tr><th>Kappa</th><th>Phán quyết</th><th>Hành động</th></tr></thead>
-<tbody>
-<tr><td>≥ 0.75</td><td><b>Accept</b></td><td>Dùng cho acceptance; duy trì training/ảnh chuẩn</td></tr>
-<tr><td>0.40 – 0.74</td><td><b>Conditional</b></td><td>Rà tiêu chí, bổ sung ảnh mẫu, training lại, tăng giám sát</td></tr>
-<tr><td>&lt; 0.40</td><td><b>Reject</b></td><td>Không dùng cho release; PHẢI thay tiêu chí/đổi phương pháp (ví dụ chuyển sang đo biến số)</td></tr>
-</tbody></table></div>
-
-<h3 class="h3">6.8 CMM Qualification &amp; Probe Qualification</h3>
-<ul>
-  <li><span class="req-tag shall">PHẢI</span> chạy probe qualification theo sphere/artefact sau các tình huống: thay probe/stylus, crash, maintenance ảnh hưởng trục, thay đổi nhiệt độ phòng lớn.</li>
-  <li><span class="req-tag should">NÊN</span> chạy kiểm tra nhanh mỗi ngày: đo sphere/step gauge và so với giá trị chuẩn; ghi FRM-613.</li>
-  <li>Tiêu chí nội bộ (có thể theo OEM): sai lệch |Δ| NÊN ≤ 25% dung sai CTQ hoặc theo spec CMM. Vượt tiêu chí: PHẢI dừng đo CTQ, gọi Maintenance/QE xử lý.</li>
-</ul>
-
-<h3 class="h3">6.9 Quy tắc quyết định cuối</h3>
-<div class="callout">
-  <b>Accept:</b> GR&amp;R ≤10% và ndc ≥5, các study bổ trợ (nếu áp dụng) không phát hiện bias/linearity/stability vượt tiêu chí. <br/>
-  <b>Conditional:</b> chỉ áp dụng khi có <b>hành động kiểm soát</b> rõ (tăng kiểm, giới hạn dải, fixture, training) và có phê duyệt QA Manager. <br/>
-  <b>Reject:</b> không được phép dùng cho CTQ/SPC/release. Phải cải tiến và chạy lại study.
-</div>
-
-<h2 class="h2">Biểu mẫu liên quan</h2>
-<ul>
-  <li>FRM-611 — Phiếu GR&amp;R Study</li>
-  <li>FRM-612 — Phiếu Bias/Linearity/Stability Study</li>
-  <li>FRM-613 — Phiếu Attribute MSA (Kappa) &amp; CMM/Probe Qualification</li>
-</ul>
-
-<h2 class="h2">Tài liệu liên quan</h2>
-<ul>
-  <li>SOP-601 — Hiệu chuẩn &amp; Kiểm soát Gage</li>
-  <li>SOP-603 — Kiểm tra lấy mẫu AQL</li>
-  <li>SOP-604 — SPC &amp; Năng lực</li>
-  <li>WI-601 — Kiểm tra ngoại quan &amp; phân loại khuyết tật</li>
-</ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<div class="doc-content" id="docContent"><div class="form-sheet">
+<div class="iso-map"><div class="iso-title">Chuẩn mực áp dụng / nguyên tắc bắt buộc</div><div class="req"><span class="req-tag shall">PHẢI</span><div>Khi độ tin cậy của phương pháp đo có thể ảnh hưởng quyết định chất lượng, phải đánh giá MSA phù hợp trước hoặc song song với sử dụng.</div></div><div class="req"><span class="req-tag shall">PHẢI</span><div>Không diễn giải GR&amp;R một cách máy móc; phải xem cả bối cảnh dung sai, mức rủi ro và kiểu quyết định sử dụng dữ liệu.</div></div><div class="req"><span class="req-tag should">NÊN</span><div>Ưu tiên xác minh những phương pháp đo gắn với CTQ, FAI, capability studies hoặc acceptance khó.</div></div></div><div class="preface-block"><div class="grid-2"><div class="card"><div class="card-title">Ý nghĩa</div><p>MSA là công cụ xác nhận rằng biến động đo không lấn át biến động thực của sản phẩm. Trong gia công chính xác, đây là điều kiện nền trước khi thảo luận capability.</p></div><div class="callout"><div class="card-title">Điểm cần tránh</div><p>Không dùng kết quả GR&amp;R đẹp trên chi tiết “dễ đo” để suy ra mọi đặc tính đều ổn. MSA phải gắn với đặc tính và điều kiện đo thật đang dùng.</p></div></div></div><div class="toc"><div class="toc-title">Mục lục nhanh</div><div class="toc-grid"><a href="#p1">1. Mục đích</a><a href="#p2">2. Phạm vi</a><a href="#p3">3. Thuật ngữ</a><a href="#p4">4. RACI</a><a href="#p5">5. Quy trình</a><a href="#p6">6. Biểu mẫu liên quan</a><a href="#p7">7. Tài liệu liên quan</a></div></div><h2 class="h2" id="p1">1. Mục đích</h2><p>Thiết lập cách lựa chọn, thực hiện, diễn giải và hành động dựa trên các nghiên cứu MSA như GR&amp;R, bias, linearity, stability hoặc attribute agreement.</p><h2 class="h2" id="p2">2. Phạm vi</h2><p>Áp dụng cho hệ thống đo dùng cho CTQ, FAI, process qualification, capability studies, acceptance critical hoặc khi xuất hiện nghi ngờ về measurement noise.</p><h2 class="h2" id="p3">3. Thuật ngữ</h2><div class="table-card"><table class="table"><thead><tr><th>Thuật ngữ</th><th>Diễn giải áp dụng</th></tr></thead><tbody><tr><td><b>GR&amp;R</b></td><td>Độ lặp lại và tái lập của hệ thống đo.</td></tr><tr><td><b>Bias/Linearity/Stability</b></td><td>Các nghiên cứu đánh giá sai lệch, tuyến tính và độ ổn định theo thời gian của phương pháp đo.</td></tr><tr><td><b>Attribute agreement</b></td><td>Đánh giá mức nhất quán của kết quả phân loại đạt/không đạt giữa người và theo thời gian.</td></tr></tbody></table></div><h2 class="h2" id="p4">4. RACI</h2><div class="table-card"><table class="table"><thead><tr><th>Vai trò</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead><tbody><tr><td>Metrology &amp; Calibration Specialist</td><td>●</td><td></td><td></td><td></td></tr><tr><td>Quality Engineer</td><td>●</td><td></td><td></td><td></td></tr><tr><td>QA Manager</td><td></td><td>●</td><td></td><td></td></tr><tr><td>Process Engineer</td><td></td><td></td><td>●</td><td></td></tr><tr><td>QC Inspector Lead</td><td></td><td></td><td>●</td><td></td></tr><tr><td>Engineering Lead/Manager</td><td></td><td></td><td>●</td><td></td></tr><tr><td>Production Director</td><td></td><td></td><td></td><td>●</td></tr></tbody></table></div><div class="role-boundary"><b>Role-boundary / authority note:</b> MSA là trách nhiệm chung giữa Metrology, Quality và Process. Không được dùng MSA như hoạt động 'paperwork' tách rời khỏi bối cảnh đặc tính, fixture, người đo và điều kiện đo thực tế. Xem thêm <a href="../../03-Reference/01-ANNEX-System/ref-020-cnc-operating-model-and-role-boundary.html">REF-020</a>, <a href="../../../02-Tai-Lieu-He-Thong/03-Organization/04-RACI-Authority/annex-qms-025-authority-matrix.html">ANNEX-QMS-025</a> và <a href="../../../02-Tai-Lieu-He-Thong/03-Organization/04-RACI-Authority/annex-qms-026-raci-master-matrix.html">ANNEX-QMS-026</a> để đối chiếu giữa tài liệu.</div><h2 class="h2" id="p5">5. Quy trình</h2><h3 class="h3">1. Chọn phương pháp MSA phù hợp</h3><ul class="tight"><li>Dùng variable GR&amp;R cho phép đo liên tục; dùng attribute agreement cho visual/accept-reject hoặc defect classification; dùng bias/linearity/stability khi bối cảnh yêu cầu.</li><li>Phải chọn mẫu đại diện cho vùng dung sai, bề mặt, hình học và điều kiện thực tế của sản phẩm.</li></ul><h3 class="h3">2. Thực hiện và diễn giải</h3><ul class="tight"><li>Ghi rõ thiết bị, operator/appraiser, phương pháp, điều kiện môi trường và cách randomize để tránh thiên lệch.</li><li>Kết luận phải đi cùng rủi ro sử dụng: phương pháp có đủ để release, để FAI, để SPC/capability hay chỉ dùng screening?</li></ul><h3 class="h3">3. Hành động khi hệ đo chưa đạt</h3><ul class="tight"><li>Có thể cải thiện bằng đổi đồ gá, đổi cách định vị, chuẩn hóa thao tác, đổi thiết bị, làm rõ tiêu chí đọc bản vẽ, hoặc đổi hoàn toàn phương pháp đo.</li><li>Khi hệ đo chưa đủ cho CTQ, phải hạn chế mục đích sử dụng và thông báo cho Engineering/Quality liên quan.</li></ul><h2 class="h2" id="p6">6. Biểu mẫu liên quan</h2><ul class="tight"><li><a href="../../../04-Bieu-Mau/06-FRM-600/frm-611-grr-study-form.html">FRM-611</a></li><li><a href="../../../04-Bieu-Mau/06-FRM-600/frm-612-bias-linearity-stability-study-form.html">FRM-612</a></li><li><a href="../../../04-Bieu-Mau/06-FRM-600/frm-613-attribute-msa-and-cmm-qualification-record.html">FRM-613</a></li></ul><h2 class="h2" id="p7">7. Tài liệu liên quan</h2><ul class="tight"><li><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-601-calibration-and-gage-control.html">SOP-601</a></li><li><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/03-SOP-300/sop-301-engineering-dfm-quoting-and-machining-planning.html">SOP-301</a></li><li><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/06-SOP-600/sop-604-spc-and-capability-control.html">SOP-604</a></li></ul><div class="footer-note">Bản nâng cấp giữ nguyên mã tài liệu, logic vận hành gốc và tăng chiều sâu kiểm soát cho mô hình gia công CNC toàn cầu, high-mix/medium-volume hoặc job-order.</div>
+</div></div>
+</div></div></div>
+<script src="../../../assets/app.js"></script>
 </body>
 </html>

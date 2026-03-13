@@ -1,123 +1,98 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
+
 <html lang="vi">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>SOP-902 — Management Review | HESEM QMS</title>
+<title>SOP-902 — Xem xét của lãnh đạo | HESEM QMS</title>
 <link href="../../../assets/style.css" rel="stylesheet"/>
-
 <style>
-/* ═══ PAGE BREAK & OVERFLOW FIX (auto-applied) ═══ */
+.chip{display:inline-block;padding:2px 10px;border-radius:999px;border:1px solid #d7dee7;background:#f8fafc;font-size:11px;margin-right:6px;margin-bottom:6px;font-weight:600;}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;font-size:12px;}
+.tight li{margin:4px 0;}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+.toc{border:1px solid var(--ln);border-radius:var(--r);padding:16px;background:var(--bg2);margin:18px 0 24px;}
+.toc-title{font-size:12px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.4px;margin-bottom:10px;}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;}
+.toc-grid a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;background:var(--bg);font-size:12px;color:var(--ink);}
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.metric-card{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);}
+.metric-card .value{font-size:20px;font-weight:700;color:var(--navy);}
+.metric-card .label{font-size:11px;color:var(--ink3);margin-top:4px;text-transform:uppercase;letter-spacing:.3px;}
+.mini-note{font-size:12px;color:var(--ink2);line-height:1.55;}
+.gate-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.gate-card{border:1px solid var(--ln);border-left:4px solid var(--blue);border-radius:var(--r);padding:14px;background:var(--bg);}
+.gate-card h3{margin:0 0 6px;font-size:14px;color:var(--navy);}
+.field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 16px;}
+.field{padding:10px 12px;border:1px solid var(--ln);border-radius:var(--r-sm);background:var(--bg);}
+.field b{display:block;font-size:11px;color:var(--ink3);text-transform:uppercase;letter-spacing:.3px;margin-bottom:6px;}
+.field .blank{width:100%;min-height:22px;}
+.check-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;}
+.check-item{padding:8px 10px;border:1px solid var(--ln);border-radius:var(--r-sm);background:var(--bg);font-size:12px;}
+.check-item .chk{margin-right:6px;}
+.legend-row{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 0;}
+.legend-row .chip{margin-bottom:0;}
+.footer-note{margin-top:20px;font-size:11px;color:var(--ink3);}
+.decision-table td:first-child, .decision-table th:first-child{font-weight:700;}
+.kpi-good{color:#166534;font-weight:700;}
+.kpi-watch{color:#92400e;font-weight:700;}
+.kpi-bad{color:#b91c1c;font-weight:700;}
+.control-stack > * + *{margin-top:12px;}
+.subtle{color:var(--ink2);font-size:12px;}
+.boxed-list{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);}
+.lane-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.35px;color:var(--navy);margin-bottom:6px;}
+.flow-note{font-size:11px;color:var(--ink3)}
+.pill{display:inline-block;padding:4px 8px;border-radius:999px;background:var(--blue-l);color:var(--navy);font-size:11px;font-weight:700;margin:0 6px 6px 0;}
+.audit-score{font-size:24px;font-weight:700;color:var(--navy);}
+.matrix-small td,.matrix-small th{font-size:12px;}
+.svg-wrap{overflow:auto;border:1px solid var(--ln);border-radius:var(--r);background:#fff;padding:12px}
+.legend-box{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.legend-box span{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--ln);background:var(--bg);padding:4px 8px;border-radius:999px;font-size:11px}
+.sq{width:12px;height:12px;border-radius:3px;display:inline-block}
+.rule-table td:nth-child(1),.rule-table td:nth-child(2){white-space:nowrap}
+.small{font-size:12px}
 @media print {
- .card, .table-card, .callout, .note, .box, .iso-map,
- .preface-block, .form-sheet, .lane, .legend, .req, .vstep {
- page-break-inside: avoid;
- break-inside: avoid;
- }
- h1, h2, h3, .h1, .h2, .h3 {
- page-break-after: avoid;
- break-after: avoid;
- }
- .form-header { page-break-inside: avoid; break-inside: avoid; }
- .sig-row, .sign-row, .approval-row { page-break-inside: avoid; break-inside: avoid; }
- tr { page-break-inside: avoid; break-inside: avoid; }
- thead { display: table-header-group; }
- tfoot { display: table-footer-group; }
- p { orphans: 3; widows: 3; }
- .table-card { overflow: visible !important; }
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.lane,.legend,.req,.auth-grid,.backup-card,.vstep,.metric-card,.gate-card,.field,.boxed-list,.svg-wrap{page-break-inside:avoid;break-inside:avoid}
+  h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
+  .form-header,.sig-row,.sign-row,.approval-row{page-break-inside:avoid;break-inside:avoid}
+  tr{page-break-inside:avoid;break-inside:avoid}
+  thead{display:table-header-group}tfoot{display:table-footer-group}
+  p{orphans:3;widows:3}.table-card{overflow:visible!important}
 }
-.page-body { overflow-x: hidden; }
-.table-card, .table-block, .table-wrap { overflow-x: auto; max-width: 100%; }
-table { max-width: 100%; table-layout: auto; }
-td, th { max-width: 420px; overflow-wrap: break-word; word-wrap: break-word; }
-</style>
+.page-body{overflow-x:hidden}
+.table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
+table{max-width:100%;table-layout:auto}
+td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
+@media (max-width: 900px){.grid-3{grid-template-columns:1fr;}.field-grid{grid-template-columns:1fr;}}
 
+</style>
 </head>
 <body>
-<div class="container">
-  <div class="page">
-    <div class="page-body">
+<div class="container"><div class="page"><div class="page-body">
 <div class="form-header">
 <div class="fh-left">
-  <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
-  <div class="fh-company">
-    <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
-    <span>Tài liệu kiểm soát</span>
-  </div>
+<a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+<div class="fh-company">
+<a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+<span>Tài liệu kiểm soát</span>
+</div>
 </div>
 <div class="title">
-  <strong>SOP-902 — Management Review</strong>
-  <span class="sub-vn"></span>
+<strong>SOP-902 — Xem xét của lãnh đạo</strong>
+<span class="sub-vn">Biến dữ liệu hệ thống thành quyết định nguồn lực, ưu tiên và thay đổi</span>
 </div>
 <div class="meta">
-  <div class="row"><span><b>Mã:</b></span><span>SOP-902</span></div>
-  <div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
-  <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
-  <div class="row"><span><b>Chủ sở hữu:</b></span><span>QA/QMS</span></div>
-  <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
+<div class="row"><span><b>Mã:</b></span><span>SOP-902</span></div>
+<div class="row"><span><b>Phiên bản:</b></span><span>V0</span></div>
+<div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+<div class="row"><span><b>Chủ sở hữu:</b></span><span>QA Manager / QMS Engineer</span></div>
+<div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
 </div>
 </div>
-<div class="doc-content" id="docContent">
-        <div class="form-sheet">
-          <div class="iso-map">
-  <div class="iso-title">ISO / Standard mapping</div>
-  <div class="small muted">Map điều khoản hoặc chuẩn kỹ thuật vào yêu cầu triển khai tại xưởng (Point-of-Use).</div>
-  <div class="req">
-  <span class="req-tag shall">PHẢI</span>
-  <div>Lãnh đạo cao nhất PHẢI xem xét hệ thống tại các khoảng thời gian đã hoạch định; tại HESEM, tần suất chuẩn là <b>2 lần / năm</b> và có thể họp bất thường khi có biến cố lớn. <span class="iso-ref">ISO 9001 9.3.2</span></div>
-</div><div class="req">
-  <span class="req-tag shall">PHẢI</span>
-  <div>Input MR PHẢI bao gồm ít nhất: trạng thái action cũ, thay đổi bối cảnh, hiệu lực QMS/KPI, OTD, phản hồi khách hàng, audit, NCC, NC/CAPA, nguồn lực và cơ hội cải tiến. <span class="iso-ref">ISO 9001 9.3.2</span></div>
-</div><div class="req">
-  <span class="req-tag shall">PHẢI</span>
-  <div>Output MR PHẢI chỉ rõ quyết định và hành động về cải tiến, thay đổi hệ thống, nhu cầu nguồn lực và các ưu tiên điều hành. <span class="iso-ref">ISO 9001 9.3.3</span></div>
-</div>
-</div><div class="preface-block">
-  <h2 class="h2">Điều kiện áp dụng và kiểm soát</h2>
-  <div class="grid-2">
-    <div>
-      <p><b>Nhịp vận hành</b></p>
-      <ul><li>MR định kỳ: tối thiểu 2 lần/năm.</li><li>MR bất thường: customer escape lớn, sự cố EHS nghiêm trọng, biến động tài chính hoặc năng lực, audit đặc biệt, thay đổi chiến lược.</li></ul>
-    </div>
-    <div>
-      <p><b>Đầu ra / hồ sơ</b></p>
-      <ul><li><b>Output:</b> biên bản MR, action list có owner - deadline - nguồn lực.</li><li><b>Output:</b> quyết định ưu tiên cấp công ty cho chất lượng, giao hàng, đầu tư, đào tạo hoặc risk control.</li></ul>
-    </div>
-  </div>
-  <p class="callout">Nguyên tắc: MR không chỉ đọc báo cáo. Mỗi đầu vào phải dẫn tới kết luận hoặc hành động rõ.</p>
-</div><h2 class="h2">1. Mục đích</h2>
-<p>Quy định cách chuẩn bị, tổ chức và ghi nhận cuộc họp xem xét lãnh đạo để CEO và ban điều hành quyết định về hiệu lực QMS, nguồn lực và ưu tiên cải tiến.</p>
-<h2 class="h2">2. Phạm vi</h2>
-<ul><li>Áp dụng cho toàn bộ QMS HESEM và các process liên quan kết quả kinh doanh, chất lượng, giao hàng, an toàn, sạch và nguồn lực.</li></ul>
-<h2 class="h2">3. Thuật ngữ</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Thuật ngữ</th><th>Diễn giải</th></tr></thead>
-<tbody><tr><td><b>MR data pack</b></td><td>Bộ dữ liệu đầu vào cho cuộc họp: báo cáo, trend, KPI, action status và các điểm yêu cầu quyết định.</td></tr><tr><td><b>Action owner</b></td><td>Người chịu trách nhiệm kéo hành động sau MR đến khi đóng.</td></tr></tbody></table></div>
-<h2 class="h2">4. RACI</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Hoạt động</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead>
-<tbody><tr><td>Chuẩn bị agenda, thư mời, data pack và FRM-911</td><td>QMS Engineer; QA Manager</td><td>CEO / Tổng Giám đốc</td><td>Finance Manager; Production Director; Supply Chain Manager</td><td>HR Manager</td></tr><tr><td>Điều hành cuộc họp và thống nhất quyết định</td><td>QA Manager</td><td>CEO / Tổng Giám đốc</td><td>Production Director; Finance Manager; Supply Chain Manager; EHS Specialist</td><td>QMS Engineer</td></tr><tr><td>Ghi biên bản, theo dõi action và report closure</td><td>QMS Engineer</td><td>CEO / Tổng Giám đốc</td><td>QA Manager</td><td>HR Manager</td></tr></tbody></table></div>
-<h2 class="h2">5. Inputs bắt buộc</h2>
-<div class="table-card"><table class="table">
-<thead><tr><th>Nhóm input</th><th>Ví dụ nội dung</th></tr></thead>
-<tbody><tr><td>Action cũ</td><td>Tình trạng action từ MR trước, CAPA lớn, dự án CI đang mở.</td></tr><tr><td>Bối cảnh / thay đổi</td><td>Khách hàng mới, thay đổi yêu cầu, máy mới, layout mới, thiếu nguồn lực, rủi ro chuỗi cung ứng.</td></tr><tr><td>Hiệu suất / KPI</td><td>OTD, scrap/rework, FPY, customer PPM, calibration compliance, training compliance.</td></tr><tr><td>Khách hàng / NCC</td><td>Complaint, survey hài lòng, supplier performance, SCAR/open issue.</td></tr><tr><td>Audit / compliance</td><td>Kết quả audit nội bộ, customer audit, closure tình trạng NC.</td></tr><tr><td>Nguồn lực / tài chính / EHS</td><td>Nhân lực, đào tạo, đầu tư, job costing, cashflow, incident/near-miss, môi trường.</td></tr></tbody></table></div>
-<h2 class="h2">6. Agenda và cách chạy họp</h2>
-<div class="vflow"><div class="vstep"><div class="vnum">1</div><div class="vtext">Xác nhận participants, mục tiêu phiên họp và trạng thái action từ kỳ trước.</div></div><div class="vstep"><div class="vnum">2</div><div class="vtext">Review từng nhóm input theo data pack; chỉ highlight trend, ngoại lệ và điểm cần quyết định.</div></div><div class="vstep"><div class="vnum">3</div><div class="vtext">Chốt quyết định cho từng issue: giữ nguyên, thay đổi mục tiêu, bổ sung nguồn lực, mở action, mở dự án CI/CAPA.</div></div><div class="vstep"><div class="vnum">4</div><div class="vtext">Xác định owner, deadline, chỉ số xác nhận và điểm escalated lên CEO / ban điều hành nếu cần.</div></div></div>
-<h2 class="h2">7. Outputs và follow-up</h2>
-<ul><li>Biên bản MR PHẢI ghi rõ quyết định, owner, deadline, resource request, policy/objective change nếu có.</li><li>Action quá hạn hoặc có blocker trọng yếu phải được QMS Engineer report giữa kỳ, không chờ tới MR kế tiếp.</li></ul>
-<h2 class="h2">Biểu mẫu liên quan</h2>
-<ul><li>FRM-911 — Biên bản MR</li></ul>
-<h2 class="h2">Tài liệu liên quan</h2>
-<ul><li>SOP-901 — Đánh giá nội bộ & LPA</li><li>SOP-903 — Cải tiến liên tục & Kaizen</li></ul>
-<h2 class="h2">Ký duyệt</h2>
-<div class="sig-row"><div><div class="muted small"><b>Thư ký MR</b></div><div class="sig-box"></div></div><div><div class="muted small"><b>QA Manager</b></div><div class="sig-box"></div></div><div><div class="muted small"><b>CEO / Tổng Giám đốc</b></div><div class="sig-box"></div></div></div><div class="annex-block">
-  <div class="annex-title">Footer</div>
-  <p class="muted">SOP chủ quản: <b>SOP-902</b> · Lưu hồ sơ theo SOP-104.</p>
-</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<div class="doc-content" id="docContent"><div class="form-sheet">
+<div class="iso-map"><div class="iso-title">Chuẩn mực áp dụng / nguyên tắc bắt buộc</div><div class="req"><span class="req-tag shall">PHẢI</span><div>Management review phải xem các đầu vào có ý nghĩa đối với hiệu lực QMS, không chỉ điểm danh báo cáo.</div></div><div class="req"><span class="req-tag shall">PHẢI</span><div>Kết luận review phải tạo ra quyết định, owner, due date và logic theo dõi thực hiện.</div></div><div class="req"><span class="req-tag should">NÊN</span><div>Review nên tách bạch giữa xử lý tác nghiệp ngắn hạn và quyết định hệ thống trung-dài hạn.</div></div></div><div class="preface-block"><div class="grid-2"><div class="card"><div class="card-title">Mục đích thật sự</div><p>Management review là “bàn điều khiển chiến lược” của QMS: ưu tiên đầu tư, thay đổi mục tiêu, mở dự án cải tiến và quyết định mức can thiệp khi trend đi xấu.</p></div><div class="callout"><div class="card-title">Điểm thường hỏng</div><p>Nếu review chỉ tổng hợp dữ liệu mà không ra quyết định, QMS sẽ tích lũy vấn đề mãn tính. Tài liệu này yêu cầu meeting phải tạo action rõ ràng.</p></div></div></div><div class="toc"><div class="toc-title">Mục lục nhanh</div><div class="toc-grid"><a href="#p1">1. Mục đích</a><a href="#p2">2. Phạm vi</a><a href="#p3">3. Thuật ngữ</a><a href="#p4">4. RACI</a><a href="#p5">5. Quy trình</a><a href="#p6">6. Biểu mẫu liên quan</a><a href="#p7">7. Tài liệu liên quan</a></div></div><h2 class="h2" id="p1">1. Mục đích</h2><p>Thiết lập cách chuẩn bị, tổ chức, ghi nhận và theo dõi management review để lãnh đạo điều hành hệ thống bằng dữ liệu đáng tin cậy.</p><h2 class="h2" id="p2">2. Phạm vi</h2><p>Áp dụng cho management review định kỳ và review đột xuất khi có sự kiện lớn ảnh hưởng định hướng, năng lực hoặc rủi ro của QMS.</p><h2 class="h2" id="p3">3. Thuật ngữ</h2><div class="table-card"><table class="table"><thead><tr><th>Thuật ngữ</th><th>Diễn giải áp dụng</th></tr></thead><tbody><tr><td><b>Review input</b></td><td>Dữ liệu và vấn đề hệ thống cần lãnh đạo xem xét để ra quyết định.</td></tr><tr><td><b>Review output</b></td><td>Quyết định, ưu tiên, nguồn lực, thay đổi và action items sau review.</td></tr></tbody></table></div><h2 class="h2" id="p4">4. RACI</h2><div class="table-card"><table class="table"><thead><tr><th>Vai trò</th><th>R</th><th>A</th><th>C</th><th>I</th></tr></thead><tbody><tr><td>QMS Engineer</td><td>●</td><td></td><td></td><td></td></tr><tr><td>QA Manager</td><td>●</td><td></td><td></td><td></td></tr><tr><td>CEO</td><td></td><td>●</td><td></td><td></td></tr><tr><td>Production Director</td><td></td><td></td><td>●</td><td></td></tr><tr><td>Supply Chain Manager</td><td></td><td></td><td>●</td><td></td></tr><tr><td>Finance Manager</td><td></td><td></td><td>●</td><td></td></tr><tr><td>HR Manager</td><td></td><td></td><td>●</td><td></td></tr><tr><td>Customer Service</td><td></td><td></td><td>●</td><td></td></tr></tbody></table></div><div class="role-boundary"><b>Role-boundary / authority note:</b> Management Review là nơi ra quyết định và phân bổ nguồn lực, không chỉ là tổng hợp số liệu. Department heads phải vào họp với kết luận trước, không chờ QMS quyết thay. Xem thêm <a href="../../03-Reference/01-ANNEX-System/ref-020-cnc-operating-model-and-role-boundary.html">REF-020</a>, <a href="../../../02-Tai-Lieu-He-Thong/03-Organization/04-RACI-Authority/annex-qms-025-authority-matrix.html">ANNEX-QMS-025</a> và <a href="../../../02-Tai-Lieu-He-Thong/03-Organization/04-RACI-Authority/annex-qms-026-raci-master-matrix.html">ANNEX-QMS-026</a> để đối chiếu giữa tài liệu.</div><h2 class="h2" id="p5">5. Quy trình</h2><h3 class="h3">1. Chuẩn bị đầu vào</h3><ul class="tight"><li>Bao phủ tối thiểu: KPI chất lượng/giao hàng, complaint/escape, NCR/CAPA, audit/LPA, supplier performance, resource/capacity, competence, changes, risks/opportunities và customer/market signals.</li><li>Dữ liệu phải có trend, phân tích nguyên nhân sơ bộ và điểm cần lãnh đạo quyết định – không chỉ nộp số liệu thô.</li></ul><h3 class="h3">2. Tổ chức cuộc họp</h3><ul class="tight"><li>Đi theo logic từ kết quả → rủi ro → năng lực → quyết định; tránh lặp quá sâu các vấn đề tác nghiệp đã có owner xử lý hằng ngày.</li><li>Khi có ngành/khách hàng hoặc site trọng yếu, review phải tách phần overlay để không che khuất rủi ro critical.</li></ul><h3 class="h3">3. Đầu ra bắt buộc</h3><div class="table-card"><table class="table"><colgroup><col style="width:26%"/><col style="width:74%"/></colgroup><thead><tr><th>Loại đầu ra</th><th>Ví dụ</th></tr></thead><tbody><tr><td>Điều chỉnh mục tiêu / ưu tiên</td><td>Tăng cường supplier control, mở dự án clean pack, nâng năng lực CMM, thay đổi buffer strategy</td></tr><tr><td>Nguồn lực</td><td>Đầu tư gage/machine/software, tuyển dụng/đào tạo, đổi layout, thêm shift hoặc outsource strategy</td></tr><tr><td>Thay đổi hệ thống</td><td>Sửa SOP/WI/forms, mở CAPA, audit chuyên đề, update contingency plan</td></tr></tbody></table></div><h3 class="h3">4. Theo dõi sau review</h3><ul class="tight"><li>Mọi action phải có owner và due date; QMS theo dõi đến khi đóng và báo lại tình trạng tại review tiếp theo hoặc sớm hơn nếu critical.</li></ul><h2 class="h2" id="p6">6. Biểu mẫu liên quan</h2><ul class="tight"><li><a href="../../../04-Bieu-Mau/09-FRM-900/frm-911-management-review-minutes.html">FRM-911</a></li><li><a href="../../../04-Bieu-Mau/06-FRM-600/frm-652-capa-8d-report.html">FRM-652</a></li></ul><h2 class="h2" id="p7">7. Tài liệu liên quan</h2><ul class="tight"><li><a href="../../../03-Tai-Lieu-Van-Hanh/02-Work-Instructions/09-WI-900/wi-901-performance-dashboard.html">WI-901</a></li><li><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-901-internal-audit-and-lpa.html">SOP-901</a></li><li><a href="../../../03-Tai-Lieu-Van-Hanh/01-SOPs/09-SOP-900/sop-903-continual-improvement-and-kaizen.html">SOP-903</a></li></ul><div class="footer-note">Bản nâng cấp giữ nguyên mã tài liệu, logic vận hành gốc và tăng chiều sâu kiểm soát cho mô hình gia công CNC toàn cầu, high-mix/medium-volume hoặc job-order.</div>
+</div></div>
+</div></div></div>
+<script src="../../../assets/app.js"></script>
 </body>
 </html>
