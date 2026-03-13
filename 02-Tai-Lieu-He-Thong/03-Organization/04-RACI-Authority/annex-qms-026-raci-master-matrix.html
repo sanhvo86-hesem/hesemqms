@@ -2,110 +2,516 @@
 <html lang="vi">
 <head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>ANNEX-QMS-026 — RACI Master Matrix | HESEM QMS</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ANNEX-QMS-026 - RACI Master Matrix | HESEM QMS</title>
 <link href="../../../assets/style.css" rel="stylesheet"/>
 <style>
-
-/* PAGE BREAK & OVERFLOW FIX */
+.chip{display:inline-block;padding:2px 10px;border-radius:999px;border:1px solid #d7dee7;background:#f8fafc;font-size:11px;margin-right:6px;margin-bottom:6px;font-weight:600}
+.tight li{margin:4px 0}
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.toc{border:1px solid var(--ln);border-radius:var(--r);padding:16px;background:var(--bg2);margin:18px 0 24px}
+.toc-title{font-size:12px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.4px;margin-bottom:10px}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px}
+.toc-grid a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;background:var(--bg);font-size:12px;color:var(--ink)}
+.role-card{border:1px solid var(--ln);border-top:4px solid var(--blue);border-radius:var(--r);padding:14px;background:var(--bg)}
+.role-card h3{margin:0 0 6px;font-size:14px;color:var(--navy)}
+.role-card p:last-child{margin-bottom:0}
+.matrix-table td:first-child,.matrix-table th:first-child{font-weight:700}
+.matrix-table td:nth-child(2),.matrix-table td:nth-child(3){white-space:nowrap}
+.hint-box{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:#fffdf5}
+.footer-note{margin-top:20px;font-size:11px;color:var(--ink3)}
 @media print {
- .card, .table-card, .callout, .note, .box, .iso-map,
- .preface-block, .form-sheet, .lane, .legend, .req, .vstep, .auth-grid, .backup-card, .org-row {
- page-break-inside: avoid;
- break-inside: avoid;
- }
- h1, h2, h3, .h1, .h2, .h3 {
- page-break-after: avoid;
- break-after: avoid;
- }
- .form-header { page-break-inside: avoid; break-inside: avoid; }
- tr { page-break-inside: avoid; break-inside: avoid; }
- thead { display: table-header-group; }
- tfoot { display: table-footer-group; }
- p { orphans: 3; widows: 3; }
- .table-card { overflow: visible !important; }
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.lane,.legend,.req,.auth-grid,.backup-card,.vstep,.role-card,.hint-box{page-break-inside:avoid;break-inside:avoid}
+  h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
+  .form-header,.sig-row,.sign-row,.approval-row{page-break-inside:avoid;break-inside:avoid}
+  tr{page-break-inside:avoid;break-inside:avoid}
+  thead{display:table-header-group}
+  tfoot{display:table-footer-group}
+  p{orphans:3;widows:3}
+  .table-card{overflow:visible!important}
 }
-.page-body { overflow-x: hidden; }
-.table-card, .table-block, .table-wrap { overflow-x: auto; max-width: 100%; }
-table { max-width: 100%; table-layout: auto; }
-td, th { max-width: 420px; overflow-wrap: break-word; word-wrap: break-word; }
-.role-code {font-family: var(--mono); font-size: 11px; background: var(--bg3); padding: 2px 6px; border-radius: 5px;}
-.raci-cell {text-align:center; font-weight:700; width:34px; min-width:34px; padding:6px 4px !important;}
-.raci-A {background:#fff5f5; color:#c92a2a;}
-.raci-R {background:#e7f5ff; color:#1864ab;}
-.raci-C {background:#fff9db; color:#e67700;}
-.raci-I {background:#ebfbee; color:#2b8a3e;}
-.portal-grid {display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:16px;}
-.portal-card {background:var(--bg); border:1px solid var(--ln); border-radius:var(--r); padding:18px;}
-.portal-card h3 {font-size:14px; color:var(--navy); margin:0 0 8px;}
-.doc-link-list {list-style:none; margin:0; padding:0;}
-.doc-link-list li {padding:6px 0 6px 16px; position:relative;}
-.doc-link-list li:before {content:"•"; position:absolute; left:0; color:var(--blue);}
-.inline-tag {display:inline-block;padding:3px 8px;border:1px solid var(--ln);border-radius:999px;font-size:10px;font-weight:700;background:var(--bg2);margin-right:6px;margin-bottom:6px;}
-.svg-wrap,.org-wrap {background:var(--bg); border:1px solid var(--ln); border-radius:var(--r); padding:16px; overflow:auto;}
-.nav-toc a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;margin:6px 0;background:var(--bg);}
-kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--ln);padding:2px 5px;border-radius:4px;background:#fff;}
-.org-tree{display:flex;flex-direction:column;gap:16px;margin:8px 0;}
-.org-level{display:grid;gap:14px;}
-.org-level.cols-1{grid-template-columns:1fr;}
-.org-level.cols-2{grid-template-columns:repeat(2,minmax(0,1fr));}
-.org-level.cols-3{grid-template-columns:repeat(3,minmax(0,1fr));}
-.org-level.cols-4{grid-template-columns:repeat(4,minmax(0,1fr));}
-.org-level.cols-5{grid-template-columns:repeat(5,minmax(0,1fr));}
-.org-card{border:1px solid var(--ln);border-top:4px solid var(--blue);border-radius:var(--r);padding:14px;background:var(--bg);}
-.org-card h3{font-size:14px;color:var(--navy);margin:0 0 4px;}
-.org-card p{margin:4px 0;font-size:12px;}
-.org-row{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);margin:12px 0;}
-.org-row h3{margin:0 0 8px;font-size:13px;color:var(--navy);}
-.badge-soft{display:inline-block;padding:2px 8px;border-radius:999px;background:var(--blue-l);color:var(--navy);font-size:10px;font-weight:700;margin-right:6px;margin-bottom:6px;}
-.kpi-box{border:1px solid var(--ln);border-radius:var(--r);padding:12px;background:var(--bg);margin:8px 0;}
-.kpi-box b{display:block;font-size:11px;color:var(--navy);text-transform:uppercase;letter-spacing:.3px;margin-bottom:4px;}
-.auth-grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:10px 0 16px;}
-.auth-item{padding:12px 14px; border:1px solid var(--ln,#d7deea); border-radius:8px; background:var(--bg2,#f8fafc);}
-.backup-card{padding:14px 16px; border:1px solid var(--ln,#d7deea); border-left:4px solid #0f766e; border-radius:8px; background:var(--bg2,#f8fafc); margin:10px 0 0;}
-.role-boundary{border:1px solid #cfe0ff;border-left:4px solid #2563eb;border-radius:8px;background:#eef6ff;padding:14px 16px;margin:14px 0;}
-.phase-card{border:1px solid var(--ln);border-left:4px solid var(--gold);border-radius:var(--r);padding:14px;background:#fffdf5;margin:12px 0;}
-.phase-card h3{margin:0 0 6px;font-size:14px;color:var(--navy);}
-.phase-card p:last-child,.role-boundary p:last-child,.auth-item p:last-child,.backup-card p:last-child{margin-bottom:0;}
-.small-note{font-size:12px;color:var(--ink2);}
-
+.page-body{overflow-x:hidden}
+.table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
+table{max-width:100%;table-layout:auto}
+td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
+@media (max-width: 900px){
+  .grid-2,.grid-3{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
-<div class="container">
-  <div class="page landscape">
-    <div class="page-body">
-      <div class="form-header">
-        <div class="fh-left">
-          <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
-          <div class="fh-company">
-            <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
-            <span>Tài liệu kiểm soát</span>
-          </div>
-        </div>
-        <div class="title">
-          <strong>ANNEX-QMS-026 — RACI Master Matrix</strong>
-          <span class="sub-vn">Ma trận RACI tổng hợp của toàn bộ SOP theo JD mới nhất</span>
-        </div>
-        <div class="meta">
-          <div class="row"><span><b>Mã:</b></span><span>ANNEX-QMS-026</span></div>
-          <div class="row"><span><b>Phiên bản:</b></span><span>V1.0</span></div>
-          <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
-          <div class="row"><span><b>Chủ sở hữu:</b></span><span>QMS Engineer</span></div>
-          <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
-        </div>
-      </div>
-      <div class="doc-content" id="docContent">
-        <div class="form-sheet">
-<div class="iso-map"><div class="iso-title">Mục đích</div><div class="req"><span class="req-tag shall">PHẢI</span><div>Mỗi SOP phải có RACI riêng; bảng master này là lớp tổng hợp để kiểm tra tính nhất quán liên tài liệu sau cập nhật JD mới nhất.</div></div><div class="req"><span class="req-tag should">NÊN</span><div>Khi cần tinh gọn cho đào tạo, có thể dùng cột role code tại đây để làm thẻ bài / visual management trên shopfloor hoặc workshop cross-functional.</div></div></div>
-<h2 class="h2">1. Chú giải role code</h2><div class="table-card"><table class="table matrix-small"><thead><tr><th>Khối</th><th>Viết tắt và vai trò</th></tr></thead><tbody><tr><td><b>Cross-functional</b></td><td>DHP = Department Heads / Process Owners</td></tr><tr><td><b>Executive</b></td><td>CEO = Chief Executive Officer</td></tr><tr><td><b>Production</b></td><td>PD = Production Director<br/>PPL = Production Planner<br/>PIE = Production Engineer / Industrial Engineer<br/>CWM = CNC Workshop Manager<br/>SL = Shift Leader<br/>SET = Setup Technician<br/>OP = CNC Operator<br/>MNT = Maintenance Technician<br/>DBL = Deburr Team Lead<br/>DB = Deburr Technician<br/>CPS = Cleaning &amp; Packaging Supervisor<br/>CPT = Cleaning/Packaging Technician</td></tr><tr><td><b>Sales &amp; Customer Service</b></td><td>CS = Customer Service<br/>EST = Estimator</td></tr><tr><td><b>Engineering</b></td><td>ENGM = Engineering Lead/Manager<br/>DFM = DFM Engineer<br/>PE = Process Engineer<br/>CAM = CAM/NC Programmer</td></tr><tr><td><b>Quality</b></td><td>QAM = QA Manager<br/>QMS = QMS Engineer<br/>QE = Quality Engineer<br/>QCL = QC Inspector Lead<br/>QCI = QC Inspector / CMM Programmer-Operator<br/>MET = Metrology &amp; Calibration Specialist<br/>IA = Internal Auditor (Outsource)</td></tr><tr><td><b>Supply Chain</b></td><td>SCM = Supply Chain Manager<br/>BUY = Buyer / Purchasing<br/>WH = Warehouse Clerk<br/>TCR = Tool Crib / Tool Storekeeper<br/>LOG = Logistics / Shipping Coordinator</td></tr><tr><td><b>Finance</b></td><td>FINM = Finance Manager<br/>APAR = AP/AR &amp; Payments Accountant<br/>GL = General Ledger &amp; Payroll Accountant</td></tr><tr><td><b>HR</b></td><td>HR = HR Manager</td></tr><tr><td><b>EHS</b></td><td>EHS = EHS Specialist</td></tr><tr><td><b>ERP</b></td><td>ERP = Epicor System Administrator</td></tr><tr><td><b>IT</b></td><td>IT = IT Admin</td></tr></tbody></table></div>
-<h2 class="h2">2. Ma trận RACI tổng hợp theo SOP</h2><div class="table-card"><table class="table matrix-small"><thead><tr><th>Mã SOP</th><th>Tên quy trình</th><th>DHP</th><th>CEO</th><th>PD</th><th>CS</th><th>EST</th><th>ENGM</th><th>DFM</th><th>PE</th><th>CAM</th><th>PPL</th><th>PIE</th><th>CWM</th><th>SL</th><th>SET</th><th>OP</th><th>MNT</th><th>DBL</th><th>DB</th><th>CPS</th><th>CPT</th><th>QAM</th><th>QMS</th><th>QE</th><th>QCL</th><th>QCI</th><th>MET</th><th>IA</th><th>SCM</th><th>BUY</th><th>WH</th><th>TCR</th><th>LOG</th><th>FINM</th><th>APAR</th><th>GL</th><th>HR</th><th>EHS</th><th>ERP</th><th>IT</th></tr></thead><tbody><tr><td>SOP-101</td><td>SOP-101 — Kiểm soát tài liệu và dữ liệu</td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-I">I</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-A">A</td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-C">C</td></tr><tr><td>SOP-102</td><td>SOP-102 — Chính sách chất lượng, mục tiêu và bối cảnh tổ chức</td><td class="raci-cell"></td><td class="raci-cell raci-A">A</td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td></tr><tr><td>SOP-103</td><td>SOP-103 — Quản trị rủi ro, cơ hội, FMEA và Control Plan</td><td class="raci-cell"></td><td class="raci-cell raci-I">I</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-A">A</td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td></tr><tr><td>SOP-104</td><td>SOP-104 — Quản trị dữ liệu, hồ sơ, bảo mật và bảo vệ IP</td><td class="raci-cell"></td><td class="raci-cell raci-I">I</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-A">A</td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell raci-R">R</td></tr><tr><td>SOP-105</td><td>SOP-105 — Organizational Knowledge Management</td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-I">I</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-A">A</td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td></tr><tr><td>SOP-106</td><td>SOP-106 — Quản trị thay đổi và cấu hình</td><td class="raci-cell"></td><td class="raci-cell raci-I">I</td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-A">A</td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td></tr><tr><td>SOP-107</td><td>SOP-107 — Communication Management</td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-A">A</td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td></tr><tr><td>SOP-108</td><td>SOP-108 — Kế hoạch ứng phó gián đoạn vận hành</td><td class="raci-cell"></td><td class="raci-cell raci-A">A</td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-C">C</td></tr><tr><td>SOP-201</td><td>SOP-201 — Thực hiện đơn hàng từ RFQ đến thanh toán</td><td class="raci-cell"></td><td class="raci-cell raci-A">A</td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell raci-R">R</td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-I">I</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td></tr><tr><td>SOP-202</td><td>SOP-202 — Khiếu nại khách hàng, phản hồi, RMA và kiểm soát escape</td><td class="raci-cell"></td><td class="raci-cell raci-I">I</td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-A">A</td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td></tr><tr><td>SOP-203</td><td>SOP-203 — Customer Property Control</td><td class="raci-cell"></td><td class="raci-cell raci-I">I</td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-I">I</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-A">A</td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td></tr><tr><td>SOP-301</td><td>SOP-301 — Engineering, DFM, báo giá và hoạch định gia công</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-I">I</td><td class="raci-cell raci-R">R</td><td class="raci-cell raci-A">A</td><td class="raci-cell raci-R">R</td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-I">I</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td></tr><tr><td>SOP-302</td><td>SOP-302 — First Article Inspection (FAI)</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-I">I</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-A">A</td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td></tr><tr><td>SOP-401</td><td>SOP-401 — Kiểm soát nhà cung cấp và công đoạn đặc biệt</td><td class="raci-cell"></td><td class="raci-cell raci-I">I</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-A">A</td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td></tr><tr><td>SOP-402</td><td>SOP-402 — Xác minh vật liệu, truy xuất và phòng chống vật tư giả/không rõ nguồn gốc</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-I">I</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-I">I</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-A">A</td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td></tr><tr><td>SOP-501</td><td>SOP-501 — Hoạch định sản xuất, lập lịch và kiểm soát điều độ</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-A">A</td><td class="raci-cell raci-I">I</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td></tr><tr><td>SOP-502</td><td>SOP-502 — Vận hành gia công CNC</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-A">A</td><td class="raci-cell raci-R">R</td><td class="raci-cell raci-R">R</td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell raci-I">I</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td></tr><tr><td>SOP-503</td><td>SOP-503 — Tooling Maintenance PM and Breakdown Response</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-A">A</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-I">I</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td></tr><tr><td>SOP-601</td><td>SOP-601 — Hiệu chuẩn và kiểm soát thiết bị đo</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-I">I</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-A">A</td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td></tr><tr><td>SOP-602</td><td>SOP-602 — Phân tích hệ thống đo (MSA / GR&amp;R)</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-I">I</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-A">A</td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td></tr><tr><td>SOP-603</td><td>SOP-603 — AQL Sampling Inspection</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-I">I</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-A">A</td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-R">R</td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td></tr><tr><td>SOP-604</td><td>SOP-604 — SPC and Capability Control</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-A">A</td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td></tr><tr><td>SOP-605</td><td>SOP-605 — Kiểm tra cuối, CoC và phê duyệt giao hàng</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-I">I</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-A">A</td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-R">R</td><td class="raci-cell raci-R">R</td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td></tr><tr><td>SOP-606</td><td>SOP-606 — NCR, CAPA và phản ứng IPQC</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-I">I</td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-A">A</td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td></tr><tr><td>SOP-701</td><td>SOP-701 — Tiếp nhận, đóng gói, thao tác và lưu kho</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-I">I</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-A">A</td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td></tr><tr><td>SOP-702</td><td>SOP-702 — Kiểm soát nhiễm bẩn và độ sạch</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-I">I</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell raci-A">A</td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td></tr><tr><td>SOP-703</td><td>SOP-703 — An toàn sản phẩm, conformity và phòng ngừa FOD</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-I">I</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-A">A</td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td></tr><tr><td>SOP-801</td><td>SOP-801 — Năng lực, đào tạo và chứng nhận</td><td class="raci-cell raci-R">R</td><td class="raci-cell raci-A">A</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td></tr><tr><td>SOP-802</td><td>SOP-802 — Incident Near-miss and EHS</td><td class="raci-cell"></td><td class="raci-cell raci-A">A</td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td></tr><tr><td>SOP-803</td><td>SOP-803 — Invoicing Job Costing and AR AP</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-A">A</td><td class="raci-cell raci-R">R</td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td></tr><tr><td>SOP-804</td><td>SOP-804 — Human Factors and Error Proofing</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-A">A</td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td></tr><tr><td>SOP-901</td><td>SOP-901 — Đánh giá nội bộ và Layered Process Audit (LPA)</td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-I">I</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-A">A</td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td></tr><tr><td>SOP-902</td><td>SOP-902 — Xem xét của lãnh đạo</td><td class="raci-cell"></td><td class="raci-cell raci-A">A</td><td class="raci-cell raci-C">C</td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td></tr><tr><td>SOP-903</td><td>SOP-903 — Cải tiến liên tục và Kaizen</td><td class="raci-cell"></td><td class="raci-cell raci-I">I</td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-A">A</td><td class="raci-cell"></td><td class="raci-cell raci-R">R</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell raci-C">C</td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td><td class="raci-cell"></td></tr></tbody></table></div>
-<h2 class="h2">3. Quy tắc đọc ma trận</h2><ul><li>Một SOP có thể có nhiều vai R nhưng chỉ nên có một A chính cho từng logic quyết định cốt lõi.</li><li>Nếu một vai trò không xuất hiện trong SOP nhưng lại tham gia thực tế, cần xem lại handbook / role-boundary hoặc bổ sung vào lần cập nhật tiếp theo.</li><li>Các vai frontline như Setup / Operator / QC Inspector được thể hiện rõ để tránh tình trạng SOP chỉ nói tới cấp quản lý mà bỏ qua người trực tiếp giữ gate.</li><li>Vai DHP (Department Heads / Process Owners) chỉ dùng cho SOP hệ thống/cross-functional khi không phù hợp liệt kê từng trưởng bộ phận trong cùng một bảng.</li></ul>
-<div class="footer-note">RACI Master Matrix này được sinh lại từ bundle SOP đã chỉnh sửa, dùng để đối chiếu nhanh mức nhất quán của toàn hệ thống.</div>
-        </div>
-      </div>
+<div class="container"><div class="page"><div class="page-body">
+<div class="form-header">
+<div class="fh-left">
+<a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+<div class="fh-company">
+<a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+<span>Tài liệu kiểm soát</span>
+</div>
+</div>
+<div class="title">
+<strong>ANNEX-QMS-026 - RACI Master Matrix</strong>
+<span class="sub-vn">Bản đồ trách nhiệm quá trình cấp hệ thống cho chuỗi RFQ, engineering, supply chain, production, quality và improvement</span>
+</div>
+<div class="meta">
+<div class="row"><span><b>Mã:</b></span><span>ANNEX-QMS-026</span></div>
+<div class="row"><span><b>Phiên bản:</b></span><span>V2.0</span></div>
+<div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+<div class="row"><span><b>Chủ sở hữu:</b></span><span>QMS Engineer / QA Manager</span></div>
+<div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám đốc</span></div>
+</div>
+</div>
+<div class="doc-content" id="docContent"><div class="form-sheet">
+<div class="iso-map">
+  <div class="iso-title">Nguyên tắc dùng RACI master</div>
+  <div class="req"><span class="req-tag shall">PHẢI</span><div>Mỗi SOP, WI hoặc handbook có thể có RACI chi tiết riêng. RACI master này là lớp tổng hợp để kiểm tra hệ thống có đang giao đúng owner cho đúng đầu ra hay không.</div></div>
+  <div class="req"><span class="req-tag shall">PHẢI</span><div>Ma trận này ưu tiên tính thực chiến: chỉ giữ những vai trò và giao điểm đủ quan trọng để kiểm soát điều hành, tránh nhồi toàn bộ 34 chức danh vào một bảng quá rộng nhưng khó dùng.</div></div>
+  <div class="req"><span class="req-tag should">NÊN</span><div>Khi đào tạo, onboarding hoặc soát chéo JD, người dùng nên đọc RACI master cùng REF-020, handbook phòng ban và authority matrix để hiểu vừa chiều ngang của quá trình, vừa chiều dọc của quyền quyết định.</div></div>
+</div>
+
+<div class="preface-block">
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">Điểm thay đổi cốt lõi</div>
+      <p>Bản viết lại này chuyển RACI từ dạng mega-grid theo từng SOP sang bản đồ trách nhiệm theo <b>giao điểm quá trình</b>. Nhờ đó người dùng nhìn được ai chịu trách nhiệm cho đầu ra, ai sở hữu execution, ai cần được hỏi và ai chỉ cần được thông báo.</p>
+    </div>
+    <div class="callout">
+      <div class="card-title">Cách hiểu đúng</div>
+      <p><b>A</b> là owner cuối của đầu ra. <b>R</b> là vai trò trực tiếp tổ chức hoặc tạo ra đầu ra đó. <b>C</b> là bên bắt buộc phải được hỏi trước khi đầu ra được chốt. <b>I</b> là bên cần được nhìn thấy kết quả để tiếp nhận bước sau hoặc để quản trị.</p>
     </div>
   </div>
 </div>
+
+<div class="toc">
+  <div class="toc-title">Mục lục nhanh</div>
+  <div class="toc-grid">
+    <a href="#p1">1. Mục đích</a>
+    <a href="#p2">2. Nhóm vai trò chuẩn</a>
+    <a href="#p3">3. Governance và tài liệu hệ thống</a>
+    <a href="#p4">4. Commercial và engineering front-end</a>
+    <a href="#p5">5. Supply chain và thực thi sản xuất</a>
+    <a href="#p6">6. Quality, shipment và cải tiến</a>
+    <a href="#p7">7. Quy tắc đọc ma trận</a>
+    <a href="#p8">8. Tài liệu liên quan</a>
+  </div>
+</div>
+
+<h2 class="h2" id="p1">1. Mục đích</h2>
+<p>Thiết lập một bản đồ trách nhiệm cấp hệ thống để tất cả tài liệu trong bộ QMS cùng nói chung một ngôn ngữ về ownership. Mục đích của ma trận này là khóa lại các giao điểm dễ đổ lỗi nhất trong thực tế: front-end thương mại, release kỹ thuật, readiness vật tư, dispatch, first-off, hold-release chất lượng, shipment, complaint và cải tiến hệ thống.</p>
+
+<h2 class="h2" id="p2">2. Nhóm vai trò chuẩn</h2>
+<div class="grid-3">
+  <div class="role-card">
+    <h3>CEO</h3>
+    <p>Quyền quyết định cuối về chiến lược, cam kết thương mại cao rủi ro, stop-ship hệ thống, continuity plan cấp công ty và management review.</p>
+  </div>
+  <div class="role-card">
+    <h3>SAL - Sales Front-End</h3>
+    <p>Gồm Customer Service và Estimator. Chịu trách nhiệm dòng thông tin với khách hàng, contract review, acknowledgment, quote logic và promise alignment.</p>
+  </div>
+  <div class="role-card">
+    <h3>ENG - Engineering</h3>
+    <p>Gồm Engineering Lead/Manager, DFM Engineer, Process Engineer và CAM/NC Programmer. Sở hữu feasibility, method, routing, setup intent, NC release và engineering change.</p>
+  </div>
+  <div class="role-card">
+    <h3>SCM - Supply Chain</h3>
+    <p>Gồm Supply Chain Manager, Buyer, Warehouse, Tool Crib và Logistics. Sở hữu nguồn cung, vật tư, traceability đầu vào, outsource flow-down, shipping readiness.</p>
+  </div>
+  <div class="role-card">
+    <h3>PRO - Production</h3>
+    <p>Gồm Production Director, Production Planner, Production Engineer/IE, Workshop Manager, Shift Leader, Setup, Operator, Maintenance, Deburr, Cleaning-Pack. Sở hữu dispatch, readiness, execution, reaction tại hiện trường.</p>
+  </div>
+  <div class="role-card">
+    <h3>QUA - Quality</h3>
+    <p>Gồm QA Manager, Quality Engineer, QC Lead, QC Inspector/CMM và Metrology. Sở hữu quality planning, hold-release, độ tin cậy hệ đo, inspection, NCR/CAPA, shipment release.</p>
+  </div>
+  <div class="role-card">
+    <h3>QMS</h3>
+    <p>Gồm QMS Engineer và Internal Auditor. Sở hữu khung tài liệu, audit program, management review input, điều phối corrective action hệ thống và tính nhất quán của QMS.</p>
+  </div>
+  <div class="role-card">
+    <h3>SUP - Support</h3>
+    <p>Gồm Finance, HR, EHS, Epicor Admin và IT. Đây là tuyến hỗ trợ điều kiện vận hành, năng lực, cash discipline, system control, continuity và compliance.</p>
+  </div>
+  <div class="role-card">
+    <h3>JD chi tiết</h3>
+    <p>Các nhóm trên gom nhiều chức danh cho mục đích điều hành. Phạm vi chi tiết từng vai trò vẫn được xác định trong JD và department handbook tương ứng.</p>
+  </div>
+</div>
+
+<h2 class="h2" id="p3">3. Governance và tài liệu hệ thống</h2>
+<div class="table-card">
+  <table class="table matrix-table">
+    <colgroup>
+      <col style="width:20%"/>
+      <col style="width:10%"/>
+      <col style="width:10%"/>
+      <col style="width:20%"/>
+      <col style="width:12%"/>
+      <col style="width:18%"/>
+      <col style="width:10%"/>
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Giao điểm quá trình</th>
+        <th>A</th>
+        <th>R</th>
+        <th>C</th>
+        <th>I</th>
+        <th>Đầu ra bắt buộc</th>
+        <th>Tài liệu xương sống</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Document control, master register, DCR và issue control</td>
+        <td>QMS</td>
+        <td>QMS</td>
+        <td>ENG, QUA, SUP</td>
+        <td>CEO, SAL, SCM, PRO</td>
+        <td>Master register, DCR, issue log, implementation checklist</td>
+        <td>SOP-101</td>
+      </tr>
+      <tr>
+        <td>Context, policy, objectives và scope review</td>
+        <td>CEO</td>
+        <td>QMS</td>
+        <td>SAL, ENG, SCM, PRO, QUA, SUP</td>
+        <td>Toàn hệ thống</td>
+        <td>Context review, objective cascade, review agenda</td>
+        <td>SOP-102</td>
+      </tr>
+      <tr>
+        <td>Risk, opportunity, FMEA, control plan và reaction plan</td>
+        <td>QUA</td>
+        <td>ENG</td>
+        <td>PRO, SCM, QMS</td>
+        <td>CEO, SAL</td>
+        <td>Risk register, FMEA, control plan, reaction logic</td>
+        <td>SOP-103</td>
+      </tr>
+      <tr>
+        <td>Data governance, records security, IP và Epicor control</td>
+        <td>QUA</td>
+        <td>SUP</td>
+        <td>QMS, ENG, SAL</td>
+        <td>CEO, các process owner</td>
+        <td>Access rule, audit trail, retention rule, security control</td>
+        <td>SOP-104</td>
+      </tr>
+      <tr>
+        <td>Change and configuration management</td>
+        <td>QUA</td>
+        <td>QMS</td>
+        <td>ENG, SAL, SCM, PRO, SUP</td>
+        <td>CEO</td>
+        <td>ECR/ECN, affected-document list, change closure</td>
+        <td>SOP-106</td>
+      </tr>
+      <tr>
+        <td>Competence, certification, recertification và skill matrix</td>
+        <td>SUP</td>
+        <td>SUP</td>
+        <td>QUA, PRO, ENG, SCM</td>
+        <td>CEO, QMS</td>
+        <td>Skill matrix, training plan, certification record</td>
+        <td>SOP-801</td>
+      </tr>
+      <tr>
+        <td>Audit / LPA và management review</td>
+        <td>QUA</td>
+        <td>QMS</td>
+        <td>CEO, tất cả process owner</td>
+        <td>Toàn hệ thống</td>
+        <td>Audit program, findings, management review pack, actions</td>
+        <td>SOP-901, SOP-902</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="h2" id="p4">4. Commercial và engineering front-end</h2>
+<div class="table-card">
+  <table class="table matrix-table">
+    <colgroup>
+      <col style="width:20%"/>
+      <col style="width:10%"/>
+      <col style="width:10%"/>
+      <col style="width:20%"/>
+      <col style="width:12%"/>
+      <col style="width:18%"/>
+      <col style="width:10%"/>
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Giao điểm quá trình</th>
+        <th>A</th>
+        <th>R</th>
+        <th>C</th>
+        <th>I</th>
+        <th>Đầu ra bắt buộc</th>
+        <th>Tài liệu xương sống</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>RFQ intake, completeness check và contract screening</td>
+        <td>SAL</td>
+        <td>SAL</td>
+        <td>ENG, SCM</td>
+        <td>CEO, PRO, QUA</td>
+        <td>RFQ register, clarified requirement pack, risk note</td>
+        <td>SOP-201</td>
+      </tr>
+      <tr>
+        <td>Cost build, quote logic, assumption lock và quote release</td>
+        <td>CEO</td>
+        <td>SAL</td>
+        <td>ENG, SCM, SUP</td>
+        <td>QMS, PRO, QUA</td>
+        <td>Cost sheet, quote, assumption log, commitment note</td>
+        <td>SOP-201</td>
+      </tr>
+      <tr>
+        <td>Order acknowledgment, customer change log và promise-date alignment</td>
+        <td>SAL</td>
+        <td>SAL</td>
+        <td>SCM, PRO, QUA, SUP</td>
+        <td>CEO, ENG</td>
+        <td>Order acknowledgment, change log, customer communication record</td>
+        <td>SOP-201</td>
+      </tr>
+      <tr>
+        <td>Technical feasibility, DFM review và process risk framing</td>
+        <td>ENG</td>
+        <td>ENG</td>
+        <td>QUA, SCM, PRO</td>
+        <td>SAL, CEO</td>
+        <td>DFM review, feasibility conclusion, technical assumptions</td>
+        <td>SOP-301</td>
+      </tr>
+      <tr>
+        <td>Routing, setup, NC package, inspection input và technical release</td>
+        <td>ENG</td>
+        <td>ENG</td>
+        <td>QUA, PRO</td>
+        <td>SAL, SCM</td>
+        <td>Routing, setup sheet, NC package, CTQ/inspection input</td>
+        <td>SOP-301, SOP-302</td>
+      </tr>
+      <tr>
+        <td>Engineering change, temporary deviation và rework instruction</td>
+        <td>ENG</td>
+        <td>ENG</td>
+        <td>QUA, SAL, PRO, SCM, QMS</td>
+        <td>CEO, SUP</td>
+        <td>ECR/ECN, rework package, affected-lot list, closure record</td>
+        <td>SOP-106</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="h2" id="p5">5. Supply chain và thực thi sản xuất</h2>
+<div class="table-card">
+  <table class="table matrix-table">
+    <colgroup>
+      <col style="width:20%"/>
+      <col style="width:10%"/>
+      <col style="width:10%"/>
+      <col style="width:20%"/>
+      <col style="width:12%"/>
+      <col style="width:18%"/>
+      <col style="width:10%"/>
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Giao điểm quá trình</th>
+        <th>A</th>
+        <th>R</th>
+        <th>C</th>
+        <th>I</th>
+        <th>Đầu ra bắt buộc</th>
+        <th>Tài liệu xương sống</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Supplier approval, special process control và supplier scorecard</td>
+        <td>SCM</td>
+        <td>SCM</td>
+        <td>QUA, ENG</td>
+        <td>CEO, SAL, PRO</td>
+        <td>Approved supplier list, scorecard, flow-down rule, SCAR</td>
+        <td>SOP-401</td>
+      </tr>
+      <tr>
+        <td>Material verification, lot/heat traceability và counterfeit prevention</td>
+        <td>SCM</td>
+        <td>SCM</td>
+        <td>QUA</td>
+        <td>PRO, ENG, SAL</td>
+        <td>Receiving status, cert pack, lot control, blocked stock status</td>
+        <td>SOP-402</td>
+      </tr>
+      <tr>
+        <td>Planning, scheduling, dispatch và priority resequence</td>
+        <td>PRO</td>
+        <td>PRO</td>
+        <td>SCM, SAL</td>
+        <td>CEO, ENG, QUA</td>
+        <td>Dispatch board, release checklist, capacity response</td>
+        <td>SOP-501</td>
+      </tr>
+      <tr>
+        <td>Machine setup, first-off và serial release vào sản xuất</td>
+        <td>PRO</td>
+        <td>PRO</td>
+        <td>ENG, QUA</td>
+        <td>SCM, SAL</td>
+        <td>Setup record, first-piece approval, abnormality escalation</td>
+        <td>SOP-502</td>
+      </tr>
+      <tr>
+        <td>Maintenance, tooling readiness, PM và breakdown response</td>
+        <td>PRO</td>
+        <td>PRO</td>
+        <td>ENG, SCM</td>
+        <td>CEO, QUA</td>
+        <td>PM record, breakdown response, tooling readiness status</td>
+        <td>SOP-503</td>
+      </tr>
+      <tr>
+        <td>Receiving, storage, preservation, deburr, clean-pack và handling control</td>
+        <td>SCM</td>
+        <td>SCM + PRO</td>
+        <td>QUA</td>
+        <td>SAL, ENG</td>
+        <td>Storage status, preservation control, pack-ready handoff</td>
+        <td>SOP-701, SOP-702, SOP-703</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="h2" id="p6">6. Quality, shipment và cải tiến</h2>
+<div class="table-card">
+  <table class="table matrix-table">
+    <colgroup>
+      <col style="width:20%"/>
+      <col style="width:10%"/>
+      <col style="width:10%"/>
+      <col style="width:20%"/>
+      <col style="width:12%"/>
+      <col style="width:18%"/>
+      <col style="width:10%"/>
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Giao điểm quá trình</th>
+        <th>A</th>
+        <th>R</th>
+        <th>C</th>
+        <th>I</th>
+        <th>Đầu ra bắt buộc</th>
+        <th>Tài liệu xương sống</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Calibration, MSA, metrology assurance và method qualification</td>
+        <td>QUA</td>
+        <td>QUA</td>
+        <td>ENG, PRO</td>
+        <td>CEO, QMS</td>
+        <td>Calibration status, MSA result, method release evidence</td>
+        <td>SOP-601, SOP-602</td>
+      </tr>
+      <tr>
+        <td>AQL, FAI, in-process inspection, SPC và reaction plan</td>
+        <td>QUA</td>
+        <td>QUA</td>
+        <td>ENG, PRO</td>
+        <td>SAL, SCM</td>
+        <td>Inspection results, capability signals, first-article pack</td>
+        <td>SOP-302, SOP-603, SOP-604</td>
+      </tr>
+      <tr>
+        <td>Final inspection, CoC, shipment release và ship-ready confirmation</td>
+        <td>QUA</td>
+        <td>QUA</td>
+        <td>SCM, SAL, PRO</td>
+        <td>CEO, ENG, SUP</td>
+        <td>Final release pack, CoC, shipping approval, customer-facing documents</td>
+        <td>SOP-605</td>
+      </tr>
+      <tr>
+        <td>NCR, CAPA, stop-ship, complaint và escape management</td>
+        <td>QUA</td>
+        <td>QUA</td>
+        <td>SAL, ENG, PRO, SCM, QMS</td>
+        <td>CEO, SUP</td>
+        <td>NCR, 8D/CAPA, containment, customer response, effectiveness check</td>
+        <td>SOP-202, SOP-606</td>
+      </tr>
+      <tr>
+        <td>Invoicing, job costing close-out và AR/AP closure</td>
+        <td>SUP</td>
+        <td>SUP</td>
+        <td>SAL, PRO, SCM</td>
+        <td>CEO, QMS</td>
+        <td>Invoice, costing close, cash follow-up, variance review</td>
+        <td>SOP-803</td>
+      </tr>
+      <tr>
+        <td>Continuous improvement, kaizen và systemic learning</td>
+        <td>QUA</td>
+        <td>QMS</td>
+        <td>PRO, ENG, SCM, SAL, SUP</td>
+        <td>CEO</td>
+        <td>Improvement portfolio, kaizen closure, lesson learned update</td>
+        <td>SOP-903</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="h2" id="p7">7. Quy tắc đọc ma trận</h2>
+<div class="hint-box">
+  <ul class="tight">
+    <li><b>RACI master không thay JD:</b> nó chỉ khóa owner cấp hệ thống. Chi tiết từng cá nhân bên trong nhóm vai trò được giao cho JD và handbook.</li>
+    <li><b>Một dòng không cố gắng kể mọi việc:</b> nếu một đầu ra vẫn còn mơ hồ sau khi đọc ma trận này, phải đọc tiếp SOP xương sống và authority matrix tương ứng.</li>
+    <li><b>Không nhồi quá chi tiết vào ma trận:</b> các bước thao tác, check item hoặc form field thuộc WI/FRM. RACI master chỉ giữ lại các đầu ra đủ quan trọng để quản trị vận hành.</li>
+    <li><b>Khi một đầu ra có nhiều R trong thực tế:</b> vai trò đứng tên R là owner tổ chức và chịu trách nhiệm kéo đầu ra đó tới trạng thái hoàn tất, dù có nhiều vai trò khác cùng tham gia.</li>
+    <li><b>Khi frontline giữ gate:</b> nếu thực tế operator, setup, QC inspector hoặc warehouse là người chặn trực tiếp, điều đó phải được thể hiện ở authority matrix, WI hoặc quick reference; không được ẩn hết về cấp manager.</li>
+  </ul>
+</div>
+
+<h2 class="h2" id="p8">8. Tài liệu liên quan</h2>
+<div class="grid-2">
+  <div class="card">
+    <div class="card-title">Đọc cùng để đủ ngữ cảnh</div>
+    <div>
+      <span class="chip">QMS-MAN-001</span>
+      <span class="chip">REF-020</span>
+      <span class="chip">ANNEX-QMS-025</span>
+      <span class="chip">ANNEX-JOB-001</span>
+      <span class="chip">ANNEX-QMS-028</span>
+      <span class="chip">PRODUCTION-HANDBOOK</span>
+      <span class="chip">ENGINEERING-HANDBOOK</span>
+      <span class="chip">QUALITY-HANDBOOK</span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Giá trị sử dụng</div>
+    <p>Ma trận này là nền cho thiết kế KPI, phân công daily management, audit trail trong Epicor, rà soát JD, review backup/deputy và kiểm tra tài liệu khi tái cấu trúc tổ chức.</p>
+  </div>
+</div>
+
+<div class="footer-note">Bản viết lại này gom các vai trò thành cụm vận hành đủ dùng, giữ được logic accountability và đồng thời tránh ma trận quá rộng, khó đọc và khó sống trong thực tế.</div>
+</div></div>
+</div></div></div>
+<script src="../../../assets/app.js"></script>
 </body>
 </html>

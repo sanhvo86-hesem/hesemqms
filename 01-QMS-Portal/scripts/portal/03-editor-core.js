@@ -1764,6 +1764,29 @@ function edImgResize100(){if(edSelectedImg){edSelectedImg.style.width='100%';edS
 // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const _edTableDefaults = new WeakMap();
 
+function edTableSetAutofitState(table, mode, lock){
+  if(!table || table.nodeType !== 1) return;
+  var nextMode = String(mode || '').trim().toLowerCase();
+  if(nextMode) table.setAttribute('data-ed-autofit', nextMode);
+  else table.removeAttribute('data-ed-autofit');
+  if(lock === true) table.setAttribute('data-ed-autofit-lock', '1');
+  else if(lock === false) table.setAttribute('data-ed-autofit-lock', '0');
+  else table.removeAttribute('data-ed-autofit-lock');
+}
+
+function edTableMarkFixed(table){
+  if(!table || table.nodeType !== 1) return;
+  table.style.tableLayout = 'fixed';
+  table.classList.add('ed-tbl-fixed');
+  edTableSetAutofitState(table, 'fixed', true);
+}
+
+function edTableMarkBalanced(table){
+  if(!table || table.nodeType !== 1) return;
+  table.classList.remove('ed-tbl-fixed');
+  edTableSetAutofitState(table, 'balanced', false);
+}
+
 function edTableRememberDefaults(table){
   if(!table || _edTableDefaults.has(table)) return;
   // Capture only once per table per session (used for Reset / restore colgroup)
@@ -1777,6 +1800,9 @@ function edTableRememberDefaults(table){
     fontSize: table.style.fontSize || '',
     marginLeft: table.style.marginLeft || '',
     marginRight: table.style.marginRight || '',
+    autofit: table.getAttribute('data-ed-autofit') || '',
+    autofitLock: table.getAttribute('data-ed-autofit-lock') || '',
+    fixedClass: table.classList.contains('ed-tbl-fixed'),
     colgroupHTML: cg ? cg.outerHTML : null
   });
 }
@@ -1815,6 +1841,7 @@ function edTableRestoreDefaults(table){
   });
 
   table.classList.remove('ed-tbl-fixed');
+  edTableSetAutofitState(table, '', null);
 
   if(!d){
     // Fallback: best-effort reset
@@ -1832,6 +1859,13 @@ function edTableRestoreDefaults(table){
   table.style.fontSize = d.fontSize || '';
   table.style.marginLeft = d.marginLeft || '';
   table.style.marginRight = d.marginRight || '';
+  if(d.fixedClass) table.classList.add('ed-tbl-fixed');
+  else table.classList.remove('ed-tbl-fixed');
+  edTableSetAutofitState(
+    table,
+    d.autofit || '',
+    d.autofitLock==='' ? null : (d.autofitLock === '1')
+  );
 
   edTableRestoreColgroup(table);
 }
@@ -1958,8 +1992,7 @@ function edTableApplyFixed(table){
 
   cols.forEach(function(col, i){ col.style.width = widths[i] + 'px'; });
 
-  table.style.tableLayout = 'fixed';
-  table.classList.add('ed-tbl-fixed');
+  edTableMarkFixed(table);
   table.style.width = tw + 'px';
 }
 
@@ -1973,7 +2006,7 @@ function edTableSetColWidth(table, idx, newPx){
     edTableApplyFixed(table);
   }else{
     edTableEnsureColgroup(table, colCount);
-    table.classList.add('ed-tbl-fixed');
+    edTableMarkFixed(table);
   }
 
   var minW = 25;
@@ -2009,8 +2042,7 @@ function edTableSetColWidth(table, idx, newPx){
   // Keep table width consistent with total columns (avoids browser re-distribution)
   var sum = widths.reduce(function(a,b){ return a + b; }, 0);
   table.style.width = Math.max(120, Math.round(sum)) + 'px';
-  table.style.tableLayout = 'fixed';
-  table.classList.add('ed-tbl-fixed');
+  edTableMarkFixed(table);
 
   edTableUpdateActiveBar(table);
 }
@@ -2054,8 +2086,7 @@ function edTableSetTableWidthPx(table, newTableW){
 
   cols.forEach(function(col, i){ col.style.width = Math.round(widths[i]) + 'px'; });
   table.style.width = w + 'px';
-  table.style.tableLayout = 'fixed';
-  table.classList.add('ed-tbl-fixed');
+  edTableMarkFixed(table);
 
   edTableUpdateActiveBar(table);
 }
@@ -2095,7 +2126,7 @@ function edTableSyncColgroupCount(table){
     if(table.children[i].tagName==='COLGROUP'){ hasCg = true; break; }
   }
   var autoBalanced = _edTableIsBalancedAuto(table);
-  var isFixed = (getComputedStyle(table).tableLayout==='fixed' || table.style.tableLayout==='fixed' || table.classList.contains('ed-tbl-fixed')) && !autoBalanced;
+  var isFixed = !autoBalanced && edTableHasManualFixedLayout(table);
   if(!hasCg && !isFixed && !autoBalanced) return;
 
   if(autoBalanced){
@@ -2112,8 +2143,7 @@ function edTableSyncColgroupCount(table){
     ens.cols.forEach(function(col, i){ col.style.width = widths[i] + 'px'; });
     var sum = widths.reduce(function(a,b){return a+b;},0);
     table.style.width = Math.max(120, Math.round(sum)) + 'px';
-    table.style.tableLayout = 'fixed';
-    table.classList.add('ed-tbl-fixed');
+    edTableMarkFixed(table);
   }
   edTableUpdateActiveBar(table);
 }
@@ -2213,11 +2243,38 @@ function _edTableIsBalancedAuto(table){
   return table.getAttribute('data-ed-autofit-lock') !== '1';
 }
 
+function edTableHasManualFixedLayout(table){
+  if(!table || table.nodeType !== 1) return false;
+  if(_edTableIsBalancedAuto(table)) return false;
+
+  var mode = String(table.getAttribute('data-ed-autofit') || '').toLowerCase();
+  if(mode === 'fixed') return true;
+  if(table.getAttribute('data-ed-autofit-lock') === '1') return true;
+
+  var styleLayout = String(table.style.tableLayout || '').toLowerCase();
+  var styleWidth = String(table.style.width || '').trim().toLowerCase();
+  if(styleLayout === 'fixed' && (table.classList.contains('ed-tbl-fixed') || /px$/.test(styleWidth))){
+    return true;
+  }
+
+  for(var i=0;i<table.children.length;i++){
+    if(table.children[i].tagName !== 'COLGROUP') continue;
+    var cols = Array.from(table.children[i].querySelectorAll('col'));
+    for(var j=0;j<cols.length;j++){
+      if(/^\d+(\.\d+)?px$/i.test(String(cols[j].style.width || '').trim())) return true;
+    }
+    break;
+  }
+  return false;
+}
+
 function edTableApplyAutoPolicy(table, opts){
   if(!table || table.nodeType !== 1) return false;
   if(table.closest('.ed-modal-overlay,.ed-tbl-float-bar')) return false;
   opts = opts || {};
   var force = !!opts.force;
+  var overrideManual = !!opts.overrideManual;
+  if(edTableHasManualFixedLayout(table) && !overrideManual) return false;
   if(!force && table.getAttribute('data-ed-autofit-lock') === '1') return false;
 
   var colCount = edTableGetColCount(table);
@@ -2228,8 +2285,7 @@ function edTableApplyAutoPolicy(table, opts){
   table.style.maxWidth = '100%';
   table.style.minWidth = '0';
   table.style.tableLayout = 'fixed';
-  table.classList.remove('ed-tbl-fixed');
-  table.setAttribute('data-ed-autofit', 'balanced');
+  edTableMarkBalanced(table);
 
   table.querySelectorAll('colgroup col').forEach(function(col){
     if(col.hasAttribute('width')) col.removeAttribute('width');
@@ -2291,7 +2347,16 @@ function edNormalizeTableDom(table){
       changed = true;
     }
   });
-  try{ edTableSyncColgroupCount(table); }catch(_e){}
+  var isConnected = !!table.isConnected;
+  if(!isConnected){
+    try{
+      var docEl = table.ownerDocument && table.ownerDocument.documentElement;
+      isConnected = !!(docEl && docEl.contains(table));
+    }catch(_e){ isConnected = false; }
+  }
+  if(isConnected){
+    try{ edTableSyncColgroupCount(table); }catch(_e){}
+  }
   return changed;
 }
 
@@ -2377,7 +2442,7 @@ function edShowTableBar(table){
   var curWPct = Math.round(tblW/parentW*100);
   curWPct = Math.max(10, Math.min(100, curWPct));
 
-  var isFixed = (getComputedStyle(table).tableLayout==='fixed' || table.style.tableLayout==='fixed' || table.classList.contains('ed-tbl-fixed'));
+  var isFixed = edTableHasManualFixedLayout(table);
   var isPx = isFixed && (table.style.width && table.style.width.indexOf('px')>-1);
 
   // Width mode select: %, px
@@ -2413,7 +2478,7 @@ function edShowTableBar(table){
       // Percent width mode: restore original colgroup widths, clear fixed overrides
       table.style.width=v+'%';
       table.style.tableLayout='auto';
-      table.classList.remove('ed-tbl-fixed');
+      edTableMarkBalanced(table);
       table.querySelectorAll('td,th').forEach(function(c){c.style.width='';});
       edTableRestoreColgroup(table);
       pxInp.style.display='none';
@@ -3221,7 +3286,7 @@ function edSetupTableResize(){
         edTableApplyFixed(table);
       }else{
         edTableEnsureColgroup(table, colCount);
-        table.classList.add('ed-tbl-fixed');
+        edTableMarkFixed(table);
       }
 
       const ens = edTableEnsureColgroup(table, colCount);
@@ -3278,8 +3343,7 @@ function edSetupTableResize(){
           table.style.width = Math.max(120, Math.round(startTableW + dx)) + 'px';
         }
 
-        table.style.tableLayout='fixed';
-        table.classList.add('ed-tbl-fixed');
+        edTableMarkFixed(table);
         edTableUpdateActiveBar(table);
       }
 
@@ -3310,7 +3374,7 @@ function edSetupTableResize(){
     const table=cell.closest('table');if(!table) return;
 
     table.style.tableLayout='';
-    table.classList.remove('ed-tbl-fixed');
+    edTableMarkBalanced(table);
     table.style.width='100%';
     table.querySelectorAll('td,th').forEach(function(c){c.style.width='';});
 
@@ -4692,7 +4756,7 @@ function edCleanHTML(){
   });
   // Remove data-ed-init attributes (internal use only)
   clone.querySelectorAll('[data-ed-init]').forEach(function(el){el.removeAttribute('data-ed-init');});
-  // Apply global table policy so all exported tables fit page width and use balanced columns.
+  // Apply global table policy, but keep manually fixed-width tables intact.
   try{ edApplyGlobalTablePolicy(clone, {force:true, source:'clean'}); }catch(_e){}
   // Normalize tables for export so resized column widths are preserved
   // consistently across Draft -> InReview -> Approved.
@@ -4716,9 +4780,13 @@ function edNormalizeTablesForExport(root){
   if(!root) return;
   var tables = root.querySelectorAll('table');
   tables.forEach(function(table){
-    if(!table || !(table instanceof Element)) return;
+    if(!table || table.nodeType !== 1) return;
     if(table.closest('.ed-modal-overlay,.ed-tbl-float-bar')) return;
-    try{ edTableApplyAutoPolicy(table, {force:true, source:'export'}); }catch(_e){}
+    var manualFixed = false;
+    try{ manualFixed = edTableHasManualFixedLayout(table); }catch(_e){}
+    if(!manualFixed){
+      try{ edTableApplyAutoPolicy(table, {force:true, source:'export'}); }catch(_e){}
+    }
 
     // Get direct <colgroup>
     var cg = null;

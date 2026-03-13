@@ -2,110 +2,479 @@
 <html lang="vi">
 <head>
 <meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>ANNEX-QMS-025 — Authority Matrix | HESEM QMS</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ANNEX-QMS-025 - Authority Matrix and Escalation Rules | HESEM QMS</title>
 <link href="../../../assets/style.css" rel="stylesheet"/>
 <style>
-
-/* PAGE BREAK & OVERFLOW FIX */
+.chip{display:inline-block;padding:2px 10px;border-radius:999px;border:1px solid #d7dee7;background:#f8fafc;font-size:11px;margin-right:6px;margin-bottom:6px;font-weight:600}
+.tight li{margin:4px 0}
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.toc{border:1px solid var(--ln);border-radius:var(--r);padding:16px;background:var(--bg2);margin:18px 0 24px}
+.toc-title{font-size:12px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.4px;margin-bottom:10px}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px}
+.toc-grid a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;background:var(--bg);font-size:12px;color:var(--ink)}
+.decision-table td:first-child,.decision-table th:first-child{font-weight:700}
+.decision-table td:nth-child(1){white-space:nowrap}
+.authority-card{border:1px solid var(--ln);border-left:4px solid var(--blue);border-radius:var(--r);padding:14px;background:var(--bg)}
+.authority-card h3{margin:0 0 8px;font-size:14px;color:var(--navy)}
+.authority-card p:last-child{margin-bottom:0}
+.signal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.signal-card{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg)}
+.signal-card b{display:block;font-size:11px;color:var(--navy);text-transform:uppercase;letter-spacing:.35px;margin-bottom:6px}
+.rule-box{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:#fffdf5}
+.rule-box p:last-child{margin-bottom:0}
+.small-note{font-size:12px;color:var(--ink2)}
+.footer-note{margin-top:20px;font-size:11px;color:var(--ink3)}
 @media print {
- .card, .table-card, .callout, .note, .box, .iso-map,
- .preface-block, .form-sheet, .lane, .legend, .req, .vstep, .auth-grid, .backup-card, .org-row {
- page-break-inside: avoid;
- break-inside: avoid;
- }
- h1, h2, h3, .h1, .h2, .h3 {
- page-break-after: avoid;
- break-after: avoid;
- }
- .form-header { page-break-inside: avoid; break-inside: avoid; }
- tr { page-break-inside: avoid; break-inside: avoid; }
- thead { display: table-header-group; }
- tfoot { display: table-footer-group; }
- p { orphans: 3; widows: 3; }
- .table-card { overflow: visible !important; }
+  .card,.table-card,.callout,.note,.box,.iso-map,.preface-block,.form-sheet,.lane,.legend,.req,.auth-grid,.backup-card,.vstep,.authority-card,.signal-card,.rule-box{page-break-inside:avoid;break-inside:avoid}
+  h1,h2,h3,.h1,.h2,.h3{page-break-after:avoid;break-after:avoid}
+  .form-header,.sig-row,.sign-row,.approval-row{page-break-inside:avoid;break-inside:avoid}
+  tr{page-break-inside:avoid;break-inside:avoid}
+  thead{display:table-header-group}
+  tfoot{display:table-footer-group}
+  p{orphans:3;widows:3}
+  .table-card{overflow:visible!important}
 }
-.page-body { overflow-x: hidden; }
-.table-card, .table-block, .table-wrap { overflow-x: auto; max-width: 100%; }
-table { max-width: 100%; table-layout: auto; }
-td, th { max-width: 420px; overflow-wrap: break-word; word-wrap: break-word; }
-.role-code {font-family: var(--mono); font-size: 11px; background: var(--bg3); padding: 2px 6px; border-radius: 5px;}
-.raci-cell {text-align:center; font-weight:700; width:34px; min-width:34px; padding:6px 4px !important;}
-.raci-A {background:#fff5f5; color:#c92a2a;}
-.raci-R {background:#e7f5ff; color:#1864ab;}
-.raci-C {background:#fff9db; color:#e67700;}
-.raci-I {background:#ebfbee; color:#2b8a3e;}
-.portal-grid {display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:16px;}
-.portal-card {background:var(--bg); border:1px solid var(--ln); border-radius:var(--r); padding:18px;}
-.portal-card h3 {font-size:14px; color:var(--navy); margin:0 0 8px;}
-.doc-link-list {list-style:none; margin:0; padding:0;}
-.doc-link-list li {padding:6px 0 6px 16px; position:relative;}
-.doc-link-list li:before {content:"•"; position:absolute; left:0; color:var(--blue);}
-.inline-tag {display:inline-block;padding:3px 8px;border:1px solid var(--ln);border-radius:999px;font-size:10px;font-weight:700;background:var(--bg2);margin-right:6px;margin-bottom:6px;}
-.svg-wrap,.org-wrap {background:var(--bg); border:1px solid var(--ln); border-radius:var(--r); padding:16px; overflow:auto;}
-.nav-toc a{display:block;padding:8px 10px;border:1px solid var(--ln);border-radius:6px;margin:6px 0;background:var(--bg);}
-kbd{font-family:var(--mono);font-size:11px;border:1px solid var(--ln);padding:2px 5px;border-radius:4px;background:#fff;}
-.org-tree{display:flex;flex-direction:column;gap:16px;margin:8px 0;}
-.org-level{display:grid;gap:14px;}
-.org-level.cols-1{grid-template-columns:1fr;}
-.org-level.cols-2{grid-template-columns:repeat(2,minmax(0,1fr));}
-.org-level.cols-3{grid-template-columns:repeat(3,minmax(0,1fr));}
-.org-level.cols-4{grid-template-columns:repeat(4,minmax(0,1fr));}
-.org-level.cols-5{grid-template-columns:repeat(5,minmax(0,1fr));}
-.org-card{border:1px solid var(--ln);border-top:4px solid var(--blue);border-radius:var(--r);padding:14px;background:var(--bg);}
-.org-card h3{font-size:14px;color:var(--navy);margin:0 0 4px;}
-.org-card p{margin:4px 0;font-size:12px;}
-.org-row{border:1px solid var(--ln);border-radius:var(--r);padding:14px;background:var(--bg);margin:12px 0;}
-.org-row h3{margin:0 0 8px;font-size:13px;color:var(--navy);}
-.badge-soft{display:inline-block;padding:2px 8px;border-radius:999px;background:var(--blue-l);color:var(--navy);font-size:10px;font-weight:700;margin-right:6px;margin-bottom:6px;}
-.kpi-box{border:1px solid var(--ln);border-radius:var(--r);padding:12px;background:var(--bg);margin:8px 0;}
-.kpi-box b{display:block;font-size:11px;color:var(--navy);text-transform:uppercase;letter-spacing:.3px;margin-bottom:4px;}
-.auth-grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:10px 0 16px;}
-.auth-item{padding:12px 14px; border:1px solid var(--ln,#d7deea); border-radius:8px; background:var(--bg2,#f8fafc);}
-.backup-card{padding:14px 16px; border:1px solid var(--ln,#d7deea); border-left:4px solid #0f766e; border-radius:8px; background:var(--bg2,#f8fafc); margin:10px 0 0;}
-.role-boundary{border:1px solid #cfe0ff;border-left:4px solid #2563eb;border-radius:8px;background:#eef6ff;padding:14px 16px;margin:14px 0;}
-.phase-card{border:1px solid var(--ln);border-left:4px solid var(--gold);border-radius:var(--r);padding:14px;background:#fffdf5;margin:12px 0;}
-.phase-card h3{margin:0 0 6px;font-size:14px;color:var(--navy);}
-.phase-card p:last-child,.role-boundary p:last-child,.auth-item p:last-child,.backup-card p:last-child{margin-bottom:0;}
-.small-note{font-size:12px;color:var(--ink2);}
-
+.page-body{overflow-x:hidden}
+.table-card,.table-block,.table-wrap{overflow-x:auto;max-width:100%}
+table{max-width:100%;table-layout:auto}
+td,th{max-width:420px;overflow-wrap:break-word;word-wrap:break-word}
+@media (max-width: 900px){
+  .grid-2,.grid-3{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
-<div class="container">
-  <div class="page landscape">
-    <div class="page-body">
-      <div class="form-header">
-        <div class="fh-left">
-          <a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
-          <div class="fh-company">
-            <a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
-            <span>Tài liệu kiểm soát</span>
-          </div>
-        </div>
-        <div class="title">
-          <strong>ANNEX-QMS-025 — Authority Matrix</strong>
-          <span class="sub-vn">Ma trận quyền hạn quyết định, hold và release cho chuỗi RFQ → Ship</span>
-        </div>
-        <div class="meta">
-          <div class="row"><span><b>Mã:</b></span><span>ANNEX-QMS-025</span></div>
-          <div class="row"><span><b>Phiên bản:</b></span><span>V1.0</span></div>
-          <div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
-          <div class="row"><span><b>Chủ sở hữu:</b></span><span>QA Manager</span></div>
-          <div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám Đốc</span></div>
-        </div>
-      </div>
-      <div class="doc-content" id="docContent">
-        <div class="form-sheet">
-<div class="iso-map"><div class="iso-title">Quy tắc authority</div><div class="req"><span class="req-tag shall">PHẢI</span><div>Quyền quyết định trong bảng này có hiệu lực trên toàn bộ SOP/WI/FRM liên quan. Nếu tài liệu con dùng diễn đạt khác, authority matrix này được dùng để giải thích cho đến khi tài liệu con được cập nhật.</div></div><div class="req"><span class="req-tag shall">PHẢI</span><div>Người “R” chuẩn bị hoặc thực thi; người “A” chịu trách nhiệm phê duyệt cuối. Trong tình huống khẩn cấp về an toàn/chất lượng, quyền hold có thể được kích hoạt trước rồi mới escalated.</div></div></div>
-<div class="preface-block"><div class="grid-2"><div><p><b>Cách dùng</b></p><p>Bảng này trả lời câu hỏi “ai được quyết cuối” cho các quyết định quan trọng nhất của mô hình job-order CNC. Dùng cùng REF-020 để hiểu bối cảnh và hold point.</p></div><div><p><b>Đọc cùng</b></p><div><span class="inline-tag">REF-020</span><span class="inline-tag">ANNEX-QMS-026</span><span class="inline-tag">ANNEX-QMS-028</span><span class="inline-tag">SOP-201</span><span class="inline-tag">SOP-301</span><span class="inline-tag">SOP-502</span><span class="inline-tag">SOP-605</span><span class="inline-tag">SOP-606</span></div></div></div></div>
-<h2 class="h2">1. Ma trận quyền hạn vận hành</h2><div class="table-card"><table class="table"><colgroup><col style="width:24%"/><col style="width:17%"/><col style="width:18%"/><col style="width:23%"/><col style="width:18%"/></colgroup><thead><tr><th>Quyết định / tình huống</th><th>A — quyết định cuối</th><th>R — chuẩn bị / thực thi</th><th>Bắt buộc consult</th><th>Ai được quyền hold / stop trước</th></tr></thead><tbody><tr><td>Chấp nhận RFQ để vào báo giá</td><td>CEO / người được ủy quyền</td><td>Customer Service</td><td>Estimator, DFM Engineer</td><td>Customer Service</td></tr><tr><td>Khóa technical feasibility assumption</td><td>Engineering Lead/Manager</td><td>DFM Engineer</td><td>Process Engineer, Quality Engineer, Supply Chain Manager</td><td>DFM Engineer / Quality Engineer</td></tr><tr><td>Khóa cost build / price proposal</td><td>CEO / người được ủy quyền</td><td>Estimator</td><td>Customer Service, Engineering Lead/Manager, Finance Manager</td><td>Estimator / Customer Service</td></tr><tr><td>Phát hành quotation ra khách hàng</td><td>CEO / người được ủy quyền hoặc tuyến ủy quyền thương mại</td><td>Customer Service</td><td>Estimator</td><td>Customer Service</td></tr><tr><td>Chấp nhận PO / order commitment</td><td>CEO / người được ủy quyền</td><td>Customer Service</td><td>Estimator, Engineering Lead/Manager, Supply Chain Manager, Finance Manager</td><td>Customer Service</td></tr><tr><td>Tạo / sửa master data, routing, item revision trên ERP</td><td>Epicor System Administrator</td><td>Epicor System Administrator</td><td>Customer Service, Planner, Engineering owner</td><td>Epicor System Administrator / QMS Engineer</td></tr><tr><td>Phát hành routing / setup / process standard</td><td>Engineering Lead/Manager</td><td>Process Engineer</td><td>DFM Engineer, Quality Engineer, Production Planner</td><td>Engineering / Quality</td></tr><tr><td>Phát hành NC program cho sản xuất</td><td>Engineering Lead/Manager</td><td>CAM/NC Programmer</td><td>Process Engineer, Setup Technician</td><td>CAM / Setup / Quality</td></tr><tr><td>Phê duyệt prove-out / trial / FAI requirement</td><td>QA Manager + Engineering Lead/Manager</td><td>Quality Engineer / DFM Engineer</td><td>Metrology, Production</td><td>Quality / Engineering</td></tr><tr><td>Approve nhà cung cấp mới / special process source</td><td>Supply Chain Manager</td><td>Buyer / Purchasing</td><td>Quality Engineer, Engineering Lead/Manager</td><td>Supply Chain / Quality</td></tr><tr><td>Phát hành PO / outsource order</td><td>Supply Chain Manager</td><td>Buyer / Purchasing</td><td>Engineering / Quality / Planner theo nội dung</td><td>Buyer / SCM</td></tr><tr><td>Accept incoming material vào trạng thái usable</td><td>Supply Chain Manager + QA rule</td><td>Warehouse Clerk / Quality Engineer</td><td>Buyer / Planner</td><td>Warehouse / Quality</td></tr><tr><td>Release vật tư từ kho vào sản xuất</td><td>Supply Chain Manager theo rule</td><td>Warehouse Clerk</td><td>Planner, Quality khi cần</td><td>Warehouse / Quality</td></tr><tr><td>Khóa dispatch priority / resequence trong ngày</td><td>Production Director theo rule / delegated planner</td><td>Production Planner</td><td>Workshop Manager, Customer Service, SCM</td><td>Planner / Production Director</td></tr><tr><td>Phê duyệt thay đổi standard time / dispatch rule / line balance</td><td>Production Director</td><td>Production Engineer / Industrial Engineer</td><td>Planner, Workshop Manager, Finance nếu ảnh hưởng costing</td><td>Production Engineer / IE</td></tr><tr><td>Cho phép chạy first-off / first piece approval</td><td>CNC Workshop Manager + QA rule</td><td>Setup Technician / Shift Leader</td><td>Process Engineer, QC Lead / Quality Engineer</td><td>Setup / Shift / Quality</td></tr><tr><td>Tự điều chỉnh offset trong cửa sổ chuẩn</td><td>Shift Leader theo rule</td><td>CNC Operator / Setup Technician</td><td>—</td><td>Operator / Setup / Shift</td></tr><tr><td>Thay dao / tool equivalent vượt chuẩn đã duyệt</td><td>CNC Workshop Manager</td><td>Shift Leader / Setup Technician</td><td>Engineering / Quality khi ảnh hưởng CTQ</td><td>Shift / Setup / Quality</td></tr><tr><td>Hold machine / hold lot do bất thường quá trình</td><td>CNC Workshop Manager + QA rule</td><td>Shift Leader / QC Lead</td><td>Engineering / Quality theo bản chất lỗi</td><td>Any affected owner</td></tr><tr><td>Phê duyệt phương pháp đo / CMM / gage cho release</td><td>QA Manager</td><td>Metrology & Calibration Specialist / Quality Engineer</td><td>QC Lead, Engineering</td><td>Metrology / QA</td></tr><tr><td>Release kết quả inspection thường lệ</td><td>QA Manager theo delegation</td><td>QC Inspector Lead / QC Inspector</td><td>Quality Engineer</td><td>QC Lead / QA</td></tr><tr><td>Phê duyệt final shipment release / CoC</td><td>QA Manager</td><td>QC Inspector Lead / Quality Engineer</td><td>Customer Service, Logistics, Warehouse</td><td>QA / QC Lead / Logistics</td></tr><tr><td>Phát hành booking / dispatch vận chuyển</td><td>Supply Chain Manager</td><td>Logistics / Shipping Coordinator</td><td>Customer Service, Finance, Warehouse</td><td>Logistics / QA</td></tr><tr><td>Disposition NCR thường lệ</td><td>QA Manager</td><td>Quality Engineer</td><td>Engineering, Workshop Manager, SCM theo bản chất</td><td>Quality / QA</td></tr><tr><td>Phê duyệt rework instruction</td><td>Engineering Lead/Manager + QA Manager</td><td>Process Engineer / Quality Engineer</td><td>Workshop Manager, QC Lead</td><td>Engineering / Quality</td></tr><tr><td>Escalate customer complaint / escape ra ngoài</td><td>CEO / QA Manager theo rule</td><td>Customer Service + Quality Engineer</td><td>Production / Engineering / SCM theo nội dung</td><td>Quality / Customer Service</td></tr><tr><td>Phê duyệt CAPA close</td><td>QA Manager</td><td>Quality Engineer / QMS Engineer</td><td>Process owner</td><td>QA / QMS</td></tr><tr><td>Phê duyệt đào tạo/chứng nhận năng lực độc lập</td><td>Department Head</td><td>Line manager / assessor</td><td>HR, QA khi ảnh hưởng chất lượng</td><td>HR / Department Head</td></tr><tr><td>Kích hoạt contingency plan cấp công ty</td><td>CEO</td><td>Production Director / Supply Chain Manager / QA Manager theo loại rủi ro</td><td>Finance, HR, IT, EHS</td><td>Any process owner</td></tr></tbody></table></div>
-<h2 class="h2">2. Quy tắc áp dụng</h2><ul><li>Khi A và R thuộc hai phòng ban khác nhau, việc release chỉ hợp lệ khi evidence đã đầy đủ cho cả hai vai.</li><li>Không dùng email/chat miệng để vượt quyền authority đã định; mọi ngoại lệ phải có record chính thức.</li><li>Deputy/backup chỉ được dùng trong phạm vi được định nghĩa tại ANNEX-QMS-028; các quyết định stop-ship hoặc concession cao vẫn phải escalated theo rule.</li><li>Nếu có customer-specific requirement chặt hơn authority nội bộ, yêu cầu khách hàng được ưu tiên áp dụng và phải được flow-down vào SOP/WI/FRM liên quan.</li></ul>
-<div class="footer-note">Authority Matrix này đã được viết lại theo JD mới nhất, mô hình operating job-order CNC và bundle SOP/WI/FRM hiện hành.</div>
-        </div>
-      </div>
+<div class="container"><div class="page"><div class="page-body">
+<div class="form-header">
+<div class="fh-left">
+<a class="brand-logo" href="../../../01-QMS-Portal/portal.html"><img alt="HESEM Logo" src="https://hesem.com.vn/wp-content/uploads/hesem-logo.svg"/></a>
+<div class="fh-company">
+<a href="../../../01-QMS-Portal/portal.html">HESEM ENGINEERING</a>
+<span>Tài liệu kiểm soát</span>
+</div>
+</div>
+<div class="title">
+<strong>ANNEX-QMS-025 - Authority Matrix and Escalation Rules</strong>
+<span class="sub-vn">Khung quyền quyết định, hold-release và ủy quyền vận hành cho mô hình gia công bán dẫn trên Epicor</span>
+</div>
+<div class="meta">
+<div class="row"><span><b>Mã:</b></span><span>ANNEX-QMS-025</span></div>
+<div class="row"><span><b>Phiên bản:</b></span><span>V2.0</span></div>
+<div class="row"><span><b>Ngày hiệu lực:</b></span><span>Theo quyết định ban hành</span></div>
+<div class="row"><span><b>Chủ sở hữu:</b></span><span>CEO / QA Manager</span></div>
+<div class="row"><span><b>Phê duyệt:</b></span><span>Tổng Giám đốc</span></div>
+</div>
+</div>
+<div class="doc-content" id="docContent"><div class="form-sheet">
+<div class="iso-map">
+  <div class="iso-title">Nguyên tắc authority bắt buộc</div>
+  <div class="req"><span class="req-tag shall">PHẢI</span><div>Mọi quyết định làm thay đổi cam kết với khách hàng, revision kỹ thuật, điều kiện release chất lượng, nguồn cung critical hoặc trạng thái shipment phải có owner quyết định cuối rõ ràng và để lại bằng chứng chính thức.</div></div>
+  <div class="req"><span class="req-tag shall">PHẢI</span><div>Quyền dừng, giữ lô, giữ máy, giữ shipment được trao theo logic rủi ro chứ không chờ cấp bậc. Bất kỳ ai phát hiện rủi ro an toàn, sai revision, sai vật liệu, sai nhận dạng, mất kiểm soát quá trình hoặc mất tin cậy hệ đo đều có quyền kích hoạt hold trước, escalated sau.</div></div>
+  <div class="req"><span class="req-tag shall">PHẢI</span><div>Không được tự phê duyệt công việc do chính mình chuẩn bị trong các điểm quyết định có ảnh hưởng tới khách hàng, CTQ, product safety, tài liệu kiểm soát hoặc dữ liệu dùng để shipment release.</div></div>
+</div>
+
+<div class="preface-block">
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title">Authority matrix này dùng để làm gì</div>
+      <p>Tài liệu này không liệt kê mọi việc nhỏ trong từng phòng ban. Nó chỉ trả lời câu hỏi quan trọng nhất trong vận hành: <b>ai được quyết cuối</b>, <b>ai được giữ lại</b>, <b>ai bắt buộc phải được hỏi</b>, và <b>khi nào phải escalated</b>. Vì vậy đây là tài liệu gốc để đọc cùng JD, handbook, SOP, WI và trạng thái trên Epicor.</p>
+    </div>
+    <div class="callout">
+      <div class="card-title">Cách dùng đúng</div>
+      <p>Khi SOP/WI mô tả thao tác, còn tình huống thực tế phát sinh câu hỏi “ai có quyền chốt”, “ai có quyền cho chạy tiếp”, “ai có quyền cho giao hàng”, thì authority matrix này được dùng để giải thích. Nếu có xung đột giữa các tài liệu con, authority matrix này có hiệu lực cho đến khi tài liệu con được cập nhật lại.</p>
     </div>
   </div>
 </div>
+
+<div class="toc">
+  <div class="toc-title">Mục lục nhanh</div>
+  <div class="toc-grid">
+    <a href="#p1">1. Mục đích</a>
+    <a href="#p2">2. Nguyên tắc authority</a>
+    <a href="#p3">3. Các lớp quyết định</a>
+    <a href="#p4">4. Ma trận quyền quyết định</a>
+    <a href="#p5">5. Hold / release / escalation</a>
+    <a href="#p6">6. Quy tắc ủy quyền và deputy</a>
+    <a href="#p7">7. Quy tắc dữ liệu và Epicor</a>
+    <a href="#p8">8. Tài liệu liên quan</a>
+  </div>
+</div>
+
+<h2 class="h2" id="p1">1. Mục đích</h2>
+<p>Thiết lập một khung quyền quyết định thống nhất cho toàn bộ chuỗi vận hành từ RFQ đến shipment, bảo đảm rằng mọi quyết định quan trọng đều có owner cuối cùng, có logic hold-release rõ ràng, có ranh giới giữa người chuẩn bị với người phê duyệt, và có vết bằng chứng đủ để truy xuất sau này trong điều tra sự cố, đánh giá khách hàng, audit hoặc management review.</p>
+
+<h2 class="h2" id="p2">2. Nguyên tắc authority</h2>
+<ul class="tight">
+  <li><b>Một quyết định chỉ có một owner cuối:</b> nhiều người có thể phân tích, đề xuất hoặc thực thi, nhưng chỉ một vai trò giữ quyền chốt cuối đối với từng loại quyết định.</li>
+  <li><b>Authority đi cùng rủi ro:</b> quyết định càng ảnh hưởng tới cam kết khách hàng, CTQ, safety, traceability, compliance hoặc cash thì quyền chốt càng phải nằm ở cấp cao hơn.</li>
+  <li><b>Không có quyền quyết định nếu không có dữ liệu:</b> mọi phê duyệt, release, exception hoặc override đều phải gắn với bằng chứng trong hồ sơ job, biểu mẫu, hệ thống hoặc log chính thức.</li>
+  <li><b>Hold trước, giải thích sau:</b> khi chưa chắc chắn tính phù hợp, hệ thống mặc định nghiêng về giữ lại thay vì cho đi tiếp.</li>
+  <li><b>Không dùng authority để lấp khoảng trống quản trị:</b> nếu một tình huống lặp đi lặp lại phải xin duyệt bằng miệng, thì vấn đề nằm ở SOP, WI, master data, training hoặc scheduling rule và phải được sửa ở nguồn gốc.</li>
+</ul>
+
+<h2 class="h2" id="p3">3. Các lớp quyết định</h2>
+<div class="grid-3">
+  <div class="authority-card">
+    <h3>1. Cam kết với khách hàng</h3>
+    <p>Gồm chấp nhận RFQ, chốt assumption khi báo giá, cam kết giá-hạn-điều kiện, thay đổi promise date, concession với khách hàng, phản hồi complaint và các quyết định ảnh hưởng trực tiếp tới uy tín thương mại.</p>
+  </div>
+  <div class="authority-card">
+    <h3>2. Revision kỹ thuật và cấu hình</h3>
+    <p>Gồm feasibility, routing, setup, NC package, inspection method, engineering change, rework instruction, temporary deviation và mọi quyết định làm thay đổi cách sản phẩm được tạo ra hoặc được xác nhận.</p>
+  </div>
+  <div class="authority-card">
+    <h3>3. Readiness nguồn lực và chuỗi cung ứng</h3>
+    <p>Gồm supplier approval, special process source, incoming acceptance, material lot control, outsourcing, dispatch, overtime, resequence, contingency sourcing và allocation nguồn lực khi thiếu hụt.</p>
+  </div>
+  <div class="authority-card">
+    <h3>4. Quality gate và shipment release</h3>
+    <p>Gồm first-off, hold lot, NCR disposition, measurement system validity, final inspection, CoC, stop-ship và quyết định release cuối cùng trước khi khách hàng nhận hàng.</p>
+  </div>
+  <div class="authority-card">
+    <h3>5. Năng lực con người và hệ thống</h3>
+    <p>Gồm chứng nhận độc lập, quyền hệ thống Epicor, manual override, master data governance, backup/deputy activation và kiểm soát các điểm mà lỗi con người hoặc lỗi hệ thống có thể làm sai toàn chuỗi.</p>
+  </div>
+  <div class="authority-card">
+    <h3>6. Escalation đặc biệt</h3>
+    <p>Tự động escalated lên CEO hoặc lãnh đạo liên quan nếu có rủi ro ảnh hưởng tới khách hàng chiến lược, chất lượng thoát ra ngoài, shipment chậm nghiêm trọng, stop-ship hệ thống, product safety, IP, compliance hoặc ảnh hưởng dòng tiền lớn.</p>
+  </div>
+</div>
+
+<h2 class="h2" id="p4">4. Ma trận quyền quyết định</h2>
+<div class="table-card">
+  <table class="table decision-table">
+    <colgroup>
+      <col style="width:16%"/>
+      <col style="width:18%"/>
+      <col style="width:13%"/>
+      <col style="width:14%"/>
+      <col style="width:18%"/>
+      <col style="width:11%"/>
+      <col style="width:10%"/>
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Nhóm quyết định</th>
+        <th>Tình huống / quyết định</th>
+        <th>A - Quyết định cuối</th>
+        <th>R - Chuẩn bị / thực thi</th>
+        <th>Bắt buộc consulted</th>
+        <th>Ai được hold / stop</th>
+        <th>Bằng chứng / điều kiện escalated</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Commercial</td>
+        <td>Nhận RFQ vào quy trình báo giá</td>
+        <td>Customer Service theo rule; escalated CEO nếu RFQ rủi ro cao</td>
+        <td>Customer Service</td>
+        <td>Estimator, DFM Engineer</td>
+        <td>Customer Service, Estimator, DFM</td>
+        <td>RFQ pack, revision, due date, CSR tối thiểu phải đủ</td>
+      </tr>
+      <tr>
+        <td>Commercial</td>
+        <td>Khóa assumption báo giá, NRE, lead time và commercial risk</td>
+        <td>CEO / người được ủy quyền thương mại</td>
+        <td>Estimator</td>
+        <td>Customer Service, Engineering Lead/Manager, Supply Chain Manager, Finance Manager</td>
+        <td>Estimator, Customer Service</td>
+        <td>Cost build, DFM note, nguồn cung, giả định logistics phải rõ</td>
+      </tr>
+      <tr>
+        <td>Commercial</td>
+        <td>Chấp nhận PO / xác nhận order commitment</td>
+        <td>CEO / người được ủy quyền thương mại</td>
+        <td>Customer Service</td>
+        <td>Estimator, Engineering Lead/Manager, Supply Chain Manager, Production Planner, Finance</td>
+        <td>Customer Service</td>
+        <td>PO review, promise date, incoterm, payment term, deviation note</td>
+      </tr>
+      <tr>
+        <td>Commercial</td>
+        <td>Đổi promise date, split shipment hoặc chấp nhận giao thiếu / giao trễ</td>
+        <td>CEO với job chiến lược; Customer Service theo rule với job thường</td>
+        <td>Customer Service</td>
+        <td>Production Planner, Supply Chain Manager, QA Manager, Finance nếu ảnh hưởng invoicing</td>
+        <td>Customer Service, Planner, QA</td>
+        <td>Recovery plan, khách hàng impacted, tồn tại open hold hay không</td>
+      </tr>
+      <tr>
+        <td>Technical</td>
+        <td>Khóa feasibility kỹ thuật và giới hạn công nghệ</td>
+        <td>Engineering Lead/Manager</td>
+        <td>DFM Engineer</td>
+        <td>Process Engineer, CAM, Quality Engineer, Supply Chain</td>
+        <td>DFM, QE, SCM</td>
+        <td>DFM review, special process, gage method, capacity assumptions</td>
+      </tr>
+      <tr>
+        <td>Technical</td>
+        <td>Phát hành routing, setup sheet, NC package và inspection input</td>
+        <td>Engineering Lead/Manager</td>
+        <td>Process Engineer / CAM</td>
+        <td>DFM, Quality Engineer, Metrology, Production Planner, Setup Technician</td>
+        <td>Engineering, Quality, Setup</td>
+        <td>Revision hiệu lực, CTQ, fixture/tool, method đo và program version phải đồng bộ</td>
+      </tr>
+      <tr>
+        <td>Technical</td>
+        <td>Engineering change sau khi order đã release</td>
+        <td>Engineering Lead/Manager + QA Manager; escalated CEO nếu ảnh hưởng khách hàng</td>
+        <td>Process Engineer / QMS Engineer</td>
+        <td>Customer Service, Planner, Workshop Manager, Supply Chain, Quality Engineer</td>
+        <td>Engineering, Quality, Customer Service</td>
+        <td>ECR/ECN, hàng dở dang bị ảnh hưởng, inventory bị ảnh hưởng, customer approval nếu cần</td>
+      </tr>
+      <tr>
+        <td>Technical</td>
+        <td>Rework instruction hoặc deviation nội bộ có ảnh hưởng CTQ</td>
+        <td>Engineering Lead/Manager + QA Manager</td>
+        <td>Process Engineer / Quality Engineer</td>
+        <td>Workshop Manager, QC Lead, Customer Service nếu có thể chạm tới cam kết khách hàng</td>
+        <td>Quality, Engineering, Workshop</td>
+        <td>NCR, risk note, re-inspection method, khách hàng có cần chấp thuận hay không</td>
+      </tr>
+      <tr>
+        <td>Supply chain</td>
+        <td>Phê duyệt nhà cung cấp mới hoặc nguồn special process mới</td>
+        <td>Supply Chain Manager</td>
+        <td>Buyer / Purchasing</td>
+        <td>Quality Engineer, QA Manager, Engineering Lead/Manager</td>
+        <td>SCM, QE, QA</td>
+        <td>Supplier evaluation, process capability, cert, sample / audit / scorecard theo risk</td>
+      </tr>
+      <tr>
+        <td>Supply chain</td>
+        <td>Chấp nhận vật tư / dịch vụ ngoài khi chứng từ hoặc traceability chưa hoàn chỉnh</td>
+        <td>Supply Chain Manager + QA Manager</td>
+        <td>Warehouse + Quality Engineer</td>
+        <td>Buyer, Planner, Engineering nếu ảnh hưởng công nghệ</td>
+        <td>Warehouse, Quality, SCM</td>
+        <td>Receiving hold record, cert gap assessment, risk containment</td>
+      </tr>
+      <tr>
+        <td>Supply chain</td>
+        <td>Ưu tiên lại nguồn cung, single-source override hoặc mua khẩn vượt quy trình thường</td>
+        <td>Supply Chain Manager; escalated CEO nếu rủi ro compliance / cost lớn</td>
+        <td>Buyer / SCM</td>
+        <td>QA, Engineering, Finance, Planner</td>
+        <td>SCM, QA</td>
+        <td>Shortage impact, supplier status, mitigation plan, commercial impact</td>
+      </tr>
+      <tr>
+        <td>Production</td>
+        <td>Khóa dispatch, resequence trong ngày, cross-load giữa cell</td>
+        <td>Production Director theo rule ủy quyền cho Planner</td>
+        <td>Production Planner</td>
+        <td>Workshop Manager, Supply Chain Manager, Customer Service</td>
+        <td>Planner, Production Director</td>
+        <td>Dispatch board, capacity status, readiness status, khách hàng impacted</td>
+      </tr>
+      <tr>
+        <td>Production</td>
+        <td>Phê duyệt overtime lớn, thuê ngoài khẩn để cứu lịch, hoặc recovery plan cấp xưởng</td>
+        <td>Production Director</td>
+        <td>Workshop Manager / Planner</td>
+        <td>Supply Chain, QA, Finance, HR nếu ảnh hưởng manpower</td>
+        <td>Production Director, QA</td>
+        <td>Backlog, bottleneck, cost impact, quality risk và customer impact</td>
+      </tr>
+      <tr>
+        <td>Production</td>
+        <td>First-off approval để chuyển từ setup sang chạy serial</td>
+        <td>CNC Workshop Manager cho readiness vận hành; QA rule giữ quality release</td>
+        <td>Setup Technician / Shift Leader</td>
+        <td>Process Engineer, QC Lead, Quality Engineer</td>
+        <td>Setup, Shift, Quality, Metrology</td>
+        <td>First-piece record, tool/fixture confirmation, program version, kết quả đo đầu tiên</td>
+      </tr>
+      <tr>
+        <td>Production</td>
+        <td>Điều chỉnh thông số ngoài cửa sổ chuẩn, thay tool equivalent vượt rule, bỏ qua check tạm thời</td>
+        <td>CNC Workshop Manager + Engineering/Quality theo mức ảnh hưởng</td>
+        <td>Shift Leader / Setup Technician</td>
+        <td>Process Engineer, Quality Engineer, QC Lead nếu đụng CTQ</td>
+        <td>Operator, Shift, Setup, Quality</td>
+        <td>Abnormality log, justification, phương án xác nhận lại và thời hạn hiệu lực</td>
+      </tr>
+      <tr>
+        <td>Quality</td>
+        <td>Phê duyệt phương pháp đo, CMM program, gage status đủ dùng cho release</td>
+        <td>QA Manager</td>
+        <td>Metrology / Quality Engineer</td>
+        <td>QC Lead, Engineering</td>
+        <td>Metrology, QC Lead, QA</td>
+        <td>Calibration status, MSA, correlation, qualification evidence</td>
+      </tr>
+      <tr>
+        <td>Quality</td>
+        <td>NCR disposition, containment scope, mở SCAR hoặc customer notification</td>
+        <td>QA Manager; escalated CEO nếu ảnh hưởng khách hàng lớn</td>
+        <td>Quality Engineer</td>
+        <td>Engineering, Production, SCM, Customer Service</td>
+        <td>Quality, Production, Warehouse</td>
+        <td>NCR, affected lot list, containment, customer impact, root cause path</td>
+      </tr>
+      <tr>
+        <td>Quality</td>
+        <td>Final inspection release, CoC và shipment release</td>
+        <td>QA Manager</td>
+        <td>QC Lead / Quality Engineer</td>
+        <td>Customer Service, Logistics, Warehouse, Metrology nếu có risk hệ đo</td>
+        <td>QC Lead, QA, Logistics, Warehouse</td>
+        <td>Final inspection report, cert pack, packaging status, open NCR phải bằng 0 hoặc có phê duyệt hợp lệ</td>
+      </tr>
+      <tr>
+        <td>System</td>
+        <td>Chứng nhận nhân sự được phép làm việc độc lập ở công đoạn critical</td>
+        <td>Department Head tương ứng</td>
+        <td>Line manager / assessor</td>
+        <td>HR, QA nếu là công đoạn ảnh hưởng chất lượng hoặc compliance</td>
+        <td>Department Head, HR, QA</td>
+        <td>Training record, OJT, skill validation, recertification rule</td>
+      </tr>
+      <tr>
+        <td>System</td>
+        <td>Tạo / sửa master data, workflow hoặc manual override trên Epicor</td>
+        <td>Epicor System Administrator; escalated process owner khi đụng logic nghiệp vụ</td>
+        <td>Epicor Admin</td>
+        <td>QMS, process owner, IT theo mức thay đổi</td>
+        <td>ERP Admin, QMS</td>
+        <td>Change request, audit trail, quyền truy cập, kiểm tra ảnh hưởng downstream</td>
+      </tr>
+      <tr>
+        <td>System</td>
+        <td>Kích hoạt contingency plan cấp công ty</td>
+        <td>CEO</td>
+        <td>Process owner bị ảnh hưởng trực tiếp</td>
+        <td>Production, SCM, QA, IT, HR, Finance, EHS theo loại rủi ro</td>
+        <td>Mọi process owner</td>
+        <td>Incident, customer impact, continuity plan, resource reallocation</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="h2" id="p5">5. Hold / release / escalation</h2>
+<div class="table-card">
+  <table class="table decision-table">
+    <colgroup>
+      <col style="width:26%"/>
+      <col style="width:20%"/>
+      <col style="width:20%"/>
+      <col style="width:34%"/>
+    </colgroup>
+    <thead>
+      <tr>
+        <th>Tình huống kích hoạt hold</th>
+        <th>Ai được quyền kích hoạt hold</th>
+        <th>Ai quyết định release tiếp</th>
+        <th>Điều kiện tối thiểu trước khi release</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>RFQ / PO thiếu dữ liệu, revision mâu thuẫn, CSR chưa rõ</td>
+        <td>Customer Service, Estimator, DFM</td>
+        <td>Customer Service / CEO theo mức cam kết</td>
+        <td>Clarification chính thức, assumption log được khóa, risk được chấp nhận</td>
+      </tr>
+      <tr>
+        <td>Routing / NC / setup / gage method chưa đồng bộ revision</td>
+        <td>Engineering, Setup, Quality, Metrology</td>
+        <td>Engineering Lead/Manager + QA rule</td>
+        <td>Bộ phát hành kỹ thuật được phát hành lại và first-off plan rõ ràng</td>
+      </tr>
+      <tr>
+        <td>Incoming material / outsource service thiếu cert, sai lot, sai nhận dạng</td>
+        <td>Warehouse, Quality, Supply Chain</td>
+        <td>Supply Chain Manager + QA Manager</td>
+        <td>Cert được xác minh, lot được truy xuất, risk containment được đóng</td>
+      </tr>
+      <tr>
+        <td>First-off fail, setup fail, process drift, tool/fixture bất thường</td>
+        <td>Operator, Setup, Shift Leader, QC</td>
+        <td>Workshop Manager + Quality; Engineering nếu đổi phương pháp</td>
+        <td>Abnormality được phân tích, nguyên nhân được kiểm soát, đo xác nhận lại đạt</td>
+      </tr>
+      <tr>
+        <td>Measurement system không đáng tin, gage OOT, CMM chưa qualified</td>
+        <td>Metrology, QC Lead, QA</td>
+        <td>QA Manager</td>
+        <td>Đã đánh giá ảnh hưởng lot, đã có phương án đo thay thế hoặc đã phục hồi độ tin cậy hệ đo</td>
+      </tr>
+      <tr>
+        <td>NCR mở, deviation chưa phê duyệt, cert pack chưa hoàn chỉnh</td>
+        <td>Quality, Logistics, Warehouse, Customer Service</td>
+        <td>QA Manager; CEO nếu liên quan concession khách hàng</td>
+        <td>NCR/disposition đóng hợp lệ, deviation được chấp thuận, shipment pack đầy đủ</td>
+      </tr>
+      <tr>
+        <td>Nguy cơ safety, product safety, FOD, cleanliness, compliance hoặc IP</td>
+        <td>Bất kỳ nhân sự nào phát hiện</td>
+        <td>Owner tuyến liên quan + QA / EHS / CEO theo loại rủi ro</td>
+        <td>Containment được xác nhận, khu vực/lô ảnh hưởng được cô lập, quyết định tiếp theo có chữ ký đúng tuyến</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 class="h2" id="p6">6. Quy tắc ủy quyền và deputy</h2>
+<div class="signal-grid">
+  <div class="signal-card">
+    <b>Ủy quyền được phép</b>
+    <p>Ủy quyền chỉ hợp lệ khi được định nghĩa trước bằng chức danh hoặc deputy trong <a href="annex-qms-028-deputy-backup-matrix.html">ANNEX-QMS-028</a>, có phạm vi rõ, có thời hạn rõ và không vượt quá authority gốc.</p>
+  </div>
+  <div class="signal-card">
+    <b>Không được ủy quyền miệng</b>
+    <p>Không dùng câu “sếp nói rồi” để bypass hold point. Mọi release critical phải có record trên biểu mẫu, email chính thức, hệ thống hoặc log được kiểm soát.</p>
+  </div>
+  <div class="signal-card">
+    <b>Authority không được chuyển giao hoàn toàn</b>
+    <p>Các quyết định như stop-ship hệ thống, concession lớn với khách hàng, thay đổi cam kết thương mại cao rủi ro, hoặc kích hoạt contingency plan cấp công ty vẫn phải escalated đúng tuyến.</p>
+  </div>
+</div>
+
+<h2 class="h2" id="p7">7. Quy tắc dữ liệu và Epicor</h2>
+<div class="rule-box">
+  <p><b>Epicor là nguồn trạng thái vận hành có kiểm soát, không phải nơi tự ý đổi logic nghiệp vụ.</b> Người dùng có quyền thao tác theo vai trò được cấp, nhưng không được dùng manual override để biến thiếu kỷ luật vận hành thành “hợp lệ” trên hệ thống. Mọi thay đổi ảnh hưởng tới item master, revision, routing, lot traceability, ship status, hold status, người phê duyệt hoặc report dùng cho release đều phải đi qua change control và để lại audit trail.</p>
+</div>
+<ul class="tight">
+  <li>Hệ thống chỉ được phản ánh quyết định đã được phê duyệt, không được thay thế quyết định phê duyệt.</li>
+  <li>Nếu trạng thái vật lý, trạng thái hồ sơ và trạng thái Epicor không khớp nhau thì mặc định xem là <b>chưa release</b> cho đến khi ba lớp này được đồng bộ.</li>
+  <li>Report, dashboard hoặc BAQ dùng cho shipping, OTD, quality release hoặc complaint response phải có owner nghiệp vụ xác nhận định nghĩa dữ liệu.</li>
+</ul>
+
+<h2 class="h2" id="p8">8. Tài liệu liên quan</h2>
+<div class="grid-2">
+  <div class="card">
+    <div class="card-title">Tài liệu phải đọc cùng</div>
+    <div>
+      <span class="chip">QMS-MAN-001</span>
+      <span class="chip">REF-020</span>
+      <span class="chip">ANNEX-QMS-026</span>
+      <span class="chip">ANNEX-QMS-028</span>
+      <span class="chip">SOP-201</span>
+      <span class="chip">SOP-301</span>
+      <span class="chip">SOP-401</span>
+      <span class="chip">SOP-501</span>
+      <span class="chip">SOP-605</span>
+      <span class="chip">SOP-606</span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">Nguyên tắc áp dụng xuyên suốt</div>
+    <p class="small-note">Authority matrix này được dùng như “luật giao điểm” của hệ thống. JD xác định vai trò cá nhân; handbook xác định phạm vi phòng ban; SOP/WI xác định cách làm; còn authority matrix xác định ai có quyền chốt, ai được quyền giữ lại và khi nào phải escalated.</p>
+  </div>
+</div>
+
+<div class="footer-note">Bản viết lại này chuyển authority matrix từ dạng liệt kê rời rạc sang khung quyền quyết định thực chiến, bám đúng mô hình vận hành RFQ -> Ship, logic quality gate, cấu trúc JD mới và hệ thống Epicor của HESEM.</div>
+</div></div>
+</div></div></div>
+<script src="../../../assets/app.js"></script>
 </body>
 </html>
